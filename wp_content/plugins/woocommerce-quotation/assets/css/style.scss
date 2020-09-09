@@ -1,0 +1,47 @@
+@import '../../../woocommerce/assets/css/_mixins.scss';
+
+
+
+.single_add_to_quote_loop {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.button_add_to_quote {
+  margin-top: 12px;
+  margin-bottom: 12px;
+  clear: both;
+}
+
+p.adq-order-detail-button {
+  display: inline;
+}
+
+div.adq-order-detail-buttons {
+  margin-bottom: 24px;
+}
+
+.field-hidden, .checkout.adq-billing div.wpcf7-mail-sent-ok {
+  display: none;
+}
+
+.adq-added-items:before {
+    display: inline-block;
+    font-family: 'WooCommerce';
+    content: '\e01d';
+    speak: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin-right: 0.618em;
+    text-decoration: none;
+}
+
+.woocommerce-shipping-fields {
+  display: table;
+  width: 100%;
+}
+
+a#remove_all_items {
+  text-align: center;
+  margin-bottom: 2px;
+}

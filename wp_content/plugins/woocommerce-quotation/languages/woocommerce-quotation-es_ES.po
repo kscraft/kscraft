@@ -1,0 +1,2414 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Adquote 1.0.0\n"
+"POT-Creation-Date: 2019-02-05 01:27+0100\n"
+"PO-Revision-Date: 2019-02-05 01:33+0100\n"
+"Last-Translator: Aroha Digital <arohadigital@gmail.com>\n"
+"Language-Team: \n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.10\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
+"_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;_ex:1,2c;"
+"esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
+"X-Poedit-Basepath: /var/www/html/wordpress/wp-content/plugins/woocommerce-"
+"quotation\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SearchPath-0: /var/www/html/wordpress/wp-content/plugins/"
+"woocommerce-quotation\n"
+
+#: classes/class-adq-email-manager.php:73
+msgid "Added note"
+msgstr "Nota añadida"
+
+#: classes/class-adq-email-manager.php:121
+#: classes/class-adq-email-manager.php:128
+msgid "Resend proposal email"
+msgstr "Volver a enviar el email de la propuesta"
+
+#: classes/class-adq-email-manager.php:122
+msgid "Resend proposal reminder"
+msgstr "Volver a enviar el recordatorio de la propuesta"
+
+#: classes/class-adq-email-manager.php:148
+msgid "New email"
+msgstr "Nuevo email"
+
+#: classes/class-adq-email-manager.php:222
+msgid "Quotation email options"
+msgstr "Opciones de correo electrónico de WooCommerce Quotation"
+
+#: classes/class-adq-email-manager.php:229
+msgid "Reset Quotation emails"
+msgstr "Restablecer los correos electrónicos de WooCommerce Quotation"
+
+#: classes/class-adq-email-manager.php:230
+msgid ""
+"Reset all emails related to the plugin WooCommerce Quotation and remove the "
+"customized ones."
+msgstr ""
+"Restablezca todos los correos electrónicos relacionados con el plugin "
+"WooCommerce Quotation y elimine los personalizados."
+
+#: classes/class-adq-email-manager.php:234
+msgid "Reset emails"
+msgstr "Restablecer"
+
+#: classes/class-adq-email-manager.php:237
+msgid "Are you sure to reset the emails?"
+msgstr "¿Estás seguro de restablecer los correos electrónicos?"
+
+#: classes/class-adq-email-manager.php:277
+msgid "New requests (admin)"
+msgstr "Nuevas peticiones (administrador)"
+
+#: classes/class-adq-email-manager.php:278
+msgid ""
+"This type of email is sent to the admin when a new quote request is received."
+msgstr ""
+"Este tipo de correo electrónico es enviado al administrador cuando una nueva "
+"petición de presupuesto es recibida."
+
+#: classes/class-adq-email-manager.php:279
+msgid "You have a new quote request"
+msgstr "Tiene una nueva solicitud de presupuesto."
+
+#: classes/class-adq-email-manager.php:280
+msgid "{site_title} received a quote request on {order_date}"
+msgstr ""
+"{site_title} recibió una nueva solicitud de presupuesto el {order_date}"
+
+#: classes/class-adq-email-manager.php:281
+#, php-format
+msgid ""
+"<p>You have received a quote request from %s. The request is as follows:</"
+"p><p></p><p>Request: %s (%s)</p><p> %s </p><p> %s </p><p></p> <p>%s</"
+"p><p>Customer comments:</p><p> %s </p>"
+msgstr ""
+"<p>>Has recibido una solicitud de presupuesto desd %s. La solicitud es la "
+"siguiente:</p><p></p><p>Solicitud: %s (%s)</p><p> %s </p><p> %s </p><p></p> "
+"<p>%s</p><p>Comentarios del cliente:</p><p> %s </p>"
+
+#: classes/class-adq-email-manager.php:291
+msgid "Customer note (admin)"
+msgstr "Nota del cliente (administrador)"
+
+#: classes/class-adq-email-manager.php:292
+msgid "This type of email is sent when a customer add a note to an order."
+msgstr ""
+"Este tipo de email es enviado cuando un cliente añade una nota a un pedido."
+
+#: classes/class-adq-email-manager.php:293
+#: classes/class-adq-email-manager.php:335
+msgid "A customer has added a note"
+msgstr "Un cliente ha añadido una nota"
+
+#: classes/class-adq-email-manager.php:294
+msgid ""
+"A customer has added a note to the order from {site_title} on {order_date}"
+msgstr ""
+"Un cliente ha añadido una nota al pedido de {site_title} el {order_date}"
+
+#: classes/class-adq-email-manager.php:295
+#, php-format
+msgid ""
+"<p>Hello, a customer has added a new note:</p><p>%s</p><p></p><p>Request: %s "
+"(%s)</p><p> %s</p><p> %s</p>"
+msgstr ""
+"<p>Hola, un cliente ha añadido una nueva nota:</p><p>%s</p><p></"
+"p><p>Petición: %s (%s)</p><p> %s</p><p> %s</p>"
+
+#: classes/class-adq-email-manager.php:305
+msgid "Admin proposal declined"
+msgstr "Admin propuesta rechazada"
+
+#: classes/class-adq-email-manager.php:306
+#: classes/class-adq-email-manager.php:348
+msgid "Send email confirming the declination of the proposal."
+msgstr "Enviar email confirmando el rechazo del presupuesto."
+
+#: classes/class-adq-email-manager.php:307
+#: classes/class-adq-email-manager.php:349
+msgid "Proposal Declined"
+msgstr "Propuesta Rechazada"
+
+#: classes/class-adq-email-manager.php:308
+msgid "A customer has rejected our proposal"
+msgstr "Un cliente ha rechazado nuestro presupuesto"
+
+#: classes/class-adq-email-manager.php:309
+#, php-format
+msgid ""
+"<p>The proposal from %s has been rejected. The request was as follows:</"
+"p><p></p><p>Request: %s (%s)</p><p> %s</p><p></p><p> %s</p>"
+msgstr ""
+"<p>La propuesta de %s ha sido rechazada. La petición fue la siguiente:</"
+"p><p></p><p>Petición: %s (%s)</p><p> %s</p><p></p><p> %s</p>"
+
+#: classes/class-adq-email-manager.php:319
+msgid "Admin proposal accepted"
+msgstr "Admin presupuesto aceptado"
+
+#: classes/class-adq-email-manager.php:320
+#: classes/class-adq-email-manager.php:362
+msgid "Send an email confirming that the proposal has been accepted."
+msgstr "Enviar email confirmando que el presupuesto ha sido aceptado"
+
+#: classes/class-adq-email-manager.php:321
+#: classes/class-adq-email-manager.php:363 functions/adq-order-quote.php:122
+#: modules/pdf-invoices.php:46
+msgid "Proposal accepted"
+msgstr "Presupuesto aceptado"
+
+#: classes/class-adq-email-manager.php:322
+msgid "A customer has accepted your proposal"
+msgstr "Un cliente ha aceptado el presupuesto"
+
+#: classes/class-adq-email-manager.php:323
+#, php-format
+msgid ""
+"<p>The proposal from %s has been accepted. The request was as follows:</"
+"p><p></p><p>Request: %s (%s)</p><p> %s </p><p></p><p> %s</p>"
+msgstr ""
+"<p>La propuesta de %s ha sido aceptada. La petición fue la siguiente:</"
+"p><p></p><p>Petición: %s (%s)</p><p> %s </p><p></p><p> %s</p>"
+
+#: classes/class-adq-email-manager.php:333
+msgid "Customer note"
+msgstr "Nota de cliente"
+
+#: classes/class-adq-email-manager.php:334
+msgid "Customer note emails are sent when you add a note to an order."
+msgstr ""
+"Las notas a clientes se envían al cliente al añadir una nota a un pedido "
+"presupuesto."
+
+#: classes/class-adq-email-manager.php:336
+msgid "Note added to your {site_title} order on {order_date}"
+msgstr "Nota añadido al pedido de {site_title} del {order_date}"
+
+#: classes/class-adq-email-manager.php:337
+#, php-format
+msgid ""
+"<p>Hello %s, a note has just been added to your order:</p><p> %s </p><p></"
+"p><p> You can access your account area to view your orders here: %s. </"
+"p><p></p><p> For your reference, your order details are shown below. </"
+"p><p></p><p> Order #%s </p><p> %s </p><p></p><p> %s </p><p></p><p> Thanks,</"
+"p><p>Best regards!</p>"
+msgstr ""
+"<p>Hola %s, una nota acaba de ser agregada a su pedido:</p><p> %s </p><p></"
+"p><p> Puede acceder al área de su cuenta para ver sus pedidos aquí: %s. </"
+"p><p></p><p> Para su referencia, los detalles de su pedido se muestran a "
+"continuación. </p><p></p><p> Pedido #%s </p><p> %s </p><p></p><p> %s </"
+"p><p></p><p> ¡Gracias y saludos cordiales!</p>"
+
+#: classes/class-adq-email-manager.php:347
+msgid "Customer proposal rejected"
+msgstr "Propuesta del cliente rechazada"
+
+#: classes/class-adq-email-manager.php:350
+msgid "You have declined our {site_title} proposal on {order_date}"
+msgstr "Has rechazado el presupuesto de {site_title}, {order_date}"
+
+#: classes/class-adq-email-manager.php:351
+#, php-format
+msgid ""
+"<p>Hello %s!</p><p> Our proposal has been rejected. The proposal is shown "
+"below for your reference:</p><p></p><p> You can access your account area to "
+"view your orders here: %s.</p><p></p><p> The proposal: %s </p><p> %s </"
+"p><p></p><p> %s </p><p></p><p> Thanks,</p><p> Best regards!</p>"
+msgstr ""
+"<p>¡Hola %s!</p><p> Nuestra propuesta ha sido rechazada. La propuesta es "
+"mostrada a continuación para su referencia:</p><p></p><p> Usted puede "
+"acceder al área de su cuenta para ver sus pedidos aquí: %s.</p><p></p><p> "
+"Propuesta: %s </p><p> %s </p><p></p><p> %s </p><p></p><p> ¡Gracias y saludos "
+"cordiales!</p>"
+
+#: classes/class-adq-email-manager.php:361
+msgid "Customer proposal accepted"
+msgstr "Presupuesto del cliente aceptado"
+
+#: classes/class-adq-email-manager.php:364
+msgid "You have accepted our {site_title} proposal from {order_date}"
+msgstr "{site_title} Usted ha aceptado nuestro presupuesto, {order_date}"
+
+#: classes/class-adq-email-manager.php:365
+#, php-format
+msgid ""
+"<p>Hello %s!</p><p> Our proposal has been accepted. The proposal is shown "
+"below for your reference:</p><p></p><p.> You can proceed with the payment: "
+"%s.</p><p></p><p.> You can access your account area to view and pay your "
+"orders here: %s.</p><p></p><p.> The proposal: %s</p><p> %s</p><p></p><p.> "
+"%s</p><p></p><p.> Thanks,</p><p> Best regards!</p>"
+msgstr ""
+"<p>¡Hola %s!</p><p> Nuestra propuesta ha sido aceptado. La propuesta es "
+"mostrada a continuación para su referencia:</p><p></p><p.> Usted puede "
+"proceder con el pago: %s.</p><p></p><p.> Usted puede acceder al área de su "
+"cuenta para ver sus pedidos aquí: %s.</p><p></p><p.> Propuesta: %s</p><p> "
+"%s</p><p></p><p.> %s</p><p></p><p.> ¡Gracias y saludos cordiales!</p>"
+
+#: classes/class-adq-email-manager.php:375
+msgid "Send proposal"
+msgstr "Enviar pesupuesto"
+
+#: classes/class-adq-email-manager.php:376
+msgid ""
+"Send proposal emails are sent to the customer when a proposal is ready for "
+"the customer to accept or reject it."
+msgstr ""
+"Emails enviados al cliente cuando un presupuesto está preparado para que el "
+"cliente lo acepte o rechace."
+
+#: classes/class-adq-email-manager.php:377
+msgid "Our proposal"
+msgstr "Nuestro presupuesto"
+
+#: classes/class-adq-email-manager.php:378
+msgid "{site_title} sent a proposal on {order_date}"
+msgstr "{site_title} ha enviado un presupuesto, {order_date}"
+
+#: classes/class-adq-email-manager.php:379
+#, php-format
+msgid ""
+"<p>Hello %s!</p><p> Your Quote Request has been processed. Find below our "
+"proposal for your reference.</p><p></p><p> You can access your account area "
+"to view your proposal here: %s. </p><p></p><p> You can %s or %s our proposal."
+"</p><p></p><p> %s </p><p></p><p> Your request details are shown below for "
+"your reference: </p><p></p><p> %s</p><p></p><p> %s </p><p></p><p> Thanks,</"
+"p><p> Best regards!</p>"
+msgstr ""
+"<p>¡Hola %s!</p><p> Su petición ha sido procesada. Encuentre a continuación "
+"nuestra propuesta para su referencia.</p><p></p><p> Usted puede acceder al "
+"área de su cuenta para ver sus pedidos aquí: %s. </p><p></p><p> You can %s o "
+"%s nuestra propuesta.</p><p></p><p> %s </p><p></p><p> Los detalles de su "
+"petición son mostrados a continuación para su referencia: </p><p></p><p> %s</"
+"p><p></p><p> %s </p><p></p><p> ¡Gracias y saludos cordiales!</p>"
+
+#: classes/class-adq-email-manager.php:389
+msgid "Customer request"
+msgstr "Solicitud del cliente"
+
+#: classes/class-adq-email-manager.php:390
+msgid ""
+"Customer request emails are sent to the customer after a request has been "
+"submitted."
+msgstr ""
+"Emails de solicitud de presupuesto del cliente se envían al cliente después "
+"de que un presupuesto ha sido solicitado."
+
+#: classes/class-adq-email-manager.php:391
+msgid "Your request has been received"
+msgstr "Tu solicitud ha sido recibida"
+
+#: classes/class-adq-email-manager.php:392
+msgid "Your {site_title} Quote Request from {order_date} is received"
+msgstr "Tu solicitud de presupuesto {site_title} ha sido recibida {order_date}"
+
+#: classes/class-adq-email-manager.php:393
+#, php-format
+msgid ""
+"<p>Hello %s!</p><p> Your Quote Request has been received and is now being "
+"processed.</p><p></p><p> You can access your account area to view your "
+"orders here: %s. </p><p></p><p> %s</p><p></p><p> Your request details are "
+"shown below for your reference:</p><p></p><p> %s </p><p></p><p> %s </p><p></"
+"p><p> Your comments:</p><p> %s </p><p></p><p> Thanks,</p><p> Best regards!</"
+"p>"
+msgstr ""
+"<p>!Hola %s!</p><p> Su petición ha sido recibida y está siendo procesada "
+"ahora.</p><p></p><p> Usted puede acceder al área de su cuenta para ver sus "
+"pedidos aquí: %s. </p><p></p><p> %s</p><p></p><p> Los detalles de su "
+"petición son mostrados a continuación para su referencia:</p><p></p><p> %s </"
+"p><p></p><p> %s </p><p></p><p> Sus comentarios:</p><p> %s </p><p></p><p> "
+"¡Gracias y saludos cordiales!</p>"
+
+#: classes/class-adq-email-manager.php:403
+msgid "Remind proposal"
+msgstr "Recordar presupuesto"
+
+#: classes/class-adq-email-manager.php:404
+msgid ""
+"Remind proposal emails are sent to the customer when the proposal goes to "
+"expire and it has not been accepted or rejected."
+msgstr ""
+"Los emails de recordatorio se envían al cliente cuando la propuesta va a "
+"caducar y no ha sido aceptada o rechazada."
+
+#: classes/class-adq-email-manager.php:405
+msgid "Our proposal has not been answered"
+msgstr "Nuestra propuesta no ha sido respondida"
+
+#: classes/class-adq-email-manager.php:406
+msgid "Our {site_title} quotation from {order_date} is proposed"
+msgstr "Nuestro {site_title} presupuesto, ha sido propuesto  {order_date}"
+
+#: classes/class-adq-email-manager.php:407
+#, php-format
+msgid ""
+"<p>Hello %s! </p><p> This is a reminder of our proposal which is shown below "
+"for your reference:</p><p></p><p> You can access your account area to view "
+"your orders here: %s.</p><p></p><p> Our proposal: %s</p><p></p><p> %s </"
+"p><p></p><p> %s </p><p></p><p> Thanks,</p><p> Best regards!</p>"
+msgstr ""
+"<p>!Hola %s! </p><p> Este es un recordatorio de nuestra propuesta que se "
+"muestra a continuación para su referencia:</p><p></p><p> Usted puede acceder "
+"al área de su cuenta para ver sus pedidos aquí: %s.</p><p></p><p> Nuestra "
+"propuesta: %s</p><p></p><p> %s </p><p></p><p> %s </p><p></p><p> ¡Gracias y "
+"saludos cordiales!</p>"
+
+#: classes/class-adq-email.php:86
+msgid "This id is in use"
+msgstr "Este id está en uso"
+
+#: classes/class-adq-email.php:100
+msgid "This proposal is valid until"
+msgstr "Presupuesto válido hasta"
+
+#: classes/class-adq-email.php:108
+msgid "Attached file"
+msgstr "Archivo adjunto"
+
+#: classes/class-adq-email.php:116 templates/adq-order-detail-quote.php:87
+msgid "Additional information"
+msgstr "Información adicional"
+
+#: classes/class-adq-email.php:147
+msgid "Enable/Disable"
+msgstr "Habilitar/Deshabilitar"
+
+#: classes/class-adq-email.php:149
+msgid "Enable this email notification"
+msgstr "Habilitar esta notificación por email"
+
+#: classes/class-adq-email.php:155
+msgid "Email ID"
+msgstr "ID del email"
+
+#: classes/class-adq-email.php:161
+#: classes/widget/class-wc-widget-added-items.php:28
+#: classes/widget/class-wc-widget-quote.php:32
+msgid "Title"
+msgstr "Título"
+
+#: classes/class-adq-email.php:163
+msgid "Email title to display at Woocommerce Email Setting"
+msgstr ""
+"Título del correo electrónico para mostrar en la configuración de correo "
+"electrónico de WooCommerce"
+
+#: classes/class-adq-email.php:169
+msgid "Description"
+msgstr "Descripción"
+
+#: classes/class-adq-email.php:171
+msgid "Email description to display at Woocommerce Email Setting"
+msgstr ""
+"Descripción del correo electrónico para mostrar en la configuración de "
+"correo electrónico de WooCommerce"
+
+#: classes/class-adq-email.php:177
+msgid "Subject"
+msgstr "Asunto"
+
+#: classes/class-adq-email.php:179
+#, php-format
+msgid ""
+"You can use the following tags: %s, %s and %s <br> (e.g. You have accepted "
+"our proposal #{order_number})"
+msgstr ""
+"Puede usar las siguientes etiquetas: %s, %s y %s <br> (e.g. Has aceptado "
+"nuestra propuesta #{order_number})"
+
+#: classes/class-adq-email.php:182
+msgid "Email heading"
+msgstr "Cabecera del email"
+
+#: classes/class-adq-email.php:184
+#, php-format
+msgid "You can use the following tags: %s, %s and %s"
+msgstr "Puede usar las siguientes etiquetas: %s, %s y %s"
+
+#: classes/class-adq-email.php:187
+msgid "Content"
+msgstr "Contenido"
+
+#: classes/class-adq-email.php:189
+#, php-format
+msgid ""
+"You can use the following tags to use them into email content: %s, %s, %s, "
+"%s, %s, %s, %s, %s, %s, %s, %s, %s and %s"
+msgstr ""
+"Puede usar las siguientes etiquetas para usarlas en el contenido del correo "
+"electrónico: %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s y %s"
+
+#: classes/class-adq-email.php:192
+msgid "Email type"
+msgstr "Tipo de email"
+
+#: classes/class-adq-email.php:194
+msgid "Choose which format of email to send."
+msgstr "Elija qué formato de email enviar."
+
+#: classes/class-adq-email.php:200
+msgid "Send this email to"
+msgstr "Enviar este email a"
+
+#: classes/class-adq-email.php:202
+msgid "Choose whom to send this email to."
+msgstr "Elige a quién enviar este email."
+
+#: classes/class-adq-email.php:205
+msgid "Admin"
+msgstr "Admin"
+
+#: classes/class-adq-email.php:206
+msgid "Customer"
+msgstr "Cliente"
+
+#: classes/class-adq-email.php:210
+msgid "Others recipients"
+msgstr "Otros destinatarios"
+
+#: classes/class-adq-email.php:212
+msgid "Enter recipients (comma separated) for this email"
+msgstr ""
+"Introduce destinatarios adicionales (separados por coma) para de este email"
+
+#: classes/class-adq-email.php:217
+msgid "Choose order status"
+msgstr "Elija un estado del pedido"
+
+#: classes/class-adq-email.php:219
+msgid "Choose what order status should fire this email"
+msgstr "Elija qué estado del pedido debe disparar este correo electrónico"
+
+#: classes/class-adq-email.php:223
+msgid "Reminder"
+msgstr "Recordatorio"
+
+#: classes/class-adq-email.php:224
+msgid "Is it a reminder email?"
+msgstr "¿Es un recordatorio por correo electrónico?"
+
+#: classes/class-adq-email.php:226
+msgid "This email will only send from Order Edit screen at backend."
+msgstr ""
+"Este correo electrónico solo se enviará desde la pantalla de edición de "
+"pedidos en el back-end."
+
+#: classes/class-adq-email.php:229
+msgid "Request email"
+msgstr "Email de solicitud"
+
+#: classes/class-adq-email.php:230
+msgid "Is it a request email?"
+msgstr "¿Es un email de solicitud?"
+
+#: classes/class-adq-email.php:232
+msgid "If it is a request email, the totals will not be displayed"
+msgstr "Si es un email de solicitud de presupuesto, los totales no se muestran"
+
+#: classes/class-adq-email.php:360 classes/class-adq-email.php:396
+msgid "My Account"
+msgstr "Mi Cuenta"
+
+#: classes/class-adq-email.php:363 classes/class-adq-email.php:399
+#: templates/my-quotation.php:72 templates/my-quotation.php:165
+#: templates/myaccount/quotes.php:65
+msgid "Pay"
+msgstr "Pagar"
+
+#: classes/class-adq-email.php:366 classes/class-adq-email.php:402
+msgid "Accept"
+msgstr "Aceptar"
+
+#: classes/class-adq-email.php:367 classes/class-adq-email.php:403
+msgid "Reject"
+msgstr "Rechazar"
+
+#: classes/class-adq-email.php:469 templates/order-details.php:73
+#, php-format
+msgid "via %s"
+msgstr "vía  %s"
+
+#: classes/class-adq-email.php:477 templates/order-details.php:81
+msgid "Free!"
+msgstr "Gratis!"
+
+#: classes/class-adq-sections-options.php:28
+#: classes/class-adq-sections-options.php:55
+#: classes/sections/class-adq-sections-options.php:28
+#: classes/sections/class-adq-sections-options.php:55
+msgid "Options"
+msgstr "Opciones"
+
+#: classes/class-adq-sections-options.php:58
+#: classes/sections/class-adq-sections-options.php:58
+msgid "Enable guest request"
+msgstr "Habilitar solicitud de presupuesto para invitados"
+
+#: classes/class-adq-sections-options.php:59
+#: classes/sections/class-adq-sections-options.php:59
+msgid "Allow customers to request for a quote without creating an account"
+msgstr "Posibilita solicitudes de presupuesto sin crear una cuenta"
+
+#: classes/class-adq-sections-options.php:65
+#: classes/sections/class-adq-sections-options.php:65
+msgid "Display returning customer login reminder"
+msgstr "Mostrar recordatorio de acceso  a los usuarios recurrentes"
+
+#: classes/class-adq-sections-options.php:66
+#: classes/class-adq-sections-options.php:73
+#: classes/class-adq-sections-options.php:104
+#: classes/class-adq-sections-options.php:189
+#: classes/class-adq-sections-options.php:217
+#: classes/sections/__class-adq-sections-quotelist.php:59
+#: classes/sections/__class-adq-sections-quotelist.php:194
+#: classes/sections/class-adq-sections-options.php:66
+#: classes/sections/class-adq-sections-options.php:73
+#: classes/sections/class-adq-sections-options.php:104
+#: classes/sections/class-adq-sections-options.php:189
+#: classes/sections/class-adq-sections-options.php:217
+#: classes/sections/class-adq-sections-quotelist.php:235
+msgid "Enabled"
+msgstr "Habilitado"
+
+#: classes/class-adq-sections-options.php:72
+#: classes/sections/class-adq-sections-options.php:72
+msgid "Enable registration on QuoteList page"
+msgstr "Habilitar creación de cuenta en la página de solicitud de presupuesto"
+
+#: classes/class-adq-sections-options.php:79
+#: classes/sections/class-adq-sections-options.php:79
+msgid "Default validity date:"
+msgstr "Fecha de validez:"
+
+#: classes/class-adq-sections-options.php:80
+#: classes/sections/class-adq-sections-options.php:80
+msgid "Days before proposal expires"
+msgstr "Diás antes de que la propuesta expire"
+
+#: classes/class-adq-sections-options.php:87
+#: classes/sections/class-adq-sections-options.php:87
+msgid "Default reminder date:"
+msgstr "Fecha de recordatorio:"
+
+#: classes/class-adq-sections-options.php:88
+#: classes/sections/class-adq-sections-options.php:88
+msgid "Days before reminder mail is send"
+msgstr ""
+"Enviar email de recordatorio x días antes de la fecha de validez de la "
+"propuesta"
+
+#: classes/class-adq-sections-options.php:95
+#: classes/sections/class-adq-sections-options.php:95
+msgid "Enable pay option"
+msgstr "Habilitar opción de pago"
+
+#: classes/class-adq-sections-options.php:96
+#: classes/sections/class-adq-sections-options.php:96
+msgid "Enable pay link in my account page and email"
+msgstr "Habilitar el pago desde el email y desde el área de cliente"
+
+#: classes/class-adq-sections-options.php:103
+#: classes/sections/class-adq-sections-options.php:103
+msgid "Enable payment for out-of-stock products"
+msgstr "Habilitar pago para productos agotados"
+
+#: classes/class-adq-sections-options.php:107
+#: classes/sections/class-adq-sections-options.php:107
+msgid ""
+"Applicable for products that do not manage the stock and are out of stock. "
+"For all other cases, configure the 'backorders' option in the product "
+"inventory configuration"
+msgstr ""
+"Aplicable a productos que por configuración no gestionan automáticamente el "
+"stock y están configurados manualmente fuera de stock. Para los demás casos "
+"configura la opción 'backorders' en la pestaña de 'Inventario' en la edición "
+"del producto"
+
+#: classes/class-adq-sections-options.php:110
+#: classes/sections/class-adq-sections-options.php:110
+msgid "Enable discounts"
+msgstr "Habilitar descuentos"
+
+#: classes/class-adq-sections-options.php:111
+#: classes/sections/class-adq-sections-options.php:111
+msgid "Show original product prices with applied discounts in proposals"
+msgstr ""
+"Mostrar los precios originales de los productos con el descuento aplicado"
+
+#: classes/class-adq-sections-options.php:117
+#: classes/sections/class-adq-sections-options.php:117
+msgid "After add to quote"
+msgstr "Después de añadir al presupuesto"
+
+#: classes/class-adq-sections-options.php:118
+#: classes/sections/class-adq-sections-options.php:118
+msgid "After Add to Quote"
+msgstr "Después de Añadir al Presupuesto"
+
+#: classes/class-adq-sections-options.php:123
+#: classes/sections/class-adq-sections-options.php:123
+msgid "Redirect to quote list page"
+msgstr "Redirigir a la página de envío de presupuestos"
+
+#: classes/class-adq-sections-options.php:124
+#: classes/sections/class-adq-sections-options.php:124
+msgid "Show notice"
+msgstr "Mostrar aviso"
+
+#: classes/class-adq-sections-options.php:125
+#: classes/sections/class-adq-sections-options.php:125
+msgid "Show notice under quote button"
+msgstr "Mostrar aviso bajo el botón de 'añadir al presupuesto'"
+
+#: classes/class-adq-sections-options.php:142
+#: classes/sections/class-adq-sections-options.php:142
+msgid "After accepting a proposal"
+msgstr "después de aceptar una propuesta"
+
+#: classes/class-adq-sections-options.php:143
+#: classes/sections/class-adq-sections-options.php:143
+msgid "Action to take when a customer accepts the proposal"
+msgstr "Acción a realizar después de que un cliente acepte la propuesta"
+
+#: classes/class-adq-sections-options.php:148
+#: classes/sections/class-adq-sections-options.php:148
+msgid "Redirect to payment"
+msgstr "Redirigir al pago"
+
+#: classes/class-adq-sections-options.php:149
+#: classes/sections/class-adq-sections-options.php:149
+msgid "Redirect to my account"
+msgstr "Redirigir al área de cliente"
+
+#: classes/class-adq-sections-options.php:150
+#: classes/class-adq-sections-options.php:157
+#: classes/sections/class-adq-sections-options.php:150
+#: classes/sections/class-adq-sections-options.php:157
+msgid "Custom redirect"
+msgstr "Redirección personalizada"
+
+#: classes/class-adq-sections-options.php:158
+#: classes/sections/class-adq-sections-options.php:158
+msgid "Custom URL to redirect after accepting a proposal"
+msgstr "URL personalizada a la cual redirigir tras aceptar la propuesta"
+
+#: classes/class-adq-sections-options.php:166
+#: classes/sections/class-adq-sections-options.php:166
+msgid "Custom URL to redirect after submitting a quote"
+msgstr ""
+"URL personalizada  a la cual redirigir tras enviar una solicitud de "
+"presupuesto"
+
+#: classes/class-adq-sections-options.php:167
+#: classes/sections/class-adq-sections-options.php:167
+msgid "Leave blank to keep the default redirection"
+msgstr "Déjelo en blanco para mantener el comportamiento por defecto"
+
+#: classes/class-adq-sections-options.php:174
+#: classes/sections/class-adq-sections-options.php:174
+msgid "Automatic proposal"
+msgstr "Propuesta automática"
+
+#: classes/class-adq-sections-options.php:175
+#: classes/sections/class-adq-sections-options.php:175
+msgid "Create automatic proposal using Woocommerce product prices"
+msgstr ""
+"Crear automáticamente la propuesta tras recibir la solicitud usando los "
+"precios de la tienda"
+
+#: classes/class-adq-sections-options.php:181
+#: classes/sections/class-adq-sections-options.php:181
+msgid "Enable coupons"
+msgstr "Habilitar cupones"
+
+#: classes/class-adq-sections-options.php:182
+#: classes/sections/class-adq-sections-options.php:182
+msgid "Show coupons on quote list page"
+msgstr "Habilitar cupones en la página de solicitud de presupuesto"
+
+#: classes/class-adq-sections-options.php:188
+#: classes/sections/class-adq-sections-options.php:188
+msgid "Ajax error tolerance"
+msgstr "Tolerancia a errores Ajax"
+
+#: classes/class-adq-sections-options.php:199
+#: classes/sections/class-adq-sections-options.php:199
+msgid "Show Terms"
+msgstr "Mostrar términos"
+
+#: classes/class-adq-sections-options.php:200
+#: classes/sections/class-adq-sections-options.php:200
+msgid "Show Terms & Conditions on Quote List Page"
+msgstr ""
+"Mostrar términos y condiciones en la página de solicitud de presupuesto"
+
+#: classes/class-adq-sections-options.php:209
+#: classes/sections/class-adq-sections-options.php:209
+msgid "Disable Checkout Hooks:"
+msgstr "Deshabilitar hooks del checkout:"
+
+#: classes/class-adq-sections-options.php:210
+#: classes/sections/class-adq-sections-options.php:210
+msgid ""
+"Disable some checkout hooks to avoid some plugins actions on Quote List "
+"page. <span class=\"description\"> Uncheck it if you are using required "
+"fields in your Contact Form 7</span>"
+msgstr ""
+"Deshabilitar algunos hooks del checkout para evitar algunos conflictos en la "
+"página de solicitud del presupuesto. <span class=\"description\">Desmárquelo "
+"si está usando campos requeridos en su  formulario Contact Form 7</span>"
+
+#: classes/class-adq-sections-options.php:216
+#: classes/sections/class-adq-sections-options.php:216
+msgid "Force loading of WooCommerce styles"
+msgstr "Forzar la carga de estilos de WooCommerce"
+
+#: classes/class-adq-sections-options.php:223
+#: classes/sections/class-adq-sections-options.php:223
+msgid ""
+"Enable this option to force the loading of WooCommerce styles in all pages"
+msgstr ""
+"Active esta opción para forzar la carga de estilos de WooCommerce en todas "
+"las páginas"
+
+#: classes/class-adq-sections-options.php:226
+#: classes/sections/class-adq-sections-options.php:226
+msgid "Location of custom fields into PDF invoice"
+msgstr "Localización de los campos adicionales en los PDFs"
+
+#: classes/class-adq-sections-options.php:227
+#: classes/sections/class-adq-sections-options.php:227
+msgid "WooCommerce PDF Invoices & Packing Slips plugin is required"
+msgstr "Plugin requerido 'WooCommerce PDF Invoices & Packing Slips'"
+
+#: classes/class-adq-sections-options.php:233
+#: classes/sections/class-adq-sections-options.php:233
+msgid "Display Quotation info after the order details table"
+msgstr "Mostrar información adicional debajo de la tabla de productos"
+
+#: classes/class-adq-sections-options.php:234
+#: classes/sections/class-adq-sections-options.php:234
+msgid "Display Quotation info before the order details table"
+msgstr "Mostrar información adicional encima de la tabla de productos"
+
+#: classes/class-adq-sections-options.php:235
+#: classes/sections/class-adq-sections-options.php:235
+msgid "Display Quotation info after the order data"
+msgstr "Mostrar información adicional debajo de los datos del pedido"
+
+#: classes/class-adq-sections-options.php:240
+#: classes/sections/class-adq-sections-options.php:240
+msgid "Reset general settings"
+msgstr "Restablecer las opciones de configuración generales"
+
+#: classes/class-adq-sections-options.php:244
+#: classes/sections/class-adq-sections-catalog.php:232
+#: classes/sections/class-adq-sections-crm.php:71
+#: classes/sections/class-adq-sections-form.php:93
+#: classes/sections/class-adq-sections-options.php:244
+#: classes/sections/class-adq-sections-quotelist.php:172
+msgid "Reset"
+msgstr "Restablecer"
+
+#: classes/class-adq-sections-options.php:247
+#: classes/sections/class-adq-sections-options.php:247
+msgid "Are you sure to reset the settings of general options?"
+msgstr "¿Estás seguro de restablecer las opciones de configuración?"
+
+#: classes/class-adq-sections-options.php:319
+#: classes/sections/class-adq-sections-options.php:319
+msgid "Choose in what pages that you want to load WC styles"
+msgstr "Elija en qué páginas quiere cargar los estilos de WooCommerce"
+
+#: classes/class-adq-settings-page.php:60
+#: functions/adq-admin-quote-request.php:517
+#: functions/adq-admin-quote-request.php:746
+msgid "Quotation"
+msgstr "Presupuestos"
+
+#: classes/class.adq.order.php:37 classes/class.adq.order.php:38
+msgid "WooCommerce"
+msgstr "Woocommerce"
+
+#: classes/class.order.quote.php:57
+#, php-format
+msgid ""
+"Sorry, you haven't any product. <a href=\"%s\" class=\"wc-backward\">Return "
+"to homepage</a>"
+msgstr ""
+"No tienes ningún producto. <a href=\"%s\" class=\"wc-backward\">Volver a la "
+"página de inicio</a>"
+
+#: classes/class.order.quote.php:189
+msgid "Your quote request has been received"
+msgstr "La solicitud de presupuesto ha sido recibida"
+
+#: classes/class.order.quote.php:190
+msgid "Thank you for your interest!"
+msgstr "Gracias por tu interés!"
+
+#: classes/class.order.quote.php:191
+#, php-format
+msgid "Your quote request # is: Q.%06d."
+msgstr "Su solicitud de presupuesto # es: Q.%06d."
+
+#: classes/class.order.quote.php:196
+msgid "There is an error creating your quote request"
+msgstr "Hay un error al crear la  solicitud de presupuesto"
+
+#. translators: %s: product name
+#: classes/class.order.quote.php:296
+msgid "View cart"
+msgstr "Ver presupuesto"
+
+#: classes/class.order.quote.php:296
+#, php-format
+msgid "You cannot add another \"%s\" to your cart."
+msgstr "No se puede añadir otro \"%s\" al presupuesto."
+
+#: classes/class.order.quote.php:301 classes/class.quote.php:175
+msgid "Sorry, this product cannot be purchased."
+msgstr "Lo sentimos, este producto no se puede comprar."
+
+#: classes/class.quote.php:425
+#, php-format
+msgid ""
+"%s has been removed from your quote list because it can no longer be "
+"purchased. Please contact us if you need assistance."
+msgstr ""
+"%s se ha quitado de su presupuesto debido a que ya no puede ser comprado. "
+"Por favor contacte con nosotros si necesita ayuda."
+
+#: classes/class.static.quote.php:328 classes/class.static.quote.php:334
+#: classes/class.static.quote.php:337
+#, php-format
+msgid "&quot;%s&quot; was successfully added to quote."
+msgstr "&quot;%s&quot; ha sido añadido al presupuesto."
+
+#: classes/class.static.quote.php:333 classes/class.static.quote.php:351
+#: classes/class.static.quote.php:369 functions/adq-quote-ajax.php:154
+#: templates/widget/mini-quote.php:67
+msgid "View Quote"
+msgstr "Ver presupuesto"
+
+#: classes/class.static.quote.php:346 classes/class.static.quote.php:352
+#: classes/class.static.quote.php:355
+#, php-format
+msgid "&quot;%s&quot; cannot be added to quote."
+msgstr "&quot;%s&quot; no puede añadirse al presupuesto."
+
+#: classes/class.static.quote.php:364 classes/class.static.quote.php:370
+#: classes/class.static.quote.php:373
+#, php-format
+msgid "You cannot add another &quot;%s&quot; to your quote."
+msgstr "No se puede añadir otro &quot;%s&quot; al presupuesto."
+
+#: classes/class.static.quote.php:542
+msgid "No file defined"
+msgstr "Archivo no definido"
+
+#: classes/class.static.quote.php:542 classes/class.static.quote.php:706
+msgid "Go to homepage"
+msgstr "Ir a la página de inicio"
+
+#: classes/class.static.quote.php:706
+msgid "File not found"
+msgstr "Archivo no encontrado"
+
+#: classes/sections/__class-adq-sections-quotelist.php:28
+#: classes/sections/__class-adq-sections-quotelist.php:47
+#: classes/sections/class-adq-sections-quotelist.php:28
+#: classes/sections/class-adq-sections-quotelist.php:47
+#: templates/adq-cart-shipping.php:152
+msgid "Shipping"
+msgstr "Envío"
+
+#: classes/sections/__class-adq-sections-quotelist.php:50
+msgid "Custom text for shipping"
+msgstr "Texto personalizado para el transporte"
+
+#: classes/sections/__class-adq-sections-quotelist.php:53
+#: templates/adq-cart-shipping.php:49
+msgid "I want Quote Request for Shipping"
+msgstr "Solicitar presupuesto para el envío"
+
+#: classes/sections/__class-adq-sections-quotelist.php:58
+msgid "Inherit the shipping configuration from WooCommerce"
+msgstr "Heredar la configuración de transporte de Woocommerce"
+
+#: classes/sections/__class-adq-sections-quotelist.php:67
+#: classes/sections/class-adq-sections-quotelist.php:67
+msgid "Shipping Calculations"
+msgstr "Cálculos de transporte"
+
+#: classes/sections/__class-adq-sections-quotelist.php:68
+#: classes/sections/class-adq-sections-quotelist.php:73
+msgid "Enable shipping"
+msgstr "Habilitar transporte"
+
+#: classes/sections/__class-adq-sections-quotelist.php:76
+msgid "Enable the shipping calculator on the cart page"
+msgstr "Habilitar cálculo de envío"
+
+#: classes/sections/__class-adq-sections-quotelist.php:85
+msgid "Hide shipping costs until an address is entered"
+msgstr "Ocultar coste de tansporte hasta introducir una dirección"
+
+#: classes/sections/__class-adq-sections-quotelist.php:94
+msgid "Shipping Display Mode"
+msgstr "Modo de visualización de envío"
+
+#: classes/sections/__class-adq-sections-quotelist.php:95
+msgid ""
+"This controls how multiple shipping methods are displayed on the frontend."
+msgstr ""
+"Controla cómo se muestran los múltiples métodos de envío en el frontend."
+
+#: classes/sections/__class-adq-sections-quotelist.php:100
+msgid "Display shipping methods with \"radio\" buttons"
+msgstr "Mostrar los métodos de transporte con \"radio\" buttons"
+
+#: classes/sections/__class-adq-sections-quotelist.php:101
+msgid "Display shipping methods in a dropdown"
+msgstr "Mostrar los métodos de transporte como un desplegable"
+
+#: classes/sections/__class-adq-sections-quotelist.php:108
+msgid "Shipping Destination"
+msgstr "Destino de envío"
+
+#: classes/sections/__class-adq-sections-quotelist.php:109
+msgid "This controls which shipping address is used by default."
+msgstr "Controla qué dirección de envío se utiliza por defecto."
+
+#: classes/sections/__class-adq-sections-quotelist.php:114
+msgid "Default to shipping address"
+msgstr "A la dirección de envío por defecto"
+
+#: classes/sections/__class-adq-sections-quotelist.php:115
+msgid "Default to billing address"
+msgstr "A la dirección de facturación por defecto"
+
+#: classes/sections/__class-adq-sections-quotelist.php:116
+msgid "Only ship to the users billing address"
+msgstr "Forzar envíos a la dirección de facturación"
+
+#: classes/sections/__class-adq-sections-quotelist.php:124
+msgid "Restrict shipping to Location(s)"
+msgstr "Restringir envíos"
+
+#: classes/sections/__class-adq-sections-quotelist.php:125
+#, php-format
+msgid ""
+"Choose which countries you want to ship to, or choose to ship to all <a href="
+"\"%s\">locations you sell to</a>."
+msgstr ""
+"Elija a qué paises quieres enviar, o envía a todos  <a href=\"%s\">los "
+"lugares que vendes</a>."
+
+#: classes/sections/__class-adq-sections-quotelist.php:132
+msgid "Ship to all countries you sell to"
+msgstr "Envíos a todos los paises a los que se vende"
+
+#: classes/sections/__class-adq-sections-quotelist.php:133
+msgid "Ship to all countries"
+msgstr "Envíos a todos los paises"
+
+#: classes/sections/__class-adq-sections-quotelist.php:134
+msgid "Ship to specific countries only"
+msgstr "Envíos a paises específicos"
+
+#: classes/sections/__class-adq-sections-quotelist.php:139
+msgid "Specific Countries"
+msgstr "Paises específicos"
+
+#: classes/sections/__class-adq-sections-quotelist.php:189
+#: classes/sections/class-adq-sections-quotelist.php:230
+msgid "Shipping Methods for Quotation"
+msgstr "Métodos de envío para los presupuestos"
+
+#: classes/sections/__class-adq-sections-quotelist.php:195
+#: classes/sections/class-adq-sections-quotelist.php:236
+#: functions/adq-admin-quote-request.php:203
+msgid "Name"
+msgstr "Nombre"
+
+#: classes/sections/__class-adq-sections-quotelist.php:196
+#: classes/sections/class-adq-sections-quotelist.php:237
+msgid "ID"
+msgstr "ID"
+
+#: classes/sections/__class-adq-sections-quotelist.php:217
+#: classes/sections/class-adq-sections-quotelist.php:258
+msgid "Settings"
+msgstr "Configuracion"
+
+#: classes/sections/class-adq-sections-catalog.php:28
+msgid "Buttons & price"
+msgstr "Botones y precio"
+
+#: classes/sections/class-adq-sections-catalog.php:58
+msgid "No taxonomy"
+msgstr "No taxonomía"
+
+#: classes/sections/class-adq-sections-catalog.php:71
+msgid "Buttons"
+msgstr "Botones"
+
+#: classes/sections/class-adq-sections-catalog.php:74
+#: classes/sections/class-adq-sections-catalog.php:277
+msgid "Visibility add to quote button"
+msgstr "Visibilidad del botón Añadir al presupuesto"
+
+#: classes/sections/class-adq-sections-catalog.php:75
+#: classes/sections/class-adq-sections-catalog.php:85
+#: classes/sections/class-adq-sections-catalog.php:95
+#: classes/sections/class-adq-sections-catalog.php:105
+#: functions/adq-admin-quote-request.php:475
+msgid "Choose the roles can view..."
+msgstr "Selecciona los roles que pueden ver..."
+
+#: classes/sections/class-adq-sections-catalog.php:84
+#: classes/sections/class-adq-sections-catalog.php:296
+msgid "Visibility price on shop"
+msgstr "Visibilidad del precio en la tienda"
+
+#: classes/sections/class-adq-sections-catalog.php:94
+#: classes/sections/class-adq-sections-catalog.php:315
+msgid "Visibility add to cart button"
+msgstr "Visibilidad del botón Añadir al carrito"
+
+#: classes/sections/class-adq-sections-catalog.php:104
+msgid "Force show 'Add to quote' button for out-of-stock products"
+msgstr ""
+"Fuerza mostrar el botón 'Añadir al presupuesto' para los productos sin stock"
+
+#: classes/sections/class-adq-sections-catalog.php:114
+msgid "Visibility add to quote button on loop"
+msgstr ""
+"Visibilidad del botón Añadir al presupuesto en las listas de productos "
+"(product loops)"
+
+#: classes/sections/class-adq-sections-catalog.php:115
+msgid "Visible"
+msgstr "Visible"
+
+#: classes/sections/class-adq-sections-catalog.php:121
+msgid "Enable button 'Add To Quote' for out-of-stock products"
+msgstr "Habilitar el botón 'Añadir al presupuesto' en los productos sin stock"
+
+#: classes/sections/class-adq-sections-catalog.php:128
+msgid "Text to show on \"add to quote\" button"
+msgstr "Texto a mostrar en el botón \"Añadir al presupuesto\""
+
+#: classes/sections/class-adq-sections-catalog.php:131
+msgid "Add to quote"
+msgstr "Añadir al presupuesto"
+
+#: classes/sections/class-adq-sections-catalog.php:148
+msgid "Choose visibility by taxonomy"
+msgstr "Selección de visibilidad por taxonomía"
+
+#: classes/sections/class-adq-sections-catalog.php:149
+msgid "Select taxonomy to filter buttons and price visibility by terms."
+msgstr ""
+"Seleccione la taxonomía para configurar  por términos/categorías la "
+"visibilidad de los botones y el precio"
+
+#: classes/sections/class-adq-sections-catalog.php:228
+msgid "Reset catalog settings"
+msgstr "Restablecer la configuración del catálogo"
+
+#: classes/sections/class-adq-sections-catalog.php:235
+msgid "Are you sure to reset the settings of catalog options?"
+msgstr "¿Estás seguro de restablecer los correos electrónicos?"
+
+#: classes/sections/class-adq-sections-catalog.php:278
+msgid "Choose the terms..."
+msgstr "Selecciona los términos..."
+
+#: classes/sections/class-adq-sections-catalog.php:288
+#: classes/sections/class-adq-sections-catalog.php:307
+#: classes/sections/class-adq-sections-catalog.php:326
+msgid "Exclude terms"
+msgstr "Excluir términos"
+
+#: classes/sections/class-adq-sections-catalog.php:289
+#: classes/sections/class-adq-sections-catalog.php:308
+#: classes/sections/class-adq-sections-catalog.php:327
+msgid "Choose if terms must be included or excluded"
+msgstr "Seleccione si los términos deben ser incluidos o excluidos"
+
+#: classes/sections/class-adq-sections-catalog.php:297
+#: classes/sections/class-adq-sections-catalog.php:316
+#: functions/adq-admin-quote-request.php:377
+#: functions/adq-admin-quote-request.php:394
+#: functions/adq-admin-quote-request.php:411
+msgid "Choose the the roles can view..."
+msgstr "Selecciona los roles que pueden ver..."
+
+#: classes/sections/class-adq-sections-crm.php:28
+#: classes/sections/class-adq-sections-crm.php:43
+msgid "CRM"
+msgstr "CRM"
+
+#: classes/sections/class-adq-sections-crm.php:46
+msgid "Allow comments on products"
+msgstr "Permitir comentarios en los productos:"
+
+#: classes/sections/class-adq-sections-crm.php:47
+#: functions/adq-admin-quote-request.php:424
+msgid "Allow comments on products in quote list"
+msgstr ""
+"Permitir comentarios a cada producto en la página de solicitud de presupuesto"
+
+#: classes/sections/class-adq-sections-crm.php:53
+msgid "Allow comments on orders"
+msgstr "Permitir comentarios en los pedidos/presupuestos:"
+
+#: classes/sections/class-adq-sections-crm.php:54
+msgid "Allow comments on orders in order detail"
+msgstr ""
+"Permitir comentarios a los pedidos/presupuestos en la página de detalle de "
+"pedido"
+
+#: classes/sections/class-adq-sections-crm.php:60
+msgid "Display comments on orders"
+msgstr "Mostrar comentarios a los pedidos"
+
+#: classes/sections/class-adq-sections-crm.php:61
+msgid "Display comments on orders in order detail"
+msgstr ""
+"Mostrar comentarios a los pedidos/presupuestos en la página de detalle del "
+"pedido"
+
+#: classes/sections/class-adq-sections-crm.php:67
+msgid "Reset CRM settings"
+msgstr "Restablecer la configuración de CRM"
+
+#: classes/sections/class-adq-sections-crm.php:74
+msgid "Are you sure to reset the settings of CRM options?"
+msgstr "¿Estás seguro de restablecer las opciones de configuración de CRM?"
+
+#: classes/sections/class-adq-sections-form.php:28
+msgid "Request form"
+msgstr "Formulario de solicitud"
+
+#: classes/sections/class-adq-sections-form.php:47
+msgid "Form"
+msgstr "Formulario"
+
+#: classes/sections/class-adq-sections-form.php:68
+#: classes/sections/class-adq-sections-form.php:78
+msgid "Cannot modify beacause this field is required for shipping"
+msgstr "No se puede cambiar porque este campo es requerido para el transporte"
+
+#: classes/sections/class-adq-sections-form.php:89
+msgid "Reset form settings"
+msgstr "Restablecer la configuración del formulario"
+
+#: classes/sections/class-adq-sections-form.php:96
+msgid "Are you sure to reset the settings of form options?"
+msgstr ""
+"¿Estás seguro de restablecer las opciones de configuración del formulario de "
+"solicitud?"
+
+#: classes/sections/class-adq-sections-licence.php:28
+msgid "Licence"
+msgstr "Licencia"
+
+#: classes/sections/class-adq-sections-quotelist.php:72
+msgid "Disable shipping"
+msgstr "Deshabilitar transporte"
+
+#: classes/sections/class-adq-sections-quotelist.php:74
+msgid "Enable shipping by user's choice"
+msgstr "Habilitar transporte por elección del cliente"
+
+#: classes/sections/class-adq-sections-quotelist.php:79
+msgid "Hide shipping costs"
+msgstr "Ocultar el coste de transporte"
+
+#: classes/sections/class-adq-sections-quotelist.php:168
+msgid "Reset shipping settings"
+msgstr "Restablecer la configuración de envío"
+
+#: classes/sections/class-adq-sections-quotelist.php:175
+msgid "Are you sure to reset the settings of shipping options?"
+msgstr "¿Estás seguro de restablecer las opciones de configuración de envío?"
+
+#: classes/widget/class-wc-widget-added-items.php:21
+msgid "Display how much items are added in quotation."
+msgstr "Muestrar el  número de productos en el presupuesto"
+
+#: classes/widget/class-wc-widget-added-items.php:23
+msgid "Quotation - Number of items in quote"
+msgstr "Quotation - Número de productos en el presupuesto"
+
+#: classes/widget/class-wc-widget-added-items.php:27
+msgid "Added items"
+msgstr "Productos añadidos"
+
+#: classes/widget/class-wc-widget-quote.php:25
+msgid "Display the user's Quote List in the sidebar."
+msgstr "Muestra el presupuesto del cliente en el sidebar"
+
+#: classes/widget/class-wc-widget-quote.php:27
+msgid "Quotation - Quote list"
+msgstr "Quotation - Presupuesto"
+
+#: classes/widget/class-wc-widget-quote.php:31
+msgid "Quote List"
+msgstr "Presupuesto"
+
+#: classes/widget/class-wc-widget-quote.php:37
+msgid "Show simple widget version"
+msgstr "Mostrar versión simplificada"
+
+#: edd/EDD_SL_Plugin_Updater.php:201
+#, php-format
+msgid ""
+"There is a new version of %1$s available. %2$sView version %3$s details%4$s."
+msgstr "Hay una nueva versión de %1$s disponible. %2$sVer %3$s detalles%4$s."
+
+#: edd/EDD_SL_Plugin_Updater.php:209
+#, php-format
+msgid ""
+"There is a new version of %1$s available. %2$sView version %3$s details%4$s "
+"or %5$supdate now%6$s."
+msgstr ""
+"Hay una nueva versión de %1$s disponible. %2$sVer %3$s detalles%4$s o  "
+"%5$sactualizar ahora%6$s."
+
+#: edd/EDD_SL_Plugin_Updater.php:396
+msgid "You do not have permission to install plugin updates"
+msgstr "No tiene permisos para instalar actualizaciones"
+
+#: edd/EDD_SL_Plugin_Updater.php:396
+msgid "Error"
+msgstr "Error"
+
+#: edd/edd-adq.php:50
+msgid "Woocommerce Quotation License Options"
+msgstr "Opciones de licencia de Woocommerce Quotation"
+
+#: edd/edd-adq.php:82
+msgid "License Key"
+msgstr "Licencia"
+
+#: edd/edd-adq.php:86
+msgid "Enter your license key"
+msgstr "Introduce tu licencia"
+
+#: edd/edd-adq.php:101 edd/edd-adq.php:116
+msgid "Activate License"
+msgstr "Activar licencia"
+
+#: edd/edd-adq.php:105
+msgid "Active license"
+msgstr "Licencia activa"
+
+#: edd/edd-adq.php:107
+msgid "Deactivate License"
+msgstr "Desactivar licencia"
+
+#: edd/edd-adq.php:109
+msgid "Check status"
+msgstr "Comprobar estado"
+
+#: edd/edd-adq.php:110
+msgid "Check version"
+msgstr "Comprobar versión"
+
+#: edd/edd-adq.php:188 edd/edd-adq.php:235 edd/edd-adq.php:298
+msgid "An error occurred, please try again."
+msgstr "Ha ocurrido un error, por favor inténtalo de nuevo"
+
+#: edd/edd-adq.php:202
+#, php-format
+msgid "Your license key expired on %s."
+msgstr "Tu licencia caduca el %s."
+
+#: edd/edd-adq.php:209
+msgid "Your license key has been disabled."
+msgstr "Tu licencia ha sido deshabilitada"
+
+#: edd/edd-adq.php:214
+msgid "Invalid license."
+msgstr "Licencia no válida."
+
+#: edd/edd-adq.php:220
+msgid "Your license is not active for this URL."
+msgstr "Tu licencia no está activa para esta URL."
+
+#: edd/edd-adq.php:225
+#, php-format
+msgid "This appears to be an invalid license key for %s."
+msgstr "Parece que es una licencia no válida para %s."
+
+#: edd/edd-adq.php:230
+msgid "Your license key has reached its activation limit."
+msgstr "Tu licencia ha alcanzado su límite de activaciones."
+
+#: edd/edd-adq.php:356
+msgid " license"
+msgstr " licencia"
+
+#: edd/edd-adq.php:362
+msgid "Expires on"
+msgstr "Caduca el"
+
+#: edd/edd-adq.php:366
+msgid "Customer name"
+msgstr "Nombre de cliente"
+
+#: edd/edd-adq.php:370
+msgid "Customer email"
+msgstr "Email de cliente"
+
+#: edd/edd-adq.php:404
+msgid "Version"
+msgstr "Versión"
+
+#: edd/edd-adq.php:408
+msgid "Last update"
+msgstr "Última actualización"
+
+#: functions/adq-admin-quote-request.php:88
+msgid "Send Proposal"
+msgstr "Enviar presupuesto"
+
+#: functions/adq-admin-quote-request.php:95
+msgid "Create proposal"
+msgstr "Crear presupuesto"
+
+#: functions/adq-admin-quote-request.php:102
+#: functions/adq-frontend-quote-request.php:312
+#: templates/adq-order-detail-quote.php:64
+#: templates/adq-order-detail-quote.php:65
+msgid "Accept proposal"
+msgstr "Aceptar presupuesto"
+
+#: functions/adq-admin-quote-request.php:106
+#: functions/adq-frontend-quote-request.php:317
+#: templates/adq-order-detail-quote.php:70
+#: templates/adq-order-detail-quote.php:71
+msgid "Reject proposal"
+msgstr "Rechazar propuesta"
+
+#: functions/adq-admin-quote-request.php:119
+msgid "Related quote proposal"
+msgstr "Presupuesto relacionado"
+
+#: functions/adq-admin-quote-request.php:153
+msgid "Validity date:"
+msgstr "Fecha de validez:"
+
+#: functions/adq-admin-quote-request.php:159
+#: functions/adq-admin-quote-request.php:178
+msgid "h"
+msgstr "h"
+
+#: functions/adq-admin-quote-request.php:165
+#: functions/adq-admin-quote-request.php:184
+msgid "m"
+msgstr "m"
+
+#: functions/adq-admin-quote-request.php:172
+msgid "Reminder date:"
+msgstr "Fecha de recordatorio"
+
+#: functions/adq-admin-quote-request.php:191
+msgid "Additional information:"
+msgstr "Información adicional"
+
+#: functions/adq-admin-quote-request.php:204
+msgid "This is the name of the attachment shown to the customer."
+msgstr "Nombre del archivo adjunto mostrado al cliente"
+
+#: functions/adq-admin-quote-request.php:206
+msgid "File URL"
+msgstr "URL del archivo"
+
+#: functions/adq-admin-quote-request.php:207
+msgid ""
+"This is the URL or absolute path to the file which customer will get access "
+"to."
+msgstr "URL o ruta absoluta al archivo al que accederá el cliente"
+
+#: functions/adq-admin-quote-request.php:232
+msgid "Add File"
+msgstr "Añadir archivo"
+
+#: functions/adq-admin-quote-request.php:365
+msgid "Visibility add to quote button:"
+msgstr "Visibilidad del botón 'Añadir al presupuesto'"
+
+#: functions/adq-admin-quote-request.php:367
+#: functions/adq-admin-quote-request.php:384
+#: functions/adq-admin-quote-request.php:401
+#: functions/adq-admin-quote-request.php:418
+#: functions/adq-admin-quote-request.php:482
+#: functions/adq-admin-quote-request.php:495
+msgid "Use global settings"
+msgstr "Usar configuración global"
+
+#: functions/adq-admin-quote-request.php:382
+msgid "Visibility price on shop:"
+msgstr "Visibilidad del precio en la tienda:"
+
+#: functions/adq-admin-quote-request.php:399
+msgid "Visibility add to cart button:"
+msgstr "Visibilidad del botón 'Añadir al carrito'"
+
+#: functions/adq-admin-quote-request.php:416
+msgid "Allow comments:"
+msgstr "Permitir comentarios"
+
+#: functions/adq-admin-quote-request.php:429
+msgid "Force show 'Add to quote' button when this product is out of stock"
+msgstr ""
+"Fuerza mostrar el botón 'Añadir al presupuesto' cuando este producto no "
+"tenga stock"
+
+#: functions/adq-admin-quote-request.php:479
+msgid "Enable payment"
+msgstr "Habilitar pago"
+
+#: functions/adq-admin-quote-request.php:483
+#: functions/adq-admin-quote-request.php:496
+msgid "Yes"
+msgstr "Sí"
+
+#: functions/adq-admin-quote-request.php:484
+#: functions/adq-admin-quote-request.php:497
+msgid "No"
+msgstr "No"
+
+#: functions/adq-admin-quote-request.php:488
+msgid "You can enable the payment when this product is out of stock"
+msgstr "Habilita el pago de este producto cuando no tenga stock"
+
+#: functions/adq-admin-quote-request.php:492
+msgid "Enable button 'Add to quote' even if the product is out of stock."
+msgstr ""
+"Habilitar el botón 'Añadir al presupuesto' aunque el producto no tenga stock"
+
+#: functions/adq-admin-quote-request.php:516
+msgid "Order Data"
+msgstr "Datos de pedido"
+
+#: functions/adq-admin-quote-request.php:518
+msgid "Order Items"
+msgstr "Productos del pedido"
+
+#: functions/adq-frontend-quote-request.php:147
+msgid "Please select some product options before adding this product to quote."
+msgstr ""
+"Por favor seleccione alguna de las opciones del producto antes de añadir "
+"este producto al presupuesto."
+
+#: functions/adq-frontend-quote-request.php:148
+msgid ""
+"Sorry, this product is unavailable. Please choose a different combination."
+msgstr ""
+"Lo sentimos, este producto no está disponible. Por favor elija una "
+"combinación diferente"
+
+#: functions/adq-frontend-quote-request.php:213
+msgid "Would you want to include the shipping cost in quotation?"
+msgstr "Solicitar presupuesto para el transporte?"
+
+#: functions/adq-frontend-quote-request.php:235
+msgid "Leave a Comment"
+msgstr "Deja un comentario"
+
+#: functions/adq-frontend-quote-request.php:236
+msgid "Notes about your Quote Request."
+msgstr "Notas adicionales sobre tu solicitud."
+
+#: functions/adq-frontend-quote-request.php:244
+#, php-format
+msgid ""
+"I&rsquo;ve read and accept the <a href=\"%s\" target=\"_blank\">terms &amp; "
+"conditions</a>"
+msgstr ""
+"He leido y acepto los <a href=\"%s\" target=\"_blank\">términos y "
+"condiciones</a>"
+
+#: functions/adq-frontend-quote-request.php:249
+msgid "Submit Quote Request"
+msgstr "Enviar solicitud de presupuesto"
+
+#: functions/adq-frontend-quote-request.php:251 templates/adq-empty.php:18
+msgid "Return To Shop"
+msgstr "Volver a la tienda"
+
+#: functions/adq-frontend-quote-request.php:333 templates/my-quotation.php:79
+#: templates/my-quotation.php:173 templates/myaccount/quotes.php:73
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: functions/adq-frontend-quote-request.php:353
+#: functions/adq-frontend-quote-request.php:385
+msgid "Related quote"
+msgstr "Presupuesto relacionado"
+
+#: functions/adq-frontend-quote-request.php:411
+#: functions/adq-frontend-quote-request.php:430
+#: functions/adq-order-quote.php:797 functions/adq-order-quote.php:802
+#: functions/adq-order-quote.php:808 modules/pdf-invoices.php:56
+#: templates/adq-list.php:165 templates/adq-list.php:197
+#: templates/adq-list_new.php:167 templates/adq-list_new.php:201
+#: templates/adq-request-list.php:33 templates/plain/adq-request-list.php:20
+msgid "Not yet proposed"
+msgstr "No propuesto todavía"
+
+#: functions/adq-frontend-quote-request.php:512
+#: functions/adq-frontend-quote-request.php:574
+msgid "Cannot change order status"
+msgstr "No se puede cambiar el estado del pedido"
+
+#: functions/adq-frontend-quote-request.php:522
+#, php-format
+msgid "The proposal can not be accepted. Status: %s"
+msgstr "La propuesta no puede ser aceptada. Estado: %s"
+
+#: functions/adq-frontend-quote-request.php:527
+msgid "Quote Request updated"
+msgstr "Solicitud de presupuesto actualizada"
+
+#: functions/adq-frontend-quote-request.php:563
+#, php-format
+msgid "The proposal can not be declined. Status: %s"
+msgstr "La propuesta no puede ser rechazada. Estado: %s"
+
+#: functions/adq-frontend-quote-request.php:567
+msgid "The proposal has been declined. Status: Proposal rejected"
+msgstr "La propuesta ha sido rechazada. Estado: Propuesta rechazada"
+
+#: functions/adq-frontend-quote-request.php:571
+msgid "Quote Request canceled"
+msgstr "Solicitud de presupuesto cancelada"
+
+#: functions/adq-frontend-quote-request.php:611
+#, php-format
+msgid "You can only have 1 %s in your quote list."
+msgstr "Sólo puede terner 1 %s en el presupuesto"
+
+#: functions/adq-frontend-quote-request.php:633
+msgid "Quote List updated."
+msgstr "Presupuesto actualizado"
+
+#: functions/adq-frontend-quote-request.php:811
+#, php-format
+msgid "Quote #%s"
+msgstr "Presupuesto #%s"
+
+#: functions/adq-global.php:15
+msgctxt "Configuration Quote"
+msgid "Configuration"
+msgstr "Configuración"
+
+#: functions/adq-global.php:93
+msgctxt "Page slug"
+msgid "quote-list"
+msgstr "quote-list"
+
+#: functions/adq-global.php:94
+msgctxt "Page title"
+msgid "Quote List"
+msgstr "Presupuesto"
+
+#: functions/adq-order-quote.php:17 functions/adq-order-quote.php:97
+msgctxt "Order status"
+msgid "Request"
+msgstr "Solicitud"
+
+#: functions/adq-order-quote.php:22
+#, php-format
+msgid "Request <span class=\"count\">(%s)</span>"
+msgid_plural "Request <span class=\"count\">(%s)</span>"
+msgstr[0] "Solicitud <span class=\"count\">(%s)</span>"
+msgstr[1] "Solicitudes <span class=\"count\">(%s)</span>"
+
+#: functions/adq-order-quote.php:26 functions/adq-order-quote.php:98
+msgctxt "Order status"
+msgid "Proposal"
+msgstr "Propuesta"
+
+#: functions/adq-order-quote.php:31
+#, php-format
+msgid "Proposal <span class=\"count\">(%s)</span>"
+msgid_plural "Proposal <span class=\"count\">(%s)</span>"
+msgstr[0] "Propuesta <span class=\"count\">(%s)</span>"
+msgstr[1] "Propuestas <span class=\"count\">(%s)</span>"
+
+#: functions/adq-order-quote.php:35
+msgctxt "Order status"
+msgid "Proposal Sent"
+msgstr "Propuesta enviada"
+
+#: functions/adq-order-quote.php:40
+#, php-format
+msgid "Proposal sent <span class=\"count\">(%s)</span>"
+msgid_plural "Proposal sent <span class=\"count\">(%s)</span>"
+msgstr[0] "Propuestas enviada <span class=\"count\">(%s)</span>"
+msgstr[1] "Propuestas enviadas <span class=\"count\">(%s)</span>"
+
+#: functions/adq-order-quote.php:44 functions/adq-order-quote.php:100
+msgctxt "Order status"
+msgid "Proposal expired"
+msgstr "Propuesta expirada"
+
+#: functions/adq-order-quote.php:49
+#, php-format
+msgid "Proposal expired <span class=\"count\">(%s)</span>"
+msgid_plural "Proposal expired <span class=\"count\">(%s)</span>"
+msgstr[0] "Propuesta expirada <span class=\"count\">(%s)</span>"
+msgstr[1] "Propuestas expiradas <span class=\"count\">(%s)</span>"
+
+#: functions/adq-order-quote.php:53 functions/adq-order-quote.php:101
+msgctxt "Order status"
+msgid "Proposal rejected"
+msgstr "Proppuesta rechazada"
+
+#: functions/adq-order-quote.php:58
+#, php-format
+msgid "Proposal rejected <span class=\"count\">(%s)</span>"
+msgid_plural "Proposal rejected <span class=\"count\">(%s)</span>"
+msgstr[0] "Propuesta rechazada <span class=\"count\">(%s)</span>"
+msgstr[1] "Proupuestas rechazadas <span class=\"count\">(%s)</span>"
+
+#: functions/adq-order-quote.php:62 functions/adq-order-quote.php:102
+msgctxt "Order status"
+msgid "Proposal canceled"
+msgstr "Propuesta cancelada"
+
+#: functions/adq-order-quote.php:67
+#, php-format
+msgid "Proposal canceled <span class=\"count\">(%s)</span>"
+msgid_plural "Proposal canceled <span class=\"count\">(%s)</span>"
+msgstr[0] "Propuesta cancelada <span class=\"count\">(%s)</span>"
+msgstr[1] "Propuestas canceladas <span class=\"count\">(%s)</span>"
+
+#: functions/adq-order-quote.php:71 functions/adq-order-quote.php:103
+msgctxt "Order status"
+msgid "Proposal accepted"
+msgstr "Propuesta aceptada"
+
+#: functions/adq-order-quote.php:76
+#, php-format
+msgid "Proposal accepted <span class=\"count\">(%s)</span>"
+msgid_plural "Proposal accepted <span class=\"count\">(%s)</span>"
+msgstr[0] "Propuesta aceptada <span class=\"count\">(%s)</span>"
+msgstr[1] "Propuestas aceptadas <span class=\"count\">(%s)</span>"
+
+#: functions/adq-order-quote.php:99
+msgctxt "Order status"
+msgid "Proposal sent"
+msgstr "Propuesta enviada"
+
+#: functions/adq-order-quote.php:116
+msgid "Request"
+msgstr "Solicitud"
+
+#: functions/adq-order-quote.php:117
+msgid "Proposal"
+msgstr "Propuesta"
+
+#: functions/adq-order-quote.php:118 modules/pdf-invoices.php:45
+msgid "Proposal sent"
+msgstr "Propuesta enviada"
+
+#: functions/adq-order-quote.php:119
+msgid "Proposal expired"
+msgstr "Propuesta expirada"
+
+#: functions/adq-order-quote.php:120 modules/pdf-invoices.php:47
+msgid "Proposal rejected"
+msgstr "Propuesta rechazada"
+
+#: functions/adq-order-quote.php:121
+msgid "Proposal canceled"
+msgstr "Propuesta cancelada"
+
+#: functions/adq-order-quote.php:186 functions/adq-order-quote.php:226
+#: functions/adq-order-quote.php:264 functions/adq-order-quote.php:324
+msgid "Quotes"
+msgstr "Presupuestos"
+
+#: functions/adq-order-quote.php:265
+msgid "Endpoint for the My Account &rarr; Quotes page"
+msgstr "Endpoint para la página My Account &rarr; Quotes"
+
+#: functions/adq-order-quote.php:522
+msgid "Product Note"
+msgstr "Nota de producto"
+
+#: functions/adq-quote-ajax.php:61
+msgid ""
+"Please choose the quantity of items you wish to add to your quote&hellip;"
+msgstr ""
+"Por favor, elija la cantidad de artículos que desea añadir a su "
+"solicitud&hellip;"
+
+#: functions/adq-quote-ajax.php:112
+#, php-format
+msgid "%s is a required field"
+msgid_plural "%s are required fields"
+msgstr[0] "%s es un campo requerido"
+msgstr[1] "%s son campos requeridos"
+
+#: functions/adq-quote-ajax.php:115
+msgid "Please choose product options&hellip;"
+msgstr "Por favor seleccione las opciones de producto&hellip;"
+
+#: functions/adq-quote-ajax.php:182
+#, php-format
+msgid "&quot;%s&quot; was successfully removed from list."
+msgstr "&quot;%s&quot; ha sido eliminado de la lista."
+
+#: functions/adq-quote-ajax.php:186
+#, php-format
+msgid "&quot;%s&quot; cannot be removed from list."
+msgstr "&quot;%s&quot; no se puede eliminar de la lista."
+
+#: functions/adq-quote-ajax.php:209
+msgid "All items was successfully removed from list."
+msgstr "Todos los artículos han sido eliminados de la lista."
+
+#: functions/adq-quote-ajax.php:213
+msgid "Items cannot be removed from list."
+msgstr "Los artículos no se pueden eliminar de la lista."
+
+#: functions/adq-quote-ajax.php:241
+#, php-format
+msgid "&quot;%s&quot; updated."
+msgstr "&quot;%s&quot; actualizado."
+
+#: functions/adq-quote-ajax.php:245
+#, php-format
+msgid "&quot;%s&quot; cannot be updated."
+msgstr "&quot;%s&quot; no se puede actualizar."
+
+#: functions/adq-quote-ajax.php:302
+msgid "Delete note"
+msgstr "Borrar nota"
+
+#: modules/bookings.php:99
+#, php-format
+msgid "A booking for %s has been removed from your cart due to inactivity."
+msgstr "Una reserva para %s ha sido borrada de su presupuesto por inactividad"
+
+#: modules/contact-form-7.php:59
+msgid "Contact Form 7 shortcode"
+msgstr "Shortcode de Contact Form 7"
+
+#: modules/contact-form-7.php:60
+msgid "Enter the Contact Form 7 shortcode to show the form."
+msgstr ""
+"Escriba el shortcode del formualrio Contact Form 7 a mostrar en la solicitud "
+"de presupuesto"
+
+#: modules/pdf-invoices.php:44
+msgid "Quote request"
+msgstr "Solicitud de presupuesto"
+
+#: modules/product-bundles.php:212
+#, php-format
+msgid ""
+"&quot;%1$s&quot; cannot be added to the cart. The quantity of &quot;"
+"%2$s&quot; cannot be lower than %3$d."
+msgstr ""
+"&quot;%1$s&quot; no se puede añadir al presupuesto. La cantidad de &quot;"
+"%2$s&quot; no puede ser menor que %3$d."
+
+#: modules/product-bundles.php:217
+#, php-format
+msgid ""
+"&quot;%1$s&quot; cannot be added to the cart. The quantity of &quot;"
+"%2$s&quot; cannot be higher than %3$d."
+msgstr ""
+"&quot;%1$s&quot; no se puede añadir al presupuesto. La cantidad de &quot;"
+"%2$s&quot; no puede ser mayor que %3$d."
+
+#: modules/product-bundles.php:230
+#, php-format
+msgid ""
+"&quot;%1$s&quot; cannot be added to the cart because &quot;%2$s&quot; cannot "
+"be purchased at the moment."
+msgstr ""
+"&quot;%1$s&quot; no se puede añadir al presupuesto devido a que  &quot;"
+"%2$s&quot; no se puede comprar en este momento"
+
+#: modules/product-bundles.php:252
+#, php-format
+msgid ""
+"&quot;%1$s&quot; cannot be added to the cart. The selected variation of "
+"&quot;%2$s&quot; cannot be purchased."
+msgstr ""
+"&quot;%1$s&quot;  no se puede añadir al presupuesto. La variación de &quot;"
+"%2$s&quot; no se puede comprar."
+
+#: modules/product-bundles.php:340
+#, php-format
+msgid "%1$s is a required &quot;%2$s&quot; field"
+msgid_plural "%1$s are required &quot;%2$s&quot; fields"
+msgstr[0] "%1$s es un campo requerido &quot;%2$s&quot;"
+msgstr[1] "%1$s son campos requeridos &quot;%2$s&quot;"
+
+#: modules/product-bundles.php:341
+#, php-format
+msgid "&quot;%1$s&quot; cannot be added to the cart. %2$s."
+msgstr "&quot;%1$s&quot; no se puede añadir al presupuesto. %2$s."
+
+#: modules/product-bundles.php:346
+#, php-format
+msgid ""
+"&quot;%1$s&quot; cannot be added to the cart. Please choose &quot;%2$s&quot; "
+"options&hellip;"
+msgstr ""
+"&quot;%1$s&quot; no se puede añadir al presupuesto. por favor elija una "
+"opción para &quot;%2$s&quot; &hellip;"
+
+#: modules/product-bundles.php:970
+msgid "Subtotal"
+msgstr "Subtotal"
+
+#: modules/product-bundles.php:1020
+msgid " now with recurring fees <small>(see below)</small>"
+msgstr "ahora con gastos recurrentes<small>(vea a continuación)</small>"
+
+#: templates/adq-cart-shipping.php:64
+#, php-format
+msgid "Shipping #%d"
+msgstr "Envío #%d"
+
+#: templates/adq-cart-shipping.php:66
+msgid "Shipping and Handling"
+msgstr "Envío y manipulación"
+
+#: templates/adq-cart-shipping.php:114
+msgid "Please use the shipping calculator to see available shipping methods."
+msgstr ""
+"Por favor usa el calculador de envíos para ver los métodos de envío "
+"disponibles."
+
+#: templates/adq-cart-shipping.php:118
+msgid ""
+"Please continue to the checkout and enter your full address to see if there "
+"are any available shipping methods."
+msgstr ""
+"Por favor continúa con el proceso e introduce tu dirección completa para ver "
+"si hay algún método de envío  disponible."
+
+#: templates/adq-cart-shipping.php:122
+msgid "Please fill in your details to see available shipping methods."
+msgstr ""
+"Por favor completa los detalles para ver los métodos de envío disponibles."
+
+#: templates/adq-cart-shipping.php:131 templates/adq-cart-shipping.php:137
+msgid ""
+"There doesn&lsquo;t seem to be any available shipping methods. Please double "
+"check your address, or contact us if you need any help."
+msgstr ""
+"No parece haber métodoos de envío disponibles. Por favor revisa de nuevo tu "
+"dirección, o contacta con nosotros si necesitas ayuda."
+
+#: templates/adq-empty.php:16
+msgid "Your quoted list is currently empty."
+msgstr "Tu presupuesto está vacío."
+
+#: templates/adq-form-billing-details.php:21
+msgid "Want to change billing information?"
+msgstr "¿Quieres cambiar la dirección de facturación?"
+
+#: templates/adq-form-billing-details.php:22
+msgid "Click here to show billing information"
+msgstr "Haz click aquí para mostrar la información de facturación"
+
+#: templates/adq-form-billing-details.php:29
+msgid "Details"
+msgstr "Detalles"
+
+#: templates/adq-form-billing-details.php:35
+#: templates/adq-form-billing-details.php:61
+msgid ""
+"Create an account by entering the information below. If you are a returning "
+"customer please login at the top of the page."
+msgstr ""
+"Crear una cuenta introduciendo la isiguiente información. Si ya eres un "
+"cliente por favor identifícate en la parte superior de esta página."
+
+#: templates/adq-form-billing-details.php:54
+msgid "Create an account?"
+msgstr "¿Crear una cuenta?"
+
+#: templates/adq-form-login.php:18
+msgid "Returning customer?"
+msgstr "¿Ya eres cliente?"
+
+#: templates/adq-form-login.php:19
+msgid "Click here to login"
+msgstr "Haz click aquí para entrar"
+
+#: templates/adq-form-login.php:26
+msgid ""
+"If you have shopped with us before, please enter your details in the boxes "
+"below. If you are a new customer please proceed to the Register section."
+msgstr ""
+"Si ya eres cliente, por favor introduce tus datos en el siguiente "
+"formulario. Si eres un nuevo cliente, por favor vaya al formulario de "
+"registro en esta misma página."
+
+#: templates/adq-form-shipping.php:29
+msgid "Ship to a different address?"
+msgstr "¿Enviar a una dirección diferente?"
+
+#: templates/adq-list.php:35 templates/adq-list.php:135
+#: templates/adq-list_new.php:35 templates/adq-list_new.php:135
+#: templates/adq-request-list.php:6 templates/order-details.php:26
+msgid "Product"
+msgstr "Producto"
+
+#: templates/adq-list.php:36 templates/adq-list.php:153
+#: templates/adq-list_new.php:36 templates/adq-list_new.php:153
+#: templates/adq-request-list.php:8
+msgid "Price"
+msgstr "Precio"
+
+#: templates/adq-list.php:37 templates/adq-list.php:170
+#: templates/adq-list_new.php:37 templates/adq-list_new.php:172
+#: templates/adq-request-list.php:7
+msgid "Quantity"
+msgstr "Cantidad"
+
+#: templates/adq-list.php:39 templates/adq-list.php:185
+#: templates/adq-list_new.php:39 templates/adq-list_new.php:187
+#: templates/my-quotation.php:35 templates/my-quotation.php:109
+#: templates/order-details.php:27
+msgid "Total"
+msgstr "Total"
+
+#: templates/adq-list.php:60 templates/adq-list_new.php:60
+msgid "Free shipping coupon"
+msgstr "Cupón de transporte gratis"
+
+#: templates/adq-list.php:66 templates/adq-list_new.php:66
+msgid "[Remove]"
+msgstr "[Quitar]"
+
+#: templates/adq-list.php:67 templates/adq-list_new.php:67
+msgid "Coupon:"
+msgstr "Cupón:"
+
+#: templates/adq-list.php:79 templates/adq-list_new.php:79
+msgid "Coupon"
+msgstr "Cupón"
+
+#: templates/adq-list.php:80 templates/adq-list_new.php:80
+msgid "Coupon code"
+msgstr "Código de cupón"
+
+#: templates/adq-list.php:81 templates/adq-list_new.php:81
+msgid "Apply Coupon"
+msgstr "Aplicar cupón"
+
+#: templates/adq-list.php:88 templates/adq-list_new.php:88
+msgid "Remove all items"
+msgstr "Borrar todos los artículos"
+
+#: templates/adq-list.php:90 templates/adq-list_new.php:90
+msgid "Update Quote"
+msgstr "Actualizar presupuesto"
+
+#: templates/adq-list.php:118 templates/adq-list_new.php:118
+#: templates/widget/mini-quote.php:41
+msgid "Remove this item"
+msgstr "Borrar este artículo"
+
+#: templates/adq-list.php:206 templates/adq-list_new.php:210
+msgid "Note"
+msgstr "Nota"
+
+#: templates/adq-list.php:213 templates/adq-list_new.php:217
+msgid "Click here to add a product note"
+msgstr "Haz click aquí para añadir una nota al producto"
+
+#: templates/adq-order-detail-quote.php:20 templates/order-details.php:20
+msgid "Quote Details"
+msgstr "Detalles del presupuesto"
+
+#: templates/adq-order-detail-quote.php:28
+msgid "This proposal is valid until:"
+msgstr "Presupuesto válido hasta:"
+
+#: templates/adq-order-detail-quote.php:38
+msgid "Attached files:"
+msgstr "Archivos adjuntos:"
+
+#: templates/adq-order-notes.php:16
+msgid "Add note"
+msgstr "Añadir nota"
+
+#: templates/adq-order-notes.php:16
+msgid ""
+"Add a note for your reference, or add a customer note (the user will be "
+"notified)."
+msgstr ""
+"Añadir una nota para tu referencia, o añadir una nota para el cliente (el "
+"usuario será notificado)"
+
+#: templates/adq-order-notes.php:23
+msgid "Add"
+msgstr "Añadir"
+
+#: templates/my-quotation.php:26
+msgid "Recent Quotes"
+msgstr "Presupuestos recientes"
+
+#: templates/my-quotation.php:32
+msgid "Quote"
+msgstr "Presupuesto"
+
+#: templates/my-quotation.php:33 templates/my-quotation.php:107
+msgid "Date"
+msgstr "Fecha"
+
+#: templates/my-quotation.php:34 templates/my-quotation.php:108
+msgid "Status"
+msgstr "Estado"
+
+#. translators: 1: formatted order total 2: total order items
+#: templates/my-quotation.php:62 templates/my-quotation.php:159
+#: templates/myaccount/quotes.php:57
+#, php-format
+msgid "%1$s for %2$s item"
+msgid_plural "%1$s for %2$s items"
+msgstr[0] "%s para %s item"
+msgstr[1] "%s para %s items"
+
+#: templates/my-quotation.php:85 templates/my-quotation.php:169
+#: templates/myaccount/quotes.php:69
+msgid "View"
+msgstr "Ver"
+
+#: templates/my-quotation.php:106
+msgid "Order"
+msgstr "Pedido"
+
+#: templates/my-quotation.php:123
+msgid "Recent orders"
+msgstr "Pedidos recientes"
+
+#: templates/my-quotation.php:149 templates/myaccount/quotes.php:45
+msgctxt "hash before order number"
+msgid "#"
+msgstr "#"
+
+#: templates/myaccount/quotes.php:104
+msgid "Previous"
+msgstr "Anterior"
+
+#: templates/myaccount/quotes.php:108
+msgid "Next"
+msgstr "Siguiente"
+
+#: templates/myaccount/quotes.php:116
+msgid "Go shop"
+msgstr "Ir a la tienda"
+
+#: templates/myaccount/quotes.php:118
+msgid "No order has been made yet."
+msgstr "No se han realizado pedidos todavía."
+
+#: templates/view-order.php:22
+#, php-format
+msgid ""
+"Quote #<mark class=\"order-number\">%s</mark> was placed on <mark class="
+"\"order-date\">%s</mark> and is currently <mark class=\"order-status\">%s</"
+"mark>."
+msgstr ""
+"Presupuesto #<mark class=\"order-number\">%s</mark> realizado el <mark class="
+"\"order-date\">%s</mark> y actualmente <mark class=\"order-status\">%s</"
+"mark>."
+
+#: templates/view-order.php:28
+msgid "Order Updates"
+msgstr "Actualizaciones del pedido"
+
+#: templates/view-order.php:34
+msgid "l jS \\o\\f F Y, h:ia"
+msgstr "l jS \\o\\f F Y, h:ia"
+
+#: templates/view-order.php:34
+#, php-format
+msgid "by %s"
+msgstr "por %s"
+
+#: templates/views/html-attachment.php:3
+msgid "File Name"
+msgstr "Nombre del archivo"
+
+#: templates/views/html-attachment.php:4
+msgid "http://"
+msgstr "http://"
+
+#: templates/views/html-attachment.php:7
+msgid "Choose file"
+msgstr "Elige archivo"
+
+#: templates/views/html-attachment.php:7
+msgid "Insert file URL"
+msgstr "URL del archivo"
+
+#: templates/views/html-attachment.php:12
+msgid "Delete"
+msgstr "Borrar"
+
+#: templates/widget/items-in-quote.php:18
+msgid "0 in quote"
+msgstr "0 en el presupuesto"
+
+#: templates/widget/items-in-quote.php:36
+msgid "in quote"
+msgstr "en el presupuesto"
+
+#: templates/widget/mini-quote.php:22
+#: templates/widget/simple-mini-quote.php:20
+msgid "No products in the quote list."
+msgstr "No hay productos en su presupuesto"
+
+#: templates/widget/simple-mini-quote.php:38
+msgid "item in quote list"
+msgstr "artículo en el presupuesto"
+
+#~ msgid "Quotation options"
+#~ msgstr "Opciones de presupuestos"
+
+#~ msgid ""
+#~ "You cannot add that amount of &quot;%s&quot; to the quote list because "
+#~ "there is not enough stock (%s remaining)."
+#~ msgstr ""
+#~ "No se puede añadir la cantidad de &quot;%s&quot; al presupuesto debido a "
+#~ "que no hay suficiente stock (quedan%s)."
+
+#~ msgid ""
+#~ "You cannot add that amount to the cart &mdash; we have %s in stock and "
+#~ "you already have %s in your cart."
+#~ msgstr ""
+#~ "No se puede añadir esa cantidad a la compra &mdash; disponemos de %s en "
+#~ "stock y usted ya ha añadido %s a su compra"
+
+#~ msgid "Catalog"
+#~ msgstr "catálogo"
+
+#~ msgid "Hello, a customer has added a new note:"
+#~ msgstr "Hola, un cliente ha añadido una nueva nota:"
+
+#~ msgid "Request: %s"
+#~ msgstr "Solicitud de presupuesto: %s"
+
+#~ msgid "The proposal from %s has been rejected. The request was as follows:"
+#~ msgstr "El presupuesto de  %s  ha sido rechazado."
+
+#~ msgid "The proposal from %s has been accepted. The request was as follows:"
+#~ msgstr "El presupuesto de  %s  ha sido aceptado."
+
+#~ msgid "Hello, a note has just been added to your order:"
+#~ msgstr "Hola, Una nota ha sido añadida a tu pedido"
+
+#~ msgid "You can access your account area to view your orders here: %s."
+#~ msgstr "Accede a tu área de cliente para ver tus pedidos aquí: %s."
+
+#~ msgid "For your reference, your order details are shown below."
+#~ msgstr ""
+#~ "Para su referencia, los detalles del pedido se muestran a continuación"
+
+#~ msgid "Order #%s"
+#~ msgstr "Order #%s"
+
+#~ msgid ""
+#~ "Our proposal has been rejected. The proposal is shown below for your "
+#~ "reference:"
+#~ msgstr ""
+#~ "Nuestro presupuesto ha sido rechazado. El presupuesto se muestra a "
+#~ "continuación:"
+
+#~ msgid "The proposal:"
+#~ msgstr "La propuesta/presupuesto:"
+
+#~ msgid ""
+#~ "Our proposal has been accepted. The proposal is shown below for your "
+#~ "reference:"
+#~ msgstr ""
+#~ "Nuestro presupuesto ha sido aceptado. El presupuesto se muestra a "
+#~ "continuación:"
+
+#~ msgid "You can proceed with the payment: %s."
+#~ msgstr "Puedes proceder con el pago: %s."
+
+#~ msgid ""
+#~ "« Attention, the Pay link only works if you have not yet paid the order. "
+#~ "If you have already paid the order, this link will not work, you will "
+#~ "still have the order details in the receipt email that will follow."
+#~ msgstr ""
+#~ "« Atención, el enlace pagar sólo funciona si usted todavía no ha pagado "
+#~ "el pedido. Si ya ha pagado el pedido, tendrá los detalles del pedido en "
+#~ "el email que se envió a continuación y en el área de cliente en caso de "
+#~ "haber creado una cuenta."
+
+#~ msgid ""
+#~ "You can access your account area to view and pay your orders here: %s."
+#~ msgstr "Accede a tu área de cliente para ver tus pedidos: %s."
+
+#~ msgid ""
+#~ "This is a reminder of our proposal which is shown below for your "
+#~ "reference:"
+#~ msgstr "Este es un recordatorio del presupuesto que le enviamos."
+
+#~ msgid "Our proposal:"
+#~ msgstr "Nuestro presupuesto:"
+
+#~ msgid ""
+#~ "Your Quote Request has been processed. Find below our proposal for your "
+#~ "reference:"
+#~ msgstr ""
+#~ "La solicitud de presupuesto ha sido procesada y le enviamos el siguiente "
+#~ "presupuesto:"
+
+#~ msgid "You can %s or %s our proposal"
+#~ msgstr "Puedes %s o %s nuestro presupuesto"
+
+#~ msgid ""
+#~ "Your Quote Request has been received and is now being processed. Your "
+#~ "request details are shown below for your reference:"
+#~ msgstr ""
+#~ "Tu solicitud de presupuesto ha sido recibida y está siendo procesada."
+
+#~ msgid "Your Quote Request:"
+#~ msgstr "Tu solicitud de presupuesto:"
+
+#~ msgid "Billing address"
+#~ msgstr "Detalles de facturación"
+
+#~ msgid "Shipping address"
+#~ msgstr "Detalles de envío"
+
+#~ msgid "Order number: %s"
+#~ msgstr "Número de pedido: %s"
+
+#~ msgid "jS F Y"
+#~ msgstr "jS F Y"
+
+#~ msgid "Quote request link: %s"
+#~ msgstr "Enlace a la solicitud de presupuesto: %s"
+
+#~ msgid "Quote request date: %s"
+#~ msgstr "Fecha de solicitud de presupuesto: %s"
+
+#~ msgid "Quote request number: %s"
+#~ msgstr "Número de solicitud de presupuesto: %s"
+
+#~ msgid "0 <span class=\"adq-in-quote\">in quote</span>"
+#~ msgstr "0 <span class=\"adq-in-quote\">Presupuesto</span>"
+
+#~ msgid "<span class=\"adq-in-quote\">in quote</span>"
+#~ msgstr "<span class=\"adq-in-quote\">presupuesto</span>"
+
+#~ msgid "WooCommerce Quotation"
+#~ msgstr "WooCommerce Quotation"
+
+#~ msgid "Show coupons"
+#~ msgstr "Mostrar cupones"
+
+#~ msgid "Redirect"
+#~ msgstr "Redirigir"
+
+#~ msgid "URL Custom redirect payment"
+#~ msgstr "URL Redireccionamiento personalizado"
+
+#, fuzzy
+#~ msgid "URL Custom redirect to payment when proposal is accepted"
+#~ msgstr "Redirigir al pago tras aceptar la propuesta"
+
+#~ msgid "Related order"
+#~ msgstr "Pedido relacionado"
+
+#~ msgid "This link is currently invalid"
+#~ msgstr "Este enlace no es válido actualmente"
+
+#~ msgid ""
+#~ "<div class=\"woothemes-updater-plugin-upgrade-notice\"><em>Automatic "
+#~ "update is unavailable for this plugin.</em> To enable this update please "
+#~ "activate your Quotation license visiting Quotation settings > License. To "
+#~ "purchase a license visit <a target=\"_blank\" href=\"https://"
+#~ "woocommercequoteplugin.com/requestforquote/woocommerce-quotation-plugin/"
+#~ "\">our website</a></div>"
+#~ msgstr ""
+#~ "<div class=\"woothemes-updater-plugin-upgrade-notice\"><em>Actualización "
+#~ "automática no disponible para este plugin.</em> Habilite esta "
+#~ "actualización visitando Quotation > Licencia. Para comprar una licencia, "
+#~ "visite <a target=\"_blank\" href=\"https://woocommercequoteplugin.com/"
+#~ "requestforquote/woocommerce-quotation-plugin/\">nuestro sitio web</a></"
+#~ "div>"
+
+#~ msgid "Email:"
+#~ msgstr "Email:"
+
+#~ msgid "Tel:"
+#~ msgstr "Tel:"
+
+#~ msgid "Your details"
+#~ msgstr "Tus datos"
+
+#~ msgid "Admin proposal ok"
+#~ msgstr "Admin proposal ok"
+
+#~ msgid "Customer proposal ok"
+#~ msgstr "Presupuesto a cliente aceptado"
+
+#~ msgid "active"
+#~ msgstr "Activa"
+
+#~ msgid "Some fields are not valid."
+#~ msgstr "Algunos campos no son válidos."
+
+#~ msgid ""
+#~ "You have accepted our {site_title} proposal from {order_date} is accepted"
+#~ msgstr "Propuesta de {site_title} aceptada.  {order_date}"
+
+#~ msgid "Admin proposal ko"
+#~ msgstr "Admin propuesta rechazada"
+
+#~ msgid "Send email confirming the KO of the proposal."
+#~ msgstr "Enviar email confirmando el rechazo de la propuesta"
+
+#~ msgid "Proposal KO"
+#~ msgstr "Propuesta rechazada"
+
+#~ msgid "Customer proposal ko"
+#~ msgstr "Propuesta a cliente rechazada"
+
+#~ msgid "Billing Details"
+#~ msgstr "Detalles de facturación"
+
+#~ msgid "Add to cart"
+#~ msgstr "Añadir al carrito"
+
+#~ msgid "Plugin License"
+#~ msgstr "Licencia del plugin"
+
+#~ msgid "Required"
+#~ msgstr "Requerido"
+
+#~ msgid "Visibility price on whole shop:"
+#~ msgstr "Visibilidad del precio para todo el catálogo"
+
+#~ msgid "Woocommerce plugin must be activated"
+#~ msgstr "Woocmmerce plugin debe estar activo"

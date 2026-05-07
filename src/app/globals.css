@@ -1,1 +1,34 @@
 @import "tailwindcss";
+
+:root {
+  --primary: #0f172a;
+  --accent: #2563eb;
+  --secondary: #64748b;
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --border: #e2e8f0;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-all shadow-md hover:shadow-lg active:scale-95;
+  }
+  
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-xl;
+  }
+
+  .section-container {
+    @apply py-20 px-6 max-w-7xl mx-auto;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900;
+  }
+}

@@ -1,60 +1,80 @@
 import { catalog, products } from '@/lib/catalog';
+import { Award, Target, Users } from 'lucide-react';
 
 export default function AboutPage() {
   return (
-    <div className="pb-20">
-      <header className="pt-20 lg:pt-32 pb-20 px-6 lg:px-12 border-b border-slate-200 bg-white">
-        <div className="max-w-4xl">
-          <h1 className="text-5xl lg:text-7xl font-black text-slate-900 tracking-tight leading-none mb-8">
-            Our <span className="text-blue-600">Legacy.</span>
+    <div className="flex flex-col min-h-screen bg-white">
+      {/* Hero Header */}
+      <header className="relative py-24 lg:py-40 bg-slate-900 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=2000" 
+            alt="About Kiran Slido Craft" 
+            className="w-full h-full object-cover opacity-20"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-950/80 to-slate-950/40"></div>
+        </div>
+
+        <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-12 text-center lg:text-left">
+          <h1 className="text-5xl lg:text-8xl font-black text-white tracking-tight leading-none mb-8">
+            Our <span className="text-blue-500">Legacy.</span>
           </h1>
-          <p className="text-xl text-slate-600 max-w-2xl leading-relaxed">
-            Pioneering indigenous engineering and architectural automation since {catalog.company.founded}.
+          <p className="max-w-2xl text-xl lg:text-2xl text-slate-300 leading-relaxed mx-auto lg:mx-0">
+            Pioneering indigenous engineering and architectural automation in India since {catalog.company.founded}.
           </p>
         </div>
       </header>
 
-      <section className="py-24 px-6 lg:px-12">
-        <div className="grid lg:grid-cols-12 gap-16">
-          <div className="lg:col-span-5">
-            <h2 className="text-3xl font-bold text-slate-900 mb-6">The Kiran Slido Craft Story</h2>
+      {/* Philosophy Section */}
+      <section className="py-24 mx-auto max-w-7xl px-6 lg:px-12 w-full">
+        <div className="grid lg:grid-cols-12 gap-16 items-center">
+          <div className="lg:col-span-7">
+            <h2 className="text-3xl lg:text-5xl font-black text-slate-900 tracking-tight mb-8">Engineering with Vision</h2>
             <div className="space-y-6 text-lg text-slate-600 leading-relaxed">
               <p>
-                Founded in 1985, Kiran Slido Craft emerged as a visionary engineering firm dedicated to closing the gap between Indian manufacturing and European quality standards.
+                Founded in 1985, Kiran Slido Craft emerged with a singular purpose: to deliver high-performance acoustic and automation systems that bridge the gap between Indian manufacturing and global standards.
               </p>
               <p>
-                What started as a specialist in heavy machinery fabrication has evolved into a leading provider of high-tech acoustic systems and architectural automation. Our journey is defined by a relentless pursuit of technical excellence.
+                From heavy-duty industrial enclosures to high-end residential soundproofing, our expertise spans decades of technical evolution. We don't just build systems; we engineer environments of silence and seamless movement.
               </p>
             </div>
           </div>
-          <div className="lg:col-span-7 grid grid-cols-2 gap-6">
-            <div className="p-8 rounded-lg bg-slate-900 text-white">
-              <div className="text-4xl font-black text-blue-400 mb-2">1985</div>
-              <div className="text-sm font-bold uppercase tracking-widest text-slate-400">Established</div>
+          <div className="lg:col-span-5 grid grid-cols-2 gap-4">
+            <div className="p-8 rounded-3xl bg-slate-50 border border-slate-100">
+              <p className="text-4xl font-black text-blue-600 mb-2">35+</p>
+              <p className="text-xs font-bold uppercase tracking-widest text-slate-500">Years Experience</p>
             </div>
-            <div className="p-8 rounded-lg bg-blue-600 text-white">
-              <div className="text-4xl font-black mb-2">{products.length}</div>
-              <div className="text-sm font-bold uppercase tracking-widest text-blue-100">Catalog Products</div>
+            <div className="p-8 rounded-3xl bg-slate-900 text-white shadow-2xl shadow-slate-950/20">
+              <p className="text-4xl font-black text-blue-400 mb-2">{products.length}</p>
+              <p className="text-xs font-bold uppercase tracking-widest text-slate-400">System Lines</p>
             </div>
-            <div className="col-span-2 p-8 rounded-lg bg-white border border-slate-200 shadow-sm">
-              <h3 className="text-xl font-bold text-slate-900 mb-4">International Quality at Indian Price</h3>
-              <p className="text-slate-600 leading-relaxed">
-                Our core philosophy remains unchanged: delivering world-class engineering solutions that are accessible and optimized for the Indian market.
-              </p>
+            <div className="col-span-2 p-8 rounded-3xl bg-blue-50 border border-blue-100">
+              <Award className="w-8 h-8 text-blue-600 mb-4" />
+              <h3 className="text-xl font-black text-slate-900 mb-2">ISO 9001:2015</h3>
+              <p className="text-slate-600 text-sm">Strict adherence to international quality management systems in every project.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="py-24 px-6 lg:px-12 bg-white border-y border-slate-200">
-        <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-16">
-          <div>
-            <h3 className="text-xs font-black text-blue-600 uppercase tracking-[0.3em] mb-6">Our Mission</h3>
-            <p className="text-xl font-medium text-slate-900 leading-relaxed">{catalog.company.mission}</p>
-          </div>
-          <div>
-            <h3 className="text-xs font-black text-blue-600 uppercase tracking-[0.3em] mb-6">Our Vision</h3>
-            <p className="text-xl font-medium text-slate-900 leading-relaxed">{catalog.company.vision}</p>
+      {/* Values Grid */}
+      <section className="py-24 bg-slate-50 border-y border-slate-100">
+        <div className="mx-auto max-w-7xl px-6 lg:px-12">
+          <div className="grid md:grid-cols-2 gap-12">
+            <div className="bg-white p-12 rounded-[2.5rem] border border-slate-100 shadow-sm transition-transform hover:-translate-y-1">
+              <Target className="w-10 h-10 text-blue-600 mb-8" />
+              <h3 className="text-3xl font-black text-slate-900 mb-6 uppercase tracking-tight">Our Mission</h3>
+              <p className="text-xl text-slate-600 leading-relaxed font-medium">
+                {catalog.company.mission}
+              </p>
+            </div>
+            <div className="bg-white p-12 rounded-[2.5rem] border border-slate-100 shadow-sm transition-transform hover:-translate-y-1">
+              <Users className="w-10 h-10 text-blue-600 mb-8" />
+              <h3 className="text-3xl font-black text-slate-900 mb-6 uppercase tracking-tight">Our Vision</h3>
+              <p className="text-xl text-slate-600 leading-relaxed font-medium">
+                {catalog.company.vision}
+              </p>
+            </div>
           </div>
         </div>
       </section>

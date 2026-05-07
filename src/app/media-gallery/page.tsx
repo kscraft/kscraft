@@ -10,6 +10,18 @@ import { Footer } from "@/components/Footer";
 export default observer(function MediaGalleryPage() {
   const { catalogStore } = useStore();
 
+  if (!catalogStore.isLoaded) {
+    return (
+      <>
+        <Header />
+        <main className="flex-1 flex items-center justify-center min-h-[60vh]">
+          <div className="h-8 w-8 animate-spin rounded-full border-4 border-blue-600 border-t-transparent" />
+        </main>
+        <Footer />
+      </>
+    );
+  }
+
   return (
     <>
       <Header />

@@ -1,2 +1,0 @@
-# kiranslidocraft
-www.kiranslidocraft.com

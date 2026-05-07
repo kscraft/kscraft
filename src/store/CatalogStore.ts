@@ -1,6 +1,7 @@
-import { makeAutoObservable } from "mobx";
+import { makeAutoObservable, runInAction } from "mobx";
 import { Product, NavItem, SiteData } from "@/models/Catalog";
-import { catalogData } from "@/data/catalogData";
+
+const CACHE_KEY = "ksco_catalog_cache";
 
 export class CatalogStore {
   navGroups: NavItem[] = [];
@@ -8,14 +9,69 @@ export class CatalogStore {
   clients: string[] = [];
   certifications: string[] = [];
   gallery: string[] = [];
+  isLoaded: boolean = false;
+  error: string | null = null;
 
-  constructor(data: SiteData) {
+  constructor() {
+    makeAutoObservable(this);
+    if (typeof window !== "undefined") {
+      this.init();
+    } else {
+      // Server-side initialization (e.g., during build)
+      try {
+        const data = require("../../public/data/catalog.json");
+        this.setData(data);
+        this.isLoaded = true;
+      } catch (e) {
+        // Fallback or silent fail during SSR
+      }
+    }
+  }
+
+  private async init() {
+    // 1. Try to load from cache
+    const cached = localStorage.getItem(CACHE_KEY);
+    if (cached) {
+      try {
+        const data: SiteData = JSON.parse(cached);
+        this.setData(data);
+        this.isLoaded = true;
+      } catch (e) {
+        console.error("Failed to parse cached data", e);
+      }
+    }
+
+    // 2. Fetch fresh data
+    try {
+      const response = await fetch("/data/catalog.json");
+      if (!response.ok) throw new Error("Failed to fetch catalog data");
+      const data: SiteData = await response.json();
+      
+      runInAction(() => {
+        this.setData(data);
+        this.isLoaded = true;
+        this.error = null;
+      });
+
+      // 3. Update cache
+      localStorage.setItem(CACHE_KEY, JSON.stringify(data));
+    } catch (e: any) {
+      runInAction(() => {
+        this.error = e.message;
+        // If we didn't have cache, this is a hard error
+        if (!this.isLoaded) {
+          this.isLoaded = false;
+        }
+      });
+    }
+  }
+
+  private setData(data: SiteData) {
     this.navGroups = data.navGroups;
     this.productPages = data.productPages;
     this.clients = data.clients;
     this.certifications = data.certifications;
     this.gallery = data.gallery;
-    makeAutoObservable(this);
   }
 
   get products() {
@@ -46,4 +102,4 @@ export class CatalogStore {
   }
 }
 
-export const catalogStore = new CatalogStore(catalogData);
+export const catalogStore = new CatalogStore();

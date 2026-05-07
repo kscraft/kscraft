@@ -1,0 +1,301 @@
+{
+  "navGroups": [
+    {
+      "title": "Sound Proof Windows",
+      "href": "soundproofwindow.html",
+      "items": [
+        ["Sliding Windows", "sliding-windows.html"],
+        ["Openable Windows", "openable-windows.html"],
+        ["Top Hung Windows", "top-hung-windows.html"],
+        ["Tilt & Turn Windows", "tilt-n-turn-windows.html"]
+      ]
+    },
+    {
+      "title": "Sound Proof Partitions",
+      "href": "sound-proof-partitions.html",
+      "items": [
+        ["Sound Proof Fixed Partition", "sound-proof-fixed-partition.html"],
+        ["Sound Proof Movable Partition", "sound-proof-movable-partition.html"]
+      ]
+    },
+    {
+      "title": "Automation Systems",
+      "href": "motorized-sliding-system.html",
+      "items": [
+        ["Sound Proof Doors", "soundproofdoors.html"],
+        ["Motorized Sound Proof Windows", "motorized-sound-proof-sliding-windows.html"],
+        ["Motorized Sliding Gate", "motorized-sliding-gate.html"],
+        ["Motorized Telescopic Gate", "motorized-telescopic-gate.html"],
+        ["Barrier System", "barrier-system.html"]
+      ]
+    },
+    {
+      "title": "Roof & Vertical Systems",
+      "href": "motorized-roof-sliding-system.html",
+      "items": [
+        ["Stainless Steel Frame", "stainless-steel-frame.html"],
+        ["Aluminium Frame", "aluminium-frame.html"],
+        ["Vertical Sliding Windows", "vertical-sliding-windows.html"],
+        ["Manual Vertical Sliding Window", "manual-vertical-sliding-window.html"],
+        ["Motorized Vertical Sliding Window", "motorized-vertical-sliding-window.html"]
+      ]
+    }
+  ],
+  "productPages": [
+    {
+      "slug": "soundproofwindow",
+      "source": "soundproofwindow.php",
+      "title": "Sound Proof Windows",
+      "category": "Sound Proof Windows",
+      "summary": "A complete range of sound proof window systems from Kiran Slido Craft, including sliding, openable, top hung and tilt & turn designs.",
+      "images": ["sliding-windows/1.jpg", "sliding-windows/2.jpg", "sliding-windows/3.jpg", "sliding-windows/4.jpg", "sliding-windows/technical-details.jpg", "sliding-windows/btu-loss.jpg"],
+      "specs": ["Sliding, openable, top hung and tilt & turn formats", "Designed for sound reduction and smooth operation", "Custom aluminium systems for residences, offices and commercial spaces"],
+      "applications": ["Residential applications", "Commercial centers", "Industrial establishments", "Multiplexes", "Malls", "Theaters", "Conference halls"],
+      "related": ["sliding-windows", "openable-windows", "top-hung-windows", "tilt-n-turn-windows"]
+    },
+    {
+      "slug": "sliding-windows",
+      "source": "sliding-windows.php",
+      "title": "Sliding Windows",
+      "category": "Sound Proof Windows",
+      "summary": "Sliding windows feature two or more horizontal sashes fitted with rollers at the bottom for swift sideways movement on tracks, air circulation and panoramic views.",
+      "images": ["sliding-windows/item1.jpg", "sliding-windows/item2.jpg", "sliding-windows/item3.jpg", "sliding-windows/item4.jpg", "sliding-windows/technical-details.jpg", "sliding-windows/btu-loss.jpg"],
+      "specs": ["Aluminum extrusion", "Insulated glass", "Insulation materials", "Can block sound up to STC 30db to 52db"],
+      "applications": ["Residential applications", "Commercial centers", "Industrial establishments", "Multiplexes", "Malls", "Theaters", "Conference halls"],
+      "specialties": ["Heavy duty", "Long life", "Made as per international standards", "Easy to install, maintain and operate", "Controls sound up to high decibel levels", "Complete customization option", "Colour type: anodized and PP colour", "Colour option as per client requirement"],
+      "related": ["openable-windows", "top-hung-windows", "tilt-n-turn-windows"]
+    },
+    {
+      "slug": "openable-windows",
+      "source": "openable-windows.php",
+      "title": "Openable Windows",
+      "category": "Sound Proof Windows",
+      "summary": "Openable windows combine style, substance, sealing and security, built to enjoy surroundings while keeping quality and elegance in each customized order.",
+      "images": ["sliding-windows/item-a1.jpg", "sliding-windows/item-a2.jpg", "sliding-windows/item-a3.jpg", "sliding-windows/item-a4.jpg", "sliding-windows/technical-details.jpg"],
+      "specs": ["Aluminum extrusion", "Insulated glass", "Insulation materials", "Customized sound-resistant construction"],
+      "applications": ["Residential applications", "Commercial centers", "Conference rooms", "Hotels", "Offices"],
+      "specialties": ["Sealing and security focused", "Custom sizing", "Durable product build", "Sound reduction design"],
+      "related": ["sliding-windows", "top-hung-windows", "tilt-n-turn-windows"]
+    },
+    {
+      "slug": "top-hung-windows",
+      "source": "top-hung-windows.php",
+      "title": "Top Hung Windows",
+      "category": "Sound Proof Windows",
+      "summary": "Top hung windows are practical, visually appealing and weather sealed, helping eliminate draughts while maintaining product quality and durability.",
+      "images": ["sliding-windows/item-b1.jpg", "sliding-windows/item-b2.jpg", "sliding-windows/item-b3.jpg", "sliding-windows/item-b4.jpg", "sliding-windows/technical-details.jpg"],
+      "specs": ["Top hung opening format", "Weather sealed design", "Insulated glass and aluminium profiles"],
+      "applications": ["Homes", "Commercial centers", "Offices", "Hospitality spaces"],
+      "specialties": ["Weather sealed", "Durable and practical", "Visual appeal", "Custom build"],
+      "related": ["sliding-windows", "openable-windows", "tilt-n-turn-windows"]
+    },
+    {
+      "slug": "tilt-n-turn-windows",
+      "source": "tilt-n-turn-windows.php",
+      "title": "Tilt & Turn Windows",
+      "category": "Sound Proof Windows",
+      "summary": "Tilt & turn windows provide controlled ventilation, access and sound resistance in a refined aluminium window format.",
+      "images": ["sliding-windows/item-c1.jpg", "sliding-windows/item-c2.jpg", "sliding-windows/item-c3.jpg", "sliding-windows/item-c4.jpg", "sliding-windows/technical-details.jpg"],
+      "specs": ["Dual-function opening", "Aluminum extrusion", "Insulated glass", "Insulation materials"],
+      "applications": ["Residences", "Commercial spaces", "Offices", "Noise-sensitive rooms"],
+      "specialties": ["Ventilation control", "Easy operation", "Sound resistant design", "Custom finish options"],
+      "related": ["sliding-windows", "openable-windows", "top-hung-windows"]
+    },
+    {
+      "slug": "sound-proof-partitions",
+      "source": "sound-proof-partitions.php",
+      "title": "Sound Proof Partitions",
+      "category": "Partitions",
+      "summary": "Sound proof partition systems for acoustic privacy and flexible space division, including fixed and movable formats.",
+      "images": ["partition/1.jpg", "partition/2.jpg", "partition/item-a1.jpg", "partition/item-b1.jpg"],
+      "specs": ["Fixed and movable acoustic partition options", "Custom sizing and finish", "Suitable for institutional and office spaces"],
+      "applications": ["Offices", "Conference halls", "Hotels", "Studios", "Institutional spaces"],
+      "related": ["sound-proof-fixed-partition", "sound-proof-movable-partition"]
+    },
+    {
+      "slug": "sound-proof-fixed-partition",
+      "source": "sound-proof-fixed-partition.php",
+      "title": "Sound Proof Fixed Partitions",
+      "category": "Partitions",
+      "summary": "Fixed acoustic partitions for spaces that need permanent sound control and clean separation.",
+      "images": ["partition/item-a1.jpg", "partition/item-a2.jpg", "partition/item-a3.jpg", "partition/item-a4.jpg"],
+      "specs": ["Fixed acoustic build", "Custom frame and panel construction", "Designed for sound-sensitive zones"],
+      "applications": ["Offices", "Studios", "Meeting rooms", "Hotels", "Institutions"],
+      "specialties": ["Permanent acoustic separation", "Project-specific dimensions", "Low maintenance"],
+      "related": ["sound-proof-partitions", "sound-proof-movable-partition"]
+    },
+    {
+      "slug": "sound-proof-movable-partition",
+      "source": "sound-proof-movable-partition.php",
+      "title": "Sound Proof Movable Partitions",
+      "category": "Partitions",
+      "summary": "Movable acoustic partitions for flexible rooms, conference halls and multipurpose interiors that need privacy and reconfigurable layouts.",
+      "images": ["partition/item-b1.jpg", "partition/item-b2.jpg", "partition/item-b3.jpg", "partition/item-b4.jpg"],
+      "specs": ["Movable partition system", "Custom paneling and track solutions", "Designed for acoustic flexibility"],
+      "applications": ["Conference halls", "Hotels", "Training rooms", "Offices", "Multipurpose spaces"],
+      "specialties": ["Flexible space division", "Sound control", "Custom finish options"],
+      "related": ["sound-proof-partitions", "sound-proof-fixed-partition"]
+    },
+    {
+      "slug": "soundproofdoors",
+      "source": "soundproofdoors.php",
+      "title": "Sound Proof Doors",
+      "category": "Doors",
+      "summary": "Sound proof doors are engineered for controlled sound transmission, durable use and project-specific installation conditions.",
+      "images": ["sliding-doors/item-a1.jpg", "sliding-doors/item-a2.jpg", "sliding-doors/item-a3.jpg"],
+      "specs": ["Aluminium and engineered frame construction", "Acoustic sealing", "Custom size and finish options"],
+      "applications": ["Studios", "Offices", "Commercial interiors", "Hotels", "Theaters"],
+      "specialties": ["Controls sound up to high levels", "Heavy duty operation", "Custom installation"],
+      "related": ["soundproofwindow", "sound-proof-partitions"]
+    },
+    {
+      "slug": "motorized-sound-proof-sliding-windows",
+      "source": "motorized-sound-proof-sliding-windows.php",
+      "title": "Motorized Sound Proof - Sliding Windows",
+      "category": "Motorized Systems",
+      "summary": "Motorized sound proof sliding windows combine automated movement with acoustic performance for premium residential and commercial projects.",
+      "images": ["motorized-sliding-windows/item-a1.jpg", "motorized-sliding-windows/item-a2.jpg", "motorized-sliding-windows/item-a3.jpg", "motorized-sliding-windows/item-a4.jpg"],
+      "specs": ["Motorized sliding operation", "Sound-resistant window construction", "Custom aluminium and glass configuration"],
+      "applications": ["Premium residences", "Offices", "Hotels", "Studios", "Commercial centers"],
+      "specialties": ["Automation-ready", "Quiet operation", "Custom dimensions", "Sound reduction"],
+      "related": ["motorized-sliding-system", "sliding-windows"]
+    },
+    {
+      "slug": "motorized-sliding-system",
+      "source": "motorized-sliding-system.php",
+      "title": "Motorized Sliding Systems",
+      "category": "Motorized Systems",
+      "summary": "Motorized sliding systems from Kiran Slido Craft cover sliding gates and telescopic systems for automated access and movement.",
+      "images": ["motorized-sliding-system/1.jpg", "motorized-sliding-system/2.jpg", "motorized-sliding-system/item-a1.jpg", "motorized-sliding-system/item-b1.jpg"],
+      "specs": ["Motorized sliding operation", "Custom automation components", "Designed for site-specific access control"],
+      "applications": ["Residential projects", "Commercial properties", "Industrial establishments", "Institutional campuses"],
+      "related": ["motorized-sliding-gate", "motorized-telescopic-gate"]
+    },
+    {
+      "slug": "motorized-sliding-gate",
+      "source": "motorized-sliding-gate.php",
+      "title": "Motorized Sliding Gate",
+      "category": "Motorized Systems",
+      "summary": "Motorized sliding gates provide automated movement for secure entrances and project-specific access requirements.",
+      "images": ["motorized-sliding-system/item-a1.jpg"],
+      "specs": ["Automated sliding gate movement", "Custom fabrication", "Durable frame and drive selection"],
+      "applications": ["Residential entrances", "Commercial centers", "Industrial establishments", "Institutional properties"],
+      "specialties": ["Heavy duty", "Custom size", "Automation ready"],
+      "related": ["motorized-sliding-system", "motorized-telescopic-gate"]
+    },
+    {
+      "slug": "motorized-telescopic-gate",
+      "source": "motorized-telescopic-gate.php",
+      "title": "Motorized Telescopic Gate",
+      "category": "Motorized Systems",
+      "summary": "Motorized telescopic gates are useful where opening width, movement control and compact parking of panels are critical.",
+      "images": ["motorized-sliding-system/item-b1.jpg"],
+      "specs": ["Telescopic automated movement", "Multiple sliding leaves", "Custom drive and frame configuration"],
+      "applications": ["Large residential entrances", "Commercial premises", "Industrial gates", "Restricted access areas"],
+      "specialties": ["Space efficient opening", "Custom engineered", "Reliable automated movement"],
+      "related": ["motorized-sliding-system", "motorized-sliding-gate"]
+    },
+    {
+      "slug": "motorized-roof-sliding-system",
+      "source": "motorized-roof-sliding-system.php",
+      "title": "Motorized Roof Sliding Systems",
+      "category": "Roof Systems",
+      "summary": "Motorized roof sliding systems create openable roof coverage for terraces, patios and specialized project spaces.",
+      "images": ["roof-sliding-system/1.jpg", "roof-sliding-system/2.jpg", "roof-sliding-system/item-a1.jpg", "roof-sliding-system/item-b1.jpg"],
+      "specs": ["Motorized roof movement", "SS frame and aluminium frame options", "Custom project engineering"],
+      "applications": ["Terraces", "Bungalows", "Hotels", "Restaurants", "Premium outdoor areas"],
+      "related": ["stainless-steel-frame", "aluminium-frame"]
+    },
+    {
+      "slug": "stainless-steel-frame",
+      "source": "stainless-steel-frame.php",
+      "title": "SS Frame Roof Sliding System",
+      "category": "Roof Systems",
+      "summary": "Stainless steel frame roof sliding systems provide robust structure for motorized roof applications.",
+      "images": ["roof-sliding-system/item-a1.jpg", "roof-sliding-system/item-a2.jpg", "roof-sliding-system/item-a3.jpg", "roof-sliding-system/item-a4.jpg"],
+      "specs": ["Stainless steel frame", "Motorized roof-compatible design", "Custom fabrication"],
+      "applications": ["Premium residences", "Hotels", "Restaurants", "Terraces", "Commercial outdoor areas"],
+      "specialties": ["Strong frame construction", "Long life", "Weather-facing application"],
+      "related": ["motorized-roof-sliding-system", "aluminium-frame"]
+    },
+    {
+      "slug": "aluminium-frame",
+      "source": "aluminium-frame.php",
+      "title": "Aluminium Frame Roof Sliding System",
+      "category": "Roof Systems",
+      "summary": "Aluminium frame roof sliding systems are lightweight, clean and customizable for openable roof projects.",
+      "images": ["roof-sliding-system/item-b1.jpg", "roof-sliding-system/item-b2.jpg", "roof-sliding-system/item-b3.jpg", "roof-sliding-system/item-b4.jpg"],
+      "specs": ["Aluminium frame construction", "Motorized roof-compatible", "Custom finish options"],
+      "applications": ["Terraces", "Bungalows", "Hotels", "Commercial outdoor spaces"],
+      "specialties": ["Lightweight frame", "Custom colour options", "Clean architectural finish"],
+      "related": ["motorized-roof-sliding-system", "stainless-steel-frame"]
+    },
+    {
+      "slug": "barrier-system",
+      "source": "barrier-system.php",
+      "title": "Barrier Systems",
+      "category": "Barrier Systems",
+      "summary": "Barrier systems for controlled movement, safety and access management in residential, commercial and institutional spaces.",
+      "images": ["barrier-systems/item-a1.jpg", "barrier-systems/item-a2.jpg", "barrier-systems/item-a3.jpg"],
+      "specs": ["Access barrier configuration", "Custom installation", "Automation-compatible system design"],
+      "applications": ["Residential complexes", "Commercial centers", "Industrial areas", "Institutions"],
+      "specialties": ["Controlled access", "Durable operation", "Custom project fit"],
+      "related": ["motorized-sliding-system", "motorized-sliding-gate"]
+    },
+    {
+      "slug": "vertical-sliding-windows",
+      "source": "vertical-sliding-windows.php",
+      "title": "Vertical Sliding Windows",
+      "category": "Vertical Windows",
+      "summary": "Vertical sliding windows include manual and motorized versions for sash-style movement and project-specific openings.",
+      "images": ["vertical-windows/1.jpg", "vertical-windows/2.jpg", "vertical-windows/item-a1.jpg", "vertical-windows/item-b1.jpg"],
+      "specs": ["Vertical sash movement", "Manual and motorized options", "Custom aluminium system"],
+      "applications": ["Residences", "Hotels", "Offices", "Specialty openings"],
+      "related": ["manual-vertical-sliding-window", "motorized-vertical-sliding-window"]
+    },
+    {
+      "slug": "manual-vertical-sliding-window",
+      "source": "manual-vertical-sliding-window.php",
+      "title": "Manual Vertical Sliding Windows",
+      "category": "Vertical Windows",
+      "summary": "Manual vertical sliding windows provide sash-style movement without motorized drive components.",
+      "images": ["vertical-windows/item-a1.jpg", "vertical-windows/item-a2.jpg", "vertical-windows/item-a3.jpg"],
+      "specs": ["Manual vertical sliding operation", "Custom aluminium profile", "Project-specific sizing"],
+      "applications": ["Residences", "Offices", "Hotels", "Specialty window openings"],
+      "specialties": ["Manual control", "Custom dimensions", "Low maintenance"],
+      "related": ["vertical-sliding-windows", "motorized-vertical-sliding-window"]
+    },
+    {
+      "slug": "motorized-vertical-sliding-window",
+      "source": "motorized-vertical-sliding-window.php",
+      "title": "Motorized Vertical Sliding Windows",
+      "category": "Vertical Windows",
+      "summary": "Motorized vertical sliding windows add automated movement to vertical sash-style systems for premium and specialty applications.",
+      "images": ["vertical-windows/item-b1.jpg", "vertical-windows/item-b2.jpg", "vertical-windows/item-b3.jpg", "vertical-windows/item-b4.jpg"],
+      "specs": ["Motorized vertical sliding operation", "Custom drive and frame configuration", "Project-specific installation"],
+      "applications": ["Premium residences", "Hotels", "Offices", "Restaurants", "Specialty openings"],
+      "specialties": ["Automated sash movement", "Custom engineered", "Smooth operation"],
+      "related": ["vertical-sliding-windows", "manual-vertical-sliding-window"]
+    }
+  ],
+  "clients": [
+    "clients/tatapower.jpg",
+    "clients/saharastar.jpg",
+    "clients/mahindra4.jpg",
+    "clients/indianoil.jpg",
+    "clients/cadbury.jpg",
+    "clients/billimoria.jpg",
+    "clients/bpcl.jpg"
+  ],
+  "certifications": [
+    "certifications/3.jpg",
+    "certifications/1.jpg",
+    "certifications/2.jpg"
+  ],
+  "gallery": [
+    "clients/1-sm.jpeg",
+    "clients/2-sm.jpg",
+    "clients/3-sm.jpg",
+    "img/media/video.jpg"
+  ]
+}

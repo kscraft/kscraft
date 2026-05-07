@@ -15,6 +15,21 @@ export default observer(function Home() {
   const { catalogStore } = useStore();
   const featured = catalogStore.getFeaturedProducts();
 
+  if (!catalogStore.isLoaded) {
+    return (
+      <>
+        <Header />
+        <main className="flex-1 flex items-center justify-center min-h-[60vh]">
+          <div className="flex flex-col items-center gap-4">
+            <div className="h-8 w-8 animate-spin rounded-full border-4 border-blue-600 border-t-transparent" />
+            <p className="text-xs font-black uppercase tracking-widest text-slate-400">Loading Catalog...</p>
+          </div>
+        </main>
+        <Footer />
+      </>
+    );
+  }
+
   return (
     <>
       <Header />

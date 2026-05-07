@@ -1,3 +1,5 @@
+import { Play, Image as ImageIcon, ArrowRight } from 'lucide-react';
+
 const galleryItems = [
   ['Crew Entry Mechanism for Gaganyaan', 'https://kiranslidocraft.com/clients/1-sm.jpeg'],
   ['Hilton Hotel Bengaluru', 'https://kiranslidocraft.com/clients/2-sm.jpg'],
@@ -19,59 +21,99 @@ const videos = [
 
 export default function MediaPage() {
   return (
-    <div className="pb-16">
-      <header className="border-b border-slate-200 bg-white px-6 pb-14 pt-24 lg:px-12 lg:pt-28">
-        <p className="text-xs font-black uppercase tracking-widest text-blue-700">/ Media</p>
-        <h1 className="mt-6 max-w-4xl text-4xl font-black leading-tight tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">
-          Media gallery, product videos and testimonials
-        </h1>
-        <p className="mt-6 max-w-3xl text-xl leading-8 text-slate-600">
-          Coverage for the source media gallery, `.co.in` product videos and testimonials sections.
-        </p>
+    <div className="flex flex-col min-h-screen bg-white">
+      {/* Hero Header */}
+      <header className="relative py-24 lg:py-40 bg-slate-900 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=2000" 
+            alt="Media" 
+            className="w-full h-full object-cover opacity-20"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-950/80 to-slate-950/40"></div>
+        </div>
+
+        <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-12 text-center lg:text-left">
+          <h1 className="text-5xl lg:text-8xl font-black text-white tracking-tight leading-none mb-8 uppercase">
+            Media <span className="text-blue-500">Center.</span>
+          </h1>
+          <p className="max-w-2xl text-xl lg:text-2xl text-slate-300 leading-relaxed mx-auto lg:mx-0">
+            A visual documentation of our engineering projects, product capabilities, and technical demonstrations.
+          </p>
+        </div>
       </header>
 
-      <section className="px-6 py-16 lg:px-12">
-        <div className="mb-8">
-          <p className="text-xs font-black uppercase tracking-widest text-slate-400">Gallery</p>
-          <h2 className="mt-2 text-3xl font-black tracking-tight text-slate-950">Project and product visuals</h2>
+      {/* Video Catalog */}
+      <section className="py-24 bg-slate-900 text-white">
+        <div className="mx-auto max-w-7xl px-6 lg:px-12">
+          <div className="mb-16">
+            <h2 className="text-3xl lg:text-5xl font-black tracking-tight uppercase mb-4 flex items-center gap-4">
+              <Play className="w-10 h-10 text-blue-500" /> System Demonstrations
+            </h2>
+            <p className="text-lg text-slate-400 max-w-2xl leading-relaxed">
+              Experience our automated movement and acoustic isolation systems in action through our curated video catalog.
+            </p>
+          </div>
+          
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {videos.map(([title, id]) => (
+              <a 
+                key={id} 
+                href={`https://www.youtube.com/watch?v=${id}`} 
+                target="_blank" 
+                rel="noreferrer" 
+                className="group block relative overflow-hidden rounded-[2.5rem] bg-white/5 border border-white/10 transition-all hover:border-blue-500/50 hover:bg-white/10"
+              >
+                <div className="relative aspect-video overflow-hidden">
+                  <img 
+                    src={`https://img.youtube.com/vi/${id}/maxresdefault.jpg`} 
+                    alt={title} 
+                    className="w-full h-full object-cover transition duration-700 group-hover:scale-110" 
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center bg-slate-900/40 group-hover:bg-slate-900/20 transition-colors">
+                    <div className="w-16 h-16 rounded-full bg-blue-600 flex items-center justify-center shadow-2xl transition-transform group-hover:scale-110">
+                      <Play className="w-6 h-6 text-white fill-current" />
+                    </div>
+                  </div>
+                </div>
+                <div className="p-8">
+                  <h3 className="text-xl font-black mb-4 tracking-tight group-hover:text-blue-400 transition-colors uppercase">{title}</h3>
+                  <div className="flex items-center gap-2 text-[10px] font-black text-blue-500 uppercase tracking-widest">
+                    Watch on YouTube <ArrowRight className="w-3 h-3" />
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
         </div>
-        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+      </section>
+
+      {/* Image Gallery */}
+      <section className="py-24 mx-auto max-w-7xl px-6 lg:px-12">
+        <div className="mb-16">
+          <h2 className="text-3xl lg:text-5xl font-black text-slate-900 tracking-tight uppercase mb-4 flex items-center gap-4">
+            <ImageIcon className="w-10 h-10 text-blue-600" /> Project Visuals
+          </h2>
+          <p className="text-lg text-slate-600 max-w-2xl leading-relaxed">
+            High-resolution documentation of our installations across diverse industrial and architectural sectors.
+          </p>
+        </div>
+
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           {galleryItems.map(([title, image]) => (
-            <article key={title} className="overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm">
-              <img src={image} alt={title} className="aspect-[4/3] w-full object-cover" />
-              <div className="p-5">
-                <h3 className="break-words text-lg font-black tracking-tight text-slate-950 [overflow-wrap:anywhere]">{title}</h3>
+            <article key={title} className="group overflow-hidden rounded-[2rem] bg-white border border-slate-100 shadow-sm hover:shadow-2xl transition-all">
+              <div className="aspect-[4/3] overflow-hidden">
+                <img 
+                  src={image} 
+                  alt={title} 
+                  className="w-full h-full object-cover transition duration-700 group-hover:scale-110" 
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-sm font-black text-slate-900 tracking-tight uppercase">{title}</h3>
               </div>
             </article>
           ))}
-        </div>
-      </section>
-
-      <section className="bg-slate-950 px-6 py-16 text-white lg:px-12">
-        <div className="mb-8">
-          <p className="text-xs font-black uppercase tracking-widest text-blue-300">Product Videos</p>
-          <h2 className="mt-2 text-3xl font-black tracking-tight">Source video catalog</h2>
-        </div>
-        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-          {videos.map(([title, id]) => (
-            <a key={id} href={`https://www.youtube.com/watch?v=${id}`} target="_blank" rel="noreferrer" className="group overflow-hidden rounded-lg border border-slate-800 bg-white/5 transition hover:border-blue-400 hover:bg-white/10">
-              <img src={`https://img.youtube.com/vi/${id}/hqdefault.jpg`} alt={title} className="aspect-video w-full object-cover" />
-              <div className="p-5">
-                <h3 className="font-black text-white">{title}</h3>
-                <p className="mt-2 text-sm font-semibold text-blue-300">Open video /</p>
-              </div>
-            </a>
-          ))}
-        </div>
-      </section>
-
-      <section className="px-6 py-16 lg:px-12">
-        <div className="rounded-lg border border-slate-200 bg-white p-8 shadow-sm">
-          <p className="text-xs font-black uppercase tracking-widest text-slate-400">Testimonials</p>
-          <h2 className="mt-2 text-3xl font-black tracking-tight text-slate-950">Ratings & Reviews</h2>
-          <p className="mt-4 max-w-3xl leading-7 text-slate-600">
-            The `.co.in` site includes testimonials and ratings pages. This section preserves that surface and keeps the call-to-action close to the modern enquiry flow.
-          </p>
         </div>
       </section>
     </div>

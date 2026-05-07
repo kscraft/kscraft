@@ -8,8 +8,8 @@ export default function Footer() {
         <div className="grid gap-16 lg:grid-cols-[1.5fr_1fr_1fr_1fr]">
           <div className="flex flex-col">
             <Link href="/" className="inline-flex items-center gap-3 mb-8">
-              <div className="bg-white p-1 rounded-lg">
-                <img src="/logo-ksc.svg" alt="Kiran Slido Craft logo" className="h-10 w-10" />
+              <div className="bg-white p-1.5 rounded-lg">
+                <img src="/logo-ksc.png" alt="Kiran Slido Craft logo" className="h-12 w-auto" />
               </div>
               <span className="text-2xl font-black tracking-tighter">KIRAN SLIDO CRAFT</span>
             </Link>

@@ -44,8 +44,8 @@ const Header = () => {
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-12 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-3 group">
-          <div className="bg-white p-1 rounded-lg shadow-sm border border-slate-100 transition-transform group-hover:scale-105">
-            <img src="/logo-ksc.svg" alt="Kiran Slido Craft" className="h-8 w-8" />
+          <div className="bg-white p-1.5 rounded-lg shadow-sm border border-slate-100 transition-transform group-hover:scale-105">
+            <img src="/logo-ksc.png" alt="Kiran Slido Craft" className="h-10 w-auto" />
           </div>
           <div className="flex flex-col">
             <span className={cn(

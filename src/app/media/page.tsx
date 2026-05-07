@@ -1,14 +1,14 @@
 import { Play, Image as ImageIcon, ArrowRight } from 'lucide-react';
 
 const galleryItems = [
-  ['Crew Entry Mechanism for Gaganyaan', 'https://kiranslidocraft.com/clients/1-sm.jpeg'],
-  ['Hilton Hotel Bengaluru', 'https://kiranslidocraft.com/clients/2-sm.jpg'],
-  ['VJ Villa Pune', 'https://kiranslidocraft.com/clients/3-sm.jpg'],
-  ['Motorized Sound Proof Window', 'https://2.wlimg.com/product_images/bc-full/dir_2/30319/motorized-soundproof-sliding-windows-2361568.jpeg'],
-  ['Motorized Vertical Sliding Window', 'https://2.wlimg.com/product_images/bc-full/2022/5/30319/motorized-vertical-sliding-window-1652348868-6325095.jpeg'],
-  ['Movable Acoustic Sliding Folding Partition', 'https://2.wlimg.com/product_images/bc-500/2022/5/30319/sound-proof-acoustic-movable-partition-1651817003-6325134.jpeg'],
-  ['Motorized Telescopic Gate', 'https://2.wlimg.com/product_images/bc-full/dir_2/30319/motorized-telescopic-gates-2375019.jpeg'],
-  ['Motorized Roof Sliding System', 'https://2.wlimg.com/product_images/bc-full/dir_2/30319/motorized-roof-sliding-system-2375020.jpeg'],
+  ['Crew Entry Mechanism for Gaganyaan', '/images/media/project-1.jpg'],
+  ['Hilton Hotel Bengaluru', '/images/media/project-2.jpg'],
+  ['VJ Villa Pune', '/images/media/project-3.jpg'],
+  ['Motorized Sound Proof Window', '/images/media/soundproof-sliding-windows.jpg'],
+  ['Motorized Vertical Sliding Window', '/images/media/vertical-sliding-window.jpg'],
+  ['Movable Acoustic Sliding Folding Partition', '/images/media/movable-partition.jpg'],
+  ['Motorized Telescopic Gate', '/images/media/telescopic-gate.jpg'],
+  ['Motorized Roof Sliding System', '/images/media/roof-sliding-system.jpg'],
 ];
 
 const videos = [
@@ -26,7 +26,7 @@ export default function MediaPage() {
       <header className="relative py-24 lg:py-40 bg-slate-900 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=2000" 
+            src="/images/hero/modern-architecture.jpg" 
             alt="Media" 
             className="w-full h-full object-cover opacity-20"
           />

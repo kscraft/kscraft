@@ -15,7 +15,7 @@ export default function Home() {
       <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-slate-900">
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=2000" 
+            src="/images/hero/modern-architecture.jpg" 
             alt="Modern Architecture" 
             className="w-full h-full object-cover opacity-40"
           />

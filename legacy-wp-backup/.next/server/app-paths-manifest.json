@@ -1,0 +1,13 @@
+{
+  "/[slug]/page": "app/[slug]/page.js",
+  "/_global-error/page": "app/_global-error/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/certifications/page": "app/certifications/page.js",
+  "/clients/page": "app/clients/page.js",
+  "/company/page": "app/company/page.js",
+  "/contact/page": "app/contact/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/media-gallery/page": "app/media-gallery/page.js",
+  "/page": "app/page.js",
+  "/services/page": "app/services/page.js"
+}

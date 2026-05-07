@@ -1,0 +1,50 @@
+
+---Upload files---
+Content file was not uploaded. Error: 
+
+---Upload files---
+Customizer file was not uploaded. Error: Specified file failed upload test.
+
+---Upload files---
+Redux file was not uploaded. Error: Specified file failed upload test.
+
+---Upload files---
+The import files were successfully uploaded!
+Initial max execution time = 120
+Files info:
+Site URL = http://www.iknowledgesolution.com/work/kiranslidocraft
+Data file = not defined!
+Widget file = /home/u650643970/domains/iknowledgesolution.com/public_html/work/kiranslidocraft/wp-content/uploads/2020/05/291-footer.json
+Customizer file = not defined!
+Redux files:
+not defined!
+
+---Importing widgets---
+version : Sidebar does not exist in theme (moving widget to Inactive)
+
+
+title : Sidebar does not exist in theme (moving widget to Inactive)
+
+
+type : Sidebar does not exist in theme (moving widget to Inactive)
+
+
+content : Sidebar does not exist in theme (moving widget to Inactive)
+
+0 - No Title - Site does not support widget
+1 - No Title - Site does not support widget
+
+page_settings : Sidebar does not exist in theme (moving widget to Inactive)
+
+header_layout_type - No Title - Site does not support widget
+header_text_color - No Title - Site does not support widget
+header_position - No Title - Site does not support widget
+footer_layout_type - No Title - Site does not support widget
+
+
+
+---pt-ocdi/after_import---
+
+
+---End---
+Time elapsed to import - 00:00:01 .

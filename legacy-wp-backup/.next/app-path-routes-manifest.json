@@ -1,0 +1,13 @@
+{
+  "/[slug]/page": "/[slug]",
+  "/_global-error/page": "/_global-error",
+  "/_not-found/page": "/_not-found",
+  "/certifications/page": "/certifications",
+  "/clients/page": "/clients",
+  "/company/page": "/company",
+  "/contact/page": "/contact",
+  "/favicon.ico/route": "/favicon.ico",
+  "/media-gallery/page": "/media-gallery",
+  "/page": "/",
+  "/services/page": "/services"
+}

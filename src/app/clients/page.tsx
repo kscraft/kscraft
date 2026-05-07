@@ -18,13 +18,13 @@ const projectHighlights = [
 ];
 
 const clientLogos = [
-  ['Tata Power', 'https://kiranslidocraft.com/clients/tatapower.jpg'],
-  ['Sahara Star', 'https://kiranslidocraft.com/clients/saharastar.jpg'],
-  ['Mahindra', 'https://kiranslidocraft.com/clients/mahindra4.jpg'],
-  ['Indian Oil', 'https://kiranslidocraft.com/clients/indianoil.jpg'],
-  ['Cadbury', 'https://kiranslidocraft.com/clients/cadbury.jpg'],
-  ['BPCL', 'https://kiranslidocraft.com/clients/bpcl.jpg'],
-  ['Billimoria', 'https://kiranslidocraft.com/clients/billimoria.jpg'],
+  ['Tata Power', '/images/clients/tatapower.jpg'],
+  ['Sahara Star', '/images/clients/saharastar.jpg'],
+  ['Mahindra', '/images/clients/mahindra4.jpg'],
+  ['Indian Oil', '/images/clients/indianoil.jpg'],
+  ['Cadbury', '/images/clients/cadbury.jpg'],
+  ['BPCL', '/images/clients/bpcl.jpg'],
+  ['Billimoria', '/images/clients/billimoria.jpg'],
 ];
 
 function getInitials(name: string) {
@@ -44,7 +44,7 @@ export default function ClientsPage() {
       <header className="relative py-24 lg:py-40 bg-slate-900 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=2000" 
+            src="/images/hero/modern-architecture.jpg" 
             alt="Clients" 
             className="w-full h-full object-cover opacity-20"
           />

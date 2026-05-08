@@ -1,10 +1,10 @@
 'use client';
 
 import Link from 'next/link';
-import { ArrowRight, ChevronRight, Wind, Shield, Zap, Maximize, Layers } from 'lucide-react';
+import { ArrowRight, Building2, ChevronRight, Gauge, Layers, Maximize, Shield, Sparkles, Wind, Zap } from 'lucide-react';
 import { motion } from 'framer-motion';
 import ProductCard from '@/components/ProductCard';
-import { catalog, categories, getFeaturedProducts, home } from '@/lib/catalog';
+import { catalog, categories, getFeaturedProducts, getProductsByCategory, home, products, projects } from '@/lib/catalog';
 import { cn } from '@/lib/utils';
 
 const categoryIcons: Record<string, any> = {
@@ -17,112 +17,178 @@ const categoryIcons: Record<string, any> = {
 
 export default function Home() {
   const featuredProducts = getFeaturedProducts(6);
+  const heroMetrics = [
+    { label: 'Since', value: String(catalog.company.founded) },
+    { label: 'Certified', value: 'ISO 9001' },
+    { label: 'Systems', value: `${products.length} catalogued` },
+  ];
+  const trustSignals = [
+    { icon: Shield, title: 'Acoustic Control', detail: 'Soundproof windows, doors, and partitions for demanding environments.' },
+    { icon: Gauge, title: 'Motorized Movement', detail: 'Sliding roofs, gates, barriers, and vertical systems engineered for daily use.' },
+    { icon: Building2, title: 'Project Ready', detail: 'Specification-led support for villas, hotels, institutions, and industrial sites.' },
+  ];
 
   return (
-    <div className="flex flex-col min-h-screen bg-white">
-      {/* Primary Hero Spotlight - Product First */}
-      <section className="relative pt-32 lg:pt-48 pb-0 px-6 bg-white overflow-hidden flex flex-col items-center">
-        <div className="max-w-5xl mx-auto text-center z-10 mb-16 lg:mb-24">
+    <div className="flex min-h-screen flex-col bg-white">
+      {/* Product-led Hero */}
+      <section className="relative isolate flex min-h-[86svh] items-end overflow-hidden bg-slate-950 px-6 pb-10 pt-28 text-white">
+        <img
+          src={home.hero.image}
+          alt={home.hero.title}
+          className="absolute inset-0 -z-20 h-full w-full object-cover opacity-70"
+        />
+        <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(2,6,23,0.92)_0%,rgba(15,23,42,0.72)_42%,rgba(15,23,42,0.22)_100%)]" />
+        <div className="absolute inset-x-0 top-0 -z-10 h-40 bg-gradient-to-b from-white/90 via-white/45 to-transparent" />
+
+        <div className="mx-auto grid w-full max-w-[1320px] gap-10 lg:grid-cols-[minmax(0,0.98fr)_minmax(360px,0.62fr)] lg:items-end">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
+            className="max-w-4xl"
           >
-            <p className="text-[12px] font-bold text-blue-600 uppercase tracking-[0.4em] mb-6">
-              Industrial Spotlight
+            <p className="mb-5 text-sm font-semibold uppercase text-blue-200">
+              {catalog.company.tagline}
             </p>
-            <h1 className="text-5xl md:text-7xl lg:text-[7.5rem] font-bold tracking-tighter text-black mb-10 leading-[0.9]">
-              {home.hero.highlight} <br /> 
-              <span className="text-zinc-400">{home.hero.subhighlight}</span>
+            <h1 className="max-w-4xl text-5xl font-semibold leading-none text-white md:text-7xl lg:text-8xl">
+              Kiran Slido Craft
             </h1>
-            <p className="text-xl md:text-2xl text-slate-500 font-medium mb-12 max-w-2xl mx-auto leading-relaxed">
-              {home.hero.description}
+            <p className="mt-8 max-w-2xl text-lg font-medium leading-8 text-slate-200 md:text-2xl md:leading-9">
+              Precision acoustic and architectural automation systems for spaces where silence, movement, and reliability must work together.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-10">
-              <Link href={home.hero.cta.href} className="apple-button text-lg px-12 py-5 shadow-2xl shadow-blue-600/20">
-                Explore the System
+            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+              <Link href={home.hero.cta.href} className="inline-flex min-h-12 items-center justify-center rounded-full bg-white px-7 text-sm font-semibold text-slate-950 transition hover:bg-blue-50">
+                Explore retractable roofs
+                <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
-              <Link href="/category/sound-proof-windows" className="apple-link text-lg group">
-                View Full Catalog <ChevronRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+              <Link href="/category/sound-proof-windows" className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/35 px-7 text-sm font-semibold text-white transition hover:border-white hover:bg-white/10">
+                Browse acoustic systems
               </Link>
             </div>
           </motion.div>
-        </div>
 
-        {/* The Product Image - The undisputed hero */}
-        <motion.div 
-          initial={{ opacity: 0, y: 100 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-          className="w-full max-w-[1400px] mx-auto px-4"
-        >
-          <div className="relative aspect-[21/9] md:aspect-[16/7] overflow-hidden rounded-[3rem] shadow-[0_50px_100px_-20px_rgba(0,0,0,0.15)] border border-slate-100 bg-[#fbfbfb]">
-            <img 
-              src={home.hero.image} 
-              alt={home.hero.title} 
-              className="w-full h-full object-cover transition-transform duration-[3s] hover:scale-105"
-            />
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.15 }}
+            className="grid grid-cols-3 overflow-hidden rounded-2xl border border-white/20 bg-white/10 backdrop-blur-md"
+          >
+            {heroMetrics.map((metric) => (
+              <div key={metric.label} className="border-r border-white/15 p-4 last:border-r-0 sm:p-6">
+                <div className="text-2xl font-semibold text-white sm:text-3xl">{metric.value}</div>
+                <div className="mt-2 text-xs font-semibold uppercase text-slate-300">{metric.label}</div>
+              </div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Engineering Promise */}
+      <section className="bg-white px-6 py-20">
+        <div className="mx-auto grid max-w-[1320px] gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
+          <div>
+            <p className="text-sm font-semibold uppercase text-blue-600">Built For Specification</p>
+            <h2 className="mt-4 max-w-xl text-4xl font-semibold leading-tight text-slate-950 md:text-6xl">
+              Quiet engineering with visible architectural intent.
+            </h2>
           </div>
-        </motion.div>
+          <div className="grid gap-4 md:grid-cols-3">
+            {trustSignals.map((signal) => {
+              const Icon = signal.icon;
+              return (
+                <div key={signal.title} className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
+                  <Icon className="h-7 w-7 text-blue-600" />
+                  <h3 className="mt-5 text-lg font-semibold text-slate-950">{signal.title}</h3>
+                  <p className="mt-3 text-sm leading-6 text-slate-600">{signal.detail}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
       </section>
 
       {/* Primary Catalog Navigation */}
-      <section className="sticky top-[60px] z-40 bg-white/80 backdrop-blur-xl border-b border-slate-100 py-6 overflow-x-auto no-scrollbar">
-        <div className="mx-auto max-w-[1200px] px-6 flex items-center justify-between gap-12 min-w-max md:min-w-0">
-          {categories.map((cat) => {
+      <section className="bg-[#f6f7f9] px-6 py-24">
+        <div className="mx-auto max-w-[1320px]">
+          <div className="mb-10 flex flex-col justify-between gap-6 md:flex-row md:items-end">
+            <div>
+              <p className="text-sm font-semibold uppercase text-blue-600">System Catalog</p>
+              <h2 className="mt-4 text-4xl font-semibold leading-tight text-slate-950 md:text-5xl">
+                Choose the performance path.
+              </h2>
+            </div>
+            <Link href="/category/sound-proof-windows" className="inline-flex items-center text-sm font-semibold text-blue-700 hover:text-blue-900">
+              View all systems <ChevronRight className="ml-1 h-4 w-4" />
+            </Link>
+          </div>
+
+          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-5">
+            {categories.map((cat) => {
             const Icon = categoryIcons[cat.id] || Wind;
             return (
               <Link 
                 key={cat.id} 
                 href={`/category/${cat.id}`}
-                className="flex flex-col items-center gap-3 group transition-all"
+                className="group flex min-h-[240px] flex-col justify-between rounded-2xl border border-slate-200 bg-white p-6 transition hover:-translate-y-1 hover:border-blue-200 hover:shadow-[0_24px_60px_-32px_rgba(15,23,42,0.55)]"
               >
-                <div className="h-14 w-14 rounded-2xl bg-[#f5f5f7] flex items-center justify-center text-slate-400 group-hover:bg-blue-600 group-hover:text-white transition-all shadow-sm group-hover:shadow-xl group-hover:shadow-blue-600/20 group-hover:-translate-y-1">
-                  <Icon className="w-7 h-7" />
+                <div>
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-blue-700 transition group-hover:bg-blue-600 group-hover:text-white">
+                    <Icon className="h-6 w-6" />
+                  </div>
+                  <h3 className="mt-7 text-xl font-semibold leading-7 text-slate-950">{cat.title}</h3>
+                  <p className="mt-3 text-sm leading-6 text-slate-600">{cat.summary}</p>
                 </div>
-                <span className="text-[11px] font-bold uppercase tracking-widest text-slate-500 group-hover:text-black transition-colors">{cat.title}</span>
+                <div className="mt-8 flex items-center justify-between text-sm font-semibold text-blue-700">
+                  <span>{getProductsByCategory(cat.id).length} systems</span>
+                  <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+                </div>
               </Link>
             );
           })}
+          </div>
         </div>
       </section>
 
       {/* Main Catalog Showcase */}
-      <section className="py-32 px-6 bg-white">
-        <div className="mx-auto max-w-[1400px]">
-          <div className="grid md:grid-cols-2 gap-8">
+      <section className="bg-white px-6 py-24">
+        <div className="mx-auto max-w-[1320px]">
+          <div className="mb-12 max-w-3xl">
+            <p className="text-sm font-semibold uppercase text-blue-600">Featured Workhorses</p>
+            <h2 className="mt-4 text-4xl font-semibold leading-tight text-slate-950 md:text-6xl">
+              Acoustic isolation and automation, presented as systems.
+            </h2>
+          </div>
+
+          <div className="grid gap-6 lg:grid-cols-2">
             {home.showcase.map((item, idx) => (
               <Link 
                 key={idx}
                 href={item.cta.href}
                 className={cn(
-                  "relative h-[700px] rounded-[3.5rem] p-20 flex flex-col items-center text-center overflow-hidden group transition-all hover:shadow-[0_50px_100px_-20px_rgba(0,0,0,0.2)]",
-                  item.theme === 'dark' ? "bg-black text-white" : "bg-[#f5f5f7] text-black"
+                  "group relative flex min-h-[620px] overflow-hidden rounded-3xl p-8 transition hover:shadow-[0_34px_90px_-45px_rgba(15,23,42,0.8)] sm:p-10",
+                  item.theme === 'dark' ? "bg-slate-950 text-white" : "bg-slate-100 text-slate-950"
                 )}
               >
-                <div className="relative z-20">
-                  <p className={cn("text-[12px] font-bold uppercase tracking-[0.3em] mb-6", item.theme === 'dark' ? "text-blue-400" : "text-blue-600")}>
-                    Core Solution
-                  </p>
-                  <h2 className="text-5xl lg:text-7xl font-bold tracking-tighter mb-6 leading-tight uppercase">{item.title}</h2>
-                  <p className={cn("text-xl font-medium mb-10 max-w-sm mx-auto", item.theme === 'dark' ? "text-zinc-400" : "text-slate-500")}>
+                <div className="relative z-20 flex max-w-md flex-col justify-between">
+                  <div>
+                    <p className={cn("text-sm font-semibold uppercase", item.theme === 'dark' ? "text-blue-300" : "text-blue-700")}>
+                      Core Solution
+                    </p>
+                    <h3 className="mt-4 text-4xl font-semibold leading-tight md:text-5xl">{item.title}</h3>
+                    <p className={cn("mt-5 text-lg font-medium leading-7", item.theme === 'dark' ? "text-slate-300" : "text-slate-600")}>
                     {item.description}
-                  </p>
-                  <div className="flex gap-10 justify-center">
-                    <span className={cn("apple-link text-lg", item.theme === 'dark' && "text-blue-400")}>
-                      Learn more &gt;
-                    </span>
-                    <span className={cn("apple-link text-lg", item.theme === 'dark' && "text-blue-400")}>
-                      Shop &gt;
-                    </span>
+                    </p>
                   </div>
+                  <span className={cn("mt-10 inline-flex items-center text-sm font-semibold", item.theme === 'dark' ? "text-blue-300" : "text-blue-700")}>
+                    Explore category <ArrowRight className="ml-2 h-4 w-4 transition group-hover:translate-x-1" />
+                  </span>
                 </div>
                 <img 
                   src={item.image} 
                   alt={item.title} 
                   className={cn(
-                    "absolute bottom-0 w-full max-w-lg object-contain transition-transform duration-[1.5s] group-hover:scale-110 translate-y-10 group-hover:translate-y-0",
-                    item.theme === 'dark' ? "brightness-90" : "mix-blend-multiply"
+                    "absolute bottom-0 right-0 w-[78%] max-w-xl object-contain transition duration-700 group-hover:scale-105 sm:w-[66%]",
+                    item.theme === 'dark' ? "brightness-95" : "mix-blend-multiply"
                   )}
                 />
               </Link>
@@ -132,10 +198,15 @@ export default function Home() {
       </section>
 
       {/* Secondary Product Wall */}
-      <section className="py-32 px-6 bg-[#fafafa]">
-        <div className="mx-auto max-w-7xl text-center mb-24">
-          <h2 className="text-5xl md:text-7xl font-bold tracking-tighter text-black uppercase mb-6 leading-none">The Complete <br /> Lineup.</h2>
-          <p className="text-xl md:text-2xl text-slate-500 font-medium max-w-2xl mx-auto">
+      <section className="bg-[#f6f7f9] px-6 py-24">
+        <div className="mx-auto mb-14 flex max-w-7xl flex-col justify-between gap-6 md:flex-row md:items-end">
+          <div>
+            <p className="text-sm font-semibold uppercase text-blue-600">Selected Systems</p>
+            <h2 className="mt-4 text-4xl font-semibold leading-tight text-slate-950 md:text-6xl">
+              The lineup built for real sites.
+            </h2>
+          </div>
+          <p className="max-w-xl text-lg font-medium leading-8 text-slate-600">
             Discover our entire range of high-performance architectural systems.
           </p>
         </div>
@@ -146,27 +217,49 @@ export default function Home() {
           ))}
         </div>
         
-        <div className="mt-32 text-center">
+        <div className="mt-14 text-center">
           <Link 
             href="/category/sound-proof-windows" 
-            className="apple-button text-lg px-12 py-5"
+            className="inline-flex min-h-12 items-center justify-center rounded-full bg-slate-950 px-8 text-sm font-semibold text-white transition hover:bg-blue-700"
           >
-            Explore All Systems &gt;
+            Explore all systems <ArrowRight className="ml-2 h-4 w-4" />
           </Link>
         </div>
       </section>
 
       {/* Trust & Engineering */}
-      <section className="py-40 px-6 bg-white border-t border-slate-100">
-        <div className="mx-auto max-w-5xl text-center">
-          <h2 className="text-5xl md:text-7xl font-bold tracking-tighter text-black mb-12 uppercase leading-none italic">Designed in India. <br /> Built for the World.</h2>
-          <p className="text-xl md:text-2xl text-slate-500 font-medium leading-relaxed mb-20">
+      <section className="bg-white px-6 py-24">
+        <div className="mx-auto grid max-w-[1320px] gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+          <div>
+            <p className="text-sm font-semibold uppercase text-blue-600">Trust & Engineering</p>
+            <h2 className="mt-4 text-4xl font-semibold leading-tight text-slate-950 md:text-6xl">
+              Designed in India. Built for demanding sites.
+            </h2>
+            <p className="mt-8 text-lg font-medium leading-8 text-slate-600">
             Trusted by HDFC, Godrej, Pfizer, and ISRO. {catalog.company.name} is an {catalog.company.certifications[0]} certified manufacturer of premium technical solutions.
-          </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-12 items-center opacity-30 grayscale contrast-200">
-            {catalog.company.certifications.map((cert) => (
-              <div key={cert} className="text-[10px] font-black uppercase tracking-widest text-black border-[1.5px] border-black p-4 rounded-xl">
-                {cert}
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              {catalog.company.certifications.map((cert) => (
+                <span key={cert} className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700">
+                  {cert}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div className="grid gap-4">
+            {projects.highlights.map((project) => (
+              <div key={project.title} className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
+                <div className="flex items-start gap-4">
+                  <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-blue-600 text-white">
+                    <Sparkles className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold uppercase text-blue-700">{project.subtitle}</p>
+                    <h3 className="mt-2 text-xl font-semibold text-slate-950">{project.title}</h3>
+                    <p className="mt-2 text-sm leading-6 text-slate-600">{project.detail}</p>
+                  </div>
+                </div>
               </div>
             ))}
           </div>

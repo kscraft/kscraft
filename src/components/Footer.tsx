@@ -26,7 +26,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-xs font-black uppercase tracking-widest text-blue-500 mb-6">Product Lines</h3>
+            <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-blue-500 mb-8">Product Lines</h3>
             <div className="grid gap-4">
               {categories.map((category) => (
                 <Link key={category.id} href={`/category/${category.id}`} className="text-sm font-bold text-slate-400 hover:text-white transition-colors">
@@ -37,7 +37,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-xs font-black uppercase tracking-widest text-blue-500 mb-6">Explore</h3>
+            <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-blue-500 mb-8">Explore</h3>
             <div className="grid gap-4">
               {[
                 ['/about', 'Our Legacy'],
@@ -54,7 +54,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-xs font-black uppercase tracking-widest text-blue-500 mb-6">Get in Touch</h3>
+            <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-blue-500 mb-8">Get in Touch</h3>
             <div className="space-y-6 text-sm leading-relaxed text-slate-400">
               <p className="font-bold text-white uppercase tracking-widest text-[10px]">Headquarters</p>
               <p>{catalog.company.locations[0].address}</p>

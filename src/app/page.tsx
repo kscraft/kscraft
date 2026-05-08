@@ -2,9 +2,10 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, Building2, ChevronRight, Gauge, Layers, Maximize, Shield, Sparkles, Wind, Zap, type LucideIcon } from 'lucide-react';
+import { ArrowRight, Building2, ChevronRight, Gauge, Layers, Maximize, Rocket, Shield, Sparkles, Wind, Zap, type LucideIcon } from 'lucide-react';
 import { motion } from 'framer-motion';
 import ProductCard from '@/components/ProductCard';
+import SpecsSearch from '@/components/SpecsSearch';
 import { catalog, categories, getFeaturedProducts, getProductsByCategory, home, projects } from '@/lib/catalog';
 import { cn } from '@/lib/utils';
 
@@ -92,6 +93,54 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Engineering DNA Showcase */}
+      <section className="bg-slate-50 py-32 px-6">
+        <div className="mx-auto max-w-7xl">
+          <div className="flex flex-col lg:flex-row items-center gap-20">
+            <div className="lg:w-1/2">
+              <span className="inline-block px-4 py-1 rounded-full bg-blue-600 text-white text-[10px] font-black uppercase tracking-[0.3em] mb-8">{home.engineeringDNA.eyebrow}</span>
+              <h2 className="text-5xl lg:text-7xl font-black text-slate-900 tracking-tighter leading-[0.9] uppercase mb-10">
+                {home.engineeringDNA.title.split('. ')[0]}. <br />
+                <span className="text-blue-600">{home.engineeringDNA.title.split('. ')[1]}</span>
+              </h2>
+              <p className="text-2xl text-slate-500 font-medium leading-relaxed mb-12">
+                {home.engineeringDNA.description}
+              </p>
+              <Link 
+                href="/showcase/isro-gaganyaan" 
+                className="group flex items-center gap-6 p-8 rounded-[2.5rem] bg-white border border-slate-200 shadow-xl hover:shadow-2xl transition-all"
+              >
+                <div className="h-16 w-16 shrink-0 rounded-2xl bg-slate-950 flex items-center justify-center text-blue-500 group-hover:scale-110 transition-transform">
+                  <Rocket className="w-8 h-8" />
+                </div>
+                <div>
+                  <p className="text-[10px] font-black text-blue-600 uppercase tracking-widest mb-1">Elite Showcase</p>
+                  <h3 className="text-2xl font-black text-slate-900 uppercase tracking-tight">{projects.highlights[0].title}</h3>
+                  <p className="text-sm text-slate-500 font-medium mt-1">{projects.highlights[0].detail.split('. ')[1]}</p>
+                </div>
+                <ArrowRight className="w-6 h-6 text-slate-300 ml-auto group-hover:text-blue-600 group-hover:translate-x-2 transition-all" />
+              </Link>
+            </div>
+            <div className="lg:w-1/2 relative">
+              <div className="relative aspect-square rounded-[4rem] overflow-hidden shadow-2xl">
+                <Image 
+                  src="/images/media/project-1.jpg" 
+                  alt="ISRO Showcase" 
+                  fill 
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-blue-900/40 to-transparent"></div>
+              </div>
+              {/* Floating metrics */}
+              <div className="absolute -bottom-10 -left-10 bg-white p-10 rounded-[3rem] shadow-2xl border border-slate-100 hidden md:block">
+                <p className="text-5xl font-black text-blue-600 tracking-tighter">Space Grade</p>
+                <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mt-2">Precision Certification</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Engineering Promise */}
       <section className="bg-white px-6 py-20">
         <div className="mx-auto grid max-w-[1320px] gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
@@ -119,6 +168,9 @@ export default function Home() {
       {/* Primary Catalog Navigation */}
       <section className="bg-[#f6f7f9] px-6 py-24">
         <div className="mx-auto max-w-[1320px]">
+          <div className="mb-20">
+            <SpecsSearch />
+          </div>
           <div className="mb-10 flex flex-col justify-between gap-6 md:flex-row md:items-end">
             <div className="min-w-0">
               <p className="text-sm font-semibold uppercase leading-6 text-blue-600">{home.catalogNav.eyebrow}</p>
@@ -285,12 +337,20 @@ export default function Home() {
               <div key={project.title} className="min-w-0 rounded-2xl border border-slate-200 bg-slate-50 p-6">
                 <div className="flex items-start gap-4">
                   <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-blue-600 text-white">
-                    <Sparkles className="h-5 w-5" />
+                    {project.slug === 'isro-gaganyaan' ? <Rocket className="h-5 w-5" /> : <Sparkles className="h-5 w-5" />}
                   </div>
-                  <div className="min-w-0">
+                  <div className="min-w-0 flex-1">
                     <p className="text-sm font-semibold uppercase leading-6 text-blue-700">{project.subtitle}</p>
                     <h3 className="mt-2 break-words text-xl font-semibold leading-7 text-slate-950">{project.title}</h3>
                     <p className="mt-2 text-sm leading-6 text-slate-600">{project.detail}</p>
+                    {project.slug && (
+                      <Link 
+                        href={`/showcase/${project.slug}`} 
+                        className="mt-4 inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-widest text-blue-600 hover:text-blue-700 transition-colors"
+                      >
+                        {catalog.company.ui.viewCaseStudy} <ChevronRight className="h-3.5 w-3.5" />
+                      </Link>
+                    )}
                   </div>
                 </div>
               </div>

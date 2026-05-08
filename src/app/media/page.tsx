@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { Play } from 'lucide-react';
-import { media } from '@/lib/catalog';
+import { catalog, media } from '@/lib/catalog';
 
 export default function MediaPage() {
   return (
@@ -54,7 +54,22 @@ export default function MediaPage() {
       {/* Image Gallery */}
       <section className="py-32 px-6 bg-[#fafafa]">
         <div className="mx-auto max-w-7xl">
-          <h2 className="text-4xl font-bold tracking-tight text-black mb-20 uppercase">Project Visuals.</h2>
+          <div className="mb-20 flex flex-col md:flex-row md:items-end justify-between gap-8">
+            <div className="max-w-2xl">
+              <h2 className="text-4xl font-bold tracking-tight text-black uppercase mb-4">Project Visuals.</h2>
+              <p className="text-slate-500 font-medium text-lg leading-relaxed">
+                Documentation of live engineering deployments across residential and industrial sectors.
+              </p>
+            </div>
+            <div className="bg-blue-600/5 border border-blue-600/10 rounded-[2rem] p-8 md:max-w-xs backdrop-blur-sm">
+              <p className="text-[10px] font-black text-blue-600 uppercase tracking-[0.3em] mb-3 flex items-center gap-2">
+                <span className="flex h-2 w-2 rounded-full bg-blue-600 animate-pulse"></span> {catalog.company.authenticity.title}
+              </p>
+              <p className="text-xs text-blue-900 font-bold leading-relaxed">
+                {catalog.company.authenticity.description}
+              </p>
+            </div>
+          </div>
           <div className="grid gap-8 md:grid-cols-3">
             {media.gallery.map((item) => (
               <div key={item.title} className="group relative aspect-square overflow-hidden rounded-[2.5rem] bg-white shadow-xl hover:shadow-2xl transition-all">

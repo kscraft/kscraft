@@ -35,6 +35,19 @@ export type ProjectHighlight = {
   title: string;
   subtitle: string;
   detail: string;
+  slug?: string;
+  image?: string;
+  showcase?: {
+    heroTitle: string;
+    heroDescription: string;
+    challengeLabel: string;
+    challengeTitle: string;
+    challengeDescription: string;
+    stats: { label: string; value: string; icon: string }[];
+    uspLabel: string;
+    uspTitle: string;
+    uspDescription: string;
+  };
 };
 
 export type MediaGalleryItem = {
@@ -83,11 +96,39 @@ export const catalog = catalogData as {
     mission: string;
     vision: string;
     email: string;
+    phone: string;
+    phoneDisplay: string;
     locations: { city: string; address: string }[];
     certifications: string[];
     clients: string[];
     clientLogos: ClientLogo[];
     social: { youtube: string; linkedin: string };
+    authenticity: {
+      title: string;
+      badge: string;
+      description: string;
+    };
+    ui: {
+      viewCaseStudy: string;
+      requestTechnicalDetails: string;
+      getQuote: string;
+      viewSourceDetails: string;
+      learnMore: string;
+      exploreAllSystems: string;
+      certified: string;
+      exporter: string;
+      hq: string;
+      searchPlaceholder: string;
+      matchingSystems: string;
+      noSystemsFound: string;
+      viewFullCatalog: string;
+      tryBroaderTerms: string;
+      reachViaWhatsApp: string;
+      reachViaCall: string;
+      reachViaEmail: string;
+      quoteTitle: string;
+      quoteSubtitle: string;
+    };
   };
 };
 
@@ -137,6 +178,50 @@ export const home = catalogData.home as {
   };
   trust: HomeContentBlock & {
     description: string;
+  };
+  engineeringDNA: HomeContentBlock & {
+    description: string;
+    cta: NavItem;
+    challengeTitle: string;
+    challengeDescription: string;
+  };
+  about: {
+    heroTitle: string;
+    heroDescription: string;
+    infrastructureLabel: string;
+    infrastructureTitle: string;
+    infrastructureDescription: string;
+    experienceLabel: string;
+    systemsLabel: string;
+    missionTitle: string;
+    visionTitle: string;
+  };
+  services: {
+    heroTitle: string;
+    heroDescription: string;
+    assistLabel: string;
+    assistTitle: string;
+    assistDescription: string;
+    ctaLabel: string;
+  };
+  contact: {
+    heroTitle: string;
+    heroDescription: string;
+    hubsLabel: string;
+    digitalLabel: string;
+    formTitle: string;
+    formDescription: string;
+    successTitle: string;
+    anotherRequest: string;
+    nameLabel: string;
+    emailLabel: string;
+    scopeLabel: string;
+    requirementsLabel: string;
+    placeholderName: string;
+    placeholderEmail: string;
+    placeholderRequirements: string;
+    submitButton: string;
+    processing: string;
   };
 };
 

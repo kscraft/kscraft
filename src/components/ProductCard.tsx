@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import type { Product } from '@/lib/catalog';
+import { catalog, type Product } from '@/lib/catalog';
 import { motion } from 'framer-motion';
 
 type ProductCardProps = {
@@ -47,7 +47,7 @@ export default function ProductCard({ product, compact = false }: ProductCardPro
         
         <div className="p-6 pt-0 text-center sm:p-8 sm:pt-0">
           <span className="text-[13px] font-semibold text-blue-600">
-            Learn more &gt;
+            {catalog.company.ui.learnMore} &gt;
           </span>
         </div>
       </Link>

@@ -1,34 +1,6 @@
 import Link from 'next/link';
-import { catalog } from '@/lib/catalog';
+import { catalog, projects } from '@/lib/catalog';
 import { ChevronRight } from 'lucide-react';
-
-const projectHighlights = [
-  {
-    title: 'ISRO Gaganyaan Mission',
-    subtitle: 'Strategic Engineering',
-    detail: 'Design and construction of the astronaut entry mechanism for the Gaganyaan space mission at SHAR Sriharikota.',
-  },
-  {
-    title: 'VJ Villa Pune',
-    subtitle: 'Residential Automation',
-    detail: 'Complete architectural automation integration including motorized sliding windows and terrace roofing systems.',
-  },
-  {
-    title: 'Hilton Hotel Bengaluru',
-    subtitle: 'Commercial Acoustics',
-    detail: 'Bespoke motorized vertical sliding window systems for high-performance acoustic isolation.',
-  },
-];
-
-const clientLogos = [
-  ['Tata Power', '/images/clients/tatapower.jpg'],
-  ['Sahara Star', '/images/clients/saharastar.jpg'],
-  ['Mahindra', '/images/clients/mahindra4.jpg'],
-  ['Indian Oil', '/images/clients/indianoil.jpg'],
-  ['Cadbury', '/images/clients/cadbury.jpg'],
-  ['BPCL', '/images/clients/bpcl.jpg'],
-  ['Billimoria', '/images/clients/billimoria.jpg'],
-];
 
 export default function ClientsPage() {
   return (
@@ -52,7 +24,7 @@ export default function ClientsPage() {
       <section className="py-32 px-6">
         <div className="mx-auto max-w-7xl">
           <div className="grid md:grid-cols-3 gap-8">
-            {projectHighlights.map((project) => (
+            {projects.highlights.map((project) => (
               <div key={project.title} className="p-12 rounded-[2.5rem] bg-[#f5f5f7] border border-slate-100 group transition-all hover:bg-white hover:shadow-2xl">
                 <p className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-4">{project.subtitle}</p>
                 <h3 className="text-3xl font-bold tracking-tight text-black mb-6 uppercase leading-tight">{project.title}</h3>
@@ -70,8 +42,8 @@ export default function ClientsPage() {
           <h2 className="text-4xl font-bold tracking-tight text-black text-center mb-24 uppercase">Partnering with Leaders.</h2>
           
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-12 items-center justify-items-center opacity-40 grayscale contrast-150">
-            {clientLogos.map(([name, src]) => (
-              <img key={name} src={src} alt={name} className="max-h-12 w-auto object-contain hover:opacity-100 transition-opacity" />
+            {catalog.company.clientLogos.map((client) => (
+              <img key={client.name} src={client.image} alt={client.name} className="max-h-12 w-auto object-contain hover:opacity-100 transition-opacity" />
             ))}
           </div>
 

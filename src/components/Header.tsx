@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X, ChevronDown } from 'lucide-react';
-import { categories } from '@/lib/catalog';
+import { categories, navigation } from '@/lib/catalog';
 import { cn } from '@/lib/utils';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -25,14 +25,6 @@ const Header = () => {
     setIsOpen(false);
   }, [pathname]);
 
-  const navItems = [
-    { label: 'Overview', href: '/' },
-    { label: 'Acoustics', href: '/category/sound-proof-windows' },
-    { label: 'Automation', href: '/category/motorized-systems' },
-    { label: 'Media', href: '/media' },
-    { label: 'About', href: '/about' },
-  ];
-
   return (
     <header
       className={cn(
@@ -43,22 +35,17 @@ const Header = () => {
       )}
     >
       <div className="mx-auto max-w-[1200px] px-6 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-3 group transition-opacity hover:opacity-70">
-          <img src="/logo-ksc.png" alt="Kiran Slido Craft" className="h-10 w-auto object-contain" />
-          <div className="flex flex-col">
-            <span className="text-[14px] font-black tracking-tight text-black uppercase">
-              Kiran Slido Craft
-            </span>
-            <span className="text-[9px] font-bold text-blue-600 uppercase tracking-widest leading-none">
-              Engineering Excellence
-            </span>
-          </div>
+        <Link href="/" className="flex items-center gap-2 group transition-opacity hover:opacity-70">
+          <img src="/logo-ksc.png" alt="KSC" className="h-6 w-auto" />
+          <span className="text-[14px] font-bold tracking-tight text-black uppercase">
+            Kiran Slido Craft
+          </span>
         </Link>
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-10">
           <ul className="flex items-center gap-8">
-            {navItems.map((item) => (
+            {navigation.header.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
@@ -116,11 +103,14 @@ const Header = () => {
           >
             <nav className="p-10 space-y-12">
               <ul className="space-y-6">
-                {navItems.map((item) => (
+                {navigation.header.map((item) => (
                   <li key={item.href}>
                     <Link
                       href={item.href}
-                      className="text-3xl font-bold tracking-tight text-black block"
+                      className={cn(
+                        'text-3xl font-bold tracking-tight block',
+                        pathname === item.href ? 'text-blue-600' : 'text-black'
+                      )}
                     >
                       {item.label}
                     </Link>

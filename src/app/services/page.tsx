@@ -1,28 +1,13 @@
 import Link from 'next/link';
 import { ArrowRight, Settings, Wrench, ShieldCheck, ClipboardCheck, ChevronRight } from 'lucide-react';
+import { services } from '@/lib/catalog';
 
-const services = [
-  {
-    title: 'Annual Maintenance',
-    icon: Settings,
-    description: 'Scheduled maintenance support for automatic systems including motorized barriers, roof sliding systems, and telescopic gates to ensure long-term operational integrity.',
-  },
-  {
-    title: 'Acoustic Support',
-    icon: Wrench,
-    description: 'Post-installation service support for sound proof windows, acoustic movable wall partitions, and specialized acoustic door systems.',
-  },
-  {
-    title: 'Technical Consultation',
-    icon: ShieldCheck,
-    description: 'Direct engineering support for architectural projects, from initial acoustic specification to final on-site installation and calibration.',
-  },
-  {
-    title: 'System Upgrades',
-    icon: ClipboardCheck,
-    description: 'Modernization of legacy manual systems to automated movement, including integration of modern drive systems and sensor controls.',
-  },
-];
+const iconMap = {
+  Settings: Settings,
+  Wrench: Wrench,
+  ShieldCheck: ShieldCheck,
+  ClipboardCheck: ClipboardCheck,
+};
 
 export default function ServicesPage() {
   return (
@@ -51,20 +36,23 @@ export default function ServicesPage() {
       {/* Services Grid */}
       <section className="py-32 mx-auto max-w-7xl px-6 lg:px-12 w-full">
         <div className="grid gap-10 md:grid-cols-2">
-          {services.map((service) => (
-            <article key={service.title} className="group p-12 rounded-[3.5rem] bg-slate-50 border border-slate-100 shadow-sm transition-all hover:bg-white hover:border-blue-200 hover:shadow-2xl hover:shadow-blue-600/5">
-              <div className="mb-10 inline-flex h-16 w-16 items-center justify-center rounded-[1.5rem] bg-white shadow-xl text-blue-600 transition-colors group-hover:bg-blue-600 group-hover:text-white">
-                <service.icon className="w-8 h-8" />
-              </div>
-              <h2 className="text-3xl font-black text-slate-900 mb-6 tracking-tighter uppercase leading-none">{service.title}</h2>
-              <p className="text-xl text-slate-500 leading-relaxed font-medium mb-10">
-                {service.description}
-              </p>
-              <div className="flex items-center gap-3 text-xs font-black text-blue-600 uppercase tracking-[0.2em] opacity-0 group-hover:opacity-100 transition-all transform translate-y-2 group-hover:translate-y-0">
-                Learn More <ArrowRight className="w-4 h-4" />
-              </div>
-            </article>
-          ))}
+          {services.map((service) => {
+            const Icon = iconMap[service.icon as keyof typeof iconMap] || Settings;
+            return (
+              <article key={service.title} className="group p-12 rounded-[3.5rem] bg-slate-50 border border-slate-100 shadow-sm transition-all hover:bg-white hover:border-blue-200 hover:shadow-2xl hover:shadow-blue-600/5">
+                <div className="mb-10 inline-flex h-16 w-16 items-center justify-center rounded-[1.5rem] bg-white shadow-xl text-blue-600 transition-colors group-hover:bg-blue-600 group-hover:text-white">
+                  <Icon className="w-8 h-8" />
+                </div>
+                <h2 className="text-3xl font-black text-slate-900 mb-6 tracking-tighter uppercase leading-none">{service.title}</h2>
+                <p className="text-xl text-slate-500 leading-relaxed font-medium mb-10">
+                  {service.description}
+                </p>
+                <div className="flex items-center gap-3 text-xs font-black text-blue-600 uppercase tracking-[0.2em] opacity-0 group-hover:opacity-100 transition-all transform translate-y-2 group-hover:translate-y-0">
+                  Learn More <ArrowRight className="w-4 h-4" />
+                </div>
+              </article>
+            );
+          })}
         </div>
 
         <div className="mt-32 relative overflow-hidden rounded-[4rem] bg-slate-950 p-16 lg:p-32 text-white text-center shadow-[0_50px_100px_-12px_rgba(0,0,0,0.5)]">

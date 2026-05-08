@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { catalog, categories, navigation } from '@/lib/catalog';
 
@@ -8,7 +9,7 @@ export default function Footer() {
         <div className="grid gap-16 md:grid-cols-4">
           <div className="md:col-span-1">
             <Link href="/" className="flex items-center gap-3 mb-8 group transition-opacity hover:opacity-70">
-              <img src="/logo-ksc.png" alt="KSC" className="h-10 w-auto object-contain" />
+              <Image src="/logo-ksc.png" alt="KSC" width={150} height={40} className="h-10 w-auto object-contain" />
               <div className="flex flex-col">
                 <span className="text-sm font-black tracking-tight text-black uppercase leading-none">Kiran Slido Craft</span>
                 <span className="text-[9px] font-bold text-blue-600 uppercase tracking-widest mt-1">Engineering Silence</span>

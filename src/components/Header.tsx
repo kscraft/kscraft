@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X, ChevronDown, ArrowRight } from 'lucide-react';
@@ -21,10 +22,6 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  useEffect(() => {
-    setIsOpen(false);
-  }, [pathname]);
-
   return (
     <header
       className={cn(
@@ -36,7 +33,7 @@ const Header = () => {
     >
       <div className="mx-auto max-w-[1200px] px-6 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 group transition-opacity hover:opacity-70">
-          <img src="/logo-ksc.png" alt="KSC" className="h-6 w-auto" />
+          <Image src="/logo-ksc.png" alt="KSC" width={120} height={32} className="h-6 w-auto" priority />
           <span className="text-[14px] font-bold tracking-tight text-black uppercase">
             Kiran Slido Craft
           </span>
@@ -107,6 +104,7 @@ const Header = () => {
                   <li key={item.href}>
                     <Link
                       href={item.href}
+                      onClick={() => setIsOpen(false)}
                       className={cn(
                         'text-3xl font-bold tracking-tight block',
                         pathname === item.href ? 'text-blue-600' : 'text-black'
@@ -117,7 +115,7 @@ const Header = () => {
                   </li>
                 ))}
                 <li>
-                  <Link href="/contact" className="text-3xl font-bold tracking-tight text-blue-600">
+                  <Link href="/contact" onClick={() => setIsOpen(false)} className="text-3xl font-bold tracking-tight text-blue-600">
                     Contact Us
                   </Link>
                 </li>
@@ -128,7 +126,7 @@ const Header = () => {
                 <ul className="grid gap-6">
                   {categories.map((cat) => (
                     <li key={cat.id}>
-                      <Link href={`/category/${cat.id}`} className="text-4xl font-bold tracking-tight text-black flex items-center justify-between group">
+                      <Link href={`/category/${cat.id}`} onClick={() => setIsOpen(false)} className="text-4xl font-bold tracking-tight text-black flex items-center justify-between group">
                         {cat.title}
                         <ArrowRight className="w-6 h-6 text-blue-600 opacity-0 group-hover:opacity-100 transition-opacity" />
                       </Link>

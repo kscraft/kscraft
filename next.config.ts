@@ -2,6 +2,14 @@ import type { NextConfig } from "next";
 import catalog from "./src/data/catalog.json";
 
 const nextConfig: NextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "img.youtube.com",
+      },
+    ],
+  },
   async redirects() {
     const productRedirects = catalog.products.flatMap((product) =>
       product.legacyRoutes.map((route) => ({

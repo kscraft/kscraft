@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { catalog, projects } from '@/lib/catalog';
 import { ChevronRight } from 'lucide-react';
@@ -15,7 +16,7 @@ export default function ClientsPage() {
             Trust & <br /> Precision.
           </h1>
           <p className="text-xl md:text-2xl text-slate-500 font-medium max-w-2xl mx-auto leading-relaxed">
-            Delivering high-impact engineering solutions for India's leading organizations.
+            Delivering high-impact engineering solutions for India-based leading organizations.
           </p>
         </div>
       </header>
@@ -43,7 +44,14 @@ export default function ClientsPage() {
           
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-12 items-center justify-items-center opacity-40 grayscale contrast-150">
             {catalog.company.clientLogos.map((client) => (
-              <img key={client.name} src={client.image} alt={client.name} className="max-h-12 w-auto object-contain hover:opacity-100 transition-opacity" />
+              <Image
+                key={client.name}
+                src={client.image}
+                alt={client.name}
+                width={120}
+                height={48}
+                className="max-h-12 w-auto object-contain hover:opacity-100 transition-opacity"
+              />
             ))}
           </div>
 

@@ -5,7 +5,8 @@ The website has been completely reimagined with **Apple's iconic minimalist desi
 
 ## Completed Milestones
 1.  **Apple-Style UI Redesign:**
-    *   **Ultra-Minimalist Layout:** Clean white/off-white backgrounds, generous whitespace, and refined grayscale palette with functional blue accents.
+    *   **Catalog-Centric UX:** Reengineered the site to lead with the catalog. Introduced a sticky, icon-based "Product Category Bar" as the primary navigation hero on the Home Page, ensuring the product range is always the focal point.
+    *   **Ultra-Minimalist Layout:** Clean white/off-white backgrounds, generous whitespace, and refined grayscale palette with functional blue accents, following Apple's iconic design language.
     *   **High-End Typography:** Bold, precise tracking and high-contrast headings using system-native fonts for a premium "tech-catalog" feel.
     *   **Immersive Hero Sections:** Full-screen product spotlights with subtle entry animations.
     *   **Premium Components:** Completely redesigned `Header`, `Footer`, and `ProductCard` to match premium architectural standards.

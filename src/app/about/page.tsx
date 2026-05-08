@@ -9,7 +9,7 @@ export default function AboutPage() {
         <div className="absolute inset-0 z-0">
           <img 
             src="/images/hero/modern-architecture.jpg" 
-            alt="About Kiran Slido Craft" 
+            alt={`About ${catalog.company.name}`} 
             className="w-full h-full object-cover opacity-20"
           />
           <div className="absolute inset-0 bg-gradient-to-br from-blue-900/40 via-slate-950/60 to-slate-950"></div>
@@ -34,7 +34,7 @@ export default function AboutPage() {
             <h2 className="text-4xl lg:text-6xl font-black text-slate-900 tracking-tighter uppercase leading-none mb-10">Visionary <br />Infrastructure</h2>
             <div className="space-y-8 text-xl text-slate-500 leading-relaxed font-medium">
               <p>
-                Founded in 1985, Kiran Slido Craft emerged with a singular purpose: to deliver high-performance acoustic and automation systems that bridge the gap between Indian manufacturing and global standards.
+                {catalog.company.description}
               </p>
               <p>
                 From heavy-duty industrial enclosures to high-end residential soundproofing, our expertise spans decades of technical evolution. We don't just build systems; we engineer environments of silence and seamless movement.
@@ -52,7 +52,7 @@ export default function AboutPage() {
             </div>
             <div className="col-span-2 p-10 rounded-[3rem] bg-blue-50 border border-blue-100 shadow-inner">
               <Award className="w-10 h-10 text-blue-600 mb-6" />
-              <h3 className="text-2xl font-black text-slate-900 mb-3 uppercase tracking-tight">ISO 9001:2015</h3>
+              <h3 className="text-2xl font-black text-slate-900 mb-3 uppercase tracking-tight">{catalog.company.certifications[0]}</h3>
               <p className="text-slate-500 text-sm font-medium leading-relaxed uppercase tracking-wide">Strict adherence to international quality management systems in every project.</p>
             </div>
           </div>

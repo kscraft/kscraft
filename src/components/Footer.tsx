@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { catalog, categories } from '@/lib/catalog';
+import { catalog, categories, navigation } from '@/lib/catalog';
 
 export default function Footer() {
   return (
@@ -16,7 +16,7 @@ export default function Footer() {
             </Link>
             <p className="text-[13px] text-slate-500 leading-relaxed font-medium">
               {catalog.company.tagline} <br />
-              Precision architectural solutions since 1985.
+              Precision architectural solutions since {catalog.company.founded}.
             </p>
           </div>
 
@@ -37,16 +37,10 @@ export default function Footer() {
             <div className="space-y-6">
               <h3 className="text-[11px] font-bold text-slate-400 uppercase tracking-widest">Company</h3>
               <ul className="space-y-3">
-                {[
-                  ['/about', 'Legacy'],
-                  ['/services', 'Support'],
-                  ['/clients', 'Case Studies'],
-                  ['/media', 'Visuals'],
-                  ['/contact', 'Contact'],
-                ].map(([href, label]) => (
-                  <li key={href}>
-                    <Link href={href} className="text-[13px] font-medium text-slate-600 hover:text-black transition-colors">
-                      {label}
+                {navigation.footer.map((item) => (
+                  <li key={item.href}>
+                    <Link href={item.href} className="text-[13px] font-medium text-slate-600 hover:text-black transition-colors">
+                      {item.label}
                     </Link>
                   </li>
                 ))}
@@ -68,7 +62,7 @@ export default function Footer() {
 
         <div className="mt-24 pt-8 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-[11px] text-slate-400 font-medium">
-            Copyright © {new Date().getFullYear()} Kiran Slido Craft. All rights reserved.
+            Copyright © {new Date().getFullYear()} {catalog.company.name}. All rights reserved.
           </p>
           <div className="flex gap-8 text-[11px] text-slate-400 font-medium">
             <Link href="/" className="hover:text-black">Privacy Policy</Link>

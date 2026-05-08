@@ -32,6 +32,15 @@
       "Tata SSL",
       "Johnson Controls"
     ],
+    "clientLogos": [
+      { "name": "Tata Power", "image": "/images/clients/tatapower.jpg" },
+      { "name": "Sahara Star", "image": "/images/clients/saharastar.jpg" },
+      { "name": "Mahindra", "image": "/images/clients/mahindra4.jpg" },
+      { "name": "Indian Oil", "image": "/images/clients/indianoil.jpg" },
+      { "name": "Cadbury", "image": "/images/clients/cadbury.jpg" },
+      { "name": "BPCL", "image": "/images/clients/bpcl.jpg" },
+      { "name": "Billimoria", "image": "/images/clients/billimoria.jpg" }
+    ],
     "social": {
       "youtube": "https://www.youtube.com/kiranslidocraft",
       "linkedin": "https://www.linkedin.com/company/kiranslidocraft/"
@@ -40,6 +49,108 @@
   "sources": [
     "https://kiranslidocraft.com/",
     "https://www.kiranslidocraft.co.in/"
+  ],
+  "navigation": {
+    "header": [
+      { "label": "Overview", "href": "/" },
+      { "label": "Acoustics", "href": "/category/sound-proof-windows" },
+      { "label": "Automation", "href": "/category/motorized-systems" },
+      { "label": "Media", "href": "/media" },
+      { "label": "About", "href": "/about" }
+    ],
+    "footer": [
+      { "label": "Legacy", "href": "/about" },
+      { "label": "Support", "href": "/services" },
+      { "label": "Case Studies", "href": "/clients" },
+      { "label": "Visuals", "href": "/media" },
+      { "label": "Contact", "href": "/contact" }
+    ]
+  },
+  "home": {
+    "hero": {
+      "title": "Retractable Sliding Roof.",
+      "highlight": "Retractable",
+      "subhighlight": "Sliding Roof.",
+      "description": "Experience 100% open-to-sky freedom with our engineered architectural roofing systems.",
+      "image": "/images/products/motorized-sliding-roof.jpg",
+      "cta": { "label": "Learn more", "href": "/product/motorized-sliding-roof" },
+      "secondaryCta": { "label": "Technical Specs", "href": "/contact" }
+    },
+    "showcase": [
+      {
+        "title": "Acoustic Windows.",
+        "description": "Precision isolation. Pure silence.",
+        "image": "/images/products/sound-proof-sliding-windows.jpg",
+        "theme": "light",
+        "cta": { "label": "Learn more", "href": "/category/sound-proof-windows" },
+        "shopCta": { "label": "Shop", "href": "/category/sound-proof-windows" }
+      },
+      {
+        "title": "Automation Systems.",
+        "description": "Modern entry. Intelligent security.",
+        "image": "/images/products/motorized-sliding-gates.jpg",
+        "theme": "dark",
+        "cta": { "label": "Learn more", "href": "/category/motorized-systems" },
+        "shopCta": { "label": "Shop", "href": "/category/motorized-systems" }
+      }
+    ]
+  },
+  "media": {
+    "gallery": [
+      { "title": "ISRO Gaganyaan Crew Entry", "image": "/images/media/project-1.jpg" },
+      { "title": "VJ Villa Terraces", "image": "/images/media/project-3.jpg" },
+      { "title": "Hilton Hotel Vertical Glazing", "image": "/images/media/project-2.jpg" },
+      { "title": "Motorized Soundproof Series", "image": "/images/media/soundproof-sliding-windows.jpg" },
+      { "title": "Automation Track Detail", "image": "/images/media/vertical-sliding-window.jpg" },
+      { "title": "Retractable Roof Installation", "image": "/images/media/roof-sliding-system.jpg" }
+    ],
+    "videos": [
+      { "title": "Sound Proof Sliding Windows", "id": "fACitrJPPb4" },
+      { "title": "Motorized Automation Demo", "id": "pIHa0Cm172A" },
+      { "title": "Vertical Sash Movement", "id": "hS9RaVKUhvw" },
+      { "title": "Retractable Roof Control", "id": "-M1OiThaWV4" }
+    ]
+  },
+  "projects": {
+    "highlights": [
+      {
+        "title": "ISRO Gaganyaan Mission",
+        "subtitle": "Strategic Engineering",
+        "detail": "Design and construction of the astronaut entry mechanism for the Gaganyaan space mission at SHAR Sriharikota."
+      },
+      {
+        "title": "VJ Villa Pune",
+        "subtitle": "Residential Automation",
+        "detail": "Complete architectural automation integration including motorized sliding windows and terrace roofing systems."
+      },
+      {
+        "title": "Hilton Hotel Bengaluru",
+        "subtitle": "Commercial Acoustics",
+        "detail": "Bespoke motorized vertical sliding window systems for high-performance acoustic isolation."
+      }
+    ]
+  },
+  "services": [
+    {
+      "title": "Annual Maintenance",
+      "icon": "Settings",
+      "description": "Scheduled maintenance support for automatic systems including motorized barriers, roof sliding systems, and telescopic gates to ensure long-term operational integrity."
+    },
+    {
+      "title": "Acoustic Support",
+      "icon": "Wrench",
+      "description": "Post-installation service support for sound proof windows, acoustic movable wall partitions, and specialized acoustic door systems."
+    },
+    {
+      "title": "Technical Consultation",
+      "icon": "ShieldCheck",
+      "description": "Direct engineering support for architectural projects, from initial acoustic specification to final on-site installation and calibration."
+    },
+    {
+      "title": "System Upgrades",
+      "icon": "ClipboardCheck",
+      "description": "Modernization of legacy manual systems to automated movement, including integration of modern drive systems and sensor controls."
+    }
   ],
   "categories": [
     {

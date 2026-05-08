@@ -1,20 +1,5 @@
 import { Play, Image as ImageIcon, ChevronRight } from 'lucide-react';
-
-const galleryItems = [
-  ['ISRO Gaganyaan Crew Entry', '/images/media/project-1.jpg'],
-  ['VJ Villa Terraces', '/images/media/project-3.jpg'],
-  ['Hilton Hotel Vertical Glazing', '/images/media/project-2.jpg'],
-  ['Motorized Soundproof Series', '/images/media/soundproof-sliding-windows.jpg'],
-  ['Automation Track Detail', '/images/media/vertical-sliding-window.jpg'],
-  ['Retractable Roof Installation', '/images/media/roof-sliding-system.jpg'],
-];
-
-const videos = [
-  ['Sound Proof Sliding Windows', 'fACitrJPPb4'],
-  ['Motorized Automation Demo', 'pIHa0Cm172A'],
-  ['Vertical Sash Movement', 'hS9RaVKUhvw'],
-  ['Retractable Roof Control', '-M1OiThaWV4'],
-];
+import { media } from '@/lib/catalog';
 
 export default function MediaPage() {
   return (
@@ -38,24 +23,24 @@ export default function MediaPage() {
         <div className="mx-auto max-w-7xl">
           <h2 className="text-4xl font-bold tracking-tight text-black mb-20 uppercase">Video Demonstrations.</h2>
           <div className="grid gap-10 md:grid-cols-2">
-            {videos.map(([title, id]) => (
+            {media.videos.map((video) => (
               <a 
-                key={id} 
-                href={`https://www.youtube.com/watch?v=${id}`} 
+                key={video.id} 
+                href={`https://www.youtube.com/watch?v=${video.id}`} 
                 target="_blank" 
                 rel="noreferrer" 
                 className="group relative block overflow-hidden rounded-[2.5rem] bg-black aspect-video shadow-2xl"
               >
                 <img 
-                  src={`https://img.youtube.com/vi/${id}/maxresdefault.jpg`} 
-                  alt={title} 
+                  src={`https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`} 
+                  alt={video.title} 
                   className="w-full h-full object-cover transition duration-700 group-hover:scale-110 opacity-60 group-hover:opacity-100" 
                 />
                 <div className="absolute inset-0 flex flex-col justify-between p-10 z-20">
                   <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform">
                     <Play className="w-6 h-6 text-black fill-current" />
                   </div>
-                  <h3 className="text-3xl font-bold text-white uppercase tracking-tight">{title}</h3>
+                  <h3 className="text-3xl font-bold text-white uppercase tracking-tight">{video.title}</h3>
                 </div>
               </a>
             ))}
@@ -68,15 +53,15 @@ export default function MediaPage() {
         <div className="mx-auto max-w-7xl">
           <h2 className="text-4xl font-bold tracking-tight text-black mb-20 uppercase">Project Visuals.</h2>
           <div className="grid gap-8 md:grid-cols-3">
-            {galleryItems.map(([title, image]) => (
-              <div key={title} className="group relative aspect-square overflow-hidden rounded-[2.5rem] bg-white shadow-xl hover:shadow-2xl transition-all">
+            {media.gallery.map((item) => (
+              <div key={item.title} className="group relative aspect-square overflow-hidden rounded-[2.5rem] bg-white shadow-xl hover:shadow-2xl transition-all">
                 <img 
-                  src={image} 
-                  alt={title} 
+                  src={item.image} 
+                  alt={item.title} 
                   className="w-full h-full object-cover transition duration-700 group-hover:scale-105" 
                 />
                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-10">
-                  <h3 className="text-xl font-bold text-white uppercase leading-tight">{title}</h3>
+                  <h3 className="text-xl font-bold text-white uppercase leading-tight">{item.title}</h3>
                 </div>
               </div>
             ))}

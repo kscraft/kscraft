@@ -138,18 +138,38 @@ export default function Home() {
                 <Link
                   key={cat.id}
                   href={`/category/${cat.id}`}
-                  className="group flex min-h-[250px] min-w-0 flex-col justify-between rounded-2xl border border-slate-200 bg-white p-6 transition hover:-translate-y-1 hover:border-blue-200 hover:shadow-[0_24px_60px_-32px_rgba(15,23,42,0.55)]"
+                  className="group flex min-h-[390px] min-w-0 flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white transition hover:-translate-y-1 hover:border-blue-200 hover:shadow-[0_24px_60px_-32px_rgba(15,23,42,0.55)]"
                 >
-                  <div className="min-w-0">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-blue-700 transition group-hover:bg-blue-600 group-hover:text-white">
-                      <Icon className="h-6 w-6" />
+                  <div className="relative aspect-[4/3] overflow-hidden bg-slate-100">
+                    <Image
+                      src={cat.image}
+                      alt={cat.title}
+                      fill
+                      sizes="(min-width: 1280px) 20vw, (min-width: 768px) 50vw, 100vw"
+                      className="object-contain p-5 transition duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute left-4 top-4 flex items-center gap-2 rounded-full border border-white/70 bg-white/90 px-3 py-1.5 text-[11px] font-semibold uppercase leading-none text-blue-700 shadow-sm">
+                      <Icon className="h-3.5 w-3.5" />
+                      <span className="max-w-[150px] truncate">{cat.accent}</span>
                     </div>
-                    <h3 className="mt-7 break-words text-xl font-semibold leading-7 text-slate-950">{cat.title}</h3>
-                    <p className="mt-3 text-sm leading-6 text-slate-600">{cat.summary}</p>
                   </div>
-                  <div className="mt-8 flex items-center justify-between gap-3 text-sm font-semibold text-blue-700">
-                    <span className="min-w-0 break-words">{getProductsByCategory(cat.id).length} systems</span>
-                    <ArrowRight className="h-4 w-4 shrink-0 transition group-hover:translate-x-1" />
+                  <div className="flex min-w-0 flex-1 flex-col justify-between p-5">
+                    <div className="min-w-0">
+                      <h3 className="break-words text-xl font-semibold leading-7 text-slate-950">{cat.title}</h3>
+                      <p className="mt-2 break-words text-xs font-semibold uppercase leading-5 text-slate-400">{cat.bestFor}</p>
+                      <p className="mt-3 text-sm leading-6 text-slate-600">{cat.summary}</p>
+                      <div className="mt-4 flex flex-wrap gap-2">
+                        {cat.highlights.slice(0, 2).map((highlight) => (
+                          <span key={highlight} className="rounded-full bg-slate-100 px-3 py-1 text-[11px] font-semibold leading-4 text-slate-600">
+                            {highlight}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                    <div className="mt-8 flex items-center justify-between gap-3 text-sm font-semibold text-blue-700">
+                      <span className="min-w-0 break-words">{getProductsByCategory(cat.id).length} products</span>
+                      <ArrowRight className="h-4 w-4 shrink-0 transition group-hover:translate-x-1" />
+                    </div>
                   </div>
                 </Link>
               );

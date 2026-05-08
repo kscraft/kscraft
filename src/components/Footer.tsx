@@ -1,81 +1,76 @@
 import Link from 'next/link';
-import { catalog, categories, products } from '@/lib/catalog';
+import { catalog, categories } from '@/lib/catalog';
 
 export default function Footer() {
   return (
-    <footer className="bg-slate-950 text-white px-6 py-20 lg:px-12">
+    <footer className="bg-[#f5f5f7] px-6 py-24 border-t border-slate-200">
       <div className="mx-auto max-w-7xl">
-        <div className="grid gap-16 lg:grid-cols-[1.5fr_1fr_1fr_1fr]">
-          <div className="flex flex-col">
-            <Link href="/" className="inline-flex items-center gap-3 mb-8">
-              <div className="bg-white p-1.5 rounded-lg">
-                <img src="/logo-ksc.png" alt="Kiran Slido Craft logo" className="h-12 w-auto" />
-              </div>
-              <span className="text-2xl font-black tracking-tighter">KIRAN SLIDO CRAFT</span>
+        <div className="grid gap-16 md:grid-cols-4">
+          <div className="md:col-span-1">
+            <Link href="/" className="flex items-center gap-2 mb-8 group transition-opacity hover:opacity-70">
+              <img src="/logo-ksc.png" alt="KSC" className="h-5 w-auto brightness-0" />
+              <span className="text-sm font-bold tracking-tight text-black uppercase">Kiran Slido Craft</span>
             </Link>
-            <p className="max-w-md text-slate-400 leading-relaxed mb-8">
-              {catalog.company.description} {catalog.company.tagline}. Providing world-class acoustic solutions since 1985.
+            <p className="text-[13px] text-slate-500 leading-relaxed font-medium">
+              {catalog.company.tagline} <br />
+              Precision engineering since 1985.
             </p>
-            <div className="flex flex-wrap gap-2">
-              {catalog.company.certifications.map((cert) => (
-                <span key={cert} className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-[10px] font-bold uppercase tracking-widest text-slate-300">
-                  {cert}
-                </span>
-              ))}
-            </div>
           </div>
 
-          <div>
-            <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-blue-500 mb-8">Product Lines</h3>
-            <div className="grid gap-4">
-              {categories.map((category) => (
-                <Link key={category.id} href={`/category/${category.id}`} className="text-sm font-bold text-slate-400 hover:text-white transition-colors">
-                  {category.title}
-                </Link>
-              ))}
+          <div className="grid grid-cols-2 md:grid-cols-3 md:col-span-3 gap-12">
+            <div className="space-y-6">
+              <h3 className="text-[11px] font-bold text-slate-400 uppercase tracking-widest">Solutions</h3>
+              <ul className="space-y-3">
+                {categories.map((cat) => (
+                  <li key={cat.id}>
+                    <Link href={`/category/${cat.id}`} className="text-[13px] font-medium text-slate-600 hover:text-black transition-colors">
+                      {cat.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
-          </div>
 
-          <div>
-            <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-blue-500 mb-8">Explore</h3>
-            <div className="grid gap-4">
-              {[
-                ['/about', 'Our Legacy'],
-                ['/services', 'Service & Support'],
-                ['/clients', 'Clients & Projects'],
-                ['/media', 'Media Gallery'],
-                ['/contact', 'Contact Sales'],
-              ].map(([href, label]) => (
-                <Link key={href} href={href} className="text-sm font-bold text-slate-400 hover:text-white transition-colors">
-                  {label}
-                </Link>
-              ))}
+            <div className="space-y-6">
+              <h3 className="text-[11px] font-bold text-slate-400 uppercase tracking-widest">Company</h3>
+              <ul className="space-y-3">
+                {[
+                  ['/about', 'Legacy'],
+                  ['/services', 'Support'],
+                  ['/clients', 'Case Studies'],
+                  ['/media', 'Visuals'],
+                  ['/contact', 'Contact'],
+                ].map(([href, label]) => (
+                  <li key={href}>
+                    <Link href={href} className="text-[13px] font-medium text-slate-600 hover:text-black transition-colors">
+                      {label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
-          </div>
 
-          <div>
-            <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-blue-500 mb-8">Get in Touch</h3>
-            <div className="space-y-6 text-sm leading-relaxed text-slate-400">
-              <p className="font-bold text-white uppercase tracking-widest text-[10px]">Headquarters</p>
-              <p>{catalog.company.locations[0].address}</p>
-              <div className="pt-2">
-                <p className="font-bold text-white uppercase tracking-widest text-[10px] mb-2">Inquiries</p>
-                <a href={`mailto:${catalog.company.email}`} className="text-lg font-black text-blue-400 hover:text-blue-300 transition-colors">
-                  {catalog.company.email}
-                </a>
-              </div>
-              <p className="text-[10px] font-bold text-slate-600 uppercase tracking-[0.2em] pt-4">
-                {products.length} Active System Lines
+            <div className="space-y-6 col-span-2 md:col-span-1">
+              <h3 className="text-[11px] font-bold text-slate-400 uppercase tracking-widest">Inquiries</h3>
+              <a href={`mailto:${catalog.company.email}`} className="text-[13px] font-bold text-blue-600 hover:underline block">
+                {catalog.company.email}
+              </a>
+              <p className="text-[11px] text-slate-400 font-medium leading-relaxed">
+                ISO 9001:2015 Certified <br />
+                Engineering Headquarters, Mumbai.
               </p>
             </div>
           </div>
         </div>
-        
-        <div className="mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] font-bold uppercase tracking-widest text-slate-600">
-          <p>© {new Date().getFullYear()} Kiran Slido Craft. All Rights Reserved.</p>
-          <div className="flex gap-6">
-            <Link href="/privacy" className="hover:text-white">Privacy Policy</Link>
-            <Link href="/terms" className="hover:text-white">Terms of Service</Link>
+
+        <div className="mt-24 pt-8 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center gap-6">
+          <p className="text-[11px] text-slate-400 font-medium">
+            Copyright © {new Date().getFullYear()} Kiran Slido Craft. All rights reserved.
+          </p>
+          <div className="flex gap-8 text-[11px] text-slate-400 font-medium">
+            <Link href="/" className="hover:text-black">Privacy Policy</Link>
+            <Link href="/" className="hover:text-black">Terms of Use</Link>
+            <Link href="/" className="hover:text-black">Site Map</Link>
           </div>
         </div>
       </div>

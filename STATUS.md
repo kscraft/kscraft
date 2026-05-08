@@ -7,6 +7,8 @@ The Kiran Slido Craft website has been transformed into a modern, professional, 
 1.  **UI Redesign:**
     *   Migrated from a dashboard-style sidebar to a professional **top-navigation** layout.
     *   **Prioritized Catalog:** Moved the Product Catalog to the primary navigation position (after Overview) to emphasize the core offering.
+    *   **Vibrant Blue Redesign:** Upgraded the color palette to a more modern, lighter shade of blue, creating a cleaner and more professional aesthetic.
+    *   **Enhanced Catalog Display:** Completely redesigned the `ProductCard` and catalog grid layouts with sophisticated shadows, spring animations, and refined typography to make product discovery more eye-catching.
     *   Implemented high-impact, full-width hero sections with smooth `framer-motion` animations.
     *   Redesigned all core pages: Home, About, Services, Clients, Media, and Contact.
     *   Created dynamic Category and Product detail pages using Next.js App Router and SSG.

@@ -5,6 +5,7 @@ import { useSearchParams, useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { products, catalog, categories } from '@/lib/catalog';
+import { getProductTrie } from '@/lib/trie';
 import { Search, X, SlidersHorizontal, ArrowRight, Filter, ShieldCheck, Gauge } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import ProductCard from '@/components/ProductCard';
@@ -27,25 +28,27 @@ function SearchContent() {
     router.push(`/search?${params.toString()}`, { scroll: false });
   };
 
-  const filteredResults = useMemo(() => {
-    return products.filter((product) => {
-      const matchCategory = selectedCategory === 'all' || product.category === selectedCategory;
-      
-      if (!query.trim()) return matchCategory;
-      
-      const searchTerms = query.toLowerCase().split(' ');
-      const searchableText = [
-        product.title,
-        product.description,
-        product.category,
-        ...product.features,
-        ...product.applications,
-        ...Object.values(product.specifications),
-      ].join(' ').toLowerCase();
+  const trie = useMemo(() => getProductTrie(products), []);
 
-      return matchCategory && searchTerms.every(term => searchableText.includes(term));
-    });
-  }, [query, selectedCategory]);
+  const filteredResults = useMemo(() => {
+    const matchCategory = selectedCategory === 'all' 
+      ? products 
+      : products.filter(p => p.category === selectedCategory);
+    
+    if (!query.trim()) return matchCategory;
+    
+    const searchTerms = query.toLowerCase().split(' ').filter(Boolean);
+    
+    // Use Trie to find sets of matching slugs for each term
+    const resultSets = searchTerms.map(term => trie.search(term));
+    
+    // Find intersection of all result sets
+    const intersectionSlugs = resultSets.reduce((acc, currentSet) => {
+      return new Set([...acc].filter(slug => currentSet.has(slug)));
+    }, resultSets[0] || new Set<string>());
+
+    return matchCategory.filter(product => intersectionSlugs.has(product.slug));
+  }, [query, selectedCategory, trie]);
 
   const { ui } = catalog.company;
 

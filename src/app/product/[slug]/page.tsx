@@ -133,24 +133,26 @@ export default async function ProductPage({ params }: Props) {
         />
       )}
       {/* Immersive Product Hero */}
-      <section className="pt-40 pb-20 px-6 text-center bg-[#fafafa]">
-        <div className="mx-auto max-w-5xl">
-          <p className="text-[12px] font-bold text-blue-600 uppercase tracking-[0.2em] mb-6">
+      <header className="hero-light">
+        <div className="max-container">
+          <p className="text-eyebrow text-center mb-6">
             {category?.title}
           </p>
-          <h1 className="text-5xl md:text-8xl font-bold tracking-tighter text-black uppercase mb-10 leading-none">
+          <h1 className="heading-hero text-black">
             {product.title}.
           </h1>
-          <p className="text-xl md:text-2xl text-slate-500 font-medium max-w-3xl mx-auto leading-relaxed mb-12">
+          <p className="text-body-lg max-w-3xl mx-auto mt-10">
             {product.description}
           </p>
-          <ProductActions productTitle={product.title} sourceUrl={product.sourceUrls[0]} />
+          <div className="mt-12">
+            <ProductActions productTitle={product.title} sourceUrl={product.sourceUrls[0]} />
+          </div>
         </div>
-      </section>
+      </header>
 
       {/* Large Product Visual */}
-      <section className="px-6 py-20 bg-white">
-        <div className="relative mx-auto max-w-6xl aspect-[16/9] overflow-hidden rounded-[3rem] bg-[#f5f5f7] border border-slate-100 shadow-2xl">
+      <section className="section-standard !py-20">
+        <div className="relative mx-auto max-w-6xl aspect-[16/9] overflow-hidden rounded-[4rem] bg-[#f5f5f7] border border-slate-100 shadow-2xl">
           <Image
             src={product.image} 
             alt={product.title} 
@@ -208,9 +210,9 @@ export default async function ProductPage({ params }: Props) {
       </section>
 
       {/* Applications Surface */}
-      <section className="py-32 px-6 bg-[#f5f5f7]">
-        <div className="mx-auto max-w-5xl text-center">
-          <h3 className="text-xs font-bold text-slate-400 uppercase tracking-[0.3em] mb-12">Applications</h3>
+      <section className="section-tint">
+        <div className="max-container text-center">
+          <span className="text-eyebrow">Applications</span>
           <div className="flex flex-wrap justify-center gap-4">
             {product.applications.map((app) => (
               <span key={app} className="px-8 py-4 bg-white rounded-2xl text-lg font-bold text-black shadow-sm uppercase tracking-tight">
@@ -223,10 +225,10 @@ export default async function ProductPage({ params }: Props) {
 
       {/* Technical FAQ Section */}
       {product.faqs && (
-        <section className="py-32 px-6 bg-white border-t border-slate-100">
-          <div className="mx-auto max-w-3xl">
-            <h3 className="text-xs font-bold text-slate-400 uppercase tracking-[0.3em] mb-12 text-center">Technical Q&A</h3>
-            <div className="space-y-12">
+        <section className="section-standard border-t border-slate-100">
+          <div className="max-container max-w-3xl">
+            <span className="text-eyebrow text-center">Technical Q&A</span>
+            <div className="space-y-12 mt-10">
               {product.faqs.map((faq, idx) => (
                 <div key={idx} className="space-y-4">
                   <h4 className="text-2xl font-black text-slate-900 uppercase tracking-tight">{faq.q}</h4>
@@ -240,11 +242,16 @@ export default async function ProductPage({ params }: Props) {
 
       {/* Related Section */}
       {related.length > 0 && (
-        <section className="py-32 px-6">
-          <div className="mx-auto max-w-7xl">
-            <div className="flex justify-between items-end mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-black uppercase">Complete your <br /> System.</h2>
-              <Link href={`/category/${product.category}`} className="apple-link text-lg">See all {category?.title} &gt;</Link>
+        <section className="section-standard bg-slate-50/30 border-t border-slate-100">
+          <div className="max-container">
+            <div className="flex justify-between items-end mb-16 px-6">
+              <div>
+                <span className="text-eyebrow">Systems Selection</span>
+                <h2 className="heading-section">Related <br />Solutions.</h2>
+              </div>
+              <Link href={`/category/${product.category}`} className="apple-link text-sm uppercase tracking-widest font-black">
+                {catalog.company.ui.exploreAllSystems} &rarr;
+              </Link>
             </div>
             <div className="grid gap-10 md:grid-cols-3">
               {related.map((item) => (

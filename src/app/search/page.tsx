@@ -55,12 +55,12 @@ function SearchContent() {
   return (
     <div className="flex flex-col min-h-screen bg-white">
       {/* Search Header */}
-      <section className="pt-40 pb-20 px-6 bg-slate-50 border-b border-slate-100">
-        <div className="mx-auto max-w-4xl text-center">
-          <h1 className="text-4xl md:text-6xl font-black text-slate-900 tracking-tighter uppercase mb-6">
+      <section className="hero-light">
+        <div className="max-container">
+          <h1 className="heading-hero text-slate-900 mb-6">
             {ui.searchPageTitle}
           </h1>
-          <p className="text-xl text-slate-500 font-medium max-w-2xl mx-auto mb-12">
+          <p className="text-body-lg max-w-2xl mx-auto mb-12">
             {ui.searchPageSubtitle}
           </p>
           
@@ -96,16 +96,14 @@ function SearchContent() {
       </section>
 
       {/* Filters & Results */}
-      <section className="py-20 px-6">
-        <div className="mx-auto max-w-[1320px]">
+      <section className="section-standard">
+        <div className="max-container">
           <div className="flex flex-col lg:flex-row gap-12">
             {/* Sidebar Filters */}
             <aside className="lg:w-64 shrink-0 space-y-10">
               <div>
-                <h2 className="text-xs font-black text-slate-400 uppercase tracking-[0.3em] mb-6 flex items-center gap-2">
-                  <Filter className="w-4 h-4" /> Categories
-                </h2>
-                <div className="flex flex-col gap-2">
+                <span className="text-eyebrow">Categories</span>
+                <div className="flex flex-col gap-2 mt-6">
                   <button
                     onClick={() => {
                       setSelectedCategory('all');

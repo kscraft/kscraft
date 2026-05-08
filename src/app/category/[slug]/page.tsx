@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import ProductCard from '@/components/ProductCard';
+import ThemeMarker from '@/components/ThemeMarker';
 import { categories, getCategory, getProductsByCategory } from '@/lib/catalog';
 
 interface Props {
@@ -101,65 +102,57 @@ export default async function CategoryPage({ params }: Props) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       {/* Product-family header */}
-      <header className="bg-slate-950 px-4 pb-16 pt-32 text-white sm:px-6 md:pb-20 md:pt-40">
-        <div className="mx-auto grid max-w-[1320px] gap-10 lg:grid-cols-[minmax(0,0.86fr)_minmax(340px,0.74fr)] lg:items-center">
-          <div className="min-w-0">
-            <p className="mb-5 text-sm font-semibold uppercase leading-6 text-blue-200">
-              {category.accent} Product Line
-            </p>
-            <h1 className="max-w-4xl break-words text-5xl font-semibold leading-none text-white md:text-7xl lg:text-8xl">
+      <header className="hero-dark">
+        <ThemeMarker theme="dark" className="absolute top-0" />
+        <div className="max-container px-6 flex flex-col lg:flex-row lg:items-center justify-between gap-12">
+          <div className="max-w-2xl">
+            <span className="text-eyebrow text-blue-400">{category.accent} Product Line</span>
+            <h1 className="heading-hero text-white mb-8">
               {category.title}
             </h1>
-            <p className="mt-7 max-w-2xl break-words text-lg font-medium leading-8 text-slate-300 md:text-2xl md:leading-9">
+            <p className="text-xl md:text-2xl text-slate-400 leading-relaxed font-medium">
               {category.description}
             </p>
 
-            <div className="mt-8 grid gap-3 sm:grid-cols-2">
-              <div className="rounded-2xl border border-white/10 bg-white/10 p-5">
-                <p className="text-3xl font-semibold leading-tight">{products.length}</p>
-                <p className="mt-2 text-xs font-semibold uppercase leading-5 text-slate-300">Products</p>
+            <div className="mt-10 grid gap-4 sm:grid-cols-2 max-w-md">
+              <div className="rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl p-8 shadow-2xl">
+                <p className="text-5xl font-black text-blue-500 tracking-tighter">{products.length}</p>
+                <p className="mt-2 text-[10px] font-black uppercase tracking-widest text-slate-500">Certified Systems</p>
               </div>
-              <div className="rounded-2xl border border-white/10 bg-white/10 p-5">
-                <p className="break-words text-base font-semibold leading-6">{category.bestFor}</p>
-                <p className="mt-2 text-xs font-semibold uppercase leading-5 text-slate-300">Best Fit</p>
+              <div className="rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl p-8 shadow-2xl">
+                <p className="text-xl font-black text-white leading-tight uppercase tracking-tight">{category.bestFor}</p>
+                <p className="mt-2 text-[10px] font-black uppercase tracking-widest text-slate-500">Industry Standard</p>
               </div>
             </div>
           </div>
 
-          <div className="min-w-0 overflow-hidden rounded-[2rem] border border-white/15 bg-white/[0.08] p-4 shadow-[0_40px_120px_-52px_rgba(0,0,0,0.9)]">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-[1.5rem] bg-slate-100">
+          <div className="lg:w-1/2 min-w-0 overflow-hidden rounded-[3rem] border border-white/15 bg-white/[0.08] p-5 shadow-[0_40px_120px_-50px_rgba(0,0,0,1)] backdrop-blur-md">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-[2rem] bg-slate-100">
               <Image
                 src={category.image}
                 alt={category.title}
                 fill
                 priority
                 sizes="(min-width: 1024px) 520px, 100vw"
-                className="object-contain p-5"
+                className="object-contain p-8"
               />
-            </div>
-            <div className="grid gap-3 pt-5">
-              {category.highlights.map((highlight) => (
-                <div key={highlight} className="flex min-w-0 items-start gap-3 rounded-2xl border border-white/10 bg-white/10 p-4">
-                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-blue-200" />
-                  <span className="break-words text-sm font-medium leading-6 text-slate-200">{highlight}</span>
-                </div>
-              ))}
             </div>
           </div>
         </div>
       </header>
 
       {/* Clean Product Grid */}
-      <section className="px-6 py-20">
-        <div className="mx-auto max-w-7xl">
-          <div className="mb-12 flex flex-col justify-between gap-6 border-b border-slate-100 pb-8 md:flex-row md:items-end">
-            <div>
-              <p className="text-sm font-semibold uppercase leading-6 text-blue-600">Available Products</p>
-              <h2 className="mt-3 text-4xl font-semibold leading-tight text-slate-950 md:text-5xl">
+      <section className="section-standard">
+        <ThemeMarker theme="light" className="absolute top-0" />
+        <div className="max-container">
+          <div className="mb-20 flex flex-col md:flex-row md:items-end justify-between gap-10">
+            <div className="min-w-0">
+              <span className="text-eyebrow">Product Selection</span>
+              <h2 className="heading-section mb-0">
                 {category.title} lineup
               </h2>
             </div>
-            <p className="max-w-xl text-sm font-medium leading-6 text-slate-500">
+            <p className="max-w-xl text-body-lg">
               Showing {products.length} products matched to this category. Each system can be adapted to site dimensions, finish requirements, and performance targets.
             </p>
           </div>
@@ -172,12 +165,14 @@ export default async function CategoryPage({ params }: Props) {
         </div>
       </section>
 
-      <section className="bg-[#f6f7f9] px-6 py-20">
-        <div className="mx-auto max-w-7xl">
-          <div className="mb-8 flex items-end justify-between gap-6">
+      {/* Related Families */}
+      <section className="section-tint">
+        <ThemeMarker theme="light" className="absolute top-0" />
+        <div className="max-container">
+          <div className="mb-14 flex items-end justify-between gap-6">
             <div>
-              <p className="text-sm font-semibold uppercase leading-6 text-blue-600">Related Families</p>
-              <h2 className="mt-3 text-3xl font-semibold leading-tight text-slate-950 md:text-4xl">Compare nearby solutions</h2>
+              <span className="text-eyebrow">Related Families</span>
+              <h2 className="heading-section mb-0">Compare nearby solutions</h2>
             </div>
           </div>
           <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
@@ -198,11 +193,14 @@ export default async function CategoryPage({ params }: Props) {
       </section>
 
       {/* Call to Action */}
-      <section className="border-t border-slate-100 px-6 py-28 text-center">
-        <h2 className="mb-8 text-4xl font-semibold leading-tight tracking-tight text-black">Need custom specifications?</h2>
-        <Link href="/contact" className="apple-button px-10 py-4 text-sm">
-          Contact our Engineering Team
-        </Link>
+      <section className="section-standard text-center border-t border-slate-100">
+        <div className="max-container max-w-4xl">
+          <span className="text-eyebrow text-center mb-6">Technical Consultation</span>
+          <h2 className="heading-section text-center mb-10">Need custom <br />specifications?</h2>
+          <Link href="/contact" className="apple-button px-10 py-4 text-sm uppercase tracking-widest font-black">
+            Contact our Engineering Team
+          </Link>
+        </div>
       </section>
     </div>
   );

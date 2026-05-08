@@ -5,24 +5,24 @@ import { catalog, media } from '@/lib/catalog';
 export default function MediaPage() {
   return (
     <div className="flex flex-col min-h-screen bg-white">
-      <header className="pt-40 pb-20 px-6 text-center bg-[#fafafa]">
-        <div className="mx-auto max-w-4xl">
-          <p className="text-[12px] font-bold text-blue-600 uppercase tracking-[0.2em] mb-6">
+      <header className="hero-light">
+        <div className="max-container">
+          <p className="text-eyebrow text-center mb-6">
             Gallery
           </p>
-          <h1 className="text-6xl md:text-[6rem] font-bold tracking-tighter text-black uppercase mb-10 leading-none">
+          <h1 className="heading-hero text-black">
             Systems <br /> in Focus.
           </h1>
-          <p className="text-xl md:text-2xl text-slate-500 font-medium max-w-2xl mx-auto leading-relaxed">
+          <p className="text-body-lg max-w-2xl mx-auto mt-10">
             A visual documentation of precision engineering and automated movement.
           </p>
         </div>
       </header>
 
       {/* Video Catalog */}
-      <section className="py-32 px-6">
-        <div className="mx-auto max-w-7xl">
-          <h2 className="text-4xl font-bold tracking-tight text-black mb-20 uppercase">Video Demonstrations.</h2>
+      <section className="section-standard">
+        <div className="max-container">
+          <h2 className="heading-section mb-20">Video Demonstrations.</h2>
           <div className="grid gap-10 md:grid-cols-2">
             {media.videos.map((video) => (
               <a 
@@ -30,7 +30,7 @@ export default function MediaPage() {
                 href={`https://www.youtube.com/watch?v=${video.id}`} 
                 target="_blank" 
                 rel="noreferrer" 
-                className="group relative block overflow-hidden rounded-[2.5rem] bg-black aspect-video shadow-2xl"
+                className="group relative block overflow-hidden rounded-[3rem] bg-black aspect-video shadow-2xl"
               >
                 <Image
                   src={`https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`} 
@@ -43,7 +43,7 @@ export default function MediaPage() {
                   <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform">
                     <Play className="w-6 h-6 text-black fill-current" />
                   </div>
-                  <h3 className="text-3xl font-bold text-white uppercase tracking-tight">{video.title}</h3>
+                  <h3 className="text-3xl font-black text-white uppercase tracking-tighter">{video.title}</h3>
                 </div>
               </a>
             ))}
@@ -52,11 +52,11 @@ export default function MediaPage() {
       </section>
 
       {/* Image Gallery */}
-      <section className="py-32 px-6 bg-[#fafafa]">
-        <div className="mx-auto max-w-7xl">
+      <section className="section-tint">
+        <div className="max-container">
           <div className="mb-20 flex flex-col md:flex-row md:items-end justify-between gap-8">
             <div className="max-w-2xl">
-              <h2 className="text-4xl font-bold tracking-tight text-black uppercase mb-4">Project Visuals.</h2>
+              <h2 className="heading-section mb-4">Project Visuals.</h2>
               <p className="text-slate-500 font-medium text-lg leading-relaxed">
                 Documentation of live engineering deployments across residential and industrial sectors.
               </p>

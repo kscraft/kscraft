@@ -6,34 +6,33 @@ import { ChevronRight } from 'lucide-react';
 export default function ClientsPage() {
   return (
     <div className="flex flex-col min-h-screen bg-white">
-      {/* Hero Header */}
-      <header className="pt-40 pb-20 px-6 text-center bg-[#fafafa]">
-        <div className="mx-auto max-w-4xl">
-          <p className="text-[12px] font-bold text-blue-600 uppercase tracking-[0.2em] mb-6">
+      <header className="hero-light">
+        <div className="max-container">
+          <p className="text-eyebrow text-center mb-6">
             Case Studies
           </p>
-          <h1 className="text-6xl md:text-[6rem] font-bold tracking-tighter text-black uppercase mb-10 leading-none">
+          <h1 className="heading-hero text-black">
             Trust & <br /> Precision.
           </h1>
-          <p className="text-xl md:text-2xl text-slate-500 font-medium max-w-2xl mx-auto leading-relaxed">
-            Delivering high-impact engineering solutions for India-based leading organizations.
+          <p className="text-body-lg max-w-2xl mx-auto mt-10">
+            Delivering high-impact engineering solutions for leading global organizations.
           </p>
         </div>
       </header>
 
       {/* Project Milestones */}
-      <section className="py-32 px-6">
-        <div className="mx-auto max-w-7xl">
+      <section className="section-standard">
+        <div className="max-container">
           <div className="grid md:grid-cols-3 gap-8">
             {projects.highlights.map((project) => (
-              <div key={project.title} className="p-12 rounded-[2.5rem] bg-[#f5f5f7] border border-slate-100 group transition-all hover:bg-white hover:shadow-2xl">
-                <p className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-4">{project.subtitle}</p>
-                <h3 className="text-3xl font-bold tracking-tight text-black mb-6 uppercase leading-tight">{project.title}</h3>
+              <div key={project.title} className="p-10 rounded-[2.5rem] bg-slate-50 border border-slate-100 group transition-all hover:bg-white hover:shadow-2xl">
+                <p className="text-[10px] font-black text-blue-600 uppercase tracking-widest mb-4">{project.subtitle}</p>
+                <h3 className="text-2xl font-black tracking-tight text-black mb-6 uppercase leading-tight">{project.title}</h3>
                 <p className="text-slate-500 font-medium leading-relaxed mb-8">{project.detail}</p>
                 {project.slug ? (
                   <Link href={`/showcase/${project.slug}`} className="apple-link font-black">{catalog.company.ui.viewCaseStudy} <ChevronRight className="w-4 h-4" /></Link>
                 ) : (
-                  <Link href="/contact" className="apple-link">{catalog.company.ui.requestTechnicalDetails} <ChevronRight className="w-4 h-4" /></Link>
+                  <Link href="/contact" className="apple-link font-black">{catalog.company.ui.requestTechnicalDetails} <ChevronRight className="w-4 h-4" /></Link>
                 )}
               </div>
             ))}
@@ -42,23 +41,23 @@ export default function ClientsPage() {
       </section>
 
       {/* Client Grid */}
-      <section className="py-32 px-6 bg-[#fafafa]">
-        <div className="mx-auto max-w-7xl">
-          <h2 className="text-4xl font-bold tracking-tight text-black text-center mb-24 uppercase">Partnering with Leaders.</h2>
+      <section className="section-tint">
+        <div className="max-container">
+          <h2 className="heading-section text-center mb-24">Partnering with Leaders.</h2>
           
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-12 items-center justify-items-center opacity-40 grayscale contrast-150">
             {catalog.company.clientLogos.map((client) => (
-              <Image
+              <Image 
                 key={client.name}
-                src={client.image}
-                alt={client.name}
-                width={120}
-                height={48}
+                src={client.image} 
+                alt={client.name} 
+                width={120} 
+                height={48} 
                 className="max-h-12 w-auto object-contain hover:opacity-100 transition-opacity"
               />
             ))}
           </div>
-
+          
           <div className="mt-32 pt-20 border-t border-slate-200">
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-x-8 gap-y-12">
               {catalog.company.clients.map((client) => (

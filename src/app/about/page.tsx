@@ -4,9 +4,9 @@ import { Award, Target, Users } from 'lucide-react';
 
 export default function AboutPage() {
   return (
-    <div className="flex flex-col min-h-screen bg-white">
+    <div className="flex min-h-screen flex-col bg-white">
       {/* Hero Header */}
-      <header className="relative py-24 lg:py-48 bg-slate-950 overflow-hidden">
+      <header className="hero-dark">
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/hero/modern-architecture.jpg" 
@@ -18,8 +18,8 @@ export default function AboutPage() {
           <div className="absolute inset-0 bg-gradient-to-br from-blue-900/40 via-slate-950/60 to-slate-950"></div>
         </div>
 
-        <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-12 text-center lg:text-left">
-          <h1 className="text-5xl lg:text-[7rem] font-black text-white tracking-tighter leading-[0.9] mb-8 uppercase">
+        <div className="relative z-10 max-container px-6 text-center lg:text-left">
+          <h1 className="heading-hero text-white">
             {home.about.heroTitle.split(' ')[0]} <span className="text-blue-500">{home.about.heroTitle.split(' ')[1]}</span>
           </h1>
           <p className="max-w-2xl text-xl lg:text-2xl text-slate-400 leading-relaxed mx-auto lg:mx-0 font-medium">
@@ -29,12 +29,12 @@ export default function AboutPage() {
       </header>
 
       {/* Philosophy Section */}
-      <section className="py-32 mx-auto max-w-7xl px-6 lg:px-12 w-full relative">
+      <section className="section-standard overflow-hidden">
         <div className="absolute top-0 right-0 w-1/3 h-full bg-blue-50/30 -skew-x-12 transform translate-x-20"></div>
-        <div className="grid lg:grid-cols-12 gap-20 items-center relative z-10">
+        <div className="max-container grid lg:grid-cols-12 gap-20 items-center relative z-10">
           <div className="lg:col-span-7">
-            <span className="text-blue-600 font-black uppercase tracking-[0.3em] text-xs mb-4 block">{home.about.infrastructureLabel}</span>
-            <h2 className="text-4xl lg:text-6xl font-black text-slate-900 tracking-tighter uppercase leading-none mb-10">
+            <span className="text-eyebrow">{home.about.infrastructureLabel}</span>
+            <h2 className="heading-page text-slate-900 mb-10">
               {home.about.infrastructureTitle.split(' ')[0]} <br />{home.about.infrastructureTitle.split(' ')[1]}
             </h2>
             <div className="space-y-8 text-xl text-slate-500 leading-relaxed font-medium">
@@ -65,12 +65,12 @@ export default function AboutPage() {
       </section>
 
       {/* Values Grid */}
-      <section className="py-32 bg-slate-950 relative overflow-hidden">
+      <section className="section-dark">
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-blue-950/20 to-transparent"></div>
-        <div className="mx-auto max-w-7xl px-6 lg:px-12 relative z-10">
+        <div className="max-container relative z-10">
           <div className="grid md:grid-cols-2 gap-10">
-            <div className="bg-white/5 backdrop-blur-xl p-16 rounded-[4rem] border border-white/10 shadow-2xl transition-all hover:bg-white/10">
-              <div className="h-16 w-16 rounded-3xl bg-blue-600 flex items-center justify-center text-white mb-10 shadow-lg shadow-blue-600/20">
+            <div className="bg-white/5 backdrop-blur-xl p-16 rounded-[4rem] border border-white/10 shadow-2xl transition-all hover:bg-white/10 group">
+              <div className="h-16 w-16 rounded-3xl bg-blue-600 flex items-center justify-center text-white mb-10 shadow-lg shadow-blue-600/20 group-hover:scale-110 transition-transform">
                 <Target className="w-8 h-8" />
               </div>
               <h3 className="text-4xl font-black text-white mb-8 uppercase tracking-tighter">{home.about.missionTitle}</h3>
@@ -78,8 +78,8 @@ export default function AboutPage() {
                 {catalog.company.mission}
               </p>
             </div>
-            <div className="bg-white/5 backdrop-blur-xl p-16 rounded-[4rem] border border-white/10 shadow-2xl transition-all hover:bg-white/10">
-              <div className="h-16 w-16 rounded-3xl bg-blue-600 flex items-center justify-center text-white mb-10 shadow-lg shadow-blue-600/20">
+            <div className="bg-white/5 backdrop-blur-xl p-16 rounded-[4rem] border border-white/10 shadow-2xl transition-all hover:bg-white/10 group">
+              <div className="h-16 w-16 rounded-3xl bg-blue-600 flex items-center justify-center text-white mb-10 shadow-lg shadow-blue-600/20 group-hover:scale-110 transition-transform">
                 <Users className="w-8 h-8" />
               </div>
               <h3 className="text-4xl font-black text-white mb-8 uppercase tracking-tighter">{home.about.visionTitle}</h3>

@@ -8,6 +8,7 @@ import { Menu, X, ChevronDown, ArrowRight } from 'lucide-react';
 import { categories, navigation } from '@/lib/catalog';
 import { cn } from '@/lib/utils';
 import { motion, AnimatePresence } from 'framer-motion';
+import HeaderActions from '@/components/HeaderActions';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -79,17 +80,7 @@ const Header = () => {
               </div>
             </li>
           </ul>
-          <Link
-            href="/contact"
-            className={cn(
-              "text-[12px] font-semibold px-5 py-2 rounded-full transition-all active:scale-95",
-              useLightHeaderText
-                ? "bg-white text-slate-950 hover:bg-blue-50"
-                : "bg-black text-white hover:bg-zinc-800"
-            )}
-          >
-            Contact
-          </Link>
+          <HeaderActions useLightHeaderText={useLightHeaderText} />
         </nav>
 
         {/* Mobile Toggle */}

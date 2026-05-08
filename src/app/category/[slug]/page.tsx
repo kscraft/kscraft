@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -15,6 +16,20 @@ export async function generateStaticParams() {
   }));
 }
 
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const category = getCategory(slug);
+
+  if (!category) {
+    return {};
+  }
+
+  return {
+    title: `${category.title} Systems | Global Acoustic & Automation Export`,
+    description: `Professional ${category.title} solutions for commercial and residential projects. Certified global exporter serving UK, Europe, GCC/MENA, APAC, and Australia.`
+  };
+}
+
 export default async function CategoryPage({ params }: Props) {
   const { slug } = await params;
   const category = getCategory(slug);
@@ -26,8 +41,30 @@ export default async function CategoryPage({ params }: Props) {
   const products = getProductsByCategory(category.id);
   const relatedCategories = categories.filter((item) => item.id !== category.id);
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    'name': `${category.title} Lineup`,
+    'description': category.description,
+    'url': `https://kiranslidocraft.com/category/${category.id}`,
+    'mainEntity': {
+      '@type': 'ItemList',
+      'numberOfItems': products.length,
+      'itemListElement': products.map((prod, index) => ({
+        '@type': 'ListItem',
+        'position': index + 1,
+        'url': `https://kiranslidocraft.com/product/${prod.slug}`,
+        'name': prod.title
+      }))
+    }
+  };
+
   return (
     <div className="flex min-h-screen flex-col bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Product-family header */}
       <header className="bg-slate-950 px-4 pb-16 pt-32 text-white sm:px-6 md:pb-20 md:pt-40">
         <div className="mx-auto grid max-w-[1320px] gap-10 lg:grid-cols-[minmax(0,0.86fr)_minmax(340px,0.74fr)] lg:items-center">

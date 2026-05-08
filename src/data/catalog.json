@@ -3,10 +3,12 @@
     "name": "Kiran Slido Craft",
     "founded": 1985,
     "tagline": "Engineering Silence. Automating Movement.",
-    "description": "Kiran Slido Craft is an ISO 9001:2015 certified leader in advanced acoustic systems and architectural automation, delivering European-standard precision through indigenous Indian engineering.",
+    "description": "Kiran Slido Craft is an ISO 9001:2015 certified leader and licensed global exporter of advanced acoustic systems and architectural automation. We deliver European-standard precision through indigenous Indian engineering across the UK, Europe, GCC/MENA, APAC, Australia, and the Indian Subcontinent.",
     "mission": "To engineer world-class acoustic and automation solutions that define modern living and working environments.",
     "vision": "Leading the future of architectural engineering through continuous innovation and customized technical excellence.",
     "email": "info@kiranslidocraft.com",
+    "phone": "+919324084590",
+    "phoneDisplay": "+91 93240 84590",
     "locations": [
       {
         "city": "Mumbai",
@@ -17,7 +19,7 @@
         "address": "42 RBC Road, Dumdum Cantonment, Kolkata"
       }
     ],
-    "certifications": ["ISO 9001 Certified", "NSIC Registered", "MSME Registered"],
+    "certifications": ["ISO 9001 Certified", "Licensed Global Exporter", "NSIC Registered", "MSME Registered"],
     "clients": [
       "Johnson & Johnson",
       "Pfizer India",
@@ -44,6 +46,32 @@
     "social": {
       "youtube": "https://www.youtube.com/kiranslidocraft",
       "linkedin": "https://www.linkedin.com/company/kiranslidocraft/"
+    },
+    "authenticity": {
+      "title": "Raw Authenticity",
+      "badge": "Raw Installation Photo",
+      "description": "All imagery shown across this site consists of raw, unedited installation photos. We present real-world engineering results, not Photoshop renders or fluff."
+    },
+    "ui": {
+      "viewCaseStudy": "View Case Study",
+      "requestTechnicalDetails": "Request technical details",
+      "getQuote": "Get a Quote",
+      "viewSourceDetails": "View Source Details",
+      "learnMore": "Learn more",
+      "exploreAllSystems": "Explore all systems",
+      "certified": "ISO 9001:2015 Certified",
+      "exporter": "Licensed Global Exporter",
+      "hq": "Engineering Headquarters, Mumbai.",
+      "searchPlaceholder": "Search specifications (e.g. STC 50, Motorized, Sliding)...",
+      "matchingSystems": "Matching Systems",
+      "noSystemsFound": "No technical systems match your query.",
+      "viewFullCatalog": "View full technical catalog",
+      "tryBroaderTerms": "Try searching for broader terms like \"Sound\" or \"Roof\".",
+      "reachViaWhatsApp": "WhatsApp",
+      "reachViaCall": "Call Now",
+      "reachViaEmail": "Send Email",
+      "quoteTitle": "Get a Specification Quote",
+      "quoteSubtitle": "Connect directly with our engineering team for technical pricing and lead times."
     }
   },
   "sources": [
@@ -71,8 +99,8 @@
       "eyebrow": "Engineering Silence. Automating Movement.",
       "title": "Kiran Slido Craft",
       "highlight": "Precision acoustic and architectural automation systems",
-      "subhighlight": "for spaces where silence, movement, and reliability must work together.",
-      "description": "Explore engineered soundproofing, retractable roofing, and motorized movement systems built for demanding residential, commercial, and industrial projects.",
+      "subhighlight": "serving the UK, Europe, GCC/MENA, APAC, and Australia with certified export precision.",
+      "description": "Explore engineered soundproofing, retractable roofing, and motorized movement systems built for demanding residential, commercial, and industrial projects worldwide.",
       "image": "/images/products/motorized-sliding-roof.jpg",
       "productTitle": "Motorized Sliding Roof",
       "productSubtitle": "Retractable open-to-sky roofing for terraces, atriums, and premium outdoor spaces.",
@@ -81,7 +109,7 @@
       "metrics": [
         { "label": "Established", "value": "1985" },
         { "label": "Certified", "value": "ISO 9001" },
-        { "label": "Products", "value": "23" }
+        { "label": "Export", "value": "Global" }
       ]
     },
     "promise": {
@@ -99,9 +127,9 @@
           "description": "Sliding roofs, gates, barriers, and vertical systems engineered for daily use."
         },
         {
-          "id": "project-ready",
-          "title": "Project Ready",
-          "description": "Specification-led support for villas, hotels, institutions, and industrial sites."
+          "id": "global-export",
+          "title": "Global Export",
+          "description": "Licensed exporter serving UK, Europe, GCC, APAC, and Australia; expanding to Africa and the Americas."
         }
       ]
     },
@@ -144,6 +172,52 @@
       "eyebrow": "Trust & Engineering",
       "title": "Designed in India. Built for demanding sites.",
       "description": "Trusted by HDFC, Godrej, Pfizer, and ISRO. Kiran Slido Craft is an ISO 9001 Certified manufacturer of premium technical solutions."
+    },
+    "engineeringDNA": {
+      "eyebrow": "Engineering DNA",
+      "title": "Not Just Products. Pure Engineering.",
+      "description": "Kiran Slido Craft is defined by its ability to solve extreme technical challenges. From aerospace mechanisms for ISRO to high-performance industrial soundproofing, we engineer solutions where off-the-shelf products fail.",
+      "cta": { "label": "Start a Technical Discussion", "href": "/contact" },
+      "challengeTitle": "Have a unique engineering challenge?",
+      "challengeDescription": "Partner with the engineering company trusted by ISRO, Godrej, and HDFC for mission-critical automation and acoustics."
+    },
+    "about": {
+      "heroTitle": "Our Legacy.",
+      "heroDescription": "Pioneering indigenous engineering and architectural automation in India.",
+      "infrastructureLabel": "Engineered for Silence",
+      "infrastructureTitle": "Visionary Infrastructure",
+      "infrastructureDescription": "From heavy-duty industrial enclosures to high-end residential soundproofing, our expertise spans decades of technical evolution. We do not just build systems; we engineer environments of silence and seamless movement.",
+      "experienceLabel": "Years Experience",
+      "systemsLabel": "System Lines",
+      "missionTitle": "Our Mission",
+      "visionTitle": "Our Vision"
+    },
+    "services": {
+      "heroTitle": "Service Support.",
+      "heroDescription": "Comprehensive maintenance and technical lifecycle support for our range of premium acoustic and automatic systems.",
+      "assistLabel": "Ready to Assist",
+      "assistTitle": "International Standards, Indigenous Support.",
+      "assistDescription": "Kiran Slido Craft provides technical response times and support availability that matches our high engineering quality.",
+      "ctaLabel": "Request Service Support"
+    },
+    "contact": {
+      "heroTitle": "Let us Connect.",
+      "heroDescription": "Partner with our engineering experts for your next high-performance acoustic or automation project.",
+      "hubsLabel": "Engineering Hubs",
+      "digitalLabel": "Digital Infrastructure",
+      "formTitle": "Technical Inquiry",
+      "formDescription": "Provide your project specifications below. Our engineering team will respond with a preliminary technical assessment.",
+      "successTitle": "Submission Successful",
+      "anotherRequest": "Send another request",
+      "nameLabel": "Contact Name",
+      "emailLabel": "Corporate Email",
+      "scopeLabel": "Project Scope",
+      "requirementsLabel": "Technical Requirements",
+      "placeholderName": "Enter name",
+      "placeholderEmail": "email@company.com",
+      "placeholderRequirements": "Briefly describe dimensions, acoustic targets, or automation needs...",
+      "submitButton": "Send Technical Request",
+      "processing": "Processing..."
     }
   },
   "media": {
@@ -166,8 +240,26 @@
     "highlights": [
       {
         "title": "ISRO Gaganyaan Mission",
-        "subtitle": "Strategic Engineering",
-        "detail": "Design and construction of the astronaut entry mechanism for the Gaganyaan space mission at SHAR Sriharikota."
+        "subtitle": "Strategic Aerospace Engineering",
+        "detail": "Kiran Slido Craft engineered the mission-critical crew onboarding and deboarding mechanism for India's premier space flight. Designed for the Gaganyaan program at SHAR Sriharikota, this lander-compatible entry system represents the pinnacle of indigenous engineering precision.",
+        "slug": "isro-gaganyaan",
+        "image": "/images/media/project-1.jpg",
+        "showcase": {
+          "heroTitle": "Mission Critical.",
+          "heroDescription": "Engineering the crew entry and deboarding mechanism for India's pioneering Gaganyaan space mission.",
+          "challengeLabel": "The Challenge",
+          "challengeTitle": "Beyond Standard Specifications.",
+          "challengeDescription": "When ISRO required a reliable, precision-engineered mechanism for astronaut movement, they didn't just need a vendor—they needed an engineering partner capable of indigenous innovation. The ask: A robust crew onboarding and deboarding lander mechanism designed for the extreme demands of the Gaganyaan program. Every millimeter of movement had to be perfectly orchestrated, ensuring absolute safety for India's first manned space flight.",
+          "stats": [
+            { "label": "Zero Failure Tolerance", "value": "99.99%", "icon": "ShieldCheck" },
+            { "label": "Indigenous Design", "value": "100%", "icon": "Zap" },
+            { "label": "Precision Alignment", "value": "Sub-mm", "icon": "Target" },
+            { "label": "Structural Load", "value": "Aerospace Grade", "icon": "Gauge" }
+          ],
+          "uspLabel": "The USP",
+          "uspTitle": "We are an Engineering Company First.",
+          "uspDescription": "Kiran Slido Craft thrives on unique, high-stakes engineering requirements. Whether it is a space-grade entry mechanism or a complex industrial soundproofing challenge, we apply the same aerospace-level rigor to every system we build."
+        }
       },
       {
         "title": "VJ Villa Pune",

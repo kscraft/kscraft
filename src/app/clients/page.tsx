@@ -30,7 +30,11 @@ export default function ClientsPage() {
                 <p className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-4">{project.subtitle}</p>
                 <h3 className="text-3xl font-bold tracking-tight text-black mb-6 uppercase leading-tight">{project.title}</h3>
                 <p className="text-slate-500 font-medium leading-relaxed mb-8">{project.detail}</p>
-                <Link href="/contact" className="apple-link">Request technical details <ChevronRight className="w-4 h-4" /></Link>
+                {project.slug ? (
+                  <Link href={`/showcase/${project.slug}`} className="apple-link font-black">{catalog.company.ui.viewCaseStudy} <ChevronRight className="w-4 h-4" /></Link>
+                ) : (
+                  <Link href="/contact" className="apple-link">{catalog.company.ui.requestTechnicalDetails} <ChevronRight className="w-4 h-4" /></Link>
+                )}
               </div>
             ))}
           </div>

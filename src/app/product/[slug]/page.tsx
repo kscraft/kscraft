@@ -4,7 +4,8 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ExternalLink, ShieldCheck } from 'lucide-react';
 import ProductCard from '@/components/ProductCard';
-import { getCategory, getProduct, getProductsByCategory, products } from '@/lib/catalog';
+import ProductActions from '@/components/ProductActions';
+import { catalog, getCategory, getProduct, getProductsByCategory, products } from '@/lib/catalog';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -25,8 +26,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   return {
-    title: `${product.title} | Kiran Slido Craft`,
-    description: product.description
+    title: `${product.title} | Kiran Slido Craft - Global Export`,
+    description: `${product.description} Available for export to UK, Europe, GCC/MENA, APAC, and Australia. Precision engineered by Kiran Slido Craft.`
   };
 }
 
@@ -43,8 +44,29 @@ export default async function ProductPage({ params }: Props) {
     .filter((item) => item.slug !== product.slug)
     .slice(0, 3);
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    'name': product.title,
+    'description': product.description,
+    'image': `https://kiranslidocraft.com${product.image}`,
+    'brand': {
+      '@type': 'Brand',
+      'name': 'Kiran Slido Craft'
+    },
+    'offers': {
+      '@type': 'Offer',
+      'availability': 'https://schema.org/InStock',
+      'areaServed': ['UK', 'Europe', 'GCC', 'MENA', 'APAC', 'Australia', 'India', 'Americas', 'Africa']
+    }
+  };
+
   return (
     <div className="bg-white min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Immersive Product Hero */}
       <section className="pt-40 pb-20 px-6 text-center bg-[#fafafa]">
         <div className="mx-auto max-w-5xl">
@@ -57,16 +79,7 @@ export default async function ProductPage({ params }: Props) {
           <p className="text-xl md:text-2xl text-slate-500 font-medium max-w-3xl mx-auto leading-relaxed mb-12">
             {product.description}
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-            <Link href="/contact" className="apple-button px-12 py-4">
-              Get a Quote
-            </Link>
-            {product.sourceUrls[0] && (
-              <a href={product.sourceUrls[0]} target="_blank" rel="noreferrer" className="apple-link text-lg">
-                View Source Details <ExternalLink className="w-5 h-5" />
-              </a>
-            )}
-          </div>
+          <ProductActions productTitle={product.title} sourceUrl={product.sourceUrls[0]} />
         </div>
       </section>
 
@@ -80,6 +93,13 @@ export default async function ProductPage({ params }: Props) {
             sizes="(min-width: 1024px) 1024px, 100vw"
             className="w-full h-full object-contain p-12 mix-blend-multiply"
           />
+          {/* Authenticity Callout */}
+          <div className="absolute bottom-10 right-10 flex items-center gap-3 bg-white/80 backdrop-blur-xl border border-white/50 px-6 py-3 rounded-full shadow-2xl">
+            <span className="flex h-2 w-2 rounded-full bg-blue-600 animate-pulse"></span>
+            <p className="text-[10px] font-black uppercase tracking-widest text-slate-900">
+              {catalog.company.authenticity.badge}
+            </p>
+          </div>
         </div>
       </section>
 

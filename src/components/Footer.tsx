@@ -54,8 +54,9 @@ export default function Footer() {
                 {catalog.company.email}
               </a>
               <p className="text-[11px] text-slate-400 font-medium leading-relaxed">
-                ISO 9001:2015 Certified <br />
-                Engineering Headquarters, Mumbai.
+                {catalog.company.ui.certified} <br />
+                {catalog.company.ui.exporter} <br />
+                {catalog.company.ui.hq}
               </p>
             </div>
           </div>

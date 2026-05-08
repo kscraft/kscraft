@@ -35,11 +35,11 @@ const Header = () => {
   return (
     <header
       className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-700 ease-in-out border-b',
+        'fixed top-0 left-0 right-0 z-50 transition-all duration-700 ease-in-out',
         isScrolled
-          ? 'bg-white/80 backdrop-blur-2xl border-slate-200/60 py-3 shadow-sm'
-          : 'bg-transparent border-transparent py-5',
-        isOpen && 'bg-white border-slate-200'
+          ? 'bg-white/60 backdrop-blur-3xl border-b border-slate-200/50 py-3 shadow-sm'
+          : 'bg-transparent py-5',
+        isOpen && 'bg-white border-b border-slate-200'
       )}
     >
       <div className="mx-auto max-w-[1320px] px-6 flex items-center justify-between">

@@ -43,7 +43,7 @@ export default function Home() {
             <p className="mb-5 max-w-full break-words text-sm font-semibold uppercase leading-6 text-blue-200">
               {home.hero.eyebrow}
             </p>
-            <h1 className="max-w-full break-words text-5xl font-black leading-[0.9] text-white sm:text-7xl md:text-[clamp(4.5rem,8vw,8rem)] uppercase tracking-tighter">
+            <h1 className="max-w-full break-words text-5xl font-black leading-[0.9] text-white sm:text-7xl md:text-[clamp(4rem,7vw,7rem)] uppercase tracking-tighter">
               {home.hero.title.split(' ').slice(0, 2).join(' ')} <br /><span className="text-blue-500">{home.hero.title.split(' ').slice(2).join(' ')}</span>
             </h1>
             <p className="mt-7 max-w-full break-words text-base font-medium leading-7 text-slate-200 sm:text-lg sm:leading-8 md:max-w-2xl md:text-2xl md:leading-9">
@@ -96,7 +96,7 @@ export default function Home() {
       </section>
 
       {/* Engineering DNA Showcase */}
-      <section className="bg-slate-50 py-32 px-6 relative">
+      <section className="bg-white py-32 px-6 relative">
         <ThemeMarker theme="light" className="absolute top-0" />
         <div className="mx-auto max-w-7xl">
           <div className="flex flex-col lg:flex-row items-center gap-20">
@@ -169,7 +169,8 @@ export default function Home() {
       </section>
 
       {/* Primary Catalog Navigation */}
-      <section className="bg-[#f6f7f9] px-6 py-24">
+      <section className="bg-slate-50/50 px-6 py-32 border-t border-slate-100 relative">
+        <ThemeMarker theme="light" className="absolute top-0" />
         <div className="mx-auto max-w-[1320px]">
           <div className="mb-20">
             <SpecsSearch />

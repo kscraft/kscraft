@@ -98,7 +98,7 @@ export default function GaganyaanShowcase() {
           <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-blue-600/20 border border-blue-500/30 text-blue-400 text-[10px] font-black uppercase tracking-[0.3em] mb-10">
             <Rocket className="w-4 h-4" /> {project.subtitle}
           </div>
-          <h1 className="text-6xl lg:text-[clamp(5rem,9vw,9rem)] font-black text-white tracking-tighter leading-[0.85] mb-12 uppercase animate-in fade-in slide-in-from-bottom-8 duration-1000">
+          <h1 className="text-6xl lg:text-[clamp(4.5rem,8vw,8rem)] font-black text-white tracking-tighter leading-[0.85] mb-12 uppercase animate-in fade-in slide-in-from-bottom-8 duration-1000">
             {showcase.heroTitle.split(' ')[0]} <br /><span className="text-blue-500">{showcase.heroTitle.split(' ')[1]}</span>
           </h1>
           <p className="max-w-3xl mx-auto text-xl lg:text-3xl text-slate-300 font-medium leading-relaxed">
@@ -129,10 +129,10 @@ export default function GaganyaanShowcase() {
               {showcase.stats.map((stat, idx) => {
                 const Icon = iconMap[stat.icon] || Target;
                 return (
-                  <div key={idx} className="p-10 rounded-[3rem] bg-slate-50 border border-slate-100 shadow-sm transition-all hover:bg-white hover:shadow-xl group">
-                    <Icon className="w-10 h-10 text-blue-600 mb-6 group-hover:scale-110 transition-transform" />
-                    <p className="text-4xl font-black text-slate-900 mb-2 tracking-tighter">{stat.value}</p>
-                    <p className="text-[10px] font-black uppercase tracking-widest text-slate-400">{stat.label}</p>
+                  <div key={idx} className="p-8 rounded-[2rem] bg-slate-50 border border-slate-100 shadow-sm transition-all hover:bg-white hover:shadow-xl group">
+                    <Icon className="w-8 h-8 text-blue-600 mb-6 group-hover:scale-110 transition-transform" />
+                    <p className="text-3xl font-black text-slate-900 mb-1 tracking-tighter">{stat.value}</p>
+                    <p className="text-[9px] font-black uppercase tracking-widest text-slate-400">{stat.label}</p>
                   </div>
                 );
               })}

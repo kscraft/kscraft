@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown, ArrowRight } from 'lucide-react';
 import { categories, navigation } from '@/lib/catalog';
 import { cn } from '@/lib/utils';
 import { motion, AnimatePresence } from 'framer-motion';

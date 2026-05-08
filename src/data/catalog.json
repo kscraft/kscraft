@@ -93,7 +93,6 @@
   "navigation": {
     "header": [
       { "label": "Overview", "href": "/" },
-      { "label": "Configurator", "href": "/configurator" },
       { "label": "Acoustics", "href": "/category/sound-proof-windows" },
       { "label": "Automation", "href": "/category/motorized-systems" },
       { "label": "Engineering", "href": "/services" },

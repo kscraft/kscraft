@@ -25,10 +25,10 @@ export default function ProductCard({ product, compact = false }: ProductCardPro
           e.stopPropagation();
           window.dispatchEvent(new CustomEvent('add-to-compare', { detail: product.slug }));
         }}
-        className="absolute top-6 left-6 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-white/80 backdrop-blur-md text-slate-400 hover:text-blue-600 hover:bg-white shadow-sm opacity-0 group-hover:opacity-100 transition-all active:scale-90"
+        className="absolute top-5 left-5 z-20 flex h-8 w-8 items-center justify-center rounded-full bg-white/40 backdrop-blur-md text-slate-400 hover:text-blue-600 hover:bg-white shadow-sm opacity-0 group-hover:opacity-100 transition-all active:scale-90"
         title="Add to compare"
       >
-        <ArrowRightLeft className="w-4 h-4" />
+        <ArrowRightLeft className="w-3.5 h-3.5" />
       </button>
 
       <Link href={`/product/${product.slug}`} className="flex h-full min-w-0 flex-col overflow-hidden rounded-[2rem] bg-[#f5f5f7] transition-shadow hover:shadow-[0_40px_80px_-12px_rgba(0,0,0,0.12)]">

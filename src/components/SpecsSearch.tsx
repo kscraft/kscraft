@@ -31,15 +31,15 @@ export default function SpecsSearch() {
   }, [query]);
 
   return (
-    <div className="relative w-full max-w-2xl mx-auto">
+    <div className="relative w-full max-w-2xl mx-auto px-4 md:px-0">
       <div 
         className={cn(
-          "relative flex items-center bg-white border rounded-2xl transition-all duration-300 shadow-sm",
-          isOpen ? "border-blue-500 ring-4 ring-blue-500/10 shadow-lg" : "border-slate-200 hover:border-slate-300"
+          "relative flex items-center bg-[#f9fafb] border rounded-full transition-all duration-500",
+          isOpen ? "border-blue-500 ring-8 ring-blue-500/5 bg-white shadow-2xl" : "border-slate-200 hover:border-slate-300 hover:bg-white shadow-sm"
         )}
       >
         <div className="pl-6 text-slate-400">
-          <Search className="w-5 h-5" />
+          <Search className="w-4 h-4" />
         </div>
         <input
           type="text"
@@ -50,18 +50,18 @@ export default function SpecsSearch() {
           }}
           onFocus={() => setIsOpen(true)}
           placeholder={catalog.company.ui.searchPlaceholder}
-          className="w-full bg-transparent px-4 py-5 outline-none text-slate-900 font-medium placeholder:text-slate-400"
+          className="w-full bg-transparent px-4 py-4 outline-none text-slate-900 text-sm font-semibold placeholder:text-slate-400"
         />
         {query && (
           <button 
             onClick={() => setQuery('')}
             className="pr-4 text-slate-400 hover:text-slate-600 transition-colors"
           >
-            <X className="w-5 h-5" />
+            <X className="w-4 h-4" />
           </button>
         )}
         <div className="pr-6 text-slate-300 border-l border-slate-100 ml-2 pl-4">
-          <SlidersHorizontal className="w-5 h-5" />
+          <SlidersHorizontal className="w-4 h-4" />
         </div>
       </div>
 

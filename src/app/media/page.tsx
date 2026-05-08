@@ -1,4 +1,5 @@
-import { Play, Image as ImageIcon, ChevronRight } from 'lucide-react';
+import Image from 'next/image';
+import { Play } from 'lucide-react';
 import { media } from '@/lib/catalog';
 
 export default function MediaPage() {
@@ -31,9 +32,11 @@ export default function MediaPage() {
                 rel="noreferrer" 
                 className="group relative block overflow-hidden rounded-[2.5rem] bg-black aspect-video shadow-2xl"
               >
-                <img 
+                <Image
                   src={`https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`} 
                   alt={video.title} 
+                  fill
+                  sizes="(min-width: 768px) 50vw, 100vw"
                   className="w-full h-full object-cover transition duration-700 group-hover:scale-110 opacity-60 group-hover:opacity-100" 
                 />
                 <div className="absolute inset-0 flex flex-col justify-between p-10 z-20">
@@ -55,9 +58,11 @@ export default function MediaPage() {
           <div className="grid gap-8 md:grid-cols-3">
             {media.gallery.map((item) => (
               <div key={item.title} className="group relative aspect-square overflow-hidden rounded-[2.5rem] bg-white shadow-xl hover:shadow-2xl transition-all">
-                <img 
+                <Image
                   src={item.image} 
                   alt={item.title} 
+                  fill
+                  sizes="(min-width: 768px) 33vw, 100vw"
                   className="w-full h-full object-cover transition duration-700 group-hover:scale-105" 
                 />
                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-10">

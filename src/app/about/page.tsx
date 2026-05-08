@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { catalog, products } from '@/lib/catalog';
 import { Award, Target, Users } from 'lucide-react';
 
@@ -7,9 +8,11 @@ export default function AboutPage() {
       {/* Hero Header */}
       <header className="relative py-24 lg:py-48 bg-slate-950 overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img 
+          <Image
             src="/images/hero/modern-architecture.jpg" 
             alt={`About ${catalog.company.name}`} 
+            fill
+            sizes="100vw"
             className="w-full h-full object-cover opacity-20"
           />
           <div className="absolute inset-0 bg-gradient-to-br from-blue-900/40 via-slate-950/60 to-slate-950"></div>
@@ -37,7 +40,7 @@ export default function AboutPage() {
                 {catalog.company.description}
               </p>
               <p>
-                From heavy-duty industrial enclosures to high-end residential soundproofing, our expertise spans decades of technical evolution. We don't just build systems; we engineer environments of silence and seamless movement.
+                From heavy-duty industrial enclosures to high-end residential soundproofing, our expertise spans decades of technical evolution. We do not just build systems; we engineer environments of silence and seamless movement.
               </p>
             </div>
           </div>

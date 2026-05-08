@@ -1,13 +1,14 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, Building2, ChevronRight, Gauge, Layers, Maximize, Shield, Sparkles, Wind, Zap } from 'lucide-react';
+import { ArrowRight, Building2, ChevronRight, Gauge, Layers, Maximize, Shield, Sparkles, Wind, Zap, type LucideIcon } from 'lucide-react';
 import { motion } from 'framer-motion';
 import ProductCard from '@/components/ProductCard';
 import { catalog, categories, getFeaturedProducts, getProductsByCategory, home, products, projects } from '@/lib/catalog';
 import { cn } from '@/lib/utils';
 
-const categoryIcons: Record<string, any> = {
+const categoryIcons: Record<string, LucideIcon> = {
   'sound-proof-windows': Wind,
   'sound-proof-partitions': Layers,
   'sound-proof-doors': Shield,
@@ -32,9 +33,12 @@ export default function Home() {
     <div className="flex min-h-screen flex-col bg-white">
       {/* Product-led Hero */}
       <section className="relative isolate flex min-h-[86svh] items-end overflow-hidden bg-slate-950 px-6 pb-10 pt-28 text-white">
-        <img
+        <Image
           src={home.hero.image}
           alt={home.hero.title}
+          fill
+          priority
+          sizes="100vw"
           className="absolute inset-0 -z-20 h-full w-full object-cover opacity-70"
         />
         <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(2,6,23,0.92)_0%,rgba(15,23,42,0.72)_42%,rgba(15,23,42,0.22)_100%)]" />
@@ -183,9 +187,11 @@ export default function Home() {
                     Explore category <ArrowRight className="ml-2 h-4 w-4 transition group-hover:translate-x-1" />
                   </span>
                 </div>
-                <img 
+                <Image
                   src={item.image} 
                   alt={item.title} 
+                  width={640}
+                  height={460}
                   className={cn(
                     "absolute bottom-0 right-0 w-[78%] max-w-xl object-contain transition duration-700 group-hover:scale-105 sm:w-[66%]",
                     item.theme === 'dark' ? "brightness-95" : "mix-blend-multiply"

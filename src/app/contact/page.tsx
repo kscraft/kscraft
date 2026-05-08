@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { catalog, categories } from '@/lib/catalog';
 import { Mail, MapPin, Video, Link as LinkIcon, Send } from 'lucide-react';
 
@@ -9,9 +10,11 @@ export default function ContactPage() {
       {/* Hero Header */}
       <header className="relative py-24 lg:py-48 bg-slate-950 overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img 
+          <Image
             src="/images/hero/modern-architecture.jpg" 
             alt="Contact" 
+            fill
+            sizes="100vw"
             className="w-full h-full object-cover opacity-20"
           />
           <div className="absolute inset-0 bg-gradient-to-br from-blue-900/40 via-slate-950/60 to-slate-950"></div>
@@ -19,7 +22,7 @@ export default function ContactPage() {
 
         <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-12 text-center lg:text-left">
           <h1 className="text-5xl lg:text-[7rem] font-black text-white tracking-tighter leading-[0.9] mb-8 uppercase">
-            Let's <span className="text-blue-500">Connect.</span>
+            Let us <span className="text-blue-500">Connect.</span>
           </h1>
           <p className="max-w-2xl text-xl lg:text-2xl text-slate-400 leading-relaxed mx-auto lg:mx-0 font-medium">
             Partner with our engineering experts for your next high-performance acoustic or automation project.

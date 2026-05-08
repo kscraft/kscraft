@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { ChevronRight } from 'lucide-react';
 import ProductCard from '@/components/ProductCard';
 import { categories, getCategory, getProductsByCategory } from '@/lib/catalog';
 

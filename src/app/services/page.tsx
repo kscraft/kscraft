@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, Settings, Wrench, ShieldCheck, ClipboardCheck, ChevronRight } from 'lucide-react';
 import { services } from '@/lib/catalog';
@@ -15,9 +16,11 @@ export default function ServicesPage() {
       {/* Hero Header */}
       <header className="relative py-24 lg:py-48 bg-slate-950 overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img 
+          <Image
             src="/images/hero/modern-architecture.jpg" 
             alt="Services" 
+            fill
+            sizes="100vw"
             className="w-full h-full object-cover opacity-20"
           />
           <div className="absolute inset-0 bg-gradient-to-br from-blue-900/40 via-slate-950/60 to-slate-950"></div>

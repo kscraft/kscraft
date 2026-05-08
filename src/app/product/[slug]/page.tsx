@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { ChevronRight, ShieldCheck, Download, ExternalLink } from 'lucide-react';
+import { ExternalLink, ShieldCheck } from 'lucide-react';
 import ProductCard from '@/components/ProductCard';
 import { getCategory, getProduct, getProductsByCategory, products } from '@/lib/catalog';
 
@@ -71,10 +72,12 @@ export default async function ProductPage({ params }: Props) {
 
       {/* Large Product Visual */}
       <section className="px-6 py-20 bg-white">
-        <div className="mx-auto max-w-6xl aspect-[16/9] overflow-hidden rounded-[3rem] bg-[#f5f5f7] border border-slate-100 shadow-2xl">
-          <img 
+        <div className="relative mx-auto max-w-6xl aspect-[16/9] overflow-hidden rounded-[3rem] bg-[#f5f5f7] border border-slate-100 shadow-2xl">
+          <Image
             src={product.image} 
             alt={product.title} 
+            fill
+            sizes="(min-width: 1024px) 1024px, 100vw"
             className="w-full h-full object-contain p-12 mix-blend-multiply"
           />
         </div>

@@ -234,6 +234,182 @@
       "applications": ["Premium Offices", "Luxury Cabins"]
     },
     {
+      "slug": "sound-proof-casement-windows",
+      "title": "Acoustic Casement Windows",
+      "category": "sound-proof-windows",
+      "description": "Traditional openable windows with advanced compression sealing for maximum acoustic isolation.",
+      "image": "/images/products/sound-proof-casement-windows.jpg",
+      "sourceUrls": ["https://www.kiranslidocraft.co.in/sound-proof-casement-windows.htm"],
+      "legacyRoutes": ["sound-proof-casement-windows.htm"],
+      "specifications": {
+        "Operation": "Side-hung / Top-hung",
+        "Seal": "Compression Gasket",
+        "Frame": "Acoustic Aluminum"
+      },
+      "features": ["Maximized sealing pressure", "Wide opening angle", "Custom hardware"],
+      "applications": ["Recording Rooms", "Studios", "Premium Homes"]
+    },
+    {
+      "slug": "sound-proof-top-hung-windows",
+      "title": "Acoustic Top Hung Windows",
+      "category": "sound-proof-windows",
+      "description": "Specialized windows designed for high-level ventilation with reliable soundproofing performance.",
+      "image": "/images/products/sound-proof-top-hung-windows.jpg",
+      "sourceUrls": ["https://www.kiranslidocraft.co.in/sound-proof-top-hung-windows.htm"],
+      "legacyRoutes": ["top-hung-windows.php", "sound-proof-top-hung-windows.htm"],
+      "specifications": {
+        "Movement": "Top-hinged Openable",
+        "Sealing": "Multi-point perimeter",
+        "Material": "Acoustic Grade Profile"
+      },
+      "features": ["Controlled opening", "Rain-safe ventilation", "Compact profile"],
+      "applications": ["Bathrooms", "Utility Areas", "Offices"]
+    },
+    {
+      "slug": "sound-proof-vertical-sliding-windows",
+      "title": "Acoustic Vertical Sliding Windows",
+      "category": "sound-proof-windows",
+      "description": "Classic vertical sash windows reimagined with modern acoustic engineering for space-saving ventilation.",
+      "image": "/images/products/sound-proof-vertical-sliding-windows.jpg",
+      "sourceUrls": ["https://www.kiranslidocraft.co.in/sound-proof-vertical-sliding-windows.htm"],
+      "legacyRoutes": ["vertical-sliding-windows.php", "sound-proof-vertical-sliding-windows.htm"],
+      "specifications": {
+        "Operation": "Vertical Sash Movement",
+        "Counterbalance": "Integrated Tension System",
+        "Frame": "Sound-shield Aluminum"
+      },
+      "features": ["Space efficient", "Traditional aesthetic", "High sound reduction"],
+      "applications": ["Kitchen Counters", "Restaurants", "Studios"]
+    },
+    {
+      "slug": "sound-proof-acoustic-fix-partition",
+      "title": "Fixed Acoustic Partition",
+      "category": "sound-proof-partitions",
+      "description": "Permanent sound isolation walls with clean architectural finishes and high transmission loss.",
+      "image": "/images/products/sound-proof-acoustic-fix-partition.jpg",
+      "sourceUrls": ["https://www.kiranslidocraft.co.in/sound-proof-acoustic-fix-partition.htm"],
+      "legacyRoutes": ["sound-proof-fixed-partition.php", "sound-proof-acoustic-fix-partition.htm"],
+      "specifications": {
+        "Type": "Permanent Acoustic Wall",
+        "Core": "Multi-layer acoustic infill",
+        "Finish": "MDF / Fabric / Laminate"
+      },
+      "features": ["Maximum sound isolation", "Seamless detailing", "Quick installation"],
+      "applications": ["Machine Rooms", "Studios", "Confidential Cabins"]
+    },
+    {
+      "slug": "sound-proof-sliding-folding-partition",
+      "title": "Sliding Folding Partition",
+      "category": "sound-proof-partitions",
+      "description": "Flexible acoustic partitions that stack neatly, allowing for rapid conversion of large spaces.",
+      "image": "/images/products/sound-proof-sliding-folding-partition.jpg",
+      "sourceUrls": ["https://www.kiranslidocraft.co.in/sound-proof-sliding-folding-partition.htm"],
+      "legacyRoutes": ["sound-proof-sliding-folding-partition.htm"],
+      "specifications": {
+        "Movement": "Slide & Fold",
+        "Track": "Top-hung system",
+        "Panels": "Acoustic panel modules"
+      },
+      "features": ["Compact stacking", "Fast room split", "Architectural versatility"],
+      "applications": ["Event Halls", "Schools", "Multi-purpose Rooms"]
+    },
+    {
+      "slug": "sound-proof-sliding-doors",
+      "title": "Acoustic Sliding Doors",
+      "category": "sound-proof-doors",
+      "description": "Heavy-duty acoustic sliding systems for wide access points in sound-critical environments.",
+      "image": "/images/products/sound-proof-sliding-doors.jpg",
+      "sourceUrls": ["https://www.kiranslidocraft.co.in/sound-proof-sliding-doors.htm"],
+      "legacyRoutes": ["sound-proof-sliding-doors.htm"],
+      "specifications": {
+        "Operation": "Horizontal Sliding",
+        "Seal": "Active acoustic perimeter",
+        "Core": "High-density sound shield"
+      },
+      "features": ["Space saving", "Large opening width", "Silent operation"],
+      "applications": ["Conference Halls", "Studios", "Industrial Units"]
+    },
+    {
+      "slug": "sound-proof-sliding-folding-doors",
+      "title": "Acoustic Slide-Fold Doors",
+      "category": "sound-proof-doors",
+      "description": "Bifold acoustic door systems providing versatile opening widths with high performance sealing.",
+      "image": "/images/products/sound-proof-sliding-folding-doors.jpg",
+      "sourceUrls": ["https://www.kiranslidocraft.co.in/sound-proof-sliding-folding-doors.htm"],
+      "legacyRoutes": ["sound-proof-sliding-folding-doors.htm"],
+      "specifications": {
+        "Type": "Bifold Acoustic",
+        "Seal": "Compression seals",
+        "Movement": "Top guided tracking"
+      },
+      "features": ["Versatile clearance", "Superior sound control", "Architectural finish"],
+      "applications": ["Banquet Entries", "Theaters", "Wide Balconies"]
+    },
+    {
+      "slug": "sound-proof-swing-doors",
+      "title": "Acoustic Swing Doors",
+      "category": "sound-proof-doors",
+      "description": "Professional swing doors engineered for maximum sound transmission loss and daily reliability.",
+      "image": "/images/products/sound-proof-swing-doors.jpg",
+      "sourceUrls": ["https://www.kiranslidocraft.co.in/sound-proof-swing-doors.htm"],
+      "legacyRoutes": ["sound-proof-swing-doors.htm"],
+      "specifications": {
+        "Operation": "Single/Double Swing",
+        "Core": "Acoustic Grade Timber/Steel",
+        "Hardware": "Heavy-duty drop seals"
+      },
+      "features": ["Precision compression", "Robust construction", "Custom hardware options"],
+      "applications": ["Recording Studios", "Cinema Halls", "Executive Offices"]
+    },
+    {
+      "slug": "motorized-sliding-system",
+      "title": "Automated Movement Systems",
+      "category": "motorized-systems",
+      "description": "Bespoke motorized solutions for architectural elements requiring high-torque controlled movement.",
+      "image": "/images/products/motorized-sliding-system.jpg",
+      "sourceUrls": ["https://kiranslidocraft.com/motorized-sliding-system.php"],
+      "legacyRoutes": ["motorized-sliding-system.php"],
+      "specifications": {
+        "Type": "Custom Motorized Drive",
+        "Control": "Integrated PLC / Remote",
+        "Application": "Horizontal/Vertical Automation"
+      },
+      "features": ["Heavy load capacity", "Soft-start technology", "Safety sensors"],
+      "applications": ["Architectural Facades", "Specialized Enclosures"]
+    },
+    {
+      "slug": "motorized-sound-proof-window",
+      "title": "Automated Acoustic Window",
+      "category": "motorized-systems",
+      "description": "Soundproof window systems equipped with integrated automation for effortless remote operation.",
+      "image": "/images/products/motorized-sound-proof-window.jpg",
+      "sourceUrls": ["https://www.kiranslidocraft.co.in/motorized-sound-proof-window.htm"],
+      "legacyRoutes": ["motorized-sound-proof-window.htm"],
+      "specifications": {
+        "Automation": "Built-in Motorized Drive",
+        "Acoustics": "High-performance glass",
+        "Frame": "Sound-shield Aluminum"
+      },
+      "features": ["Remote control", "Overheat protection", "Smart home compatible"],
+      "applications": ["Luxury Residences", "Modern Offices", "Studios"]
+    },
+    {
+      "slug": "motorized-frameless-vertical-sliding-system",
+      "title": "Frameless Vertical Automation",
+      "category": "motorized-systems",
+      "description": "Minimalist frameless vertical sliding systems for modern architectural balconies and terraces.",
+      "image": "/images/products/motorized-frameless-vertical-sliding-system.jpg",
+      "sourceUrls": ["https://www.kiranslidocraft.co.in/motorized-frameless-vertical-sliding-system.htm"],
+      "legacyRoutes": ["motorized-frameless-vertical-sliding-system.htm"],
+      "specifications": {
+        "Design": "Minimal Visual Frame",
+        "Operation": "Motorized Vertical Sash",
+        "Glass": "Safety Temperated Glass"
+      },
+      "features": ["Unobstructed views", "Powered movement", "Contemporary aesthetic"],
+      "applications": ["High-end Villas", "Terrace Lounges", "Restaurants"]
+    },
+    {
       "slug": "motorized-sliding-roof",
       "title": "Motorized Sliding Roof",
       "category": "roof-sliding-systems",
@@ -248,6 +424,38 @@
       },
       "features": ["Weather-resistant automation", "Custom bay sizing", "Integrated rain drainage"],
       "applications": ["Terrace Restaurants", "Villas", "Swimming Pools"]
+    },
+    {
+      "slug": "stainless-steel-frame-roof-sliding-system",
+      "title": "SS Frame Retractable Roof",
+      "category": "roof-sliding-systems",
+      "description": "Premium sliding roof systems utilizing high-grade stainless steel frames for extreme durability.",
+      "image": "/images/products/stainless-steel-frame-roof-sliding-system.jpg",
+      "sourceUrls": ["https://kiranslidocraft.com/stainless-steel-frame.php"],
+      "legacyRoutes": ["stainless-steel-frame.php"],
+      "specifications": {
+        "Frame": "S.S. 304 / 316 Grade",
+        "Retractability": "Custom configured",
+        "Mechanism": "Heavy-duty SS gears"
+      },
+      "features": ["Corrosion resistant", "Structural integrity", "Mirror/Satin finish"],
+      "applications": ["Coastal Properties", "Commercial Rooftops"]
+    },
+    {
+      "slug": "aluminium-frame-roof-sliding-system",
+      "title": "Aluminum Frame Sliding Roof",
+      "category": "roof-sliding-systems",
+      "description": "Lightweight and efficient sliding roof solutions using architectural grade aluminum extrusions.",
+      "image": "/images/products/aluminium-frame-roof-sliding-system.jpg",
+      "sourceUrls": ["https://kiranslidocraft.com/aluminium-frame.php"],
+      "legacyRoutes": ["aluminium-frame.php"],
+      "specifications": {
+        "Frame": "Powder-coated Aluminum",
+        "Weight": "Optimized for structural ease",
+        "Operation": "Motorized / Manual"
+      },
+      "features": ["Low maintenance", "Rapid installation", "Thermal efficiency"],
+      "applications": ["Residential Terraces", "Gazebos", "Courtyards"]
     },
     {
       "slug": "sound-proof-acoustic-movable-partition",

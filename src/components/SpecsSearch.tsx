@@ -4,6 +4,7 @@ import { useState, useMemo } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { products, catalog } from '@/lib/catalog';
+import { getProductTrie } from '@/lib/trie';
 import { Search, SlidersHorizontal, ArrowRight, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -11,24 +12,23 @@ export default function SpecsSearch() {
   const [query, setQuery] = useState('');
   const [isOpen, setIsOpen] = useState(false);
 
+  const trie = useMemo(() => getProductTrie(products), []);
+
   const filteredProducts = useMemo(() => {
     if (!query.trim()) return [];
-    
-    const searchTerms = query.toLowerCase().split(' ');
-    
-    return products.filter((product) => {
-      const searchableText = [
-        product.title,
-        product.description,
-        product.category,
-        ...product.features,
-        ...product.applications,
-        ...Object.values(product.specifications),
-      ].join(' ').toLowerCase();
 
-      return searchTerms.every(term => searchableText.includes(term));
-    }).slice(0, 5);
-  }, [query]);
+    const searchTerms = query.toLowerCase().split(' ').filter(Boolean);
+
+    // Use Trie to find sets of matching slugs for each term
+    const resultSets = searchTerms.map(term => trie.search(term));
+
+    // Find intersection
+    const intersectionSlugs = resultSets.reduce((acc, currentSet) => {
+      return new Set([...acc].filter(slug => currentSet.has(slug)));
+    }, resultSets[0] || new Set<string>());
+
+    return products.filter(p => intersectionSlugs.has(p.slug)).slice(0, 5);
+  }, [query, trie]);
 
   return (
     <div className="relative w-full max-w-2xl mx-auto px-4 md:px-0">

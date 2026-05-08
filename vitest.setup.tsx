@@ -14,6 +14,23 @@ vi.mock('next/navigation', () => ({
   notFound: vi.fn(),
 }));
 
+// Mock Header Theme Context
+vi.mock('@/lib/HeaderThemeContext', () => ({
+  useHeaderTheme: () => ({
+    theme: 'dark',
+    setTheme: vi.fn(),
+  }),
+  HeaderThemeProvider: ({ children }: any) => <>{children}</>,
+}));
+
+// Mock IntersectionObserver
+class MockIntersectionObserver {
+  observe = vi.fn();
+  unobserve = vi.fn();
+  disconnect = vi.fn();
+}
+vi.stubGlobal('IntersectionObserver', MockIntersectionObserver);
+
 // Mock next/image
 vi.mock('next/image', () => ({
   __esModule: true,

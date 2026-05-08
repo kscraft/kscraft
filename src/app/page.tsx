@@ -6,6 +6,7 @@ import { ArrowRight, Building2, ChevronRight, Gauge, Layers, Maximize, Rocket, S
 import { motion } from 'framer-motion';
 import ProductCard from '@/components/ProductCard';
 import SpecsSearch from '@/components/SpecsSearch';
+import ThemeMarker from '@/components/ThemeMarker';
 import { catalog, categories, getFeaturedProducts, getProductsByCategory, home, projects } from '@/lib/catalog';
 import { cn } from '@/lib/utils';
 
@@ -30,6 +31,7 @@ export default function Home() {
     <div className="flex min-h-screen flex-col bg-white">
       {/* Product-led Hero */}
       <section className="relative isolate overflow-hidden bg-slate-950 px-4 pb-16 pt-28 text-white sm:px-6 md:pb-20 lg:pt-36">
+        <ThemeMarker theme="dark" className="absolute top-0" />
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_20%_15%,rgba(37,99,235,0.26),transparent_32%),linear-gradient(135deg,#020617_0%,#0f172a_48%,#111827_100%)]" />
         <div className="mx-auto grid min-h-[74svh] w-full max-w-[1320px] gap-10 overflow-hidden lg:grid-cols-[minmax(0,0.95fr)_minmax(360px,0.82fr)] lg:items-center">
           <motion.div
@@ -94,7 +96,8 @@ export default function Home() {
       </section>
 
       {/* Engineering DNA Showcase */}
-      <section className="bg-slate-50 py-32 px-6">
+      <section className="bg-slate-50 py-32 px-6 relative">
+        <ThemeMarker theme="light" className="absolute top-0" />
         <div className="mx-auto max-w-7xl">
           <div className="flex flex-col lg:flex-row items-center gap-20">
             <div className="lg:w-1/2">

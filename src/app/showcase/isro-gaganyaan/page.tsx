@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Rocket, ShieldCheck, ChevronRight, Zap, Target, Gauge } from 'lucide-react';
+import ThemeMarker from '@/components/ThemeMarker';
 import { projects, home } from '@/lib/catalog';
 
 export const metadata: Metadata = {
@@ -26,10 +27,59 @@ export default function GaganyaanShowcase() {
 
   const { showcase } = project;
 
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    'itemListElement': [
+      {
+        '@type': 'ListItem',
+        'position': 1,
+        'name': 'Home',
+        'item': 'https://kiranslidocraft.com'
+      },
+      {
+        '@type': 'ListItem',
+        'position': 2,
+        'name': 'Case Studies',
+        'item': 'https://kiranslidocraft.com/clients'
+      },
+      {
+        '@type': 'ListItem',
+        'position': 3,
+        'name': project.title,
+        'item': `https://kiranslidocraft.com/showcase/${project.slug}`
+      }
+    ]
+  };
+
+  const faqJsonLd = project.faqs ? {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    'mainEntity': project.faqs.map(faq => ({
+      '@type': 'Question',
+      'name': faq.q,
+      'acceptedAnswer': {
+        '@type': 'Answer',
+        'text': faq.a
+      }
+    }))
+  } : null;
+
   return (
-    <div className="flex flex-col min-h-screen bg-white">
+    <article className="flex flex-col min-h-screen bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      {faqJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+      )}
       {/* Immersive Space Hero */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden bg-slate-950">
+        <ThemeMarker theme="dark" className="absolute top-0" />
         <div className="absolute inset-0 z-0">
           {project.image && (
             <Image
@@ -62,7 +112,8 @@ export default function GaganyaanShowcase() {
       </section>
 
       {/* The Engineering Ask */}
-      <section className="py-40 bg-white px-6">
+      <section className="py-40 bg-white px-6 relative">
+        <ThemeMarker theme="light" className="absolute top-0" />
         <div className="mx-auto max-w-7xl">
           <div className="grid lg:grid-cols-12 gap-20 items-center">
             <div className="lg:col-span-6">
@@ -92,6 +143,7 @@ export default function GaganyaanShowcase() {
 
       {/* Deep Engineering Section */}
       <section className="py-40 bg-slate-950 text-white overflow-hidden relative">
+        <ThemeMarker theme="dark" className="absolute top-0" />
         <div className="absolute top-0 right-0 w-1/2 h-full opacity-10 grayscale mix-blend-screen pointer-events-none">
           {project.image && <Image src={project.image} alt="Detail" fill className="object-cover" />}
         </div>
@@ -112,7 +164,8 @@ export default function GaganyaanShowcase() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-32 bg-white text-center px-6">
+      <section className="py-32 bg-white text-center px-6 relative">
+        <ThemeMarker theme="light" className="absolute top-0" />
         <div className="mx-auto max-w-4xl">
           <h2 className="text-3xl lg:text-5xl font-black text-slate-900 tracking-tighter uppercase mb-10">
             {home.engineeringDNA.challengeTitle}
@@ -128,6 +181,6 @@ export default function GaganyaanShowcase() {
           </Link>
         </div>
       </section>
-    </div>
+    </article>
   );
 }

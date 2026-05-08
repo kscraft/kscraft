@@ -11,6 +11,7 @@ The website has been completely reimagined with **Apple's iconic minimalist desi
     *   **Premium Components:** Completely redesigned `Header`, `Footer`, and `ProductCard` to match premium architectural standards.
 
 2.  **Visual Accuracy & Asset Quality:**
+    *   **Logo Restoration:** Reinstated the **official company logo** sourced from the private repository, ensuring correct visibility and scaling in both Header and Footer.
     *   **Authentic Visuals:** Replaced all AI-generated and generic Unsplash images with **verified real product photos** sourced from the official websites and the private project repository.
     *   **Verified Data:** Updated `catalog.json` with technical specifications directly derived from authentic Kiran Slido Craft product listings.
     *   **Consistent Presentation:** All images now use a clean "studio" aesthetic, focused on the product's engineering details.

@@ -41,8 +41,8 @@ export default function Home() {
             <p className="mb-5 max-w-full break-words text-sm font-semibold uppercase leading-6 text-blue-200">
               {home.hero.eyebrow}
             </p>
-            <h1 className="max-w-full break-words text-4xl font-semibold leading-[1.02] text-white sm:text-5xl md:text-7xl lg:text-8xl">
-              {home.hero.title}
+            <h1 className="max-w-full break-words text-5xl font-black leading-[0.9] text-white sm:text-7xl md:text-[clamp(4.5rem,8vw,8rem)] uppercase tracking-tighter">
+              {home.hero.title.split(' ').slice(0, 2).join(' ')} <br /><span className="text-blue-500">{home.hero.title.split(' ').slice(2).join(' ')}</span>
             </h1>
             <p className="mt-7 max-w-full break-words text-base font-medium leading-7 text-slate-200 sm:text-lg sm:leading-8 md:max-w-2xl md:text-2xl md:leading-9">
               {home.hero.highlight} <span className="text-slate-400">{home.hero.subhighlight}</span>
@@ -99,7 +99,7 @@ export default function Home() {
           <div className="flex flex-col lg:flex-row items-center gap-20">
             <div className="lg:w-1/2">
               <span className="inline-block px-4 py-1 rounded-full bg-blue-600 text-white text-[10px] font-black uppercase tracking-[0.3em] mb-8">{home.engineeringDNA.eyebrow}</span>
-              <h2 className="text-5xl lg:text-7xl font-black text-slate-900 tracking-tighter leading-[0.9] uppercase mb-10">
+              <h2 className="text-5xl lg:text-[clamp(3.5rem,6vw,5rem)] font-black text-slate-900 tracking-tighter leading-[0.9] uppercase mb-10">
                 {home.engineeringDNA.title.split('. ')[0]}. <br />
                 <span className="text-blue-600">{home.engineeringDNA.title.split('. ')[1]}</span>
               </h2>

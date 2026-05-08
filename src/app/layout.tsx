@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import PageTransition from '@/components/PageTransition';
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -13,6 +14,7 @@ const inter = Inter({
 const SITE_URL = 'https://kiranslidocraft.com';
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: 'Kiran Slido Craft | Global Exporter of Acoustic & Automation Systems',
   description: 'Licensed global exporter of premium soundproofing and architectural automation. Serving UK, Europe, GCC/MENA, APAC, Australia, and the Americas with ISO 9001 certified engineering.',
   keywords: [
@@ -45,7 +47,7 @@ export const metadata: Metadata = {
     siteName: 'Kiran Slido Craft',
     images: [
       {
-        url: `${SITE_URL}/logo-ksc.png`,
+        url: '/logo-ksc.png',
         width: 1200,
         height: 630,
         alt: 'Kiran Slido Craft Logo',
@@ -59,7 +61,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Kiran Slido Craft | Engineering Silence Worldwide',
     description: 'Licensed exporter of acoustic and automation systems to UK, Europe, GCC/MENA, and APAC regions.',
-    images: [`${SITE_URL}/logo-ksc.png`],
+    images: ['/logo-ksc.png'],
   },
 };
 
@@ -68,7 +70,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const jsonLd = {
+  const orgJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     'name': 'Kiran Slido Craft',
@@ -82,28 +84,10 @@ export default function RootLayout({
       'किरण स्लीडो क्राफ्ट',
       'কিরণ স্লিডো ক্রাফট'
     ],
-    'abstract': [
-      {
-        '@language': 'ar',
-        '@value': 'كيران سلايدو كرافت هي شركة رائدة معتمدة من ISO 9001:2015 ومصدر عالمي مرخص لأنظمة الصوتيات المتقدمة والأتمتة المعمارية التي تخدم المملكة المتحدة وأوروبا ودول مجلس التعاون الخليجي ومنطقة الشرق الأوسط وشمال أفريقيا.'
-      },
-      {
-        '@language': 'hi',
-        '@value': 'किरण स्लीडो क्राफ्ट उन्नत ध्वनिक प्रणालियों और वास्तुशिल्प स्वचालन का एक ISO 9001:2015 प्रमाणित नेता और लाइसेंस प्राप्त वैश्विक निर्यातक है जो यूके, यूरोप, जीसीसी, एपीएसी और ऑस्ट्रेलिया की सेवा करता है।'
-      },
-      {
-        '@language': 'mr',
-        '@value': 'किरण स्लीडो क्राफ्ट ही एक ISO 9001:2015 प्रमाणित आघाडीची कंपनी आणि प्रगत ध्वनिक प्रणाली आणि आर्किटेक्चरल ऑटोमेशनची परवानाधारक जागतिक निर्यातदार आहे जी यूके, युरोप, जीसीसी, एपीएसी आणि ऑस्ट्रेलिया भागात सेवा देते.'
-      },
-      {
-        '@language': 'bn',
-        '@value': 'কিরণ স্লিডো ক্রাফট হল একটি ISO 9001:2015 প্রত্যয়িত নেতা এবং উন্নত অ্যাকোস্টিক সিস্টেম এবং আর্কিটেকচারাল অটোমেশনের লাইসেন্সপ্রাপ্ত বিশ্বব্যাপী রপ্তানিকারক যা ইউকে, ইউরোপ, জিসিসি, অ্যাপাক এবং অস্ট্রেলিয়ায় পরিষেবা প্রদান করে।'
-      }
+    'sameAs': [
+      'https://www.youtube.com/kiranslidocraft',
+      'https://www.linkedin.com/company/kiranslidocraft/'
     ],
-    'disambiguatingDescription': {
-      '@language': 'zh-Hans',
-      '@value': 'Kiran Slido Craft 是 ISO 9001:2015 认证的领导者和获得许可的全球出口商，提供先进的声学系统和建筑自动化，服务于英国、欧洲、海湾合作委员会 (GCC)、亚太地区 (APAC) 和澳大利亚。'
-    },
     'address': {
       '@type': 'PostalAddress',
       'streetAddress': 'Gala No. 18, Shree Ganesh CHSL, Jakaria Road, Malad West',
@@ -113,7 +97,7 @@ export default function RootLayout({
     },
     'contactPoint': {
       '@type': 'ContactPoint',
-      'telephone': '',
+      'telephone': '+91-9324084590',
       'contactType': 'customer service',
       'email': 'info@kiranslidocraft.com',
       'availableLanguage': ['English', 'Hindi', 'Marathi', 'Bengali']
@@ -133,19 +117,56 @@ export default function RootLayout({
     'hasCredential': 'ISO 9001:2015 Certified'
   };
 
+  const localBusinessJsonLd = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'LocalBusiness',
+      'name': 'Kiran Slido Craft Mumbai',
+      'image': `${SITE_URL}/logo-ksc.png`,
+      'address': {
+        '@type': 'PostalAddress',
+        'streetAddress': 'Gala No. 18, Shree Ganesh CHSL, Jakaria Road, Malad West',
+        'addressLocality': 'Mumbai',
+        'postalCode': '400067',
+        'addressCountry': 'IN'
+      },
+      'telephone': '+91-9324084590',
+      'url': SITE_URL
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'LocalBusiness',
+      'name': 'Kiran Slido Craft Kolkata',
+      'image': `${SITE_URL}/logo-ksc.png`,
+      'address': {
+        '@type': 'PostalAddress',
+        'streetAddress': '42 RBC Road, Dumdum Cantonment',
+        'addressLocality': 'Kolkata',
+        'addressCountry': 'IN'
+      },
+      'url': SITE_URL
+    }
+  ];
+
   return (
     <html lang="en" className={`${inter.variable} scroll-smooth`}>
       <head>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
         />
       </head>
       <body className="font-sans bg-white antialiased text-slate-900 overflow-x-hidden">
         <div className="flex min-h-screen flex-col">
           <Header />
           <main className="flex-1">
-            {children}
+            <PageTransition>
+              {children}
+            </PageTransition>
           </main>
           <Footer />
         </div>

@@ -24,9 +24,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return {};
   }
 
+  const url = `https://kiranslidocraft.com/category/${category.id}`;
+
   return {
     title: `${category.title} Systems | Global Acoustic & Automation Export`,
-    description: `Professional ${category.title} solutions for commercial and residential projects. Certified global exporter serving UK, Europe, GCC/MENA, APAC, and Australia.`
+    description: `Professional ${category.title} solutions for commercial and residential projects. Certified global exporter serving UK, Europe, GCC/MENA, APAC, and Australia.`,
+    alternates: {
+      canonical: url,
+    },
+    openGraph: {
+      title: `${category.title} Systems | Kiran Slido Craft`,
+      description: category.description,
+      url: url,
+      images: [{ url: category.image }],
+      type: 'website',
+    }
   };
 }
 
@@ -41,7 +53,7 @@ export default async function CategoryPage({ params }: Props) {
   const products = getProductsByCategory(category.id);
   const relatedCategories = categories.filter((item) => item.id !== category.id);
 
-  const jsonLd = {
+  const collectionJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
     'name': `${category.title} Lineup`,
@@ -59,11 +71,34 @@ export default async function CategoryPage({ params }: Props) {
     }
   };
 
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    'itemListElement': [
+      {
+        '@type': 'ListItem',
+        'position': 1,
+        'name': 'Home',
+        'item': 'https://kiranslidocraft.com'
+      },
+      {
+        '@type': 'ListItem',
+        'position': 2,
+        'name': category.title,
+        'item': `https://kiranslidocraft.com/category/${category.id}`
+      }
+    ]
+  };
+
   return (
     <div className="flex min-h-screen flex-col bg-white">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       {/* Product-family header */}
       <header className="bg-slate-950 px-4 pb-16 pt-32 text-white sm:px-6 md:pb-20 md:pt-40">

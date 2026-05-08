@@ -1,40 +1,34 @@
 # Project Status: Kiran Slido Craft Website
 
 ## Current State
-The Kiran Slido Craft website has been transformed into a modern, professional, and fully self-contained product catalog. The UI matches high-end industrial engineering standards, and all visual assets are hosted locally within the repository.
+The website has been completely reimagined with **Apple's iconic minimalist design language**. Busy elements and generic visuals have been replaced with high-contrast typography, immersive product-first layouts, and **verified real-world product visuals**.
 
 ## Completed Milestones
-1.  **UI Redesign:**
-    *   Migrated from a dashboard-style sidebar to a professional **top-navigation** layout.
-    *   **Prioritized Catalog:** Moved the Product Catalog to the primary navigation position (after Overview) to emphasize the core offering.
-    *   **Vibrant Blue Redesign:** Upgraded the color palette to a more modern, lighter shade of blue, creating a cleaner and more professional aesthetic.
-    *   **Enhanced Catalog Display:** Completely redesigned the `ProductCard` and catalog grid layouts with sophisticated shadows, spring animations, and refined typography to make product discovery more eye-catching.
-    *   Implemented high-impact, full-width hero sections with smooth `framer-motion` animations.
-    *   Redesigned all core pages: Home, About, Services, Clients, Media, and Contact.
-    *   Created dynamic Category and Product detail pages using Next.js App Router and SSG.
+1.  **Apple-Style UI Redesign:**
+    *   **Ultra-Minimalist Layout:** Clean white/off-white backgrounds, generous whitespace, and refined grayscale palette with functional blue accents.
+    *   **High-End Typography:** Bold, precise tracking and high-contrast headings using system-native fonts for a premium "tech-catalog" feel.
+    *   **Immersive Hero Sections:** Full-screen product spotlights with subtle entry animations.
+    *   **Premium Components:** Completely redesigned `Header`, `Footer`, and `ProductCard` to match premium architectural standards.
 
-2.  **Branding & Visuals:**
-    *   Sourced and integrated the **official company logo** (`/logo-ksc.png`) from the live site.
-    *   **Local Asset Migration:** All 40+ external images (products, categories, client logos, and hero backgrounds) have been downloaded to the `public/images/` directory.
-    *   **Quality Audit:** Replaced low-resolution or watermarked images with a mix of high-definition professional architectural photography (Unsplash) and photorealistic AI-generated systems (Pollinations AI).
+2.  **Visual Accuracy & Asset Quality:**
+    *   **Real Product Visuals:** Sourced actual photos of Kiran Slido Craft systems (Retractable Roofs, Sliding Gates, Acoustic Windows) from the official sites.
+    *   **Technical Data Alignment:** Updated `catalog.json` with accurate specifications (STC ratings, motor specs, retractability) derived from actual product listings.
+    *   **Consistent Presentation:** All images now use a clean "studio" aesthetic, focused on the product's engineering details.
 
-3.  **Infrastructure:**
-    *   **`catalog.json`:** Fully updated with local asset paths and refined product data.
-    *   **Vercel Deployment:** Created `vercel.json` with appropriate build/install configurations to resolve 404 and deployment issues.
-    *   **Git Cleanup:** Cleaned up the repository history by removing accidental commits of `node_modules` and `.next`.
+3.  **Technical Refinement:**
+    *   **Build Optimization:** Verified successful ESM/Turbopack build (Static Site Generation).
+    *   **Clean Repository:** All assets are now local, self-contained within the repository.
 
 ## Technical Stack
 - **Framework:** Next.js 16.2.5 (App Router)
-- **Styling:** Tailwind CSS v4
-- **Animations:** Framer Motion
-- **Icons:** Lucide React
-- **Data Source:** `src/data/catalog.json` (Static JSON Database)
+- **Styling:** Tailwind CSS v4 (Modern minimalist theme)
+- **Animations:** Framer Motion (Smooth, precise transitions)
+- **Data Source:** `src/data/catalog.json` (Verified technical data)
 
 ## Pending Tasks / Next Steps
-- [ ] **Contact Form Backend:** The form on the `/contact` page currently only shows an alert. It needs a backend integration (e.g., Next.js Server Actions with Nodemailer, or a service like Formspree).
-- [ ] **Product Search:** Implement a search bar in the `Header` component to allow users to search the catalog by name or description.
-- [ ] **Dynamic Filtering:** Add the ability to filter products on the category pages by specific features or specifications.
-- [ ] **SEO Optimization:** Fine-tune metadata in `layout.tsx` and the `generateMetadata` functions in dynamic routes for better industrial SEO ranking.
+- [ ] **Contact Form Backend:** Implement Next.js Server Actions to handle quote requests and technical inquiries.
+- [ ] **Specs Search:** Add a focused search interface for finding specific systems by technical requirements (e.g., searching for "STC 50").
+- [ ] **SEO Tuning:** Enhance `generateMetadata` with industry-specific keywords (Acoustics, Automation, ISO Certified).
 
 ## Handover Instructions for Codex Agent
-The repository is clean and the build is passing (`npm run build`). All product data is centralized in `src/data/catalog.json`. When adding new products, ensure images are added to `public/images/products/` and referenced locally in the JSON.
+The project is in a highly polished, minimalist state. Maintain the "Apple-style" discipline: avoid adding unnecessary borders, shadows, or colors. Keep focus on high-quality product photography and technical precision.

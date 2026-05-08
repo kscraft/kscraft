@@ -110,7 +110,7 @@ export default function ContactPage() {
                         name="name"
                         type="text" 
                         required 
-                        className="w-full bg-white/5 border border-white/10 rounded-2xl px-8 py-5 text-white focus:bg-white/10 focus:border-blue-500 outline-none transition-all placeholder:text-slate-600 font-bold" 
+                        className="w-full bg-white/5 border border-white/10 rounded-2xl px-8 py-5 text-white focus:bg-white/10 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all placeholder:text-slate-600 font-bold" 
                         placeholder={home.contact.placeholderName} 
                       />
                     </div>
@@ -120,7 +120,7 @@ export default function ContactPage() {
                         name="email"
                         type="email" 
                         required 
-                        className="w-full bg-white/5 border border-white/10 rounded-2xl px-8 py-5 text-white focus:bg-white/10 focus:border-blue-500 outline-none transition-all placeholder:text-slate-600 font-bold" 
+                        className="w-full bg-white/5 border border-white/10 rounded-2xl px-8 py-5 text-white focus:bg-white/10 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all placeholder:text-slate-600 font-bold" 
                         placeholder={home.contact.placeholderEmail} 
                       />
                     </div>
@@ -129,7 +129,7 @@ export default function ContactPage() {
                     <label className="text-[10px] font-black text-blue-500 uppercase tracking-[0.2em] ml-2">{home.contact.scopeLabel}</label>
                     <select 
                       name="scope"
-                      className="w-full bg-white/5 border border-white/10 rounded-2xl px-8 py-5 text-white focus:bg-white/10 focus:border-blue-500 outline-none transition-all appearance-none font-bold"
+                      className="w-full bg-white/5 border border-white/10 rounded-2xl px-8 py-5 text-white focus:bg-white/10 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all appearance-none font-bold"
                     >
                       {categories.map((category) => (
                         <option key={category.id} value={category.title} className="bg-slate-950 font-bold">{category.title}</option>
@@ -142,7 +142,7 @@ export default function ContactPage() {
                     <textarea 
                       name="requirements"
                       required 
-                      className="w-full bg-white/5 border border-white/10 rounded-2xl px-8 py-8 text-white focus:bg-white/10 focus:border-blue-500 outline-none transition-all min-h-[220px] placeholder:text-slate-600 font-bold" 
+                      className="w-full bg-white/5 border border-white/10 rounded-2xl px-8 py-8 text-white focus:bg-white/10 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all min-h-[220px] placeholder:text-slate-600 font-bold" 
                       placeholder={home.contact.placeholderRequirements} 
                     ></textarea>
                   </div>

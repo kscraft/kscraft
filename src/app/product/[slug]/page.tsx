@@ -25,9 +25,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return {};
   }
 
+  const url = `https://kiranslidocraft.com/product/${product.slug}`;
+
   return {
     title: `${product.title} | Kiran Slido Craft - Global Export`,
-    description: `${product.description} Available for export to UK, Europe, GCC/MENA, APAC, and Australia. Precision engineered by Kiran Slido Craft.`
+    description: `${product.description} Available for export to UK, Europe, GCC/MENA, APAC, and Australia. Precision engineered by Kiran Slido Craft.`,
+    alternates: {
+      canonical: url,
+    },
+    openGraph: {
+      title: `${product.title} | Kiran Slido Craft`,
+      description: product.description,
+      url: url,
+      images: [{ url: product.image }],
+      type: 'article',
+    }
   };
 }
 
@@ -44,7 +56,7 @@ export default async function ProductPage({ params }: Props) {
     .filter((item) => item.slug !== product.slug)
     .slice(0, 3);
 
-  const jsonLd = {
+  const productJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Product',
     'name': product.title,
@@ -56,16 +68,46 @@ export default async function ProductPage({ params }: Props) {
     },
     'offers': {
       '@type': 'Offer',
+      'url': `https://kiranslidocraft.com/product/${product.slug}`,
       'availability': 'https://schema.org/InStock',
       'areaServed': ['UK', 'Europe', 'GCC', 'MENA', 'APAC', 'Australia', 'India', 'Americas', 'Africa']
     }
   };
 
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    'itemListElement': [
+      {
+        '@type': 'ListItem',
+        'position': 1,
+        'name': 'Home',
+        'item': 'https://kiranslidocraft.com'
+      },
+      {
+        '@type': 'ListItem',
+        'position': 2,
+        'name': category?.title || 'Catalog',
+        'item': `https://kiranslidocraft.com/category/${product.category}`
+      },
+      {
+        '@type': 'ListItem',
+        'position': 3,
+        'name': product.title,
+        'item': `https://kiranslidocraft.com/product/${product.slug}`
+      }
+    ]
+  };
+
   return (
-    <div className="bg-white min-h-screen">
+    <article className="bg-white min-h-screen">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       {/* Immersive Product Hero */}
       <section className="pt-40 pb-20 px-6 text-center bg-[#fafafa]">
@@ -168,6 +210,6 @@ export default async function ProductPage({ params }: Props) {
           </div>
         </section>
       )}
-    </div>
+    </article>
   );
 }

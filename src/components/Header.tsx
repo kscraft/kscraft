@@ -14,32 +14,41 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
-  const usesDarkHero = pathname === '/' || pathname === '/about' || pathname === '/services' || pathname === '/contact' || pathname.startsWith('/category/');
-  const useLightHeaderText = usesDarkHero && !isScrolled;
+
+  // Robust theme detection: Pages that start with a dark hero section
+  const darkHeroRoutes = ['/', '/about', '/services', '/contact', '/showcase/isro-gaganyaan'];
+  const isDarkRoute = darkHeroRoutes.includes(pathname) || pathname.startsWith('/category/');
+  const isHeaderLight = isDarkRoute && !isScrolled && !isOpen;
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 20);
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Close mobile menu on navigate
+  useEffect(() => {
+    setIsOpen(false);
+  }, [pathname]);
 
   return (
     <header
       className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b',
+        'fixed top-0 left-0 right-0 z-50 transition-all duration-700 ease-in-out border-b',
         isScrolled
-          ? 'bg-white/80 backdrop-blur-xl border-slate-200 py-3'
-          : 'bg-white/0 border-transparent py-5'
+          ? 'bg-white/80 backdrop-blur-2xl border-slate-200/60 py-3 shadow-sm'
+          : 'bg-transparent border-transparent py-5',
+        isOpen && 'bg-white border-slate-200'
       )}
     >
-      <div className="mx-auto max-w-[1200px] px-6 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2 group transition-opacity hover:opacity-70">
+      <div className="mx-auto max-w-[1320px] px-6 flex items-center justify-between">
+        <Link href="/" className="flex items-center gap-2 group transition-all active:scale-95">
           <Image src="/logo-ksc.png" alt="KSC" width={120} height={32} className="h-6 w-auto" priority />
           <span className={cn(
-            "text-[14px] font-bold tracking-tight uppercase transition-colors",
-            useLightHeaderText ? "text-white" : "text-black"
+            "text-[14px] font-black tracking-tight uppercase transition-colors duration-500",
+            isHeaderLight ? "text-white" : "text-black"
           )}>
             Kiran Slido Craft
           </span>
@@ -53,10 +62,10 @@ const Header = () => {
                 <Link
                   href={item.href}
                   className={cn(
-                    'text-[12px] font-medium tracking-wide transition-colors hover:text-blue-600',
+                    'text-[12px] font-bold tracking-[0.1em] uppercase transition-colors duration-500 hover:text-blue-600',
                     pathname === item.href
-                      ? useLightHeaderText ? 'text-white' : 'text-black'
-                      : useLightHeaderText ? 'text-slate-300' : 'text-slate-500'
+                      ? isHeaderLight ? 'text-white' : 'text-blue-600'
+                      : isHeaderLight ? 'text-slate-300' : 'text-slate-500'
                   )}
                 >
                   {item.label}
@@ -64,32 +73,39 @@ const Header = () => {
               </li>
             ))}
             <li className="relative group">
-              <button className="flex items-center gap-1.5 px-4 py-1.5 bg-blue-50 text-blue-600 rounded-full text-[12px] font-bold hover:bg-blue-600 hover:text-white transition-all">
-                Catalog <ChevronDown className="w-3.5 h-3.5" />
+              <button className={cn(
+                "flex items-center gap-1.5 px-4 py-1.5 rounded-full text-[11px] font-black uppercase tracking-widest transition-all",
+                isHeaderLight 
+                  ? "bg-white/10 text-white hover:bg-white/20 backdrop-blur-md" 
+                  : "bg-blue-50 text-blue-600 hover:bg-blue-600 hover:text-white"
+              )}>
+                Catalog <ChevronDown className="w-3 h-3" />
               </button>
-              <div className="absolute top-full right-0 mt-4 w-64 bg-white/90 backdrop-blur-2xl border border-slate-200 rounded-2xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all p-3 grid gap-1">
+              <div className="absolute top-full right-0 mt-4 w-72 bg-white/95 backdrop-blur-3xl border border-slate-200 rounded-[2rem] shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all p-4 grid gap-1">
                 {categories.map((cat) => (
                   <Link
                     key={cat.id}
                     href={`/category/${cat.id}`}
-                    className="block px-4 py-2 text-[13px] font-medium text-slate-600 hover:bg-blue-600 hover:text-white rounded-xl transition-all"
+                    className="flex items-center justify-between px-5 py-3 text-[13px] font-bold text-slate-600 hover:bg-blue-50 hover:text-blue-600 rounded-2xl transition-all group/item"
                   >
                     {cat.title}
+                    <ArrowRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all" />
                   </Link>
                 ))}
               </div>
             </li>
           </ul>
-          <HeaderActions useLightHeaderText={useLightHeaderText} />
+          <HeaderActions useLightHeaderText={isHeaderLight} />
         </nav>
 
         {/* Mobile Toggle */}
         <button
           onClick={() => setIsOpen(!isOpen)}
           className={cn(
-            "p-2 transition-colors md:hidden",
-            useLightHeaderText ? "text-white" : "text-black"
+            "p-3 rounded-full transition-all active:scale-90 md:hidden",
+            isHeaderLight ? "text-white bg-white/10" : "text-black bg-slate-100"
           )}
+          aria-label="Toggle Menu"
         >
           {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>

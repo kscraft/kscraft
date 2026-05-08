@@ -1,7 +1,8 @@
 'use client';
 
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Phone, MessageSquare, Mail, ChevronRight } from 'lucide-react';
+import { X, Phone, MessageSquare, Mail, ChevronRight, Copy, Check } from 'lucide-react';
 import { catalog } from '@/lib/catalog';
 
 type QuoteModalProps = {
@@ -12,6 +13,13 @@ type QuoteModalProps = {
 
 export default function QuoteModal({ isOpen, onClose, productName }: QuoteModalProps) {
   const { phone, phoneDisplay, email, ui } = catalog.company;
+  const [copiedType, setCopiedType] = useState<'email' | 'phone' | null>(null);
+
+  const copyToClipboard = (text: string, type: 'email' | 'phone') => {
+    navigator.clipboard.writeText(text);
+    setCopiedType(type);
+    setTimeout(() => setCopiedType(null), 2000);
+  };
 
   const whatsappUrl = `https://wa.me/${phone.replace('+', '')}?text=${encodeURIComponent(`Hi, I am interested in getting a quote for ${productName || 'your acoustic systems'}.`)}`;
   const callUrl = `tel:${phone}`;
@@ -69,33 +77,51 @@ export default function QuoteModal({ isOpen, onClose, productName }: QuoteModalP
                     <ChevronRight className="w-6 h-6 text-green-300 group-hover:translate-x-1 transition-transform" />
                   </a>
 
-                  <a 
-                    href={callUrl}
-                    className="flex items-center gap-6 p-6 rounded-3xl bg-blue-50 border border-blue-100 group hover:bg-blue-100 transition-all"
-                  >
-                    <div className="h-14 w-14 rounded-2xl bg-blue-600 flex items-center justify-center text-white group-hover:scale-110 transition-transform">
-                      <Phone className="w-6 h-6" />
-                    </div>
-                    <div className="flex-1">
-                      <p className="text-[10px] font-black text-blue-700 uppercase tracking-widest mb-1">{ui.reachViaCall}</p>
-                      <p className="text-xl font-bold text-slate-900">{phoneDisplay}</p>
-                    </div>
-                    <ChevronRight className="w-6 h-6 text-blue-300 group-hover:translate-x-1 transition-transform" />
-                  </a>
+                  <div className="relative group">
+                    <a 
+                      href={callUrl}
+                      className="flex items-center gap-6 p-6 rounded-3xl bg-blue-50 border border-blue-100 hover:bg-blue-100 transition-all"
+                    >
+                      <div className="h-14 w-14 rounded-2xl bg-blue-600 flex items-center justify-center text-white group-hover:scale-110 transition-transform">
+                        <Phone className="w-6 h-6" />
+                      </div>
+                      <div className="flex-1">
+                        <p className="text-[10px] font-black text-blue-700 uppercase tracking-widest mb-1">{ui.reachViaCall}</p>
+                        <p className="text-xl font-bold text-slate-900">{phoneDisplay}</p>
+                      </div>
+                      <ChevronRight className="w-6 h-6 text-blue-300 group-hover:translate-x-1 transition-transform" />
+                    </a>
+                    <button 
+                      onClick={(e) => { e.preventDefault(); copyToClipboard(phone, 'phone'); }}
+                      className="absolute right-16 top-1/2 -translate-y-1/2 p-3 rounded-xl bg-white/50 border border-blue-200 text-blue-600 hover:bg-white transition-all opacity-0 group-hover:opacity-100 pointer-events-auto"
+                      title="Copy phone number"
+                    >
+                      {copiedType === 'phone' ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
+                    </button>
+                  </div>
 
-                  <a 
-                    href={emailUrl}
-                    className="flex items-center gap-6 p-6 rounded-3xl bg-slate-50 border border-slate-100 group hover:bg-slate-200 transition-all"
-                  >
-                    <div className="h-14 w-14 rounded-2xl bg-slate-900 flex items-center justify-center text-white group-hover:scale-110 transition-transform">
-                      <Mail className="w-6 h-6" />
-                    </div>
-                    <div className="flex-1">
-                      <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1">{ui.reachViaEmail}</p>
-                      <p className="text-xl font-bold text-slate-900">{email}</p>
-                    </div>
-                    <ChevronRight className="w-6 h-6 text-slate-300 group-hover:translate-x-1 transition-transform" />
-                  </a>
+                  <div className="relative group">
+                    <a 
+                      href={emailUrl}
+                      className="flex items-center gap-6 p-6 rounded-3xl bg-slate-50 border border-slate-100 hover:bg-slate-200 transition-all"
+                    >
+                      <div className="h-14 w-14 rounded-2xl bg-slate-900 flex items-center justify-center text-white group-hover:scale-110 transition-transform">
+                        <Mail className="w-6 h-6" />
+                      </div>
+                      <div className="flex-1">
+                        <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1">{ui.reachViaEmail}</p>
+                        <p className="text-xl font-bold text-slate-900 truncate pr-10">{email}</p>
+                      </div>
+                      <ChevronRight className="w-6 h-6 text-slate-300 group-hover:translate-x-1 transition-transform" />
+                    </a>
+                    <button 
+                      onClick={(e) => { e.preventDefault(); copyToClipboard(email, 'email'); }}
+                      className="absolute right-16 top-1/2 -translate-y-1/2 p-3 rounded-xl bg-white/50 border border-slate-200 text-slate-600 hover:bg-white transition-all opacity-0 group-hover:opacity-100 pointer-events-auto"
+                      title="Copy email address"
+                    >
+                      {copiedType === 'email' ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
+                    </button>
+                  </div>
                 </div>
               </div>
               

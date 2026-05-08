@@ -19,7 +19,7 @@ export default function ProductCard({ product, compact = false }: ProductCardPro
     >
       <Link href={`/product/${product.slug}`} className="flex h-full min-w-0 flex-col overflow-hidden rounded-[2rem] bg-[#f5f5f7] transition-shadow hover:shadow-[0_40px_80px_-12px_rgba(0,0,0,0.12)]">
         {/* Content surface */}
-        <div className={compact ? "min-w-0 p-5 pb-0 text-center sm:p-8 sm:pb-0" : "min-w-0 p-5 pb-0 text-center sm:p-10 sm:pb-0"}>
+        <div className={compact ? "min-w-0 p-4 pb-0 text-center sm:p-8 sm:pb-0" : "min-w-0 p-4 pb-0 text-center sm:p-10 sm:pb-0"}>
           <p className="mb-3 break-words text-[10px] font-bold uppercase tracking-widest text-blue-600">
             {product.category.replace(/-/g, ' ')}
           </p>

@@ -7,6 +7,10 @@ export type Category = {
   title: string;
   description: string;
   summary: string;
+  image: string;
+  accent: string;
+  bestFor: string;
+  highlights: string[];
 };
 
 export type Product = {

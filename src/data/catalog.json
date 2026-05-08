@@ -208,31 +208,51 @@
       "id": "sound-proof-windows",
       "title": "Acoustic Windows",
       "description": "Engineered aluminum systems for high-performance sound isolation in residential and professional environments.",
-      "summary": "Sliding, Casement, and Vertical Sash systems."
+      "summary": "Sliding, Casement, and Vertical Sash systems.",
+      "image": "/images/products/sound-proof-sliding-windows.jpg",
+      "accent": "Noise Isolation",
+      "bestFor": "Homes, hotels, hospitals, studios",
+      "highlights": ["Sliding and casement options", "Multi-layer acoustic glazing", "Precision compression sealing"]
     },
     {
       "id": "sound-proof-partitions",
       "title": "Acoustic Partitions",
       "description": "Architectural partition systems designed for flexible space management with superior sound transmission control.",
-      "summary": "Movable and fixed acoustic wall systems."
+      "summary": "Movable and fixed acoustic wall systems.",
+      "image": "/images/products/sound-proof-acoustic-movable-partition.jpg",
+      "accent": "Flexible Spaces",
+      "bestFor": "Conference rooms, halls, offices",
+      "highlights": ["Movable and fixed walls", "High transmission-loss panels", "Fast room reconfiguration"]
     },
     {
       "id": "sound-proof-doors",
       "title": "Acoustic Doors",
       "description": "Precision-engineered door systems for machinery enclosures, recording studios, and commercial facilities.",
-      "summary": "Sliding, swing, and bifold acoustic doors."
+      "summary": "Sliding, swing, and bifold acoustic doors.",
+      "image": "/images/products/sound-proof-sliding-doors.jpg",
+      "accent": "Sealed Access",
+      "bestFor": "Studios, theaters, machine rooms",
+      "highlights": ["Sliding, swing, and fold doors", "Heavy-duty acoustic cores", "Perimeter and drop sealing"]
     },
     {
       "id": "motorized-systems",
       "title": "Automation Systems",
       "description": "Advanced motorized solutions for security gates, barriers, and specialized architectural movement.",
-      "summary": "Telescopic gates, barriers, and soundproof automation."
+      "summary": "Telescopic gates, barriers, and soundproof automation.",
+      "image": "/images/products/motorized-sliding-gates.jpg",
+      "accent": "Controlled Movement",
+      "bestFor": "Entrances, compounds, premium glazing",
+      "highlights": ["Remote-controlled movement", "Soft-start drive systems", "Safety sensor integration"]
     },
     {
       "id": "roof-sliding-systems",
       "title": "Retractable Roofs",
       "description": "Custom motorized sliding roof systems for luxury terraces, atriums, and commercial spaces.",
-      "summary": "Motorized sliding roofs in SS and Aluminum."
+      "summary": "Motorized sliding roofs in SS and Aluminum.",
+      "image": "/images/products/motorized-sliding-roof.jpg",
+      "accent": "Open-To-Sky",
+      "bestFor": "Terraces, atriums, outdoor dining",
+      "highlights": ["75% to 100% retractability", "SS and aluminum frames", "Weather-ready motorization"]
     }
   ],
   "products": [

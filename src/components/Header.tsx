@@ -13,7 +13,7 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
-  const usesDarkHero = pathname === '/' || pathname === '/about' || pathname === '/services' || pathname === '/contact';
+  const usesDarkHero = pathname === '/' || pathname === '/about' || pathname === '/services' || pathname === '/contact' || pathname.startsWith('/category/');
   const useLightHeaderText = usesDarkHero && !isScrolled;
 
   useEffect(() => {

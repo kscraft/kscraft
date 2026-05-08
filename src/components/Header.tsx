@@ -63,7 +63,34 @@ const Header = () => {
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center gap-8">
           <ul className="flex items-center gap-6">
-            {navigationItems.map((item) => (
+            <li key="/">
+              <Link
+                href="/"
+                className={cn(
+                  'text-sm font-bold transition-colors hover:text-blue-600',
+                  pathname === '/' ? 'text-blue-600' : 'text-slate-600'
+                )}
+              >
+                Overview
+              </Link>
+            </li>
+            <li className="relative group">
+              <button className="flex items-center gap-1 text-sm font-bold text-blue-600 group-hover:text-blue-700 transition-colors">
+                Catalog <ChevronDown className="w-4 h-4" />
+              </button>
+              <div className="absolute top-full left-0 mt-2 w-64 bg-white border border-slate-200 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all p-2 grid gap-1">
+                {categories.map((category) => (
+                  <Link
+                    key={category.id}
+                    href={`/category/${category.id}`}
+                    className="block px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 hover:text-blue-600 rounded-lg transition-colors"
+                  >
+                    {category.title}
+                  </Link>
+                ))}
+              </div>
+            </li>
+            {navigationItems.slice(1).map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
@@ -76,22 +103,6 @@ const Header = () => {
                 </Link>
               </li>
             ))}
-            <li className="relative group">
-              <button className="flex items-center gap-1 text-sm font-bold text-slate-600 group-hover:text-blue-600 transition-colors">
-                Catalog <ChevronDown className="w-4 h-4" />
-              </button>
-              <div className="absolute top-full right-0 mt-2 w-64 bg-white border border-slate-200 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all p-2 grid gap-1">
-                {categories.map((category) => (
-                  <Link
-                    key={category.id}
-                    href={`/category/${category.id}`}
-                    className="block px-4 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-50 hover:text-blue-600 rounded-lg transition-colors"
-                  >
-                    {category.title}
-                  </Link>
-                ))}
-              </div>
-            </li>
           </ul>
           <Link
             href="/contact"
@@ -121,6 +132,21 @@ const Header = () => {
           >
             <nav className="p-6 space-y-8">
               <div>
+                <h3 className="text-[10px] font-black text-blue-600 uppercase tracking-widest mb-4">Product Catalog</h3>
+                <ul className="grid gap-3">
+                  {categories.map((category) => (
+                    <li key={category.id}>
+                      <Link
+                        href={`/category/${category.id}`}
+                        className="text-lg font-black text-slate-900 block"
+                      >
+                        {category.title}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div>
                 <h3 className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-4">Navigation</h3>
                 <ul className="grid gap-4">
                   {navigationItems.map((item) => (
@@ -128,8 +154,8 @@ const Header = () => {
                       <Link
                         href={item.href}
                         className={cn(
-                          'text-lg font-black block',
-                          pathname === item.href ? 'text-blue-600' : 'text-slate-900'
+                          'text-sm font-bold block',
+                          pathname === item.href ? 'text-blue-600' : 'text-slate-600'
                         )}
                       >
                         {item.label}
@@ -139,26 +165,11 @@ const Header = () => {
                   <li>
                     <Link
                       href="/contact"
-                      className="text-lg font-black text-blue-600"
+                      className="text-sm font-bold text-blue-600"
                     >
                       Contact Sales
                     </Link>
                   </li>
-                </ul>
-              </div>
-              <div>
-                <h3 className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-4">Catalog</h3>
-                <ul className="grid gap-3">
-                  {categories.map((category) => (
-                    <li key={category.id}>
-                      <Link
-                        href={`/category/${category.id}`}
-                        className="text-sm font-bold text-slate-600 block"
-                      >
-                        {category.title}
-                      </Link>
-                    </li>
-                  ))}
                 </ul>
               </div>
             </nav>

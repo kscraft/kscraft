@@ -78,7 +78,7 @@ export default function GaganyaanShowcase() {
         />
       )}
       {/* Immersive Space Hero */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden bg-slate-950">
+      <section className="hero-dark !h-screen flex items-center justify-center">
         <ThemeMarker theme="dark" className="absolute top-0" />
         <div className="absolute inset-0 z-0">
           {project.image && (
@@ -94,11 +94,11 @@ export default function GaganyaanShowcase() {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-600/10 via-transparent to-transparent"></div>
         </div>
 
-        <div className="relative z-10 mx-auto max-w-7xl px-6 text-center">
+        <div className="relative z-10 max-container px-6 text-center">
           <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-blue-600/20 border border-blue-500/30 text-blue-400 text-[10px] font-black uppercase tracking-[0.3em] mb-10">
             <Rocket className="w-4 h-4" /> {project.subtitle}
           </div>
-          <h1 className="text-6xl lg:text-[clamp(4.5rem,8vw,8rem)] font-black text-white tracking-tighter leading-[0.85] mb-12 uppercase animate-in fade-in slide-in-from-bottom-8 duration-1000">
+          <h1 className="heading-hero text-white mb-12 animate-in fade-in slide-in-from-bottom-8 duration-1000">
             {showcase.heroTitle.split(' ')[0]} <br /><span className="text-blue-500">{showcase.heroTitle.split(' ')[1]}</span>
           </h1>
           <p className="max-w-3xl mx-auto text-xl lg:text-3xl text-slate-300 font-medium leading-relaxed">
@@ -112,13 +112,13 @@ export default function GaganyaanShowcase() {
       </section>
 
       {/* The Engineering Ask */}
-      <section className="py-40 bg-white px-6 relative">
+      <section className="section-standard">
         <ThemeMarker theme="light" className="absolute top-0" />
-        <div className="mx-auto max-w-7xl">
+        <div className="max-container">
           <div className="grid lg:grid-cols-12 gap-20 items-center">
             <div className="lg:col-span-6">
-              <h2 className="text-[12px] font-black text-blue-600 uppercase tracking-[0.4em] mb-12">{showcase.challengeLabel}</h2>
-              <p className="text-4xl lg:text-6xl font-black text-slate-900 tracking-tighter leading-none mb-12 uppercase">
+              <span className="text-eyebrow">{showcase.challengeLabel}</span>
+              <p className="heading-page text-slate-900 mb-12">
                 {showcase.challengeTitle.split(' ').slice(0, 2).join(' ')} <br />{showcase.challengeTitle.split(' ').slice(2).join(' ')}
               </p>
               <div className="space-y-8 text-xl text-slate-500 leading-relaxed font-medium">
@@ -142,16 +142,16 @@ export default function GaganyaanShowcase() {
       </section>
 
       {/* Deep Engineering Section */}
-      <section className="py-40 bg-slate-950 text-white overflow-hidden relative">
+      <section className="section-dark">
         <ThemeMarker theme="dark" className="absolute top-0" />
         <div className="absolute top-0 right-0 w-1/2 h-full opacity-10 grayscale mix-blend-screen pointer-events-none">
           {project.image && <Image src={project.image} alt="Detail" fill className="object-cover" />}
         </div>
         
-        <div className="mx-auto max-w-7xl px-6 relative z-10">
+        <div className="max-container relative z-10">
           <div className="max-w-3xl">
-            <h2 className="text-[12px] font-black text-blue-500 uppercase tracking-[0.4em] mb-12">{showcase.uspLabel}</h2>
-            <h3 className="text-5xl lg:text-8xl font-black tracking-tighter uppercase leading-[0.9] mb-16">
+            <span className="text-eyebrow text-blue-400">{showcase.uspLabel}</span>
+            <h3 className="heading-page text-white mb-16">
               {showcase.uspTitle.split(' ').slice(0, 3).join(' ')} <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">{showcase.uspTitle.split(' ')[3]}</span> <br />
               {showcase.uspTitle.split(' ').slice(4).join(' ')}
@@ -164,18 +164,18 @@ export default function GaganyaanShowcase() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-32 bg-white text-center px-6 relative">
+      <section className="section-standard text-center">
         <ThemeMarker theme="light" className="absolute top-0" />
-        <div className="mx-auto max-w-4xl">
-          <h2 className="text-3xl lg:text-5xl font-black text-slate-900 tracking-tighter uppercase mb-10">
+        <div className="max-container max-w-4xl">
+          <h2 className="heading-section mb-10">
             {home.engineeringDNA.challengeTitle}
           </h2>
-          <p className="text-xl text-slate-500 font-medium leading-relaxed mb-16">
+          <p className="text-body-lg mb-16">
             {home.engineeringDNA.challengeDescription}
           </p>
           <Link 
             href={home.engineeringDNA.cta.href} 
-            className="group inline-flex items-center gap-4 bg-blue-600 text-white px-12 py-6 rounded-full font-black text-sm uppercase tracking-[0.2em] hover:bg-blue-500 transition-all shadow-[0_20px_50px_rgba(37,99,235,0.3)] hover:scale-105"
+            className="apple-button px-12 py-6 text-sm uppercase tracking-[0.2em] font-black"
           >
             {home.engineeringDNA.cta.label} <ChevronRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
           </Link>

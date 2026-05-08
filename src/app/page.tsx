@@ -30,20 +30,20 @@ export default function Home() {
   return (
     <div className="flex min-h-screen flex-col bg-white">
       {/* Product-led Hero */}
-      <section className="relative isolate overflow-hidden bg-slate-950 px-4 pb-16 pt-28 text-white sm:px-6 md:pb-20 lg:pt-36">
+      <section className="hero-dark isolate">
         <ThemeMarker theme="dark" className="absolute top-0" />
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_20%_15%,rgba(37,99,235,0.26),transparent_32%),linear-gradient(135deg,#020617_0%,#0f172a_48%,#111827_100%)]" />
-        <div className="mx-auto grid min-h-[74svh] w-full max-w-[1320px] gap-10 overflow-hidden lg:grid-cols-[minmax(0,0.95fr)_minmax(360px,0.82fr)] lg:items-center">
+        <div className="max-container grid min-h-[74svh] w-full gap-10 overflow-hidden lg:grid-cols-[minmax(0,0.95fr)_minmax(360px,0.82fr)] lg:items-center px-6">
           <motion.div
             initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="min-w-0 max-w-4xl overflow-hidden"
           >
-            <p className="mb-5 max-w-full break-words text-sm font-semibold uppercase leading-6 text-blue-200">
+            <p className="text-eyebrow text-blue-200">
               {home.hero.eyebrow}
             </p>
-            <h1 className="max-w-full break-words text-5xl font-black leading-[0.9] text-white sm:text-7xl md:text-[clamp(4rem,7vw,7rem)] uppercase tracking-tighter">
+            <h1 className="heading-hero text-white">
               {home.hero.title.split(' ').slice(0, 2).join(' ')} <br /><span className="text-blue-500">{home.hero.title.split(' ').slice(2).join(' ')}</span>
             </h1>
             <p className="mt-7 max-w-full break-words text-base font-medium leading-7 text-slate-200 sm:text-lg sm:leading-8 md:max-w-2xl md:text-2xl md:leading-9">
@@ -96,13 +96,13 @@ export default function Home() {
       </section>
 
       {/* Engineering DNA Showcase */}
-      <section className="bg-white py-32 px-6 relative">
+      <section className="section-standard">
         <ThemeMarker theme="light" className="absolute top-0" />
-        <div className="mx-auto max-w-7xl">
+        <div className="max-container">
           <div className="flex flex-col lg:flex-row items-center gap-20">
             <div className="lg:w-1/2">
-              <span className="inline-block px-4 py-1 rounded-full bg-blue-600 text-white text-[10px] font-black uppercase tracking-[0.3em] mb-8">{home.engineeringDNA.eyebrow}</span>
-              <h2 className="text-5xl lg:text-[clamp(3.5rem,6vw,5rem)] font-black text-slate-900 tracking-tighter leading-[0.9] uppercase mb-10">
+              <span className="text-eyebrow">{home.engineeringDNA.eyebrow}</span>
+              <h2 className="heading-page text-slate-900 mb-10">
                 {home.engineeringDNA.title.split('. ')[0]}. <br />
                 <span className="text-blue-600">{home.engineeringDNA.title.split('. ')[1]}</span>
               </h2>
@@ -145,11 +145,12 @@ export default function Home() {
       </section>
 
       {/* Engineering Promise */}
-      <section className="bg-white px-6 py-20">
-        <div className="mx-auto grid max-w-[1320px] gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
+      <section className="section-standard overflow-hidden">
+        <ThemeMarker theme="light" className="absolute top-0" />
+        <div className="max-container grid gap-20 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
           <div className="min-w-0">
-            <p className="text-sm font-semibold uppercase leading-6 text-blue-600">{home.promise.eyebrow}</p>
-            <h2 className="mt-4 max-w-xl text-4xl font-semibold leading-tight text-slate-950 md:text-6xl">
+            <p className="text-eyebrow">{home.promise.eyebrow}</p>
+            <h2 className="heading-section">
               {home.promise.title}
             </h2>
           </div>
@@ -157,10 +158,10 @@ export default function Home() {
             {home.promise.items.map((signal) => {
               const Icon = promiseIcons[signal.id] || Shield;
               return (
-                <div key={signal.id} className="min-w-0 rounded-2xl border border-slate-200 bg-slate-50 p-6">
-                  <Icon className="h-7 w-7 text-blue-600" />
-                  <h3 className="mt-5 break-words text-lg font-semibold leading-7 text-slate-950">{signal.title}</h3>
-                  <p className="mt-3 text-sm leading-6 text-slate-600">{signal.description}</p>
+                <div key={signal.id} className="min-w-0 rounded-3xl border border-slate-100 bg-slate-50 p-8 transition-all hover:bg-white hover:shadow-xl group">
+                  <Icon className="h-8 w-8 text-blue-600 transition-transform group-hover:scale-110" />
+                  <h3 className="mt-6 break-words text-xl font-bold uppercase tracking-tight text-slate-950 leading-tight">{signal.title}</h3>
+                  <p className="mt-3 text-sm font-medium leading-relaxed text-slate-500">{signal.description}</p>
                 </div>
               );
             })}
@@ -169,21 +170,21 @@ export default function Home() {
       </section>
 
       {/* Primary Catalog Navigation */}
-      <section className="bg-slate-50/50 px-6 py-32 border-t border-slate-100 relative">
+      <section className="section-tint">
         <ThemeMarker theme="light" className="absolute top-0" />
-        <div className="mx-auto max-w-[1320px]">
+        <div className="max-container">
           <div className="mb-20">
             <SpecsSearch />
           </div>
-          <div className="mb-10 flex flex-col justify-between gap-6 md:flex-row md:items-end">
+          <div className="mb-14 flex flex-col justify-between gap-6 md:flex-row md:items-end">
             <div className="min-w-0">
-              <p className="text-sm font-semibold uppercase leading-6 text-blue-600">{home.catalogNav.eyebrow}</p>
-              <h2 className="mt-4 text-4xl font-semibold leading-tight text-slate-950 md:text-5xl">
+              <p className="text-eyebrow mb-4">{home.catalogNav.eyebrow}</p>
+              <h2 className="heading-section mb-0">
                 {home.catalogNav.title}
               </h2>
             </div>
-            <Link href={home.catalogNav.cta.href} className="inline-flex shrink-0 items-center text-sm font-semibold text-blue-700 hover:text-blue-900">
-              {home.catalogNav.cta.label} <ChevronRight className="ml-1 h-4 w-4" />
+            <Link href={home.catalogNav.cta.href} className="apple-link text-sm">
+              {home.catalogNav.cta.label} <ChevronRight className="h-4 w-4" />
             </Link>
           </div>
 
@@ -235,37 +236,37 @@ export default function Home() {
       </section>
 
       {/* Main Catalog Showcase */}
-      <section className="bg-white px-6 py-24">
-        <div className="mx-auto max-w-[1320px]">
-          <div className="mb-12 max-w-3xl">
-            <p className="text-sm font-semibold uppercase leading-6 text-blue-600">{home.featured.eyebrow}</p>
-            <h2 className="mt-4 text-4xl font-semibold leading-tight text-slate-950 md:text-6xl">
+      <section className="section-standard">
+        <div className="max-container">
+          <div className="mb-20 max-w-3xl">
+            <p className="text-eyebrow">{home.featured.eyebrow}</p>
+            <h2 className="heading-section">
               {home.featured.title}
             </h2>
           </div>
 
-          <div className="grid gap-6 lg:grid-cols-2">
+          <div className="grid gap-8 lg:grid-cols-2">
             {home.showcase.map((item, idx) => (
               <Link 
                 key={idx}
                 href={item.cta.href}
                 className={cn(
-                  "group relative flex min-h-[560px] min-w-0 overflow-hidden rounded-3xl p-8 transition hover:shadow-[0_34px_90px_-45px_rgba(15,23,42,0.8)] sm:p-10",
-                  item.theme === 'dark' ? "bg-slate-950 text-white" : "bg-slate-100 text-slate-950"
+                  "group relative flex min-h-[560px] min-w-0 overflow-hidden rounded-[3rem] p-10 transition-all hover:shadow-[0_40px_80px_-20px_rgba(15,23,42,0.2)]",
+                  item.theme === 'dark' ? "bg-slate-950 text-white" : "bg-[#f5f5f7] text-slate-950"
                 )}
               >
                 <div className="relative z-20 flex min-w-0 max-w-md flex-col justify-between">
                   <div className="min-w-0">
-                    <p className={cn("text-sm font-semibold uppercase leading-6", item.theme === 'dark' ? "text-blue-300" : "text-blue-700")}>
+                    <p className={cn("text-[10px] font-black uppercase tracking-widest", item.theme === 'dark' ? "text-blue-300" : "text-blue-700")}>
                       {home.featured.badge}
                     </p>
-                    <h3 className="mt-4 break-words text-4xl font-semibold leading-tight md:text-5xl">{item.title}</h3>
-                    <p className={cn("mt-5 text-lg font-medium leading-7", item.theme === 'dark' ? "text-slate-300" : "text-slate-600")}>
+                    <h3 className="mt-4 break-words text-4xl font-black uppercase tracking-tighter md:text-5xl">{item.title}</h3>
+                    <p className={cn("mt-6 text-lg font-medium leading-relaxed", item.theme === 'dark' ? "text-slate-400" : "text-slate-600")}>
                       {item.description}
                     </p>
                   </div>
-                  <span className={cn("mt-10 inline-flex items-center text-sm font-semibold", item.theme === 'dark' ? "text-blue-300" : "text-blue-700")}>
-                    {home.featured.ctaLabel} <ArrowRight className="ml-2 h-4 w-4 transition group-hover:translate-x-1" />
+                  <span className={cn("mt-10 inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest", item.theme === 'dark' ? "text-blue-400" : "text-blue-600")}>
+                    {home.featured.ctaLabel} <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
                   </span>
                 </div>
                 <div className="absolute bottom-5 right-4 h-[44%] w-[58%] max-w-xl sm:bottom-0 sm:right-0 sm:h-[64%] sm:w-[62%] sm:translate-y-4">
@@ -287,72 +288,74 @@ export default function Home() {
       </section>
 
       {/* Secondary Product Wall */}
-      <section className="bg-[#f6f7f9] px-6 py-24">
-        <div className="mx-auto mb-14 flex max-w-7xl flex-col justify-between gap-6 md:flex-row md:items-end">
-          <div className="min-w-0">
-            <p className="text-sm font-semibold uppercase leading-6 text-blue-600">{home.lineup.eyebrow}</p>
-            <h2 className="mt-4 text-4xl font-semibold leading-tight text-slate-950 md:text-6xl">
-              {home.lineup.title}
-            </h2>
+      <section className="section-tint">
+        <div className="max-container">
+          <div className="mb-20 flex flex-col justify-between gap-6 md:flex-row md:items-end">
+            <div className="min-w-0">
+              <p className="text-eyebrow mb-4">{home.lineup.eyebrow}</p>
+              <h2 className="heading-section mb-0">
+                {home.lineup.title}
+              </h2>
+            </div>
+            <p className="max-w-xl text-body-lg">
+              {home.lineup.description}
+            </p>
           </div>
-          <p className="max-w-xl text-lg font-medium leading-8 text-slate-600">
-            {home.lineup.description}
-          </p>
-        </div>
 
-        <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-2 lg:grid-cols-3">
-          {featuredProducts.map((product) => (
-            <ProductCard key={product.slug} product={product} />
-          ))}
-        </div>
-        
-        <div className="mt-14 text-center">
-          <Link
-            href={home.lineup.cta.href}
-            className="inline-flex min-h-12 items-center justify-center rounded-full bg-slate-950 px-8 text-sm font-semibold text-white transition hover:bg-blue-700"
-          >
-            {home.lineup.cta.label} <ArrowRight className="ml-2 h-4 w-4" />
-          </Link>
+          <div className="grid max-w-7xl gap-10 md:grid-cols-2 lg:grid-cols-3 mx-auto">
+            {featuredProducts.map((product) => (
+              <ProductCard key={product.slug} product={product} />
+            ))}
+          </div>
+          
+          <div className="mt-20 text-center">
+            <Link
+              href={home.lineup.cta.href}
+              className="apple-button-secondary px-10 py-4 text-sm uppercase tracking-widest font-black"
+            >
+              {home.lineup.cta.label} <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
+          </div>
         </div>
       </section>
 
       {/* Trust & Engineering */}
-      <section className="bg-white px-6 py-24">
-        <div className="mx-auto grid max-w-[1320px] gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+      <section className="section-standard">
+        <div className="max-container grid gap-20 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
           <div className="min-w-0">
-            <p className="text-sm font-semibold uppercase leading-6 text-blue-600">{home.trust.eyebrow}</p>
-            <h2 className="mt-4 text-4xl font-semibold leading-tight text-slate-950 md:text-6xl">
+            <p className="text-eyebrow">{home.trust.eyebrow}</p>
+            <h2 className="heading-section">
               {home.trust.title}
             </h2>
-            <p className="mt-8 text-lg font-medium leading-8 text-slate-600">
+            <p className="mt-8 text-body-lg">
               {home.trust.description}
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-10 flex flex-wrap gap-4">
               {catalog.company.certifications.map((cert) => (
-                <span key={cert} className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700">
+                <span key={cert} className="rounded-2xl border border-slate-100 bg-slate-50 px-6 py-3 text-xs font-black uppercase tracking-widest text-slate-600">
                   {cert}
                 </span>
               ))}
             </div>
           </div>
 
-          <div className="grid gap-4">
+          <div className="grid gap-6">
             {projects.highlights.map((project) => (
-              <div key={project.title} className="min-w-0 rounded-2xl border border-slate-200 bg-slate-50 p-6">
-                <div className="flex items-start gap-4">
-                  <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-blue-600 text-white">
-                    {project.slug === 'isro-gaganyaan' ? <Rocket className="h-5 w-5" /> : <Sparkles className="h-5 w-5" />}
+              <div key={project.title} className="min-w-0 rounded-[2.5rem] border border-slate-100 bg-slate-50 p-10 transition-all hover:bg-white hover:shadow-2xl group">
+                <div className="flex items-start gap-8">
+                  <div className="mt-1 flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-blue-600 text-white shadow-lg shadow-blue-600/20 group-hover:scale-110 transition-transform">
+                    {project.slug === 'isro-gaganyaan' ? <Rocket className="h-6 w-6" /> : <Sparkles className="h-6 w-6" />}
                   </div>
                   <div className="min-w-0 flex-1">
-                    <p className="text-sm font-semibold uppercase leading-6 text-blue-700">{project.subtitle}</p>
-                    <h3 className="mt-2 break-words text-xl font-semibold leading-7 text-slate-950">{project.title}</h3>
-                    <p className="mt-2 text-sm leading-6 text-slate-600">{project.detail}</p>
+                    <p className="text-[10px] font-black uppercase tracking-widest text-blue-600 mb-2">{project.subtitle}</p>
+                    <h3 className="break-words text-2xl font-black tracking-tighter text-slate-900 uppercase leading-none">{project.title}</h3>
+                    <p className="mt-4 text-base font-medium leading-relaxed text-slate-500">{project.detail}</p>
                     {project.slug && (
                       <Link 
                         href={`/showcase/${project.slug}`} 
-                        className="mt-4 inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-widest text-blue-600 hover:text-blue-700 transition-colors"
+                        className="mt-6 inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest text-blue-600 hover:gap-3 transition-all"
                       >
-                        {catalog.company.ui.viewCaseStudy} <ChevronRight className="h-3.5 w-3.5" />
+                        {catalog.company.ui.viewCaseStudy} <ChevronRight className="h-4 w-4" />
                       </Link>
                     )}
                   </div>

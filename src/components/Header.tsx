@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X, ChevronDown, ArrowRight } from 'lucide-react';
+import { Menu, X, ChevronDown, ArrowRight, Search } from 'lucide-react';
 import { categories, navigation } from '@/lib/catalog';
 import { cn } from '@/lib/utils';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -94,7 +94,19 @@ const Header = () => {
               </div>
             </li>
           </ul>
-          <HeaderActions useLightHeaderText={isHeaderLight} />
+          <div className="flex items-center gap-4">
+            <Link 
+              href="/search" 
+              className={cn(
+                "p-2 rounded-full transition-all hover:bg-white/10 active:scale-90",
+                isHeaderLight ? "text-white" : "text-black hover:bg-slate-100"
+              )}
+              aria-label="Search"
+            >
+              <Search className="w-4 h-4" />
+            </Link>
+            <HeaderActions useLightHeaderText={isHeaderLight} />
+          </div>
         </nav>
 
         {/* Mobile Toggle */}
@@ -135,6 +147,18 @@ const Header = () => {
                     </Link>
                   </li>
                 ))}
+                <li>
+                  <Link
+                    href="/search"
+                    onClick={() => setIsOpen(false)}
+                    className={cn(
+                      'text-3xl font-bold tracking-tight block',
+                      pathname === '/search' ? 'text-blue-600' : 'text-black'
+                    )}
+                  >
+                    Search
+                  </Link>
+                </li>
                 <li>
                   <Link href="/contact" onClick={() => setIsOpen(false)} className="text-3xl font-bold tracking-tight text-blue-600">
                     Contact Us

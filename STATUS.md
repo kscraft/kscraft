@@ -1,14 +1,14 @@
 # Project Status: Kiran Slido Craft Website
 
 ## Current State
-The website has been completely reimagined with **Apple's iconic minimalist design language**. Busy elements and generic visuals have been replaced with high-contrast typography, immersive product-first layouts, and **verified real-world product visuals**.
+The website has been reimagined with **Apple's iconic minimalist design language**. Busy elements and generic visuals have been replaced with high-contrast typography, product-first layouts, and **verified real-world product visuals**.
 
 ## Completed Milestones
 1.  **Apple-Style UI Redesign:**
     *   **Catalog-Centric UX:** Reengineered the site to lead with the catalog. Introduced a sticky, icon-based "Product Category Bar" as the primary navigation hero on the Home Page, ensuring the product range is always the focal point.
     *   **Ultra-Minimalist Layout:** Clean white/off-white backgrounds, generous whitespace, and refined grayscale palette with functional blue accents, following Apple's iconic design language.
     *   **High-End Typography:** Bold, precise tracking and high-contrast headings using system-native fonts for a premium "tech-catalog" feel.
-    *   **Immersive Hero Sections:** Full-screen product spotlights with subtle entry animations. Optimized hero typography for maximum clarity, using high-contrast black and zinc tones that perfectly complement the architectural photography.
+    *   **Product-Focused Hero Sections:** Text-first product spotlights with framed product imagery and subtle entry animations. Optimized hero typography for maximum clarity, using high-contrast black and zinc tones that complement the architectural photography.
     *   **Premium Components:** Completely redesigned `Header`, `Footer`, and `ProductCard` to match premium architectural standards.
 
 2.  **Visual Accuracy & Asset Quality:**
@@ -20,7 +20,7 @@ The website has been completely reimagined with **Apple's iconic minimalist desi
 
 3.  **Data-Driven Architecture:**
     *   **Consolidated `catalog.json`:** Successfully centralized all website content, including hero sections, media galleries, project highlights, services, and navigation links into a single source of truth.
-    *   **Zero Hardcoding:** Refactored all React components and pages to dynamically pull data from `catalog.json`, ensuring the site is 100% data-driven and easily maintainable.
+    *   **Catalog-Driven Core Content:** Refactored core product, category, navigation, media, services, and company content to pull from `catalog.json`, while preserving page-level presentation copy where appropriate.
     *   **Enhanced Type Safety:** Updated `catalog.ts` with comprehensive TypeScript interfaces for all data structures.
 
 4.  **Technical Refinement:**

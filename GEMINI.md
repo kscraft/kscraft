@@ -9,7 +9,7 @@ Rebuild the Kiran Slido Craft website so it aligns with `kiranslidocraft.com` an
 - Framework: Next.js App Router with Tailwind CSS v4.
 - Product source of truth: `src/data/catalog.json`.
 - Catalog helpers: `src/lib/catalog.ts`.
-- Current catalog coverage: 28 products across 6 categories.
+- Current catalog coverage: 23 products across 5 categories.
 - Source-site crawl coverage: 31 reachable pages from `kiranslidocraft.com`, 40 sitemap/internal pages from `kiranslidocraft.co.in`.
 - Static routes generated:
   - `/`
@@ -43,7 +43,7 @@ Rebuild the Kiran Slido Craft website so it aligns with `kiranslidocraft.com` an
 - Logo is `public/logo-ksc.svg`.
 - Footer includes the logo, company copy, certifications, categories, contact details, and product count.
 - Mobile navigation is active below `lg`, fixing the prior tablet navigation gap.
-- Keep cards and media frames at `rounded-lg` or smaller.
+- Preserve the current Apple-inspired large-radius visual language unless a specific surface needs tighter density.
 - Long product names must use wrapping classes to avoid mobile overflow.
 - Client and certification tiles use uniform 56px logo marks.
 - `/clients` includes source project references, partial clientele, real client logo assets where verified, and certification registrations.
@@ -58,7 +58,7 @@ Run:
 npm run build
 ```
 
-Expected result: successful build with 42 static pages.
+Expected result: successful build with 36 generated static pages.
 
 Useful smoke checks:
 

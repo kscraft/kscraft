@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation';
 import { ExternalLink, ShieldCheck } from 'lucide-react';
 import ProductCard from '@/components/ProductCard';
 import ProductActions from '@/components/ProductActions';
+import AcousticGraph from '@/components/AcousticGraph';
 import { catalog, getCategory, getProduct, getProductsByCategory, products } from '@/lib/catalog';
 
 interface Props {
@@ -56,6 +57,9 @@ export default async function ProductPage({ params }: Props) {
     .filter((item) => item.slug !== product.slug)
     .slice(0, 3);
 
+  const stcMatch = Object.values(product.specifications).find(v => v.includes('STC'))?.match(/\d+/);
+  const stcRating = stcMatch ? parseInt(stcMatch[0]) : null;
+
   const productJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Product',
@@ -99,6 +103,19 @@ export default async function ProductPage({ params }: Props) {
     ]
   };
 
+  const faqJsonLd = product.faqs ? {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    'mainEntity': product.faqs.map(faq => ({
+      '@type': 'Question',
+      'name': faq.q,
+      'acceptedAnswer': {
+        '@type': 'Answer',
+        'text': faq.a
+      }
+    }))
+  } : null;
+
   return (
     <article className="bg-white min-h-screen">
       <script
@@ -109,6 +126,12 @@ export default async function ProductPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
+      {faqJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+      )}
       {/* Immersive Product Hero */}
       <section className="pt-40 pb-20 px-6 text-center bg-[#fafafa]">
         <div className="mx-auto max-w-5xl">
@@ -150,17 +173,21 @@ export default async function ProductPage({ params }: Props) {
         <div className="mx-auto max-w-5xl">
           <h2 className="text-4xl font-bold tracking-tight text-black mb-20 uppercase text-center">Engineered to <br /> Perfection.</h2>
           
-          <div className="grid md:grid-cols-2 gap-20 border-t border-slate-100 pt-20">
-            <div>
-              <h3 className="text-xs font-bold text-slate-400 uppercase tracking-[0.3em] mb-10">Technical Specifications</h3>
-              <dl className="space-y-8">
-                {Object.entries(product.specifications).map(([key, value]) => (
-                  <div key={key} className="flex flex-col">
-                    <dt className="text-sm font-bold text-black uppercase mb-1">{key}</dt>
-                    <dd className="text-xl text-slate-500 font-medium">{value}</dd>
-                  </div>
-                ))}
-              </dl>
+          <div className="grid lg:grid-cols-2 gap-20 border-t border-slate-100 pt-20">
+            <div className="space-y-16">
+              <div>
+                <h3 className="text-xs font-bold text-slate-400 uppercase tracking-[0.3em] mb-10">Technical Specifications</h3>
+                <div role="table" aria-label="Product Specifications" className="space-y-8">
+                  {Object.entries(product.specifications).map(([key, value]) => (
+                    <div key={key} role="row" className="flex flex-col border-b border-slate-50 pb-4">
+                      <span role="columnheader" className="text-sm font-bold text-black uppercase mb-1">{key}</span>
+                      <span role="cell" className="text-xl text-slate-500 font-medium">{value}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              
+              {stcRating && <AcousticGraph stcRating={stcRating} />}
             </div>
             
             <div>
@@ -193,6 +220,23 @@ export default async function ProductPage({ params }: Props) {
           </div>
         </div>
       </section>
+
+      {/* Technical FAQ Section */}
+      {product.faqs && (
+        <section className="py-32 px-6 bg-white border-t border-slate-100">
+          <div className="mx-auto max-w-3xl">
+            <h3 className="text-xs font-bold text-slate-400 uppercase tracking-[0.3em] mb-12 text-center">Technical Q&A</h3>
+            <div className="space-y-12">
+              {product.faqs.map((faq, idx) => (
+                <div key={idx} className="space-y-4">
+                  <h4 className="text-2xl font-black text-slate-900 uppercase tracking-tight">{faq.q}</h4>
+                  <p className="text-lg text-slate-500 font-medium leading-relaxed">{faq.a}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Related Section */}
       {related.length > 0 && (

@@ -47,6 +47,18 @@
       "youtube": "https://www.youtube.com/kiranslidocraft",
       "linkedin": "https://www.linkedin.com/company/kiranslidocraft/"
     },
+    "areaServed": [
+      "United Kingdom",
+      "Europe",
+      "GCC",
+      "MENA",
+      "APAC",
+      "Australia",
+      "India",
+      "North America",
+      "South America",
+      "Africa"
+    ],
     "authenticity": {
       "title": "Raw Authenticity",
       "badge": "Raw Installation Photo",
@@ -81,8 +93,10 @@
   "navigation": {
     "header": [
       { "label": "Overview", "href": "/" },
+      { "label": "Configurator", "href": "/configurator" },
       { "label": "Acoustics", "href": "/category/sound-proof-windows" },
       { "label": "Automation", "href": "/category/motorized-systems" },
+      { "label": "Engineering", "href": "/services" },
       { "label": "Media", "href": "/media" },
       { "label": "About", "href": "/about" }
     ],
@@ -259,7 +273,11 @@
           "uspLabel": "The USP",
           "uspTitle": "We are an Engineering Company First.",
           "uspDescription": "Kiran Slido Craft thrives on unique, high-stakes engineering requirements. Whether it is a space-grade entry mechanism or a complex industrial soundproofing challenge, we apply the same aerospace-level rigor to every system we build."
-        }
+        },
+        "faqs": [
+          { "q": "What was Kiran Slido Craft’s role in the Gaganyaan mission?", "a": "We engineered the critical crew onboarding and deboarding lander mechanism, ensuring precise movement and safety for astronauts." },
+          { "q": "Is the Gaganyaan entry system indigenous?", "a": "Yes, 100% of the design and engineering for the entry mechanism was performed in-house by our Indian engineering team." }
+        ]
       },
       {
         "title": "VJ Villa Pune",
@@ -378,7 +396,11 @@
         "Sealing": "Compression felt and rubber"
       },
       "features": ["Space-saving design", "Ultra-smooth tracking", "Enhanced thermal insulation"],
-      "applications": ["Urban Residences", "Hotels", "Boardrooms"]
+      "applications": ["Urban Residences", "Hotels", "Boardrooms"],
+      "faqs": [
+        { "q": "What is the sound reduction capability?", "a": "Our acoustic sliding windows can achieve up to STC 45 reduction, depending on the glass thickness." },
+        { "q": "Are the tracks easy to maintain?", "a": "Yes, our tracks are engineered for low friction and feature easy-clean stainless steel surfaces." }
+      ]
     },
     {
       "slug": "sound-proof-tilt-turn-windows",

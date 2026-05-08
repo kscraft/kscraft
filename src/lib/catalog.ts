@@ -24,6 +24,7 @@ export type Product = {
   specifications: SpecificationMap;
   features: string[];
   applications: string[];
+  faqs?: { q: string; a: string }[];
 };
 
 export type NavItem = {
@@ -48,6 +49,7 @@ export type ProjectHighlight = {
     uspTitle: string;
     uspDescription: string;
   };
+  faqs?: { q: string; a: string }[];
 };
 
 export type MediaGalleryItem = {
@@ -103,6 +105,7 @@ export const catalog = catalogData as {
     clients: string[];
     clientLogos: ClientLogo[];
     social: { youtube: string; linkedin: string };
+    areaServed: string[];
     authenticity: {
       title: string;
       badge: string;

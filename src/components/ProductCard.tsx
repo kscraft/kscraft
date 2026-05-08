@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { ArrowRightLeft } from 'lucide-react';
 import { catalog, type Product } from '@/lib/catalog';
 import { motion } from 'framer-motion';
 
@@ -17,6 +18,19 @@ export default function ProductCard({ product, compact = false }: ProductCardPro
       transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
       className="group relative h-full"
     >
+      {/* Compare Toggle */}
+      <button 
+        onClick={(e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          window.dispatchEvent(new CustomEvent('add-to-compare', { detail: product.slug }));
+        }}
+        className="absolute top-6 left-6 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-white/80 backdrop-blur-md text-slate-400 hover:text-blue-600 hover:bg-white shadow-sm opacity-0 group-hover:opacity-100 transition-all active:scale-90"
+        title="Add to compare"
+      >
+        <ArrowRightLeft className="w-4 h-4" />
+      </button>
+
       <Link href={`/product/${product.slug}`} className="flex h-full min-w-0 flex-col overflow-hidden rounded-[2rem] bg-[#f5f5f7] transition-shadow hover:shadow-[0_40px_80px_-12px_rgba(0,0,0,0.12)]">
         {/* Content surface */}
         <div className={compact ? "min-w-0 p-4 pb-0 text-center sm:p-8 sm:pb-0" : "min-w-0 p-4 pb-0 text-center sm:p-10 sm:pb-0"}>

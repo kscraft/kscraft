@@ -4,6 +4,9 @@ import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import PageTransition from '@/components/PageTransition';
+import CompareEngine from '@/components/CompareEngine';
+import { HeaderThemeProvider } from '@/lib/HeaderThemeContext';
+import { products } from '@/lib/catalog';
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -161,15 +164,18 @@ export default function RootLayout({
         />
       </head>
       <body className="font-sans bg-white antialiased text-slate-900 overflow-x-hidden">
-        <div className="flex min-h-screen flex-col">
-          <Header />
-          <main className="flex-1">
-            <PageTransition>
-              {children}
-            </PageTransition>
-          </main>
-          <Footer />
-        </div>
+        <HeaderThemeProvider>
+          <div className="flex min-h-screen flex-col">
+            <Header />
+            <main className="flex-1">
+              <PageTransition>
+                {children}
+              </PageTransition>
+            </main>
+            <CompareEngine products={products} />
+            <Footer />
+          </div>
+        </HeaderThemeProvider>
       </body>
     </html>
   );

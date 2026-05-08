@@ -9,16 +9,15 @@ import { categories, navigation } from '@/lib/catalog';
 import { cn } from '@/lib/utils';
 import { motion, AnimatePresence } from 'framer-motion';
 import HeaderActions from '@/components/HeaderActions';
+import { useHeaderTheme } from '@/lib/HeaderThemeContext';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
+  const { theme } = useHeaderTheme();
 
-  // Robust theme detection: Pages that start with a dark hero section
-  const darkHeroRoutes = ['/', '/about', '/services', '/contact', '/showcase/isro-gaganyaan'];
-  const isDarkRoute = darkHeroRoutes.includes(pathname) || pathname.startsWith('/category/');
-  const isHeaderLight = isDarkRoute && !isScrolled && !isOpen;
+  const isHeaderLight = theme === 'dark' && !isScrolled && !isOpen;
 
   useEffect(() => {
     const handleScroll = () => {

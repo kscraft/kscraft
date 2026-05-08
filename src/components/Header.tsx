@@ -94,16 +94,18 @@ const Header = () => {
               </div>
             </li>
           </ul>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2">
             <Link 
               href="/search" 
               className={cn(
-                "p-2 rounded-full transition-all hover:bg-white/10 active:scale-90",
-                isHeaderLight ? "text-white" : "text-black hover:bg-slate-100"
+                "group flex h-10 w-10 items-center justify-center rounded-full transition-all active:scale-90",
+                isHeaderLight 
+                  ? "text-white hover:bg-white/10" 
+                  : "text-slate-900 hover:bg-slate-100"
               )}
               aria-label="Search"
             >
-              <Search className="w-4 h-4" />
+              <Search className="w-4 h-4 transition-transform group-hover:scale-110" />
             </Link>
             <HeaderActions useLightHeaderText={isHeaderLight} />
           </div>
@@ -148,23 +150,21 @@ const Header = () => {
                   </li>
                 ))}
                 <li>
-                  <Link
-                    href="/search"
-                    onClick={() => setIsOpen(false)}
-                    className={cn(
-                      'text-3xl font-bold tracking-tight block',
-                      pathname === '/search' ? 'text-blue-600' : 'text-black'
-                    )}
-                  >
-                    Search
-                  </Link>
-                </li>
-                <li>
                   <Link href="/contact" onClick={() => setIsOpen(false)} className="text-3xl font-bold tracking-tight text-blue-600">
                     Contact Us
                   </Link>
                 </li>
               </ul>
+
+              <div className="flex gap-4">
+                <Link 
+                  href="/search" 
+                  onClick={() => setIsOpen(false)}
+                  className="flex-1 flex items-center justify-center gap-3 py-6 bg-slate-50 rounded-3xl border border-slate-100 text-slate-900 font-bold uppercase tracking-widest text-[10px]"
+                >
+                  <Search className="w-4 h-4" /> Search Systems
+                </Link>
+              </div>
               
               <div className="pt-10 border-t border-slate-100">
                 <h3 className="text-[10px] font-black text-blue-600 uppercase tracking-[0.3em] mb-8">System Catalog</h3>

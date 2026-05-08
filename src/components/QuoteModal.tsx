@@ -1,9 +1,12 @@
 'use client';
 
+'use client';
+
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Phone, MessageSquare, Mail, ChevronRight, Copy, Check } from 'lucide-react';
+import { X, Phone, MessageSquare, Mail, ChevronRight, Copy, Check, Globe2, ShieldCheck } from 'lucide-react';
 import { catalog } from '@/lib/catalog';
+import { cn } from '@/lib/utils';
 
 type QuoteModalProps = {
   isOpen: boolean;
@@ -25,114 +28,155 @@ export default function QuoteModal({ isOpen, onClose, productName }: QuoteModalP
   const callUrl = `tel:${phone}`;
   const emailUrl = `mailto:${email}?subject=${encodeURIComponent(`Quote Request: ${productName || 'Technical Inquiry'}`)}`;
 
+  const containerVariants = {
+    hidden: { opacity: 0, scale: 0.95, y: 20 },
+    visible: { 
+      opacity: 1, 
+      scale: 1, 
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: [0.16, 1, 0.3, 1] as any,
+        staggerChildren: 0.1,
+        delayChildren: 0.2
+      }
+    },
+    exit: { opacity: 0, scale: 0.95, y: 10, transition: { duration: 0.3 } }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, x: -10 },
+    visible: { opacity: 1, x: 0 }
+  };
+
   return (
     <AnimatePresence>
       {isOpen && (
-        <>
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-6">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 z-[60] bg-slate-950/40 backdrop-blur-md"
+            className="fixed inset-0 bg-slate-950/40 backdrop-blur-xl"
           />
-          <div className="fixed inset-0 z-[70] flex items-center justify-center p-6 pointer-events-none">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="relative w-full max-w-lg bg-white rounded-[3rem] shadow-[0_50px_100px_-12px_rgba(0,0,0,0.3)] overflow-hidden pointer-events-auto"
-            >
+          
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            className="relative w-full max-w-xl bg-white/90 backdrop-blur-3xl rounded-[3rem] shadow-[0_40px_100px_-12px_rgba(0,0,0,0.3)] border border-white/20 overflow-hidden"
+          >
+            {/* Top Navigation Bar */}
+            <div className="flex items-center justify-between px-10 py-8 border-b border-slate-100/50">
+              <div className="flex items-center gap-3">
+                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-600 text-white shadow-lg shadow-blue-600/20">
+                  <ShieldCheck className="w-4 h-4" />
+                </div>
+                <span className="text-[10px] font-black text-slate-400 uppercase tracking-[0.3em]">Engineering Inquiry</span>
+              </div>
               <button 
                 onClick={onClose}
-                className="absolute top-8 right-8 p-2 rounded-full bg-slate-100 text-slate-500 hover:bg-slate-200 transition-colors"
+                className="group p-3 rounded-full bg-slate-100/50 text-slate-500 hover:bg-slate-950 hover:text-white transition-all active:scale-90"
               >
-                <X className="w-5 h-5" />
+                <X className="w-4 h-4 transition-transform group-hover:rotate-90" />
               </button>
+            </div>
 
-              <div className="p-10 lg:p-14">
-                <div className="mb-10">
-                  <h2 className="text-3xl font-black text-slate-900 uppercase tracking-tighter mb-4">{ui.quoteTitle}</h2>
-                  <p className="text-slate-500 font-medium leading-relaxed">
-                    {productName ? (
-                      <>Technical inquiry for <span className="text-blue-600 font-bold">{productName}</span>. {ui.quoteSubtitle}</>
-                    ) : ui.quoteSubtitle}
-                  </p>
-                </div>
-
-                <div className="grid gap-4">
-                  <a 
-                    href={whatsappUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-6 p-6 rounded-3xl bg-green-50 border border-green-100 group hover:bg-green-100 transition-all"
-                  >
-                    <div className="h-14 w-14 rounded-2xl bg-green-600 flex items-center justify-center text-white group-hover:scale-110 transition-transform">
-                      <MessageSquare className="w-6 h-6" />
-                    </div>
-                    <div className="flex-1">
-                      <p className="text-[10px] font-black text-green-700 uppercase tracking-widest mb-1">{ui.reachViaWhatsApp}</p>
-                      <p className="text-xl font-bold text-slate-900">Direct Message</p>
-                    </div>
-                    <ChevronRight className="w-6 h-6 text-green-300 group-hover:translate-x-1 transition-transform" />
-                  </a>
-
-                  <div className="relative group">
-                    <a 
-                      href={callUrl}
-                      className="flex items-center gap-6 p-6 rounded-3xl bg-blue-50 border border-blue-100 hover:bg-blue-100 transition-all"
-                    >
-                      <div className="h-14 w-14 rounded-2xl bg-blue-600 flex items-center justify-center text-white group-hover:scale-110 transition-transform">
-                        <Phone className="w-6 h-6" />
-                      </div>
-                      <div className="flex-1">
-                        <p className="text-[10px] font-black text-blue-700 uppercase tracking-widest mb-1">{ui.reachViaCall}</p>
-                        <p className="text-xl font-bold text-slate-900">{phoneDisplay}</p>
-                      </div>
-                      <ChevronRight className="w-6 h-6 text-blue-300 group-hover:translate-x-1 transition-transform" />
-                    </a>
-                    <button 
-                      onClick={(e) => { e.preventDefault(); copyToClipboard(phone, 'phone'); }}
-                      className="absolute right-16 top-1/2 -translate-y-1/2 p-3 rounded-xl bg-white/50 border border-blue-200 text-blue-600 hover:bg-white transition-all opacity-0 group-hover:opacity-100 pointer-events-auto"
-                      title="Copy phone number"
-                    >
-                      {copiedType === 'phone' ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
-                    </button>
-                  </div>
-
-                  <div className="relative group">
-                    <a 
-                      href={emailUrl}
-                      className="flex items-center gap-6 p-6 rounded-3xl bg-slate-50 border border-slate-100 hover:bg-slate-200 transition-all"
-                    >
-                      <div className="h-14 w-14 rounded-2xl bg-slate-900 flex items-center justify-center text-white group-hover:scale-110 transition-transform">
-                        <Mail className="w-6 h-6" />
-                      </div>
-                      <div className="flex-1">
-                        <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest mb-1">{ui.reachViaEmail}</p>
-                        <p className="text-xl font-bold text-slate-900 truncate pr-10">{email}</p>
-                      </div>
-                      <ChevronRight className="w-6 h-6 text-slate-300 group-hover:translate-x-1 transition-transform" />
-                    </a>
-                    <button 
-                      onClick={(e) => { e.preventDefault(); copyToClipboard(email, 'email'); }}
-                      className="absolute right-16 top-1/2 -translate-y-1/2 p-3 rounded-xl bg-white/50 border border-slate-200 text-slate-600 hover:bg-white transition-all opacity-0 group-hover:opacity-100 pointer-events-auto"
-                      title="Copy email address"
-                    >
-                      {copiedType === 'email' ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
-                    </button>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="bg-slate-50 p-6 text-center border-t border-slate-100">
-                <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">
-                  Engineering Precision. Delivered Worldwide.
+            <div className="p-10 lg:p-14">
+              <div className="mb-12">
+                <h2 className="text-4xl lg:text-5xl font-black text-slate-900 uppercase tracking-tighter leading-[0.9] mb-6">
+                  Get a <br /><span className="text-blue-600">Specification</span> Quote.
+                </h2>
+                <p className="text-lg text-slate-500 font-medium leading-relaxed max-w-sm">
+                  {productName ? (
+                    <>Direct technical channel for <span className="text-slate-900 font-bold">{productName}</span>.</>
+                  ) : ui.quoteSubtitle}
                 </p>
               </div>
-            </motion.div>
-          </div>
-        </>
+
+              <div className="grid gap-3">
+                {/* WhatsApp */}
+                <motion.a 
+                  variants={itemVariants}
+                  href={whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center gap-6 p-6 rounded-3xl bg-slate-50 hover:bg-white border border-slate-100 hover:border-blue-200 hover:shadow-2xl hover:shadow-blue-600/5 transition-all"
+                >
+                  <div className="h-12 w-12 rounded-2xl bg-green-500 flex items-center justify-center text-white group-hover:scale-110 transition-transform shadow-lg shadow-green-500/20">
+                    <MessageSquare className="w-5 h-5" />
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex items-center gap-2 mb-0.5">
+                      <p className="text-[9px] font-black text-green-600 uppercase tracking-widest">{ui.reachViaWhatsApp}</p>
+                      <span className="h-1 w-1 rounded-full bg-green-500 animate-pulse"></span>
+                    </div>
+                    <p className="text-lg font-bold text-slate-900 tracking-tight">Direct Technical Chat</p>
+                  </div>
+                  <ChevronRight className="w-5 h-5 text-slate-300 group-hover:text-blue-600 group-hover:translate-x-1 transition-all" />
+                </motion.a>
+
+                {/* Call */}
+                <motion.div variants={itemVariants} className="relative group">
+                  <a 
+                    href={callUrl}
+                    className="flex items-center gap-6 p-6 rounded-3xl bg-slate-50 hover:bg-white border border-slate-100 hover:border-blue-200 hover:shadow-2xl hover:shadow-blue-600/5 transition-all"
+                  >
+                    <div className="h-12 w-12 rounded-2xl bg-blue-600 flex items-center justify-center text-white group-hover:scale-110 transition-transform shadow-lg shadow-blue-600/20">
+                      <Phone className="w-5 h-5" />
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-[9px] font-black text-blue-600 uppercase tracking-widest mb-0.5">{ui.reachViaCall}</p>
+                      <p className="text-lg font-bold text-slate-900 tracking-tight">{phoneDisplay}</p>
+                    </div>
+                    <ChevronRight className="w-5 h-5 text-slate-300 group-hover:text-blue-600 group-hover:translate-x-1 transition-all" />
+                  </a>
+                  <button 
+                    onClick={(e) => { e.preventDefault(); copyToClipboard(phone, 'phone'); }}
+                    className="absolute right-14 top-1/2 -translate-y-1/2 p-3 rounded-xl bg-white border border-slate-100 text-slate-400 hover:text-blue-600 hover:shadow-md transition-all opacity-0 group-hover:opacity-100"
+                    title="Copy phone"
+                  >
+                    {copiedType === 'phone' ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
+                  </button>
+                </motion.div>
+
+                {/* Email */}
+                <motion.div variants={itemVariants} className="relative group">
+                  <a 
+                    href={emailUrl}
+                    className="flex items-center gap-6 p-6 rounded-3xl bg-slate-50 hover:bg-white border border-slate-100 hover:border-blue-200 hover:shadow-2xl hover:shadow-blue-600/5 transition-all"
+                  >
+                    <div className="h-12 w-12 rounded-2xl bg-slate-900 flex items-center justify-center text-white group-hover:scale-110 transition-transform shadow-lg shadow-slate-900/20">
+                      <Mail className="w-5 h-5" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p className="text-[9px] font-black text-slate-500 uppercase tracking-widest mb-0.5">{ui.reachViaEmail}</p>
+                      <p className="text-lg font-bold text-slate-900 tracking-tight truncate pr-10">{email}</p>
+                    </div>
+                    <ChevronRight className="w-5 h-5 text-slate-300 group-hover:text-blue-600 group-hover:translate-x-1 transition-all" />
+                  </a>
+                  <button 
+                    onClick={(e) => { e.preventDefault(); copyToClipboard(email, 'email'); }}
+                    className="absolute right-14 top-1/2 -translate-y-1/2 p-3 rounded-xl bg-white border border-slate-100 text-slate-400 hover:text-blue-600 hover:shadow-md transition-all opacity-0 group-hover:opacity-100"
+                    title="Copy email"
+                  >
+                    {copiedType === 'email' ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
+                  </button>
+                </motion.div>
+              </div>
+            </div>
+            
+            {/* Footer Tagline */}
+            <div className="bg-slate-50/80 px-10 py-6 text-center border-t border-slate-100 flex items-center justify-center gap-3">
+              <Globe2 className="w-3.5 h-3.5 text-blue-600" />
+              <p className="text-[9px] font-black text-slate-400 uppercase tracking-[0.3em]">
+                Engineering Precision. Delivered Worldwide.
+              </p>
+            </div>
+          </motion.div>
+        </div>
       )}
     </AnimatePresence>
   );

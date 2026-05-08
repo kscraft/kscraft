@@ -59,8 +59,8 @@ const Header = () => {
               </li>
             ))}
             <li className="relative group">
-              <button className="flex items-center gap-1 text-[12px] font-medium text-slate-500 hover:text-black transition-colors">
-                Catalog <ChevronDown className="w-3 h-3" />
+              <button className="flex items-center gap-1.5 px-4 py-1.5 bg-blue-50 text-blue-600 rounded-full text-[12px] font-bold hover:bg-blue-600 hover:text-white transition-all">
+                Catalog <ChevronDown className="w-3.5 h-3.5" />
               </button>
               <div className="absolute top-full right-0 mt-4 w-64 bg-white/90 backdrop-blur-2xl border border-slate-200 rounded-2xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all p-3 grid gap-1">
                 {categories.map((cat) => (
@@ -124,12 +124,13 @@ const Header = () => {
               </ul>
               
               <div className="pt-10 border-t border-slate-100">
-                <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-6">Product Lines</h3>
-                <ul className="grid gap-4">
+                <h3 className="text-[10px] font-black text-blue-600 uppercase tracking-[0.3em] mb-8">System Catalog</h3>
+                <ul className="grid gap-6">
                   {categories.map((cat) => (
                     <li key={cat.id}>
-                      <Link href={`/category/${cat.id}`} className="text-xl font-semibold text-slate-900">
+                      <Link href={`/category/${cat.id}`} className="text-4xl font-bold tracking-tight text-black flex items-center justify-between group">
                         {cat.title}
+                        <ArrowRight className="w-6 h-6 text-blue-600 opacity-0 group-hover:opacity-100 transition-opacity" />
                       </Link>
                     </li>
                   ))}

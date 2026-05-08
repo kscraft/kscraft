@@ -1,37 +1,46 @@
 'use client';
 
 import Link from 'next/link';
-import { ArrowRight, Shield, Zap, Globe, Award, ChevronRight } from 'lucide-react';
+import { ArrowRight, ChevronRight, Wind, Shield, Zap, Maximize, Layers } from 'lucide-react';
 import { motion } from 'framer-motion';
 import ProductCard from '@/components/ProductCard';
-import { catalog, categories, getFeaturedProducts, products, home } from '@/lib/catalog';
+import { catalog, categories, getFeaturedProducts, home } from '@/lib/catalog';
 import { cn } from '@/lib/utils';
+
+const categoryIcons: Record<string, any> = {
+  'sound-proof-windows': Wind,
+  'sound-proof-partitions': Layers,
+  'sound-proof-doors': Shield,
+  'motorized-systems': Zap,
+  'roof-sliding-systems': Maximize,
+};
 
 export default function Home() {
   const featuredProducts = getFeaturedProducts(6);
 
   return (
     <div className="flex flex-col min-h-screen bg-white">
-      {/* Primary Hero */}
-      <section className="relative h-[90vh] flex flex-col items-center justify-center text-center px-6 pt-20 overflow-hidden bg-[#fafafa]">
+      {/* Primary Hero Spotlight */}
+      <section className="relative h-screen flex flex-col items-center justify-between text-center px-6 pt-32 pb-20 overflow-hidden bg-[#fafafa]">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="relative z-10 max-w-4xl"
         >
-          <h1 className="text-5xl md:text-8xl font-bold tracking-tighter text-black mb-6 leading-none">
+          <p className="text-[12px] font-bold text-blue-600 uppercase tracking-[0.3em] mb-6">Spotlight</p>
+          <h1 className="text-6xl md:text-[8rem] font-bold tracking-tighter text-black mb-6 leading-[0.85]">
             {home.hero.highlight} <br /> <span className="text-blue-600">{home.hero.subhighlight}</span>
           </h1>
           <p className="text-xl md:text-2xl text-slate-500 font-medium mb-10 max-w-2xl mx-auto">
             {home.hero.description}
           </p>
-          <div className="flex items-center justify-center gap-8">
-            <Link href={home.hero.cta.href} className="apple-link text-lg">
-              {home.hero.cta.label} <ChevronRight className="w-5 h-5" />
+          <div className="flex items-center justify-center gap-10">
+            <Link href={home.hero.cta.href} className="apple-link text-xl">
+              Explore the system <ChevronRight className="w-6 h-6" />
             </Link>
-            <Link href={home.hero.secondaryCta.href} className="apple-link text-lg">
-              {home.hero.secondaryCta.label} <ChevronRight className="w-5 h-5" />
+            <Link href="/category/sound-proof-windows" className="apple-link text-xl">
+              View Catalog <ChevronRight className="w-6 h-6" />
             </Link>
           </div>
         </motion.div>
@@ -40,76 +49,117 @@ export default function Home() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.2, delay: 0.2 }}
-          className="absolute bottom-0 w-full max-w-6xl aspect-video mx-auto overflow-hidden rounded-t-[3rem] shadow-[0_-20px_100px_-12px_rgba(0,0,0,0.1)]"
+          className="w-full max-w-[1400px] aspect-[21/9] mx-auto overflow-hidden rounded-[3rem] shadow-[0_40px_100px_-12px_rgba(0,0,0,0.15)] relative group cursor-pointer"
         >
           <img 
             src={home.hero.image} 
             alt={home.hero.title} 
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-105"
           />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
         </motion.div>
       </section>
 
-      {/* Secondary Showcase */}
-      <section className="grid md:grid-cols-2 gap-4 p-4 bg-white">
-        {home.showcase.map((item, idx) => (
-          <div 
-            key={idx}
-            className={cn(
-              "relative h-[600px] rounded-[2.5rem] p-16 flex flex-col items-center text-center overflow-hidden group",
-              item.theme === 'dark' ? "bg-black text-white" : "bg-[#f5f5f7] text-black"
-            )}
-          >
-            <h2 className="text-4xl lg:text-5xl font-bold tracking-tight mb-4">{item.title}</h2>
-            <p className={cn("text-lg font-medium mb-8", item.theme === 'dark' ? "text-zinc-400" : "text-slate-500")}>
-              {item.description}
-            </p>
-            <div className="flex gap-6 mb-12">
-              <Link href={item.cta.href} className={cn("apple-link", item.theme === 'dark' && "text-blue-400")}>
-                {item.cta.label} &gt;
+      {/* Primary Catalog Navigation - The Hero of Navigation */}
+      <section className="sticky top-[60px] z-40 bg-white/80 backdrop-blur-xl border-b border-slate-100 py-6 overflow-x-auto no-scrollbar">
+        <div className="mx-auto max-w-[1200px] px-6 flex items-center justify-between gap-12 min-w-max md:min-w-0">
+          {categories.map((cat) => {
+            const Icon = categoryIcons[cat.id] || Wind;
+            return (
+              <Link 
+                key={cat.id} 
+                href={`/category/${cat.id}`}
+                className="flex flex-col items-center gap-3 group transition-all"
+              >
+                <div className="h-14 w-14 rounded-2xl bg-[#f5f5f7] flex items-center justify-center text-slate-400 group-hover:bg-blue-600 group-hover:text-white transition-all shadow-sm group-hover:shadow-xl group-hover:shadow-blue-600/20 group-hover:-translate-y-1">
+                  <Icon className="w-7 h-7" />
+                </div>
+                <span className="text-[11px] font-bold uppercase tracking-widest text-slate-500 group-hover:text-black transition-colors">{cat.title}</span>
               </Link>
-              <Link href={item.shopCta.href} className={cn("apple-link", item.theme === 'dark' && "text-blue-400")}>
-                {item.shopCta.label} &gt;
-              </Link>
-            </div>
-            <img 
-              src={item.image} 
-              alt={item.title} 
-              className={cn(
-                "w-full max-w-md object-contain transition-transform duration-700 group-hover:scale-110",
-                item.theme === 'dark' ? "brightness-90" : "mix-blend-multiply"
-              )}
-            />
-          </div>
-        ))}
+            );
+          })}
+        </div>
       </section>
 
-      {/* Signature Systems Grid */}
-      <section className="py-32 px-6">
-        <div className="mx-auto max-w-7xl">
-          <div className="flex justify-between items-end mb-16">
-            <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-black uppercase">Signature <br />Systems.</h2>
-            <Link href="/category/sound-proof-windows" className="apple-link text-lg">View the full collection &gt;</Link>
-          </div>
-
-          <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
-            {featuredProducts.map((product) => (
-              <ProductCard key={product.slug} product={product} />
+      {/* Main Catalog Showcase */}
+      <section className="py-32 px-6 bg-white">
+        <div className="mx-auto max-w-[1400px]">
+          <div className="grid md:grid-cols-2 gap-8">
+            {home.showcase.map((item, idx) => (
+              <Link 
+                key={idx}
+                href={item.cta.href}
+                className={cn(
+                  "relative h-[700px] rounded-[3.5rem] p-20 flex flex-col items-center text-center overflow-hidden group transition-all hover:shadow-[0_50px_100px_-20px_rgba(0,0,0,0.2)]",
+                  item.theme === 'dark' ? "bg-black text-white" : "bg-[#f5f5f7] text-black"
+                )}
+              >
+                <div className="relative z-20">
+                  <p className={cn("text-[12px] font-bold uppercase tracking-[0.3em] mb-6", item.theme === 'dark' ? "text-blue-400" : "text-blue-600")}>
+                    Core Solution
+                  </p>
+                  <h2 className="text-5xl lg:text-7xl font-bold tracking-tighter mb-6 leading-tight">{item.title}</h2>
+                  <p className={cn("text-xl font-medium mb-10 max-w-sm mx-auto", item.theme === 'dark' ? "text-zinc-400" : "text-slate-500")}>
+                    {item.description}
+                  </p>
+                  <div className="flex gap-10 justify-center">
+                    <span className={cn("apple-link text-lg", item.theme === 'dark' && "text-blue-400")}>
+                      Learn more &gt;
+                    </span>
+                    <span className={cn("apple-link text-lg", item.theme === 'dark' && "text-blue-400")}>
+                      Shop &gt;
+                    </span>
+                  </div>
+                </div>
+                <img 
+                  src={item.image} 
+                  alt={item.title} 
+                  className={cn(
+                    "absolute bottom-0 w-full max-w-lg object-contain transition-transform duration-[1.5s] group-hover:scale-110 translate-y-10 group-hover:translate-y-0",
+                    item.theme === 'dark' ? "brightness-90" : "mix-blend-multiply"
+                  )}
+                />
+              </Link>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Trust & Engineering */}
+      {/* Secondary Product Wall */}
       <section className="py-32 px-6 bg-[#fafafa]">
-        <div className="mx-auto max-w-5xl text-center">
-          <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-black mb-12 uppercase leading-none">Engineering <br /> Excellence since {catalog.company.founded}.</h2>
-          <p className="text-xl md:text-2xl text-slate-500 font-medium leading-relaxed mb-16">
-            Trusted by industrial and commercial leaders. {catalog.company.name} is an {catalog.company.certifications[0]} certified manufacturer of high-end acoustic and automated solutions.
+        <div className="mx-auto max-w-7xl text-center mb-24">
+          <h2 className="text-5xl md:text-7xl font-bold tracking-tighter text-black uppercase mb-6 leading-none">The Complete <br /> Lineup.</h2>
+          <p className="text-xl md:text-2xl text-slate-500 font-medium max-w-2xl mx-auto">
+            Discover our entire range of high-performance architectural systems.
           </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-12 items-center opacity-40 grayscale contrast-200">
+        </div>
+
+        <div className="mx-auto max-w-7xl grid gap-10 md:grid-cols-2 lg:grid-cols-3">
+          {featuredProducts.map((product) => (
+            <ProductCard key={product.slug} product={product} />
+          ))}
+        </div>
+        
+        <div className="mt-32 text-center">
+          <Link 
+            href="/category/sound-proof-windows" 
+            className="apple-button text-lg px-12 py-5"
+          >
+            Explore All Systems &gt;
+          </Link>
+        </div>
+      </section>
+
+      {/* Trust & Engineering */}
+      <section className="py-40 px-6 bg-white">
+        <div className="mx-auto max-w-5xl text-center">
+          <h2 className="text-5xl md:text-7xl font-bold tracking-tighter text-black mb-12 uppercase leading-none italic">Designed in India. <br /> Built for the World.</h2>
+          <p className="text-xl md:text-2xl text-slate-500 font-medium leading-relaxed mb-20">
+            Trusted by HDFC, Godrej, Pfizer, and ISRO. Kiran Slido Craft is an ISO 9001:2015 certified manufacturer of premium technical solutions.
+          </p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-12 items-center opacity-30 grayscale contrast-200">
             {catalog.company.certifications.map((cert) => (
-              <div key={cert} className="text-xs font-black uppercase tracking-widest text-black border-2 border-black p-4 rounded-xl">
+              <div key={cert} className="text-[10px] font-black uppercase tracking-widest text-black border-[1.5px] border-black p-4 rounded-xl">
                 {cert}
               </div>
             ))}

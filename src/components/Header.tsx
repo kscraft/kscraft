@@ -13,6 +13,8 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
+  const usesDarkHero = pathname === '/' || pathname === '/about' || pathname === '/services' || pathname === '/contact';
+  const useLightHeaderText = usesDarkHero && !isScrolled;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,7 +36,10 @@ const Header = () => {
       <div className="mx-auto max-w-[1200px] px-6 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 group transition-opacity hover:opacity-70">
           <Image src="/logo-ksc.png" alt="KSC" width={120} height={32} className="h-6 w-auto" priority />
-          <span className="text-[14px] font-bold tracking-tight text-black uppercase">
+          <span className={cn(
+            "text-[14px] font-bold tracking-tight uppercase transition-colors",
+            useLightHeaderText ? "text-white" : "text-black"
+          )}>
             Kiran Slido Craft
           </span>
         </Link>
@@ -48,7 +53,9 @@ const Header = () => {
                   href={item.href}
                   className={cn(
                     'text-[12px] font-medium tracking-wide transition-colors hover:text-blue-600',
-                    pathname === item.href ? 'text-black' : 'text-slate-500'
+                    pathname === item.href
+                      ? useLightHeaderText ? 'text-white' : 'text-black'
+                      : useLightHeaderText ? 'text-slate-300' : 'text-slate-500'
                   )}
                 >
                   {item.label}
@@ -74,7 +81,12 @@ const Header = () => {
           </ul>
           <Link
             href="/contact"
-            className="text-[12px] font-semibold bg-black text-white px-5 py-2 rounded-full hover:bg-zinc-800 transition-all active:scale-95"
+            className={cn(
+              "text-[12px] font-semibold px-5 py-2 rounded-full transition-all active:scale-95",
+              useLightHeaderText
+                ? "bg-white text-slate-950 hover:bg-blue-50"
+                : "bg-black text-white hover:bg-zinc-800"
+            )}
           >
             Contact
           </Link>
@@ -83,7 +95,10 @@ const Header = () => {
         {/* Mobile Toggle */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden p-2 text-black"
+          className={cn(
+            "p-2 transition-colors md:hidden",
+            useLightHeaderText ? "text-white" : "text-black"
+          )}
         >
           {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>

@@ -17,22 +17,22 @@ export default function ProductCard({ product, compact = false }: ProductCardPro
       transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
       className="group relative h-full"
     >
-      <Link href={`/product/${product.slug}`} className="flex flex-col h-full bg-[#f5f5f7] rounded-[2rem] overflow-hidden transition-shadow hover:shadow-[0_40px_80px_-12px_rgba(0,0,0,0.12)]">
+      <Link href={`/product/${product.slug}`} className="flex h-full min-w-0 flex-col overflow-hidden rounded-[2rem] bg-[#f5f5f7] transition-shadow hover:shadow-[0_40px_80px_-12px_rgba(0,0,0,0.12)]">
         {/* Content surface */}
-        <div className={compact ? "p-8 pb-0 text-center" : "p-10 pb-0 text-center"}>
-          <p className="text-[10px] font-bold text-blue-600 uppercase tracking-widest mb-3">
+        <div className={compact ? "min-w-0 p-5 pb-0 text-center sm:p-8 sm:pb-0" : "min-w-0 p-5 pb-0 text-center sm:p-10 sm:pb-0"}>
+          <p className="mb-3 break-words text-[10px] font-bold uppercase tracking-widest text-blue-600">
             {product.category.replace(/-/g, ' ')}
           </p>
-          <h3 className={compact ? "text-2xl font-bold tracking-tight text-black mb-4 leading-tight group-hover:text-zinc-600 transition-colors" : "text-3xl font-bold tracking-tight text-black mb-4 leading-tight group-hover:text-zinc-600 transition-colors"}>
+          <h3 className={compact ? "mb-4 break-words text-2xl font-bold leading-tight tracking-tight text-black transition-colors group-hover:text-zinc-600" : "mb-4 break-words text-3xl font-bold leading-tight tracking-tight text-black transition-colors group-hover:text-zinc-600"}>
             {product.title}
           </h3>
-          <p className="text-sm font-medium text-slate-500 line-clamp-2 max-w-[240px] mx-auto">
+          <p className="mx-auto max-w-full break-words text-sm font-medium text-slate-500 line-clamp-2 [overflow-wrap:anywhere]">
             {product.description}
           </p>
         </div>
 
         {/* Image surface */}
-        <div className={compact ? "relative mt-6 flex-1 flex items-center justify-center p-5" : "relative mt-8 flex-1 flex items-center justify-center p-6"}>
+        <div className={compact ? "relative mt-6 flex flex-1 items-center justify-center p-5" : "relative mt-8 flex flex-1 items-center justify-center p-5 sm:p-6"}>
           <div className="relative w-full aspect-[4/3] overflow-hidden">
             <Image
               src={product.image}
@@ -45,7 +45,7 @@ export default function ProductCard({ product, compact = false }: ProductCardPro
           </div>
         </div>
         
-        <div className="p-8 pt-0 text-center">
+        <div className="p-6 pt-0 text-center sm:p-8 sm:pt-0">
           <span className="text-[13px] font-semibold text-blue-600">
             Learn more &gt;
           </span>

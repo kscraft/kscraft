@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { ArrowRight, Building2, ChevronRight, Gauge, Layers, Maximize, Shield, Sparkles, Wind, Zap, type LucideIcon } from 'lucide-react';
 import { motion } from 'framer-motion';
 import ProductCard from '@/components/ProductCard';
-import { catalog, categories, getFeaturedProducts, getProductsByCategory, home, products, projects } from '@/lib/catalog';
+import { catalog, categories, getFeaturedProducts, getProductsByCategory, home, projects } from '@/lib/catalog';
 import { cn } from '@/lib/utils';
 
 const categoryIcons: Record<string, LucideIcon> = {
@@ -16,73 +16,78 @@ const categoryIcons: Record<string, LucideIcon> = {
   'roof-sliding-systems': Maximize,
 };
 
+const promiseIcons: Record<string, LucideIcon> = {
+  'acoustic-control': Shield,
+  'motorized-movement': Gauge,
+  'project-ready': Building2,
+};
+
 export default function Home() {
   const featuredProducts = getFeaturedProducts(6);
-  const heroMetrics = [
-    { label: 'Since', value: String(catalog.company.founded) },
-    { label: 'Certified', value: 'ISO 9001' },
-    { label: 'Systems', value: `${products.length} catalogued` },
-  ];
-  const trustSignals = [
-    { icon: Shield, title: 'Acoustic Control', detail: 'Soundproof windows, doors, and partitions for demanding environments.' },
-    { icon: Gauge, title: 'Motorized Movement', detail: 'Sliding roofs, gates, barriers, and vertical systems engineered for daily use.' },
-    { icon: Building2, title: 'Project Ready', detail: 'Specification-led support for villas, hotels, institutions, and industrial sites.' },
-  ];
 
   return (
     <div className="flex min-h-screen flex-col bg-white">
       {/* Product-led Hero */}
-      <section className="relative isolate flex min-h-[86svh] items-end overflow-hidden bg-slate-950 px-6 pb-10 pt-28 text-white">
-        <Image
-          src={home.hero.image}
-          alt={home.hero.title}
-          fill
-          priority
-          sizes="100vw"
-          className="absolute inset-0 -z-20 h-full w-full object-cover opacity-70"
-        />
-        <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(2,6,23,0.92)_0%,rgba(15,23,42,0.72)_42%,rgba(15,23,42,0.22)_100%)]" />
-        <div className="absolute inset-x-0 top-0 -z-10 h-40 bg-gradient-to-b from-white/90 via-white/45 to-transparent" />
-
-        <div className="mx-auto grid w-full max-w-[1320px] gap-10 lg:grid-cols-[minmax(0,0.98fr)_minmax(360px,0.62fr)] lg:items-end">
+      <section className="relative isolate overflow-hidden bg-slate-950 px-4 pb-16 pt-28 text-white sm:px-6 md:pb-20 lg:pt-36">
+        <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_20%_15%,rgba(37,99,235,0.26),transparent_32%),linear-gradient(135deg,#020617_0%,#0f172a_48%,#111827_100%)]" />
+        <div className="mx-auto grid min-h-[74svh] w-full max-w-[1320px] gap-10 overflow-hidden lg:grid-cols-[minmax(0,0.95fr)_minmax(360px,0.82fr)] lg:items-center">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="max-w-4xl"
+            className="min-w-0 max-w-4xl overflow-hidden"
           >
-            <p className="mb-5 text-sm font-semibold uppercase text-blue-200">
-              {catalog.company.tagline}
+            <p className="mb-5 max-w-full break-words text-sm font-semibold uppercase leading-6 text-blue-200">
+              {home.hero.eyebrow}
             </p>
-            <h1 className="max-w-4xl text-5xl font-semibold leading-none text-white md:text-7xl lg:text-8xl">
-              Kiran Slido Craft
+            <h1 className="max-w-full break-words text-4xl font-semibold leading-[1.02] text-white sm:text-5xl md:text-7xl lg:text-8xl">
+              {home.hero.title}
             </h1>
-            <p className="mt-8 max-w-2xl text-lg font-medium leading-8 text-slate-200 md:text-2xl md:leading-9">
-              Precision acoustic and architectural automation systems for spaces where silence, movement, and reliability must work together.
+            <p className="mt-7 max-w-full break-words text-base font-medium leading-7 text-slate-200 sm:text-lg sm:leading-8 md:max-w-2xl md:text-2xl md:leading-9">
+              {home.hero.highlight} <span className="text-slate-400">{home.hero.subhighlight}</span>
             </p>
-            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-              <Link href={home.hero.cta.href} className="inline-flex min-h-12 items-center justify-center rounded-full bg-white px-7 text-sm font-semibold text-slate-950 transition hover:bg-blue-50">
-                Explore retractable roofs
-                <ArrowRight className="ml-2 h-4 w-4" />
+            <p className="mt-5 max-w-full break-words text-sm leading-7 text-slate-400 sm:text-base md:max-w-2xl">
+              {home.hero.description}
+            </p>
+            <div className="mt-10 flex max-w-full flex-col gap-4 sm:flex-row">
+              <Link href={home.hero.cta.href} className="inline-flex min-h-12 w-full min-w-0 items-center justify-center rounded-full bg-white px-5 text-center text-sm font-semibold leading-5 text-slate-950 transition hover:bg-blue-50 sm:w-auto sm:px-7">
+                <span className="min-w-0 break-words">{home.hero.cta.label}</span>
+                <ArrowRight className="ml-2 h-4 w-4 shrink-0" />
               </Link>
-              <Link href="/category/sound-proof-windows" className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/35 px-7 text-sm font-semibold text-white transition hover:border-white hover:bg-white/10">
-                Browse acoustic systems
+              <Link href={home.hero.secondaryCta.href} className="inline-flex min-h-12 w-full min-w-0 items-center justify-center rounded-full border border-white/35 px-5 text-center text-sm font-semibold leading-5 text-white transition hover:border-white hover:bg-white/10 sm:w-auto sm:px-7">
+                <span className="min-w-0 break-words">{home.hero.secondaryCta.label}</span>
               </Link>
             </div>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.15 }}
-            className="grid grid-cols-3 overflow-hidden rounded-2xl border border-white/20 bg-white/10 backdrop-blur-md"
+            className="w-full min-w-0 max-w-full overflow-hidden rounded-[1.5rem] border border-white/15 bg-white/[0.08] p-3 shadow-[0_40px_120px_-50px_rgba(15,23,42,1)] backdrop-blur-md sm:rounded-[2rem] sm:p-5"
           >
-            {heroMetrics.map((metric) => (
-              <div key={metric.label} className="border-r border-white/15 p-4 last:border-r-0 sm:p-6">
-                <div className="text-2xl font-semibold text-white sm:text-3xl">{metric.value}</div>
-                <div className="mt-2 text-xs font-semibold uppercase text-slate-300">{metric.label}</div>
-              </div>
-            ))}
+            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[1.125rem] bg-slate-100 sm:rounded-[1.5rem]">
+              <Image
+                src={home.hero.image}
+                alt={home.hero.productTitle}
+                fill
+                priority
+                sizes="(min-width: 1024px) 560px, 100vw"
+                className="object-contain p-3 sm:p-5"
+              />
+            </div>
+            <div className="grid gap-3 pt-5 sm:grid-cols-3">
+              {home.hero.metrics.map((metric) => (
+                <div key={metric.label} className="min-w-0 rounded-2xl border border-white/10 bg-white/10 p-4">
+                  <div className="break-words text-2xl font-semibold leading-tight text-white">{metric.value}</div>
+                  <div className="mt-2 break-words text-xs font-semibold uppercase leading-5 text-slate-300">{metric.label}</div>
+                </div>
+              ))}
+            </div>
+            <div className="px-1 pt-5">
+              <p className="break-words text-sm font-semibold uppercase leading-5 text-blue-200">{home.hero.productTitle}</p>
+              <p className="mt-2 break-words text-sm leading-6 text-slate-300">{home.hero.productSubtitle}</p>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -90,20 +95,20 @@ export default function Home() {
       {/* Engineering Promise */}
       <section className="bg-white px-6 py-20">
         <div className="mx-auto grid max-w-[1320px] gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
-          <div>
-            <p className="text-sm font-semibold uppercase text-blue-600">Built For Specification</p>
+          <div className="min-w-0">
+            <p className="text-sm font-semibold uppercase leading-6 text-blue-600">{home.promise.eyebrow}</p>
             <h2 className="mt-4 max-w-xl text-4xl font-semibold leading-tight text-slate-950 md:text-6xl">
-              Quiet engineering with visible architectural intent.
+              {home.promise.title}
             </h2>
           </div>
           <div className="grid gap-4 md:grid-cols-3">
-            {trustSignals.map((signal) => {
-              const Icon = signal.icon;
+            {home.promise.items.map((signal) => {
+              const Icon = promiseIcons[signal.id] || Shield;
               return (
-                <div key={signal.title} className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
+                <div key={signal.id} className="min-w-0 rounded-2xl border border-slate-200 bg-slate-50 p-6">
                   <Icon className="h-7 w-7 text-blue-600" />
-                  <h3 className="mt-5 text-lg font-semibold text-slate-950">{signal.title}</h3>
-                  <p className="mt-3 text-sm leading-6 text-slate-600">{signal.detail}</p>
+                  <h3 className="mt-5 break-words text-lg font-semibold leading-7 text-slate-950">{signal.title}</h3>
+                  <p className="mt-3 text-sm leading-6 text-slate-600">{signal.description}</p>
                 </div>
               );
             })}
@@ -115,40 +120,40 @@ export default function Home() {
       <section className="bg-[#f6f7f9] px-6 py-24">
         <div className="mx-auto max-w-[1320px]">
           <div className="mb-10 flex flex-col justify-between gap-6 md:flex-row md:items-end">
-            <div>
-              <p className="text-sm font-semibold uppercase text-blue-600">System Catalog</p>
+            <div className="min-w-0">
+              <p className="text-sm font-semibold uppercase leading-6 text-blue-600">{home.catalogNav.eyebrow}</p>
               <h2 className="mt-4 text-4xl font-semibold leading-tight text-slate-950 md:text-5xl">
-                Choose the performance path.
+                {home.catalogNav.title}
               </h2>
             </div>
-            <Link href="/category/sound-proof-windows" className="inline-flex items-center text-sm font-semibold text-blue-700 hover:text-blue-900">
-              View all systems <ChevronRight className="ml-1 h-4 w-4" />
+            <Link href={home.catalogNav.cta.href} className="inline-flex shrink-0 items-center text-sm font-semibold text-blue-700 hover:text-blue-900">
+              {home.catalogNav.cta.label} <ChevronRight className="ml-1 h-4 w-4" />
             </Link>
           </div>
 
           <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-5">
             {categories.map((cat) => {
-            const Icon = categoryIcons[cat.id] || Wind;
-            return (
-              <Link 
-                key={cat.id} 
-                href={`/category/${cat.id}`}
-                className="group flex min-h-[240px] flex-col justify-between rounded-2xl border border-slate-200 bg-white p-6 transition hover:-translate-y-1 hover:border-blue-200 hover:shadow-[0_24px_60px_-32px_rgba(15,23,42,0.55)]"
-              >
-                <div>
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-blue-700 transition group-hover:bg-blue-600 group-hover:text-white">
-                    <Icon className="h-6 w-6" />
+              const Icon = categoryIcons[cat.id] || Wind;
+              return (
+                <Link
+                  key={cat.id}
+                  href={`/category/${cat.id}`}
+                  className="group flex min-h-[250px] min-w-0 flex-col justify-between rounded-2xl border border-slate-200 bg-white p-6 transition hover:-translate-y-1 hover:border-blue-200 hover:shadow-[0_24px_60px_-32px_rgba(15,23,42,0.55)]"
+                >
+                  <div className="min-w-0">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-blue-700 transition group-hover:bg-blue-600 group-hover:text-white">
+                      <Icon className="h-6 w-6" />
+                    </div>
+                    <h3 className="mt-7 break-words text-xl font-semibold leading-7 text-slate-950">{cat.title}</h3>
+                    <p className="mt-3 text-sm leading-6 text-slate-600">{cat.summary}</p>
                   </div>
-                  <h3 className="mt-7 text-xl font-semibold leading-7 text-slate-950">{cat.title}</h3>
-                  <p className="mt-3 text-sm leading-6 text-slate-600">{cat.summary}</p>
-                </div>
-                <div className="mt-8 flex items-center justify-between text-sm font-semibold text-blue-700">
-                  <span>{getProductsByCategory(cat.id).length} systems</span>
-                  <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
-                </div>
-              </Link>
-            );
-          })}
+                  <div className="mt-8 flex items-center justify-between gap-3 text-sm font-semibold text-blue-700">
+                    <span className="min-w-0 break-words">{getProductsByCategory(cat.id).length} systems</span>
+                    <ArrowRight className="h-4 w-4 shrink-0 transition group-hover:translate-x-1" />
+                  </div>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -157,9 +162,9 @@ export default function Home() {
       <section className="bg-white px-6 py-24">
         <div className="mx-auto max-w-[1320px]">
           <div className="mb-12 max-w-3xl">
-            <p className="text-sm font-semibold uppercase text-blue-600">Featured Workhorses</p>
+            <p className="text-sm font-semibold uppercase leading-6 text-blue-600">{home.featured.eyebrow}</p>
             <h2 className="mt-4 text-4xl font-semibold leading-tight text-slate-950 md:text-6xl">
-              Acoustic isolation and automation, presented as systems.
+              {home.featured.title}
             </h2>
           </div>
 
@@ -169,34 +174,36 @@ export default function Home() {
                 key={idx}
                 href={item.cta.href}
                 className={cn(
-                  "group relative flex min-h-[620px] overflow-hidden rounded-3xl p-8 transition hover:shadow-[0_34px_90px_-45px_rgba(15,23,42,0.8)] sm:p-10",
+                  "group relative flex min-h-[560px] min-w-0 overflow-hidden rounded-3xl p-8 transition hover:shadow-[0_34px_90px_-45px_rgba(15,23,42,0.8)] sm:p-10",
                   item.theme === 'dark' ? "bg-slate-950 text-white" : "bg-slate-100 text-slate-950"
                 )}
               >
-                <div className="relative z-20 flex max-w-md flex-col justify-between">
-                  <div>
-                    <p className={cn("text-sm font-semibold uppercase", item.theme === 'dark' ? "text-blue-300" : "text-blue-700")}>
-                      Core Solution
+                <div className="relative z-20 flex min-w-0 max-w-md flex-col justify-between">
+                  <div className="min-w-0">
+                    <p className={cn("text-sm font-semibold uppercase leading-6", item.theme === 'dark' ? "text-blue-300" : "text-blue-700")}>
+                      {home.featured.badge}
                     </p>
-                    <h3 className="mt-4 text-4xl font-semibold leading-tight md:text-5xl">{item.title}</h3>
+                    <h3 className="mt-4 break-words text-4xl font-semibold leading-tight md:text-5xl">{item.title}</h3>
                     <p className={cn("mt-5 text-lg font-medium leading-7", item.theme === 'dark' ? "text-slate-300" : "text-slate-600")}>
-                    {item.description}
+                      {item.description}
                     </p>
                   </div>
                   <span className={cn("mt-10 inline-flex items-center text-sm font-semibold", item.theme === 'dark' ? "text-blue-300" : "text-blue-700")}>
-                    Explore category <ArrowRight className="ml-2 h-4 w-4 transition group-hover:translate-x-1" />
+                    {home.featured.ctaLabel} <ArrowRight className="ml-2 h-4 w-4 transition group-hover:translate-x-1" />
                   </span>
                 </div>
-                <Image
-                  src={item.image} 
-                  alt={item.title} 
-                  width={640}
-                  height={460}
-                  className={cn(
-                    "absolute bottom-0 right-0 w-[78%] max-w-xl object-contain transition duration-700 group-hover:scale-105 sm:w-[66%]",
-                    item.theme === 'dark' ? "brightness-95" : "mix-blend-multiply"
-                  )}
-                />
+                <div className="absolute bottom-5 right-4 h-[44%] w-[58%] max-w-xl sm:bottom-0 sm:right-0 sm:h-[64%] sm:w-[62%] sm:translate-y-4">
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    fill
+                    sizes="(min-width: 1024px) 520px, 80vw"
+                    className={cn(
+                      "object-contain transition duration-700 group-hover:scale-105",
+                      item.theme === 'dark' ? "brightness-95" : "mix-blend-multiply"
+                    )}
+                  />
+                </div>
               </Link>
             ))}
           </div>
@@ -206,29 +213,29 @@ export default function Home() {
       {/* Secondary Product Wall */}
       <section className="bg-[#f6f7f9] px-6 py-24">
         <div className="mx-auto mb-14 flex max-w-7xl flex-col justify-between gap-6 md:flex-row md:items-end">
-          <div>
-            <p className="text-sm font-semibold uppercase text-blue-600">Selected Systems</p>
+          <div className="min-w-0">
+            <p className="text-sm font-semibold uppercase leading-6 text-blue-600">{home.lineup.eyebrow}</p>
             <h2 className="mt-4 text-4xl font-semibold leading-tight text-slate-950 md:text-6xl">
-              The lineup built for real sites.
+              {home.lineup.title}
             </h2>
           </div>
           <p className="max-w-xl text-lg font-medium leading-8 text-slate-600">
-            Discover our entire range of high-performance architectural systems.
+            {home.lineup.description}
           </p>
         </div>
 
-        <div className="mx-auto max-w-7xl grid gap-10 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-2 lg:grid-cols-3">
           {featuredProducts.map((product) => (
             <ProductCard key={product.slug} product={product} />
           ))}
         </div>
         
         <div className="mt-14 text-center">
-          <Link 
-            href="/category/sound-proof-windows" 
+          <Link
+            href={home.lineup.cta.href}
             className="inline-flex min-h-12 items-center justify-center rounded-full bg-slate-950 px-8 text-sm font-semibold text-white transition hover:bg-blue-700"
           >
-            Explore all systems <ArrowRight className="ml-2 h-4 w-4" />
+            {home.lineup.cta.label} <ArrowRight className="ml-2 h-4 w-4" />
           </Link>
         </div>
       </section>
@@ -236,13 +243,13 @@ export default function Home() {
       {/* Trust & Engineering */}
       <section className="bg-white px-6 py-24">
         <div className="mx-auto grid max-w-[1320px] gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
-          <div>
-            <p className="text-sm font-semibold uppercase text-blue-600">Trust & Engineering</p>
+          <div className="min-w-0">
+            <p className="text-sm font-semibold uppercase leading-6 text-blue-600">{home.trust.eyebrow}</p>
             <h2 className="mt-4 text-4xl font-semibold leading-tight text-slate-950 md:text-6xl">
-              Designed in India. Built for demanding sites.
+              {home.trust.title}
             </h2>
             <p className="mt-8 text-lg font-medium leading-8 text-slate-600">
-            Trusted by HDFC, Godrej, Pfizer, and ISRO. {catalog.company.name} is an {catalog.company.certifications[0]} certified manufacturer of premium technical solutions.
+              {home.trust.description}
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               {catalog.company.certifications.map((cert) => (
@@ -255,14 +262,14 @@ export default function Home() {
 
           <div className="grid gap-4">
             {projects.highlights.map((project) => (
-              <div key={project.title} className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
+              <div key={project.title} className="min-w-0 rounded-2xl border border-slate-200 bg-slate-50 p-6">
                 <div className="flex items-start gap-4">
                   <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-blue-600 text-white">
                     <Sparkles className="h-5 w-5" />
                   </div>
-                  <div>
-                    <p className="text-sm font-semibold uppercase text-blue-700">{project.subtitle}</p>
-                    <h3 className="mt-2 text-xl font-semibold text-slate-950">{project.title}</h3>
+                  <div className="min-w-0">
+                    <p className="text-sm font-semibold uppercase leading-6 text-blue-700">{project.subtitle}</p>
+                    <h3 className="mt-2 break-words text-xl font-semibold leading-7 text-slate-950">{project.title}</h3>
                     <p className="mt-2 text-sm leading-6 text-slate-600">{project.detail}</p>
                   </div>
                 </div>

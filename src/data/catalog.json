@@ -68,13 +68,53 @@
   },
   "home": {
     "hero": {
-      "title": "Retractable Sliding Roof.",
-      "highlight": "Retractable",
-      "subhighlight": "Sliding Roof.",
-      "description": "Experience 100% open-to-sky freedom with our engineered architectural roofing systems.",
+      "eyebrow": "Engineering Silence. Automating Movement.",
+      "title": "Kiran Slido Craft",
+      "highlight": "Precision acoustic and architectural automation systems",
+      "subhighlight": "for spaces where silence, movement, and reliability must work together.",
+      "description": "Explore engineered soundproofing, retractable roofing, and motorized movement systems built for demanding residential, commercial, and industrial projects.",
       "image": "/images/products/motorized-sliding-roof.jpg",
-      "cta": { "label": "Learn more", "href": "/product/motorized-sliding-roof" },
-      "secondaryCta": { "label": "Technical Specs", "href": "/contact" }
+      "productTitle": "Motorized Sliding Roof",
+      "productSubtitle": "Retractable open-to-sky roofing for terraces, atriums, and premium outdoor spaces.",
+      "cta": { "label": "Explore retractable roofs", "href": "/product/motorized-sliding-roof" },
+      "secondaryCta": { "label": "Browse acoustic systems", "href": "/category/sound-proof-windows" },
+      "metrics": [
+        { "label": "Established", "value": "1985" },
+        { "label": "Certified", "value": "ISO 9001" },
+        { "label": "Products", "value": "23" }
+      ]
+    },
+    "promise": {
+      "eyebrow": "Built for specification",
+      "title": "Quiet engineering with visible architectural intent.",
+      "items": [
+        {
+          "id": "acoustic-control",
+          "title": "Acoustic Control",
+          "description": "Soundproof windows, doors, and partitions for demanding environments."
+        },
+        {
+          "id": "motorized-movement",
+          "title": "Motorized Movement",
+          "description": "Sliding roofs, gates, barriers, and vertical systems engineered for daily use."
+        },
+        {
+          "id": "project-ready",
+          "title": "Project Ready",
+          "description": "Specification-led support for villas, hotels, institutions, and industrial sites."
+        }
+      ]
+    },
+    "catalogNav": {
+      "eyebrow": "System Catalog",
+      "title": "Choose the performance path.",
+      "cta": { "label": "View all systems", "href": "/category/sound-proof-windows" }
+    },
+    "featured": {
+      "eyebrow": "Featured Workhorses",
+      "title": "Acoustic isolation and automation, presented as systems.",
+      "badge": "Core Solution",
+      "ctaLabel": "Explore category"
     },
     "showcase": [
       {
@@ -93,7 +133,18 @@
         "cta": { "label": "Learn more", "href": "/category/motorized-systems" },
         "shopCta": { "label": "Shop", "href": "/category/motorized-systems" }
       }
-    ]
+    ],
+    "lineup": {
+      "eyebrow": "Selected Systems",
+      "title": "The lineup built for real sites.",
+      "description": "Discover the high-performance architectural systems most requested for acoustic control and automated movement.",
+      "cta": { "label": "Explore all systems", "href": "/category/sound-proof-windows" }
+    },
+    "trust": {
+      "eyebrow": "Trust & Engineering",
+      "title": "Designed in India. Built for demanding sites.",
+      "description": "Trusted by HDFC, Godrej, Pfizer, and ISRO. Kiran Slido Craft is an ISO 9001 Certified manufacturer of premium technical solutions."
+    }
   },
   "media": {
     "gallery": [

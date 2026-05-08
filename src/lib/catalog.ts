@@ -54,6 +54,22 @@ export type ClientLogo = {
   image: string;
 };
 
+export type HomeContentBlock = {
+  eyebrow: string;
+  title: string;
+};
+
+export type HomePromiseItem = {
+  id: string;
+  title: string;
+  description: string;
+};
+
+export type HomeMetric = {
+  label: string;
+  value: string;
+};
+
 export const catalog = catalogData as {
   company: {
     name: string;
@@ -81,13 +97,27 @@ export const navigation = catalogData.navigation as {
 
 export const home = catalogData.home as {
   hero: {
+    eyebrow: string;
     title: string;
     highlight: string;
     subhighlight: string;
     description: string;
     image: string;
+    productTitle: string;
+    productSubtitle: string;
     cta: NavItem;
     secondaryCta: NavItem;
+    metrics: HomeMetric[];
+  };
+  promise: HomeContentBlock & {
+    items: HomePromiseItem[];
+  };
+  catalogNav: HomeContentBlock & {
+    cta: NavItem;
+  };
+  featured: HomeContentBlock & {
+    badge: string;
+    ctaLabel: string;
   };
   showcase: {
     title: string;
@@ -97,6 +127,13 @@ export const home = catalogData.home as {
     cta: NavItem;
     shopCta: NavItem;
   }[];
+  lineup: HomeContentBlock & {
+    description: string;
+    cta: NavItem;
+  };
+  trust: HomeContentBlock & {
+    description: string;
+  };
 };
 
 export const media = catalogData.media as {

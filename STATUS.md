@@ -14,6 +14,7 @@ The website has been completely reimagined with **Apple's iconic minimalist desi
     *   **Logo Restoration:** Reinstated the **official company logo** sourced from the private repository, ensuring correct visibility and scaling in both Header and Footer.
     *   **Authentic Visuals:** Replaced all AI-generated and generic Unsplash images with **verified real product photos** sourced from the official websites and the private project repository.
     *   **Verified Data:** Updated `catalog.json` with technical specifications directly derived from authentic Kiran Slido Craft product listings.
+    *   **Full Catalog Validation:** Audited every category to ensure 100% coverage. Successfully restored 13+ missing products across all lines, including a complete restoration of the previously empty "Acoustic Doors" section.
     *   **Consistent Presentation:** All images now use a clean "studio" aesthetic, focused on the product's engineering details.
 
 3.  **Data-Driven Architecture:**

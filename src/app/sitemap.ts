@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/clients',
     '/media',
     '/contact',
+    '/search',
     '/showcase/isro-gaganyaan',
   ].map((route) => ({
     url: `${SITE_URL}${route}`,

@@ -126,6 +126,11 @@ export const catalog = catalogData as {
       noSystemsFound: string;
       viewFullCatalog: string;
       tryBroaderTerms: string;
+      searchPageTitle: string;
+      searchPageSubtitle: string;
+      resultsCount: string;
+      noResultsTitle: string;
+      noResultsDescription: string;
       reachViaWhatsApp: string;
       reachViaCall: string;
       reachViaEmail: string;

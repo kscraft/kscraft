@@ -14,14 +14,15 @@ test.describe('Kiran Slido Craft E2E', () => {
     await expect(page.getByRole('heading', { level: 1 })).toContainText(/Legacy/);
   });
 
-  test('specs search filters products', async ({ page }) => {
-    await page.goto('/');
+  test('dedicated search page works', async ({ page }) => {
+    await page.goto('/search');
+    await expect(page.getByRole('heading', { level: 1 })).toContainText(/Search Systems/i);
     const searchInput = page.getByPlaceholder(/Search specifications/i);
     await searchInput.fill('ISRO');
     await expect(page.getByText(/ISRO Gaganyaan Mission/i)).toBeVisible();
   });
 
-  test('contact form validation works', async ({ page }) => {
+  test('contact form drafts email', async ({ page }) => {
     await page.goto('/contact');
     await page.getByRole('button', { name: /Send Technical Request/i }).click();
     // Should show validation error or stay on page if native validation is triggered

@@ -21,19 +21,8 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen bg-white">
       {/* Primary Hero Spotlight - Product First */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden bg-white">
-        <div className="absolute inset-0 z-0">
-          <img 
-            src={home.hero.image} 
-            alt={home.hero.title} 
-            className="w-full h-full object-cover"
-          />
-          {/* Immersive white-to-transparent gradient to ensure text readability while showing product */}
-          <div className="absolute inset-0 bg-gradient-to-b from-white via-white/40 to-transparent h-[60%]" />
-          <div className="absolute inset-0 bg-gradient-to-t from-white via-white/10 to-transparent h-[40%] bottom-0" />
-        </div>
-
-        <div className="relative z-10 mx-auto max-w-5xl px-6 text-center pt-20">
+      <section className="relative pt-32 lg:pt-48 pb-0 px-6 bg-white overflow-hidden flex flex-col items-center">
+        <div className="max-w-5xl mx-auto text-center z-10 mb-16 lg:mb-24">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -42,11 +31,11 @@ export default function Home() {
             <p className="text-[12px] font-bold text-blue-600 uppercase tracking-[0.4em] mb-6">
               Industrial Spotlight
             </p>
-            <h1 className="text-5xl md:text-7xl lg:text-[7.5rem] font-bold tracking-tighter text-black mb-8 leading-[0.9]">
+            <h1 className="text-5xl md:text-7xl lg:text-[7.5rem] font-bold tracking-tighter text-black mb-10 leading-[0.9]">
               {home.hero.highlight} <br /> 
-              <span className="text-zinc-500/80">{home.hero.subhighlight}</span>
+              <span className="text-zinc-400">{home.hero.subhighlight}</span>
             </h1>
-            <p className="text-xl md:text-2xl text-slate-900 font-medium mb-12 max-w-2xl mx-auto leading-relaxed drop-shadow-sm">
+            <p className="text-xl md:text-2xl text-slate-500 font-medium mb-12 max-w-2xl mx-auto leading-relaxed">
               {home.hero.description}
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-10">
@@ -60,15 +49,20 @@ export default function Home() {
           </motion.div>
         </div>
 
-        {/* Scroll Indicator */}
+        {/* The Product Image - The undisputed hero */}
         <motion.div 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.5, duration: 1 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-slate-400"
+          initial={{ opacity: 0, y: 100 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
+          className="w-full max-w-[1400px] mx-auto px-4"
         >
-          <span className="text-[10px] font-bold uppercase tracking-[0.2em]">Scroll to Discover</span>
-          <div className="w-px h-12 bg-gradient-to-b from-slate-300 to-transparent" />
+          <div className="relative aspect-[21/9] md:aspect-[16/7] overflow-hidden rounded-[3rem] shadow-[0_50px_100px_-20px_rgba(0,0,0,0.15)] border border-slate-100 bg-[#fbfbfb]">
+            <img 
+              src={home.hero.image} 
+              alt={home.hero.title} 
+              className="w-full h-full object-cover transition-transform duration-[3s] hover:scale-105"
+            />
+          </div>
         </motion.div>
       </section>
 

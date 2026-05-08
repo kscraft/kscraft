@@ -2,11 +2,13 @@
 
 :root {
   --primary: #0f172a;
-  --accent: #2563eb;
+  --accent: #3b82f6; /* Lighter Blue (Blue 500) */
+  --accent-light: #eff6ff; /* Very Light Blue (Blue 50) */
+  --accent-soft: #dbeafe; /* Light Blue (Blue 100) */
   --secondary: #64748b;
-  --background: #f8fafc;
+  --background: #ffffff;
   --foreground: #0f172a;
-  --border: #e2e8f0;
+  --border: #f1f5f9;
 }
 
 body {
@@ -17,18 +19,18 @@ body {
 
 @layer components {
   .btn-primary {
-    @apply inline-flex items-center justify-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-all shadow-md hover:shadow-lg active:scale-95;
+    @apply inline-flex items-center justify-center px-8 py-3.5 bg-blue-600 text-white font-bold rounded-full hover:bg-blue-700 transition-all shadow-lg shadow-blue-600/20 hover:shadow-blue-600/30 active:scale-95;
   }
   
   .glass-card {
-    @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-xl;
+    @apply bg-white/80 backdrop-blur-xl border border-white/20 shadow-2xl;
   }
 
   .section-container {
-    @apply py-20 px-6 max-w-7xl mx-auto;
+    @apply py-24 px-6 max-w-7xl mx-auto;
   }
 
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-400;
   }
 }

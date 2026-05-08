@@ -106,7 +106,7 @@ const Header = () => {
           </ul>
           <Link
             href="/contact"
-            className="bg-slate-900 text-white px-5 py-2.5 rounded-full text-sm font-bold transition hover:bg-blue-600 hover:shadow-lg"
+            className="bg-blue-600 text-white px-6 py-2.5 rounded-full text-sm font-black uppercase tracking-widest transition hover:bg-blue-700 hover:shadow-[0_10px_30px_rgba(37,99,235,0.3)] hover:scale-105 active:scale-95"
           >
             Contact Sales
           </Link>

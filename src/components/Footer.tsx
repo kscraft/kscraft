@@ -7,13 +7,16 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-16 md:grid-cols-4">
           <div className="md:col-span-1">
-            <Link href="/" className="flex items-center gap-2 mb-8 group transition-opacity hover:opacity-70">
-              <img src="/logo-ksc.png" alt="KSC" className="h-5 w-auto" />
-              <span className="text-sm font-bold tracking-tight text-black uppercase">Kiran Slido Craft</span>
+            <Link href="/" className="flex items-center gap-3 mb-8 group transition-opacity hover:opacity-70">
+              <img src="/logo-ksc.png" alt="KSC" className="h-10 w-auto object-contain" />
+              <div className="flex flex-col">
+                <span className="text-sm font-black tracking-tight text-black uppercase leading-none">Kiran Slido Craft</span>
+                <span className="text-[9px] font-bold text-blue-600 uppercase tracking-widest mt-1">Engineering Silence</span>
+              </div>
             </Link>
             <p className="text-[13px] text-slate-500 leading-relaxed font-medium">
               {catalog.company.tagline} <br />
-              Precision engineering since 1985.
+              Precision architectural solutions since 1985.
             </p>
           </div>
 

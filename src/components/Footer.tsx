@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="grid gap-16 md:grid-cols-4">
           <div className="md:col-span-1">
             <Link href="/" className="flex items-center gap-2 mb-8 group transition-opacity hover:opacity-70">
-              <img src="/logo-ksc.png" alt="KSC" className="h-5 w-auto brightness-0" />
+              <img src="/logo-ksc.png" alt="KSC" className="h-5 w-auto" />
               <span className="text-sm font-bold tracking-tight text-black uppercase">Kiran Slido Craft</span>
             </Link>
             <p className="text-[13px] text-slate-500 leading-relaxed font-medium">

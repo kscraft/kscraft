@@ -44,7 +44,7 @@ const Header = () => {
     >
       <div className="mx-auto max-w-[1200px] px-6 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 group transition-opacity hover:opacity-70">
-          <img src="/logo-ksc.png" alt="KSC" className="h-6 w-auto brightness-0" />
+          <img src="/logo-ksc.png" alt="KSC" className="h-6 w-auto" />
           <span className="text-[14px] font-bold tracking-tight text-black uppercase">
             Kiran Slido Craft
           </span>

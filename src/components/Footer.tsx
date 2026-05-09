@@ -67,9 +67,9 @@ export default function Footer() {
             Copyright © {new Date().getFullYear()} {catalog.company.name}. All rights reserved.
           </p>
           <div className="flex gap-8 text-[11px] text-slate-400 font-medium">
-            <Link href="/" className="hover:text-black">Privacy Policy</Link>
-            <Link href="/" className="hover:text-black">Terms of Use</Link>
-            <Link href="/" className="hover:text-black">Site Map</Link>
+            <Link href="/privacy" className="hover:text-black">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-black">Terms of Use</Link>
+            <Link href="/sitemap" className="hover:text-black">Site Map</Link>
           </div>
         </div>
       </div>

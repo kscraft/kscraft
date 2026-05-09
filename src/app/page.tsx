@@ -185,7 +185,7 @@ export default function Home() {
             </div>
             <Link 
               href={home.catalogNav.cta.href} 
-              className="group apple-button-secondary px-8 py-4 text-[11px] uppercase tracking-[0.2em] font-black flex items-center gap-3"
+              className="group apple-button-secondary px-8 py-4 text-[11px] uppercase tracking-[0.2em] font-black inline-flex items-center justify-center gap-3"
             >
               {home.catalogNav.cta.label} <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </Link>

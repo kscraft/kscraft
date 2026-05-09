@@ -73,7 +73,7 @@ export default function ServicesPage() {
               </p>
               <Link 
                 href="/contact" 
-                className="apple-button px-12 py-6 text-sm uppercase tracking-widest font-black"
+                className="group apple-button px-12 py-6 text-sm uppercase tracking-widest font-black inline-flex items-center justify-center"
               >
                 {home.services.ctaLabel} <ChevronRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
               </Link>

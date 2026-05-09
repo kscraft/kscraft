@@ -46,7 +46,7 @@ export default function ServicesPage() {
             {services.map((service) => {
               const Icon = iconMap[service.icon as keyof typeof iconMap] || Settings;
               return (
-                <article key={service.title} className="group p-12 rounded-[3.5rem] bg-slate-50 border border-slate-100 shadow-sm transition-all hover:bg-white hover:border-blue-200 hover:shadow-2xl hover:shadow-blue-600/5">
+                <Link href="/contact" key={service.title} className="block group p-12 rounded-[3.5rem] bg-slate-50 border border-slate-100 shadow-sm transition-all hover:bg-white hover:border-blue-200 hover:shadow-2xl hover:shadow-blue-600/5">
                   <div className="mb-10 inline-flex h-16 w-16 items-center justify-center rounded-[1.5rem] bg-white shadow-xl text-blue-600 transition-colors group-hover:bg-blue-600 group-hover:text-white">
                     <Icon className="w-8 h-8" />
                   </div>
@@ -57,7 +57,7 @@ export default function ServicesPage() {
                   <div className="flex items-center gap-3 text-xs font-black text-blue-600 uppercase tracking-[0.2em] opacity-0 group-hover:opacity-100 transition-all transform translate-y-2 group-hover:translate-y-0">
                     {catalog.company.ui.learnMore} <ArrowRight className="w-4 h-4" />
                   </div>
-                </article>
+                </Link>
               );
             })}
           </div>

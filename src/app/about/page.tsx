@@ -1,7 +1,28 @@
+import type { Metadata } from 'next';
 import Image from 'next/image';
 import { catalog, products, home } from '@/lib/catalog';
 import { Award, Target, Users } from 'lucide-react';
 import ThemeMarker from '@/components/ThemeMarker';
+
+export const metadata: Metadata = {
+  title: 'About Us | Kiran Slido Craft – ISO 9001 Certified Acoustic Engineers',
+  description: 'Founded in 1989, Kiran Slido Craft is an ISO 9001:2015 certified manufacturer and global exporter of premium soundproofing windows, doors, partitions, and architectural automation systems.',
+  alternates: {
+    canonical: 'https://kiranslidocraft.com/about',
+  },
+  openGraph: {
+    title: 'About Kiran Slido Craft | 35+ Years of Acoustic Engineering Excellence',
+    description: 'ISO 9001:2015 certified manufacturer and global exporter of precision-engineered acoustic systems and architectural automation. Serving UK, Europe, GCC/MENA, APAC, and Australia.',
+    url: 'https://kiranslidocraft.com/about',
+    images: [{ url: '/images/hero/modern-architecture.jpg' }],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'About Kiran Slido Craft | Acoustic & Automation Engineers Since 1989',
+    description: 'ISO 9001 certified. 35+ years engineering silence and movement for residential, commercial, and aerospace sectors worldwide.',
+  },
+};
 
 export default function AboutPage() {
   return (
@@ -49,21 +70,21 @@ export default function AboutPage() {
               </p>
             </div>
           </div>
-          <div className="lg:col-span-5 grid grid-cols-2 gap-6">
-            <div className="p-10 rounded-[3rem] bg-white border border-slate-100 shadow-xl shadow-blue-900/5">
-              <p className="text-5xl font-black text-blue-600 mb-2 tracking-tighter">35+</p>
-              <p className="text-[10px] font-black uppercase tracking-widest text-slate-400">{home.about.experienceLabel}</p>
+            <div className="lg:col-span-5 grid grid-cols-2 gap-6">
+              <div className="p-10 rounded-[3rem] bg-white border border-slate-100 shadow-xl shadow-blue-900/5">
+                <p className="text-5xl font-black text-blue-600 mb-2 tracking-tighter">35+</p>
+                <p className="text-[10px] font-black uppercase tracking-widest text-slate-400">{home.about.ui.experienceLabel}</p>
+              </div>
+              <div className="p-10 rounded-[3rem] bg-slate-950 text-white shadow-2xl shadow-blue-600/10 border border-white/5">
+                <p className="text-5xl font-black text-blue-400 mb-2 tracking-tighter">{products.length}</p>
+                <p className="text-[10px] font-black uppercase tracking-widest text-slate-500">{home.about.ui.systemsLabel}</p>
+              </div>
+              <div className="col-span-2 p-10 rounded-[3rem] bg-blue-50 border border-blue-100 shadow-inner">
+                <Award className="w-10 h-10 text-blue-600 mb-6" />
+                <h3 className="text-2xl font-black text-slate-900 mb-3 uppercase tracking-tight">{catalog.company.certifications[0]}</h3>
+                <p className="text-slate-500 text-sm font-medium leading-relaxed uppercase tracking-wide">{home.about.ui.certDetail}</p>
+              </div>
             </div>
-            <div className="p-10 rounded-[3rem] bg-slate-950 text-white shadow-2xl shadow-blue-600/10 border border-white/5">
-              <p className="text-5xl font-black text-blue-400 mb-2 tracking-tighter">{products.length}</p>
-              <p className="text-[10px] font-black uppercase tracking-widest text-slate-500">{home.about.systemsLabel}</p>
-            </div>
-            <div className="col-span-2 p-10 rounded-[3rem] bg-blue-50 border border-blue-100 shadow-inner">
-              <Award className="w-10 h-10 text-blue-600 mb-6" />
-              <h3 className="text-2xl font-black text-slate-900 mb-3 uppercase tracking-tight">{catalog.company.certifications[0]}</h3>
-              <p className="text-slate-500 text-sm font-medium leading-relaxed uppercase tracking-wide">Strict adherence to international quality management systems in every project.</p>
-            </div>
-          </div>
         </div>
       </section>
 

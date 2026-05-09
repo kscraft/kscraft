@@ -122,6 +122,21 @@ export default function RootLayout({
     'hasCredential': 'ISO 9001:2015 Certified'
   };
 
+  const websiteJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    'name': 'Kiran Slido Craft',
+    'url': SITE_URL,
+    'potentialAction': {
+      '@type': 'SearchAction',
+      'target': {
+        '@type': 'EntryPoint',
+        'urlTemplate': `${SITE_URL}/search?q={search_term_string}`
+      },
+      'query-input': 'required name=search_term_string'
+    }
+  };
+
   const localBusinessJsonLd = [
     {
       '@context': 'https://schema.org',
@@ -159,6 +174,10 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
         <script
           type="application/ld+json"

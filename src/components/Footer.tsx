@@ -11,7 +11,7 @@ export default function Footer() {
             <Link href="/" className="flex items-center gap-3 mb-8 group transition-opacity hover:opacity-70">
               <Image src="/logo-ksc.png" alt="KSC" width={150} height={40} className="h-10 w-auto object-contain" />
               <div className="flex flex-col">
-                <span className="text-sm font-black tracking-tight text-black uppercase leading-none">Kiran Slido Craft</span>
+                <span className="text-sm font-black tracking-tight text-black uppercase leading-none">{catalog.company.name}</span>
                 <span className="text-[9px] font-bold text-blue-600 uppercase tracking-widest mt-1">Engineering Silence</span>
               </div>
             </Link>
@@ -23,7 +23,7 @@ export default function Footer() {
 
           <div className="grid grid-cols-2 md:grid-cols-3 md:col-span-3 gap-12">
             <div className="space-y-6">
-              <h3 className="text-[11px] font-bold text-slate-400 uppercase tracking-widest">Solutions</h3>
+              <h3 className="text-[11px] font-bold text-slate-400 uppercase tracking-widest">{catalog.company.ui.solutions}</h3>
               <ul className="space-y-3">
                 {categories.map((cat) => (
                   <li key={cat.id}>
@@ -36,7 +36,7 @@ export default function Footer() {
             </div>
 
             <div className="space-y-6">
-              <h3 className="text-[11px] font-bold text-slate-400 uppercase tracking-widest">Company</h3>
+              <h3 className="text-[11px] font-bold text-slate-400 uppercase tracking-widest">{catalog.company.ui.company}</h3>
               <ul className="space-y-3">
                 {navigation.footer.map((item) => (
                   <li key={item.href}>
@@ -49,7 +49,7 @@ export default function Footer() {
             </div>
 
             <div className="space-y-6 col-span-2 md:col-span-1">
-              <h3 className="text-[11px] font-bold text-slate-400 uppercase tracking-widest">Inquiries</h3>
+              <h3 className="text-[11px] font-bold text-slate-400 uppercase tracking-widest">{catalog.company.ui.inquiries}</h3>
               <a href={`mailto:${catalog.company.email}`} className="text-[13px] font-bold text-blue-600 hover:underline block">
                 {catalog.company.email}
               </a>
@@ -64,12 +64,12 @@ export default function Footer() {
 
         <div className="mt-24 pt-8 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-[11px] text-slate-400 font-medium">
-            Copyright © {new Date().getFullYear()} {catalog.company.name}. All rights reserved.
+            {catalog.company.ui.copyright.replace('{year}', new Date().getFullYear().toString()).replace('{companyName}', catalog.company.name)}
           </p>
           <div className="flex gap-8 text-[11px] text-slate-400 font-medium">
-            <Link href="/privacy" className="hover:text-black">Privacy Policy</Link>
-            <Link href="/terms" className="hover:text-black">Terms of Use</Link>
-            <Link href="/sitemap" className="hover:text-black">Site Map</Link>
+            <Link href="/privacy" className="hover:text-black">{catalog.company.ui.privacyPolicy}</Link>
+            <Link href="/terms" className="hover:text-black">{catalog.company.ui.termsOfUse}</Link>
+            <Link href="/sitemap" className="hover:text-black">{catalog.company.ui.siteMap}</Link>
           </div>
         </div>
       </div>

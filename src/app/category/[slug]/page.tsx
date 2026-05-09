@@ -26,10 +26,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   const url = `https://kiranslidocraft.com/category/${category.id}`;
+  const productCount = getProductsByCategory(category.id).length;
 
   return {
-    title: `${category.title} Systems | Global Acoustic & Automation Export`,
-    description: `Professional ${category.title} solutions for commercial and residential projects. Certified global exporter serving UK, Europe, GCC/MENA, APAC, and Australia.`,
+    title: `${category.title} Systems | Kiran Slido Craft – Global Acoustic & Automation Export`,
+    description: `Browse ${productCount} professional ${category.title.toLowerCase()} solutions for commercial, residential, and industrial projects. ISO 9001 certified global exporter serving UK, Europe, GCC/MENA, APAC, and Australia.`,
+    keywords: [category.title, `${category.title} manufacturer`, `${category.title} exporter`, 'acoustic systems India', 'soundproofing solutions', 'Kiran Slido Craft'],
     alternates: {
       canonical: url,
     },
@@ -39,7 +41,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       url: url,
       images: [{ url: category.image }],
       type: 'website',
-    }
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${category.title} | Kiran Slido Craft – ${productCount} Systems`,
+      description: `Professional ${category.title.toLowerCase()} engineered for global export. Explore our full range.`,
+    },
   };
 }
 

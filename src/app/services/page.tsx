@@ -1,8 +1,28 @@
+import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, Settings, Wrench, ShieldCheck, ClipboardCheck, ChevronRight } from 'lucide-react';
 import { catalog, services, home } from '@/lib/catalog';
 import ThemeMarker from '@/components/ThemeMarker';
+
+export const metadata: Metadata = {
+  title: 'Services & Support | Kiran Slido Craft – AMC, Installation & Maintenance',
+  description: 'Comprehensive installation, annual maintenance contracts (AMC), and technical lifecycle support for acoustic systems, motorized automation, and architectural soundproofing solutions.',
+  alternates: {
+    canonical: 'https://kiranslidocraft.com/services',
+  },
+  openGraph: {
+    title: 'Services & Technical Support | Kiran Slido Craft',
+    description: 'Installation, maintenance, and lifecycle support for our acoustic and automation systems. ISO 9001 certified service excellence.',
+    url: 'https://kiranslidocraft.com/services',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Kiran Slido Craft Services | AMC, Installation & Maintenance',
+    description: 'Expert installation and annual maintenance for soundproofing and automation systems across India and export markets.',
+  },
+};
 
 const iconMap = {
   Settings: Settings,

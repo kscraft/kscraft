@@ -112,6 +112,7 @@ export const catalog = catalogData as {
       badge: string;
       description: string;
     };
+    legal: any;
     ui: {
       viewCaseStudy: string;
       requestTechnicalDetails: string;
@@ -137,7 +138,18 @@ export const catalog = catalogData as {
       reachViaEmail: string;
       quoteTitle: string;
       quoteSubtitle: string;
+      operationsLabel: string;
+      solutions: string;
+      corporate: string;
+      inquiries: string;
+      productsCount: string;
+      company: string;
+      copyright: string;
+      privacyPolicy: string;
+      termsOfUse: string;
+      siteMap: string;
     };
+
   };
 };
 
@@ -200,10 +212,13 @@ export const home = catalogData.home as {
     infrastructureLabel: string;
     infrastructureTitle: string;
     infrastructureDescription: string;
-    experienceLabel: string;
-    systemsLabel: string;
     missionTitle: string;
     visionTitle: string;
+    ui: {
+        experienceLabel: string;
+        systemsLabel: string;
+        certDetail: string;
+    };
   };
   services: {
     heroTitle: string;
@@ -212,6 +227,7 @@ export const home = catalogData.home as {
     assistTitle: string;
     assistDescription: string;
     ctaLabel: string;
+    ui: any;
   };
   contact: {
     heroTitle: string;
@@ -231,7 +247,11 @@ export const home = catalogData.home as {
     placeholderRequirements: string;
     submitButton: string;
     processing: string;
+    ui: any;
   };
+  mediaUI: any;
+  showcaseUI: any;
+  sitemap: any;
 };
 
 export const media = catalogData.media as {

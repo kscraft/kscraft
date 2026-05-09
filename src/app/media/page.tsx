@@ -35,9 +35,8 @@ export default function MediaPage() {
                 className="group relative block overflow-hidden rounded-[3rem] bg-black aspect-video shadow-2xl"
               >
                 <Image
-                  src={`https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`} 
-                  alt={video.title} 
-                  fill
+                  src={`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`}
+                  alt={video.title}                  fill
                   sizes="(min-width: 768px) 50vw, 100vw"
                   className="w-full h-full object-cover transition duration-700 group-hover:scale-110 opacity-60 group-hover:opacity-100" 
                 />

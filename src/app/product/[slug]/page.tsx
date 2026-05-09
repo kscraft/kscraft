@@ -251,7 +251,7 @@ export default async function ProductPage({ params }: Props) {
               </div>
               <Link 
                 href={`/category/${product.category}`} 
-                className="group apple-button-secondary px-8 py-4 text-[11px] uppercase tracking-[0.2em] font-black flex items-center gap-3 self-start sm:self-auto"
+                className="group apple-button-secondary px-8 py-4 text-[11px] uppercase tracking-[0.2em] font-black inline-flex items-center justify-center gap-3 self-start sm:self-auto"
               >
                 {catalog.company.ui.exploreAllSystems} 
                 <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />

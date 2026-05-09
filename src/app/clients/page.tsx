@@ -35,14 +35,14 @@ export default function ClientsPage() {
                   {project.slug ? (
                     <Link 
                       href={`/showcase/${project.slug}`} 
-                      className="group apple-button-secondary px-6 py-3 text-[10px] uppercase tracking-[0.2em] font-black flex items-center gap-2 self-start inline-flex"
+                      className="group apple-button-secondary px-6 py-3 text-[10px] uppercase tracking-[0.2em] font-black inline-flex items-center justify-center gap-2 self-start"
                     >
                       {catalog.company.ui.viewCaseStudy} <ChevronRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
                     </Link>
                   ) : (
                     <Link 
                       href="/contact" 
-                      className="group apple-button-secondary px-6 py-3 text-[10px] uppercase tracking-[0.2em] font-black flex items-center gap-2 self-start inline-flex"
+                      className="group apple-button-secondary px-6 py-3 text-[10px] uppercase tracking-[0.2em] font-black inline-flex items-center justify-center gap-2 self-start"
                     >
                       {catalog.company.ui.requestTechnicalDetails} <ChevronRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
                     </Link>

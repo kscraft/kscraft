@@ -126,7 +126,7 @@ export default async function CategoryPage({ params }: Props) {
             </div>
           </div>
 
-          <div className="lg:w-1/2 min-w-0 overflow-hidden rounded-[3rem] border border-white/15 bg-white/[0.08] p-5 shadow-[0_40px_120px_-50px_rgba(0,0,0,1)] backdrop-blur-md">
+          <div className="lg:w-1/2 min-w-0 overflow-hidden rounded-[3rem] border border-white/15 bg-white/[0.08] p-5 shadow-[0_40px_120px_-50px_rgba(0,0,0,1)] backdrop-blur-md lg:mt-24">
             <div className="relative aspect-[4/3] overflow-hidden rounded-[2rem] bg-slate-100">
               <Image
                 src={category.image}

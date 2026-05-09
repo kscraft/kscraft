@@ -392,7 +392,7 @@
           "heroDescription": "Engineering the crew entry and deboarding mechanism for India's pioneering Gaganyaan space mission.",
           "challengeLabel": "The Challenge",
           "challengeTitle": "Beyond Standard Specifications.",
-          "challengeDescription": "When ISRO required a reliable, precision-engineered mechanism for astronaut movement, they didn't just need a vendor—they needed an engineering partner capable of indigenous innovation. The ask: A robust crew onboarding and deboarding lander mechanism designed for the extreme demands of the Gaganyaan program. Every millimeter of movement had to be perfectly orchestrated, ensuring absolute safety for India's first manned space flight.",
+          "challengeDescription": "When ISRO required a reliable, precision-engineered mechanism for astronaut movement, they didn't just need a vendor\u2014they needed an engineering partner capable of indigenous innovation. The ask: A robust crew onboarding and deboarding lander mechanism designed for the extreme demands of the Gaganyaan program. Every millimeter of movement had to be perfectly orchestrated, ensuring absolute safety for India's first manned space flight.",
           "stats": [
             {
               "label": "Zero Failure Tolerance",
@@ -421,7 +421,7 @@
         },
         "faqs": [
           {
-            "q": "What was Kiran Slido Craft’s role in the Gaganyaan mission?",
+            "q": "What was Kiran Slido Craft\u2019s role in the Gaganyaan mission?",
             "a": "We engineered the critical crew onboarding and deboarding lander mechanism, ensuring precise movement and safety for astronauts."
           },
           {
@@ -566,11 +566,7 @@
         "Hospitals"
       ],
       "images": [
-        "/images/products/sound-proof-windows.jpg",
-        "/images/products/motorized-sound-proof-window.jpg",
-        "/images/products/motorized-soundproof-sliding-windows.jpg",
-        "/images/products/openable-windows.jpg",
-        "/images/products/sound-proof-acoustic-fix-partition.jpg"
+        "/images/products/sound-proof-windows.jpg"
       ]
     },
     {
@@ -613,10 +609,10 @@
       ],
       "images": [
         "/images/products/sound-proof-sliding-windows.jpg",
-        "/images/products/aluminium-frame-roof-sliding-system.jpg",
-        "/images/products/manual-vertical-sliding-window.jpg",
-        "/images/products/motorized-frameless-vertical-sliding-system.jpg",
-        "/images/products/motorized-roof-sliding-system.jpg"
+        "/images/products/sound-proof-sliding-windows-gallery-1.jpg",
+        "/images/products/sound-proof-sliding-windows-gallery-3.jpg",
+        "/images/products/sound-proof-sliding-windows-gallery-5.jpg",
+        "/images/products/sound-proof-sliding-windows-gallery-6.jpg"
       ]
     },
     {
@@ -648,10 +644,10 @@
       ],
       "images": [
         "/images/products/sound-proof-tilt-turn-windows.jpg",
-        "/images/products/motorized-sound-proof-window.jpg",
-        "/images/products/motorized-soundproof-sliding-windows.jpg",
-        "/images/products/openable-windows.jpg",
-        "/images/products/sound-proof-acoustic-fix-partition.jpg"
+        "/images/products/sound-proof-tilt-turn-windows-gallery-2.jpg",
+        "/images/products/sound-proof-tilt-turn-windows-gallery-3.jpg",
+        "/images/products/sound-proof-tilt-turn-windows-gallery-4.jpg",
+        "/images/products/sound-proof-tilt-turn-windows-gallery-5.jpg"
       ]
     },
     {
@@ -683,10 +679,11 @@
       ],
       "images": [
         "/images/products/sound-proof-casement-windows.jpg",
-        "/images/products/motorized-sound-proof-window.jpg",
-        "/images/products/motorized-soundproof-sliding-windows.jpg",
-        "/images/products/openable-windows.jpg",
-        "/images/products/sound-proof-acoustic-fix-partition.jpg"
+        "/images/products/sound-proof-casement-windows-gallery-1.jpg",
+        "/images/products/sound-proof-casement-windows-gallery-3.jpg",
+        "/images/products/sound-proof-casement-windows-gallery-4.jpg",
+        "/images/products/sound-proof-casement-windows-gallery-5.jpg",
+        "/images/products/sound-proof-casement-windows-gallery-6.jpg"
       ]
     },
     {
@@ -719,10 +716,11 @@
       ],
       "images": [
         "/images/products/sound-proof-top-hung-windows.jpg",
-        "/images/products/motorized-sound-proof-window.jpg",
-        "/images/products/motorized-soundproof-sliding-windows.jpg",
-        "/images/products/openable-windows.jpg",
-        "/images/products/sound-proof-acoustic-fix-partition.jpg"
+        "/images/products/sound-proof-top-hung-windows-gallery-1.jpg",
+        "/images/products/sound-proof-top-hung-windows-gallery-2.jpg",
+        "/images/products/sound-proof-top-hung-windows-gallery-3.jpg",
+        "/images/products/sound-proof-top-hung-windows-gallery-4.jpg",
+        "/images/products/sound-proof-top-hung-windows-gallery-5.jpg"
       ]
     },
     {
@@ -755,10 +753,9 @@
       ],
       "images": [
         "/images/products/sound-proof-vertical-sliding-windows.jpg",
-        "/images/products/aluminium-frame-roof-sliding-system.jpg",
-        "/images/products/manual-vertical-sliding-window.jpg",
-        "/images/products/motorized-frameless-vertical-sliding-system.jpg",
-        "/images/products/motorized-roof-sliding-system.jpg"
+        "/images/products/sound-proof-vertical-sliding-windows-gallery-1.jpg",
+        "/images/products/sound-proof-vertical-sliding-windows-gallery-2.jpg",
+        "/images/products/sound-proof-vertical-sliding-windows-gallery-4.jpg"
       ]
     },
     {
@@ -791,10 +788,8 @@
       ],
       "images": [
         "/images/products/sound-proof-acoustic-fix-partition.jpg",
-        "/images/products/motorized-sound-proof-window.jpg",
-        "/images/products/motorized-soundproof-sliding-windows.jpg",
-        "/images/products/sound-proof-acoustic-movable-partition.jpg",
-        "/images/products/sound-proof-casement-windows.jpg"
+        "/images/products/sound-proof-acoustic-fix-partition-gallery-2.jpg",
+        "/images/products/sound-proof-acoustic-fix-partition-gallery-3.jpg"
       ]
     },
     {
@@ -826,10 +821,11 @@
       ],
       "images": [
         "/images/products/sound-proof-sliding-folding-partition.jpg",
-        "/images/products/aluminium-frame-roof-sliding-system.jpg",
-        "/images/products/manual-vertical-sliding-window.jpg",
-        "/images/products/motorized-frameless-vertical-sliding-system.jpg",
-        "/images/products/motorized-roof-sliding-system.jpg"
+        "/images/products/sound-proof-sliding-folding-partition-gallery-1.jpg",
+        "/images/products/sound-proof-sliding-folding-partition-gallery-2.jpg",
+        "/images/products/sound-proof-sliding-folding-partition-gallery-3.jpg",
+        "/images/products/sound-proof-sliding-folding-partition-gallery-5.jpg",
+        "/images/products/sound-proof-sliding-folding-partition-gallery-6.jpg"
       ]
     },
     {
@@ -861,10 +857,7 @@
       ],
       "images": [
         "/images/products/sound-proof-sliding-doors.jpg",
-        "/images/products/aluminium-frame-roof-sliding-system.jpg",
-        "/images/products/manual-vertical-sliding-window.jpg",
-        "/images/products/motorized-frameless-vertical-sliding-system.jpg",
-        "/images/products/motorized-roof-sliding-system.jpg"
+        "/images/products/sound-proof-sliding-doors-gallery-2.jpg"
       ]
     },
     {
@@ -896,10 +889,8 @@
       ],
       "images": [
         "/images/products/sound-proof-sliding-folding-doors.jpg",
-        "/images/products/aluminium-frame-roof-sliding-system.jpg",
-        "/images/products/manual-vertical-sliding-window.jpg",
-        "/images/products/motorized-frameless-vertical-sliding-system.jpg",
-        "/images/products/motorized-roof-sliding-system.jpg"
+        "/images/products/sound-proof-sliding-folding-doors-gallery-1.jpg",
+        "/images/products/sound-proof-sliding-folding-doors-gallery-3.jpg"
       ]
     },
     {
@@ -931,10 +922,8 @@
       ],
       "images": [
         "/images/products/sound-proof-swing-doors.jpg",
-        "/images/products/motorized-sound-proof-window.jpg",
-        "/images/products/motorized-soundproof-sliding-windows.jpg",
-        "/images/products/sound-proof-acoustic-fix-partition.jpg",
-        "/images/products/sound-proof-acoustic-movable-partition.jpg"
+        "/images/products/sound-proof-swing-doors-gallery-2.jpg",
+        "/images/products/sound-proof-swing-doors-gallery-3.jpg"
       ]
     },
     {
@@ -965,10 +954,7 @@
       ],
       "images": [
         "/images/products/motorized-sliding-system.jpg",
-        "/images/products/aluminium-frame-roof-sliding-system.jpg",
-        "/images/products/manual-vertical-sliding-window.jpg",
-        "/images/products/motorized-barrier-system.jpg",
-        "/images/products/motorized-frameless-vertical-sliding-system.jpg"
+        "/images/products/motorized-sliding-system-gallery-2.jpg"
       ]
     },
     {
@@ -1000,10 +986,11 @@
       ],
       "images": [
         "/images/products/motorized-sound-proof-window.jpg",
-        "/images/products/manual-vertical-sliding-window.jpg",
-        "/images/products/motorized-barrier-system.jpg",
-        "/images/products/motorized-frameless-vertical-sliding-system.jpg",
-        "/images/products/motorized-roof-sliding-system.jpg"
+        "/images/products/motorized-sound-proof-window-gallery-1.jpg",
+        "/images/products/motorized-sound-proof-window-gallery-2.jpg",
+        "/images/products/motorized-sound-proof-window-gallery-3.jpg",
+        "/images/products/motorized-sound-proof-window-gallery-5.jpg",
+        "/images/products/motorized-sound-proof-window-gallery-6.jpg"
       ]
     },
     {
@@ -1035,10 +1022,7 @@
       ],
       "images": [
         "/images/products/motorized-frameless-vertical-sliding-system.jpg",
-        "/images/products/aluminium-frame-roof-sliding-system.jpg",
-        "/images/products/manual-vertical-sliding-window.jpg",
-        "/images/products/motorized-barrier-system.jpg",
-        "/images/products/motorized-roof-sliding-system.jpg"
+        "/images/products/motorized-frameless-vertical-sliding-system-gallery-1.jpg"
       ]
     },
     {
@@ -1070,10 +1054,10 @@
       ],
       "images": [
         "/images/products/motorized-sliding-roof.jpg",
-        "/images/products/aluminium-frame-roof-sliding-system.jpg",
-        "/images/products/manual-vertical-sliding-window.jpg",
-        "/images/products/motorized-barrier-system.jpg",
-        "/images/products/motorized-frameless-vertical-sliding-system.jpg"
+        "/images/products/motorized-sliding-roof-gallery-1.jpg",
+        "/images/products/motorized-sliding-roof-gallery-2.jpg",
+        "/images/products/motorized-sliding-roof-gallery-4.jpg",
+        "/images/products/motorized-sliding-roof-gallery-5.jpg"
       ]
     },
     {
@@ -1104,10 +1088,9 @@
       ],
       "images": [
         "/images/products/stainless-steel-frame-roof-sliding-system.jpg",
-        "/images/products/aluminium-frame-roof-sliding-system.jpg",
-        "/images/products/manual-vertical-sliding-window.jpg",
-        "/images/products/motorized-barrier-system.jpg",
-        "/images/products/motorized-frameless-vertical-sliding-system.jpg"
+        "/images/products/stainless-steel-frame-roof-sliding-system-gallery-1.jpg",
+        "/images/products/stainless-steel-frame-roof-sliding-system-gallery-3.jpg",
+        "/images/products/stainless-steel-frame-roof-sliding-system-gallery-4.jpg"
       ]
     },
     {
@@ -1139,10 +1122,9 @@
       ],
       "images": [
         "/images/products/aluminium-frame-roof-sliding-system.jpg",
-        "/images/products/manual-vertical-sliding-window.jpg",
-        "/images/products/motorized-barrier-system.jpg",
-        "/images/products/motorized-frameless-vertical-sliding-system.jpg",
-        "/images/products/motorized-roof-sliding-system.jpg"
+        "/images/products/aluminium-frame-roof-sliding-system-gallery-2.jpg",
+        "/images/products/aluminium-frame-roof-sliding-system-gallery-3.jpg",
+        "/images/products/aluminium-frame-roof-sliding-system-gallery-4.jpg"
       ]
     },
     {
@@ -1175,10 +1157,11 @@
       ],
       "images": [
         "/images/products/sound-proof-acoustic-movable-partition.jpg",
-        "/images/products/motorized-sound-proof-window.jpg",
-        "/images/products/motorized-soundproof-sliding-windows.jpg",
-        "/images/products/sound-proof-acoustic-fix-partition.jpg",
-        "/images/products/sound-proof-casement-windows.jpg"
+        "/images/products/sound-proof-acoustic-movable-partition-gallery-1.jpg",
+        "/images/products/sound-proof-acoustic-movable-partition-gallery-3.jpg",
+        "/images/products/sound-proof-acoustic-movable-partition-gallery-4.jpg",
+        "/images/products/sound-proof-acoustic-movable-partition-gallery-5.jpg",
+        "/images/products/sound-proof-acoustic-movable-partition-gallery-6.jpg"
       ]
     },
     {
@@ -1211,10 +1194,9 @@
       ],
       "images": [
         "/images/products/motorized-soundproof-sliding-windows.jpg",
-        "/images/products/aluminium-frame-roof-sliding-system.jpg",
-        "/images/products/manual-vertical-sliding-window.jpg",
-        "/images/products/motorized-barrier-system.jpg",
-        "/images/products/motorized-frameless-vertical-sliding-system.jpg"
+        "/images/products/motorized-soundproof-sliding-windows-gallery-1.jpg",
+        "/images/products/motorized-soundproof-sliding-windows-gallery-2.jpg",
+        "/images/products/motorized-soundproof-sliding-windows-gallery-5.jpg"
       ]
     },
     {
@@ -1246,10 +1228,10 @@
       ],
       "images": [
         "/images/products/motorized-vertical-sliding-window.jpg",
-        "/images/products/aluminium-frame-roof-sliding-system.jpg",
-        "/images/products/manual-vertical-sliding-window.jpg",
-        "/images/products/motorized-barrier-system.jpg",
-        "/images/products/motorized-frameless-vertical-sliding-system.jpg"
+        "/images/products/motorized-vertical-sliding-window-gallery-1.jpg",
+        "/images/products/motorized-vertical-sliding-window-gallery-2.jpg",
+        "/images/products/motorized-vertical-sliding-window-gallery-3.jpg",
+        "/images/products/motorized-vertical-sliding-window-gallery-4.jpg"
       ]
     },
     {
@@ -1280,11 +1262,7 @@
         "Private Bungalows"
       ],
       "images": [
-        "/images/products/motorized-telescopic-gates.jpg",
-        "/images/products/motorized-barrier-system.jpg",
-        "/images/products/motorized-frameless-vertical-sliding-system.jpg",
-        "/images/products/motorized-roof-sliding-system.jpg",
-        "/images/products/motorized-sliding-gates.jpg"
+        "/images/products/motorized-telescopic-gates.jpg"
       ]
     },
     {
@@ -1315,11 +1293,7 @@
         "Gated Communities"
       ],
       "images": [
-        "/images/products/motorized-sliding-gates.jpg",
-        "/images/products/aluminium-frame-roof-sliding-system.jpg",
-        "/images/products/manual-vertical-sliding-window.jpg",
-        "/images/products/motorized-barrier-system.jpg",
-        "/images/products/motorized-frameless-vertical-sliding-system.jpg"
+        "/images/products/motorized-sliding-gates.jpg"
       ]
     },
     {
@@ -1351,11 +1325,7 @@
         "Toll Plazas"
       ],
       "images": [
-        "/images/products/motorized-barrier-system.jpg",
-        "/images/products/aluminium-frame-roof-sliding-system.jpg",
-        "/images/products/motorized-frameless-vertical-sliding-system.jpg",
-        "/images/products/motorized-roof-sliding-system.jpg",
-        "/images/products/motorized-sliding-gates.jpg"
+        "/images/products/motorized-barrier-system.jpg"
       ]
     }
   ]

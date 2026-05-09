@@ -610,9 +610,7 @@
       "images": [
         "/images/products/sound-proof-sliding-windows.jpg",
         "/images/products/sound-proof-sliding-windows-gallery-1.jpg",
-        "/images/products/sound-proof-sliding-windows-gallery-2.jpg",
         "/images/products/sound-proof-sliding-windows-gallery-3.jpg",
-        "/images/products/sound-proof-sliding-windows-gallery-4.jpg",
         "/images/products/sound-proof-sliding-windows-gallery-5.jpg",
         "/images/products/sound-proof-sliding-windows-gallery-6.jpg"
       ]
@@ -683,7 +681,6 @@
       "images": [
         "/images/products/sound-proof-casement-windows.jpg",
         "/images/products/sound-proof-casement-windows-gallery-1.jpg",
-        "/images/products/sound-proof-casement-windows-gallery-2.jpg",
         "/images/products/sound-proof-casement-windows-gallery-3.jpg",
         "/images/products/sound-proof-casement-windows-gallery-4.jpg",
         "/images/products/sound-proof-casement-windows-gallery-5.jpg",
@@ -795,8 +792,7 @@
         "/images/products/sound-proof-acoustic-fix-partition.jpg",
         "/images/products/sound-proof-acoustic-fix-partition-gallery-1.jpg",
         "/images/products/sound-proof-acoustic-fix-partition-gallery-2.jpg",
-        "/images/products/sound-proof-acoustic-fix-partition-gallery-3.jpg",
-        "/images/products/sound-proof-acoustic-fix-partition-gallery-4.jpg"
+        "/images/products/sound-proof-acoustic-fix-partition-gallery-3.jpg"
       ]
     },
     {
@@ -831,7 +827,6 @@
         "/images/products/sound-proof-sliding-folding-partition-gallery-1.jpg",
         "/images/products/sound-proof-sliding-folding-partition-gallery-2.jpg",
         "/images/products/sound-proof-sliding-folding-partition-gallery-3.jpg",
-        "/images/products/sound-proof-sliding-folding-partition-gallery-4.jpg",
         "/images/products/sound-proof-sliding-folding-partition-gallery-5.jpg",
         "/images/products/sound-proof-sliding-folding-partition-gallery-6.jpg"
       ]
@@ -865,7 +860,6 @@
       ],
       "images": [
         "/images/products/sound-proof-sliding-doors.jpg",
-        "/images/products/sound-proof-sliding-doors-gallery-1.jpg",
         "/images/products/sound-proof-sliding-doors-gallery-2.jpg"
       ]
     },
@@ -899,7 +893,6 @@
       "images": [
         "/images/products/sound-proof-sliding-folding-doors.jpg",
         "/images/products/sound-proof-sliding-folding-doors-gallery-1.jpg",
-        "/images/products/sound-proof-sliding-folding-doors-gallery-2.jpg",
         "/images/products/sound-proof-sliding-folding-doors-gallery-3.jpg"
       ]
     },
@@ -932,7 +925,6 @@
       ],
       "images": [
         "/images/products/sound-proof-swing-doors.jpg",
-        "/images/products/sound-proof-swing-doors-gallery-1.jpg",
         "/images/products/sound-proof-swing-doors-gallery-2.jpg",
         "/images/products/sound-proof-swing-doors-gallery-3.jpg"
       ]
@@ -965,10 +957,7 @@
       ],
       "images": [
         "/images/products/motorized-sliding-system.jpg",
-        "/images/products/motorized-sliding-system-gallery-1.jpg",
-        "/images/products/motorized-sliding-system-gallery-2.jpg",
-        "/images/products/motorized-sliding-system-gallery-3.jpg",
-        "/images/products/motorized-sliding-system-gallery-4.jpg"
+        "/images/products/motorized-sliding-system-gallery-2.jpg"
       ]
     },
     {
@@ -1003,7 +992,6 @@
         "/images/products/motorized-sound-proof-window-gallery-1.jpg",
         "/images/products/motorized-sound-proof-window-gallery-2.jpg",
         "/images/products/motorized-sound-proof-window-gallery-3.jpg",
-        "/images/products/motorized-sound-proof-window-gallery-4.jpg",
         "/images/products/motorized-sound-proof-window-gallery-5.jpg",
         "/images/products/motorized-sound-proof-window-gallery-6.jpg"
       ]
@@ -1038,8 +1026,7 @@
       "images": [
         "/images/products/motorized-frameless-vertical-sliding-system.jpg",
         "/images/products/motorized-frameless-vertical-sliding-system-gallery-1.jpg",
-        "/images/products/motorized-frameless-vertical-sliding-system-gallery-2.jpg",
-        "/images/products/motorized-frameless-vertical-sliding-system-gallery-3.jpg"
+        "/images/products/motorized-frameless-vertical-sliding-system-gallery-2.jpg"
       ]
     },
     {
@@ -1073,7 +1060,6 @@
         "/images/products/motorized-sliding-roof.jpg",
         "/images/products/motorized-sliding-roof-gallery-1.jpg",
         "/images/products/motorized-sliding-roof-gallery-2.jpg",
-        "/images/products/motorized-sliding-roof-gallery-3.jpg",
         "/images/products/motorized-sliding-roof-gallery-4.jpg",
         "/images/products/motorized-sliding-roof-gallery-5.jpg",
         "/images/products/motorized-sliding-roof-gallery-6.jpg"
@@ -1108,7 +1094,6 @@
       "images": [
         "/images/products/stainless-steel-frame-roof-sliding-system.jpg",
         "/images/products/stainless-steel-frame-roof-sliding-system-gallery-1.jpg",
-        "/images/products/stainless-steel-frame-roof-sliding-system-gallery-2.jpg",
         "/images/products/stainless-steel-frame-roof-sliding-system-gallery-3.jpg",
         "/images/products/stainless-steel-frame-roof-sliding-system-gallery-4.jpg"
       ]
@@ -1179,7 +1164,6 @@
       "images": [
         "/images/products/sound-proof-acoustic-movable-partition.jpg",
         "/images/products/sound-proof-acoustic-movable-partition-gallery-1.jpg",
-        "/images/products/sound-proof-acoustic-movable-partition-gallery-2.jpg",
         "/images/products/sound-proof-acoustic-movable-partition-gallery-3.jpg",
         "/images/products/sound-proof-acoustic-movable-partition-gallery-4.jpg",
         "/images/products/sound-proof-acoustic-movable-partition-gallery-5.jpg",
@@ -1219,7 +1203,6 @@
         "/images/products/motorized-soundproof-sliding-windows-gallery-1.jpg",
         "/images/products/motorized-soundproof-sliding-windows-gallery-2.jpg",
         "/images/products/motorized-soundproof-sliding-windows-gallery-3.jpg",
-        "/images/products/motorized-soundproof-sliding-windows-gallery-4.jpg",
         "/images/products/motorized-soundproof-sliding-windows-gallery-5.jpg"
       ]
     },

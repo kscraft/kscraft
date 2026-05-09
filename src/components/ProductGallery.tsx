@@ -115,11 +115,28 @@ export default function ProductGallery({ product }: { product: Product }) {
             </button>
 
             <div 
-              className="relative w-full max-w-6xl h-full flex flex-col items-center justify-center"
+              className="relative w-full max-w-[90vw] h-full flex flex-col md:flex-row items-center justify-center gap-6 p-4 md:p-8"
               onClick={(e) => e.stopPropagation()} // prevent closing when clicking inside
             >
+              {/* Modal Thumbnails - Desktop (Left) */}
+              {images.length > 1 && (
+                <div className="hidden md:flex flex-col gap-4 overflow-y-auto max-h-[85vh] custom-scrollbar pr-4 shrink-0">
+                  {images.map((img, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => setSelectedImageIndex(idx)}
+                      className={`relative aspect-square w-24 shrink-0 rounded-xl overflow-hidden border-2 transition-all ${
+                        selectedImageIndex === idx ? 'border-blue-500 scale-[1.05]' : 'border-transparent hover:border-slate-500 opacity-50 hover:opacity-100'
+                      } bg-white/5`}
+                    >
+                      <Image src={img} alt={`Thumbnail ${idx + 1}`} fill className="object-contain p-2" />
+                    </button>
+                  ))}
+                </div>
+              )}
+
               {/* Main Modal Image */}
-              <div className="relative w-full h-[60vh] md:h-[75vh] flex items-center justify-center mb-8">
+              <div className="relative w-full h-[60vh] md:h-[85vh] flex-1 flex items-center justify-center">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={selectedImageIndex}
@@ -144,13 +161,13 @@ export default function ProductGallery({ product }: { product: Product }) {
                   <>
                     <button 
                       onClick={prevImage}
-                      className="absolute left-0 md:-left-12 top-1/2 -translate-y-1/2 p-4 rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
+                      className="absolute left-0 md:left-4 top-1/2 -translate-y-1/2 p-4 rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors z-10"
                     >
                       <ChevronLeft className="w-8 h-8" />
                     </button>
                     <button 
                       onClick={nextImage}
-                      className="absolute right-0 md:-right-12 top-1/2 -translate-y-1/2 p-4 rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
+                      className="absolute right-0 md:right-4 top-1/2 -translate-y-1/2 p-4 rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors z-10"
                     >
                       <ChevronRight className="w-8 h-8" />
                     </button>
@@ -158,9 +175,9 @@ export default function ProductGallery({ product }: { product: Product }) {
                 )}
               </div>
 
-              {/* Modal Thumbnails */}
+              {/* Modal Thumbnails - Mobile (Bottom) */}
               {images.length > 1 && (
-                <div className="flex gap-4 overflow-x-auto max-w-full pb-4 custom-scrollbar px-4">
+                <div className="md:hidden flex gap-4 overflow-x-auto max-w-full pb-4 custom-scrollbar px-4 shrink-0">
                   {images.map((img, idx) => (
                     <button
                       key={idx}

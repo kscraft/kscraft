@@ -29,11 +29,23 @@ export default function ClientsPage() {
                 <p className="text-[10px] font-black text-blue-600 uppercase tracking-widest mb-4">{project.subtitle}</p>
                 <h3 className="text-2xl font-black tracking-tight text-black mb-6 uppercase leading-tight">{project.title}</h3>
                 <p className="text-slate-500 font-medium leading-relaxed mb-8">{project.detail}</p>
-                {project.slug ? (
-                  <Link href={`/showcase/${project.slug}`} className="apple-link font-black">{catalog.company.ui.viewCaseStudy} <ChevronRight className="w-4 h-4" /></Link>
-                ) : (
-                  <Link href="/contact" className="apple-link font-black">{catalog.company.ui.requestTechnicalDetails} <ChevronRight className="w-4 h-4" /></Link>
-                )}
+                <div className="mt-auto">
+                  {project.slug ? (
+                    <Link 
+                      href={`/showcase/${project.slug}`} 
+                      className="group apple-button-secondary px-6 py-3 text-[10px] uppercase tracking-[0.2em] font-black flex items-center gap-2 self-start inline-flex"
+                    >
+                      {catalog.company.ui.viewCaseStudy} <ChevronRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+                    </Link>
+                  ) : (
+                    <Link 
+                      href="/contact" 
+                      className="group apple-button-secondary px-6 py-3 text-[10px] uppercase tracking-[0.2em] font-black flex items-center gap-2 self-start inline-flex"
+                    >
+                      {catalog.company.ui.requestTechnicalDetails} <ChevronRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+                    </Link>
+                  )}
+                </div>
               </div>
             ))}
           </div>

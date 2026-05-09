@@ -314,7 +314,7 @@ export default function Home() {
           <div className="mt-20 text-center">
             <Link
               href={home.lineup.cta.href}
-              className="apple-button-secondary px-10 py-4 text-sm uppercase tracking-widest font-black"
+              className="apple-button-secondary px-10 py-4 text-sm uppercase tracking-widest font-black inline-flex items-center justify-center"
             >
               {home.lineup.cta.label} <ArrowRight className="ml-2 h-4 w-4" />
             </Link>

@@ -19,6 +19,7 @@ export type Product = {
   category: string;
   description: string;
   image: string;
+  images: string[];
   sourceUrls: string[];
   legacyRoutes: string[];
   specifications: SpecificationMap;

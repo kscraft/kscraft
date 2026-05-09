@@ -50,9 +50,9 @@ export default function ProductGallery({ product }: { product: Product }) {
                 onClick={() => setSelectedImageIndex(idx)}
                 className={`relative aspect-square w-full rounded-2xl overflow-hidden border-2 transition-all ${
                   selectedImageIndex === idx ? 'border-blue-600 shadow-md scale-[1.02]' : 'border-transparent hover:border-slate-300'
-                } bg-[#f5f5f7]`}
+                } bg-white`}
               >
-                <Image src={img} alt={`${product.title} ${idx + 1}`} fill className="object-contain p-2 mix-blend-multiply" />
+                <Image src={img} alt={`${product.title} ${idx + 1}`} fill className="object-cover" />
               </button>
             ))}
           </div>
@@ -60,7 +60,7 @@ export default function ProductGallery({ product }: { product: Product }) {
           {/* Main Visual */}
           <div className="lg:col-span-10">
             <div 
-              className="relative w-full aspect-square md:aspect-[16/9] overflow-hidden rounded-[2rem] md:rounded-[4rem] bg-[#f5f5f7] border border-slate-100 shadow-2xl cursor-zoom-in group"
+              className="relative w-full aspect-square md:aspect-[4/3] overflow-hidden rounded-[2rem] md:rounded-[3rem] bg-white border border-slate-100 shadow-xl cursor-zoom-in group"
               onClick={() => openModal(selectedImageIndex)}
             >
               <Image
@@ -68,10 +68,10 @@ export default function ProductGallery({ product }: { product: Product }) {
                 alt={product.title} 
                 fill
                 sizes="(min-width: 1024px) 1024px, 100vw"
-                className="w-full h-full object-contain p-6 md:p-12 mix-blend-multiply transition-transform duration-700 group-hover:scale-[1.03]"
+                className="w-full h-full object-contain p-4 md:p-8 transition-transform duration-700 group-hover:scale-[1.02]"
               />
               {/* Authenticity Callout */}
-              <div className="absolute bottom-10 right-10 flex items-center gap-3 bg-white/80 backdrop-blur-xl border border-white/50 px-6 py-3 rounded-full shadow-2xl pointer-events-none">
+              <div className="absolute bottom-6 right-6 md:bottom-10 md:right-10 flex items-center gap-3 bg-white/90 backdrop-blur-xl border border-slate-100 px-5 py-2.5 rounded-full shadow-lg pointer-events-none">
                 <span className="flex h-2 w-2 rounded-full bg-blue-600 animate-pulse"></span>
                 <p className="text-[10px] font-black uppercase tracking-widest text-slate-900">
                   {catalog.company.authenticity.badge}
@@ -87,9 +87,9 @@ export default function ProductGallery({ product }: { product: Product }) {
                   onClick={() => setSelectedImageIndex(idx)}
                   className={`relative aspect-square w-24 shrink-0 rounded-2xl overflow-hidden border-2 transition-all snap-start ${
                     selectedImageIndex === idx ? 'border-blue-600 shadow-md' : 'border-transparent'
-                  } bg-[#f5f5f7]`}
+                  } bg-white`}
                 >
-                  <Image src={img} alt={`${product.title} ${idx + 1}`} fill className="object-contain p-2 mix-blend-multiply" />
+                  <Image src={img} alt={`${product.title} ${idx + 1}`} fill className="object-cover" />
                 </button>
               ))}
             </div>

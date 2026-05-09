@@ -13,6 +13,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/contact',
     '/search',
     '/showcase/isro-gaganyaan',
+    '/privacy',
+    '/terms',
+    '/sitemap',
   ].map((route) => ({
     url: `${SITE_URL}${route}`,
     lastModified: new Date(),

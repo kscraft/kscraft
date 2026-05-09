@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation';
 import { ShieldCheck, ChevronRight } from 'lucide-react';
 import ProductCard from '@/components/ProductCard';
 import ProductActions from '@/components/ProductActions';
+import ProductGallery from '@/components/ProductGallery';
 import AcousticGraph from '@/components/AcousticGraph';
 import { catalog, getCategory, getProduct, getProductsByCategory, products } from '@/lib/catalog';
 
@@ -150,25 +151,8 @@ export default async function ProductPage({ params }: Props) {
         </div>
       </header>
 
-      {/* Large Product Visual */}
-      <section className="section-standard !py-10 md:!py-20">
-        <div className="relative mx-auto max-w-6xl aspect-square md:aspect-[16/9] overflow-hidden rounded-[2rem] md:rounded-[4rem] bg-[#f5f5f7] border border-slate-100 shadow-2xl">
-          <Image
-            src={product.image} 
-            alt={product.title} 
-            fill
-            sizes="(min-width: 1024px) 1024px, 100vw"
-            className="w-full h-full object-contain p-6 md:p-12 mix-blend-multiply"
-          />
-          {/* Authenticity Callout */}
-          <div className="absolute bottom-10 right-10 flex items-center gap-3 bg-white/80 backdrop-blur-xl border border-white/50 px-6 py-3 rounded-full shadow-2xl">
-            <span className="flex h-2 w-2 rounded-full bg-blue-600 animate-pulse"></span>
-            <p className="text-[10px] font-black uppercase tracking-widest text-slate-900">
-              {catalog.company.authenticity.badge}
-            </p>
-          </div>
-        </div>
-      </section>
+      {/* Large Product Visual Gallery */}
+      <ProductGallery product={product} />
 
       {/* Technical Specifications - Apple Grid Style */}
       <section className="py-32 px-6 bg-white">

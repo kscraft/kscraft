@@ -27,11 +27,6 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile menu on navigate
-  useEffect(() => {
-    setIsOpen(false);
-  }, [pathname]);
-
   return (
     <header
       className={cn(
@@ -54,7 +49,7 @@ const Header = () => {
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-10">
+        <nav className="hidden lg:flex items-center gap-10">
           <ul className="flex items-center gap-8">
             {navigation.header.map((item) => (
               <li key={item.href}>
@@ -115,7 +110,7 @@ const Header = () => {
         <button
           onClick={() => setIsOpen(!isOpen)}
           className={cn(
-            "p-3 rounded-full transition-all active:scale-90 md:hidden",
+            "p-3 rounded-full transition-all active:scale-90 lg:hidden",
             isHeaderLight ? "text-white bg-white/10" : "text-black bg-slate-100"
           )}
           aria-label="Toggle Menu"
@@ -131,7 +126,7 @@ const Header = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="md:hidden absolute top-full left-0 right-0 bg-white border-b border-slate-200 h-screen overflow-y-auto"
+            className="absolute left-0 right-0 top-full max-h-[calc(100svh-72px)] overflow-y-auto border-b border-slate-200 bg-white lg:hidden"
           >
             <nav className="p-10 space-y-12">
               <ul className="space-y-6">
@@ -171,7 +166,7 @@ const Header = () => {
                 <ul className="grid gap-6">
                   {categories.map((cat) => (
                     <li key={cat.id}>
-                      <Link href={`/category/${cat.id}`} onClick={() => setIsOpen(false)} className="text-4xl font-bold tracking-tight text-black flex items-center justify-between group">
+                      <Link href={`/category/${cat.id}`} onClick={() => setIsOpen(false)} className="group flex items-center justify-between break-words text-3xl font-bold tracking-tight text-black sm:text-4xl">
                         {cat.title}
                         <ArrowRight className="w-6 h-6 text-blue-600 opacity-0 group-hover:opacity-100 transition-opacity" />
                       </Link>

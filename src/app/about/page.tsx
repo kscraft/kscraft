@@ -1,12 +1,14 @@
 import Image from 'next/image';
 import { catalog, products, home } from '@/lib/catalog';
 import { Award, Target, Users } from 'lucide-react';
+import ThemeMarker from '@/components/ThemeMarker';
 
 export default function AboutPage() {
   return (
     <div className="flex min-h-screen flex-col bg-white">
       {/* Hero Header */}
       <header className="hero-dark">
+        <ThemeMarker theme="dark" className="absolute top-0" />
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/hero/modern-architecture.jpg" 
@@ -30,6 +32,7 @@ export default function AboutPage() {
 
       {/* Philosophy Section */}
       <section className="section-standard overflow-hidden">
+        <ThemeMarker theme="light" className="absolute top-0" />
         <div className="absolute top-0 right-0 w-1/3 h-full bg-blue-50/30 -skew-x-12 transform translate-x-20"></div>
         <div className="max-container grid lg:grid-cols-12 gap-20 items-center relative z-10">
           <div className="lg:col-span-7">
@@ -66,6 +69,7 @@ export default function AboutPage() {
 
       {/* Values Grid */}
       <section className="section-dark">
+        <ThemeMarker theme="dark" className="absolute top-0" />
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-blue-950/20 to-transparent"></div>
         <div className="max-container relative z-10">
           <div className="grid md:grid-cols-2 gap-10">

@@ -1,12 +1,24 @@
 'use client';
 
+import { useState } from 'react';
 import Image from 'next/image';
 import { catalog, categories, home } from '@/lib/catalog';
 import { Mail, MapPin, Video, Link as LinkIcon, Send } from 'lucide-react';
+import ThemeMarker from '@/components/ThemeMarker';
 
 export default function ContactPage() {
+  const [formError, setFormError] = useState('');
+
   const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setFormError('');
+
+    if (!e.currentTarget.checkValidity()) {
+      setFormError('Missing or invalid fields. Please complete the highlighted fields before sending.');
+      e.currentTarget.reportValidity();
+      return;
+    }
+
     const formData = new FormData(e.currentTarget);
     const name = formData.get('name') as string;
     const email = formData.get('email') as string;
@@ -28,6 +40,7 @@ export default function ContactPage() {
     <div className="flex flex-col min-h-screen bg-white">
       {/* Hero Header */}
       <header className="hero-dark">
+        <ThemeMarker theme="dark" className="absolute top-0" />
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/hero/modern-architecture.jpg" 
@@ -76,11 +89,11 @@ export default function ContactPage() {
               <div>
                 <span className="text-eyebrow">{home.contact.digitalLabel}</span>
                 <div className="grid gap-8 mt-10">
-                  <a href={`mailto:${catalog.company.email}`} className="flex items-center gap-8 group">
+                  <a href={`mailto:${catalog.company.email}`} className="group flex min-w-0 items-center gap-8">
                     <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-blue-50 text-blue-600 border border-blue-100 transition-all group-hover:bg-blue-600 group-hover:text-white shadow-sm">
                       <Mail className="w-6 h-6" />
                     </div>
-                    <span className="text-xl font-black text-slate-900 group-hover:text-blue-600 transition-colors tracking-tight">{catalog.company.email}</span>
+                    <span className="min-w-0 break-all text-xl font-black tracking-tight text-slate-900 transition-colors group-hover:text-blue-600">{catalog.company.email}</span>
                   </a>
                   <div className="flex gap-4 pt-4">
                     <a href={catalog.company.social.youtube} target="_blank" rel="noopener noreferrer" className="flex h-16 w-16 items-center justify-center rounded-2xl bg-slate-50 border border-slate-100 text-slate-900 hover:bg-red-50 hover:text-red-600 hover:border-red-100 transition-all">
@@ -103,32 +116,42 @@ export default function ContactPage() {
                     {home.contact.formDescription}
                   </p>
                   
-                  <form onSubmit={handleFormSubmit} className="space-y-10">
+                  <form onSubmit={handleFormSubmit} className="space-y-10" noValidate>
+                    {formError && (
+                      <div className="rounded-2xl border border-red-400/30 bg-red-500/10 px-5 py-4 text-sm font-bold leading-6 text-red-100" role="alert">
+                        {formError}
+                      </div>
+                    )}
                     <div className="grid md:grid-cols-2 gap-10">
                       <div className="space-y-4">
-                        <label className="text-[10px] font-black text-blue-500 uppercase tracking-[0.2em] ml-2">{home.contact.nameLabel}</label>
+                        <label htmlFor="contact-name" className="text-[10px] font-black text-blue-500 uppercase tracking-[0.2em] ml-2">{home.contact.nameLabel}</label>
                         <input 
+                          id="contact-name"
                           name="name"
                           type="text" 
                           required 
+                          aria-invalid={Boolean(formError)}
                           className="w-full bg-white/5 border border-white/10 rounded-2xl px-8 py-5 text-white focus:bg-white/10 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all placeholder:text-slate-600 font-bold" 
                           placeholder={home.contact.placeholderName} 
                         />
                       </div>
                       <div className="space-y-4">
-                        <label className="text-[10px] font-black text-blue-500 uppercase tracking-[0.2em] ml-2">{home.contact.emailLabel}</label>
+                        <label htmlFor="contact-email" className="text-[10px] font-black text-blue-500 uppercase tracking-[0.2em] ml-2">{home.contact.emailLabel}</label>
                         <input 
+                          id="contact-email"
                           name="email"
                           type="email" 
                           required 
+                          aria-invalid={Boolean(formError)}
                           className="w-full bg-white/5 border border-white/10 rounded-2xl px-8 py-5 text-white focus:bg-white/10 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all placeholder:text-slate-600 font-bold" 
                           placeholder={home.contact.placeholderEmail} 
                         />
                       </div>
                     </div>
                     <div className="space-y-4">
-                      <label className="text-[10px] font-black text-blue-500 uppercase tracking-[0.2em] ml-2">{home.contact.scopeLabel}</label>
+                      <label htmlFor="contact-scope" className="text-[10px] font-black text-blue-500 uppercase tracking-[0.2em] ml-2">{home.contact.scopeLabel}</label>
                       <select 
+                        id="contact-scope"
                         name="scope"
                         className="w-full bg-white/5 border border-white/10 rounded-2xl px-8 py-5 text-white focus:bg-white/10 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all appearance-none font-bold"
                       >
@@ -139,10 +162,12 @@ export default function ContactPage() {
                       </select>
                     </div>
                     <div className="space-y-4">
-                      <label className="text-[10px] font-black text-blue-500 uppercase tracking-[0.2em] ml-2">{home.contact.requirementsLabel}</label>
+                      <label htmlFor="contact-requirements" className="text-[10px] font-black text-blue-500 uppercase tracking-[0.2em] ml-2">{home.contact.requirementsLabel}</label>
                       <textarea 
+                        id="contact-requirements"
                         name="requirements"
                         required 
+                        aria-invalid={Boolean(formError)}
                         className="w-full bg-white/5 border border-white/10 rounded-2xl px-8 py-8 text-white focus:bg-white/10 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all min-h-[220px] placeholder:text-slate-600 font-bold" 
                         placeholder={home.contact.placeholderRequirements} 
                       ></textarea>

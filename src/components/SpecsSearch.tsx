@@ -50,7 +50,7 @@ export default function SpecsSearch() {
           }}
           onFocus={() => setIsOpen(true)}
           placeholder={catalog.company.ui.searchPlaceholder}
-          className="w-full bg-transparent px-4 py-4 outline-none text-slate-900 text-sm font-semibold placeholder:text-slate-400"
+          className="w-full bg-transparent px-4 h-14 outline-none text-slate-900 text-sm font-semibold placeholder:text-slate-400"
         />
         {query && (
           <button 
@@ -89,13 +89,13 @@ export default function SpecsSearch() {
                       onClick={() => setIsOpen(false)}
                       className="flex items-center gap-6 p-6 hover:bg-slate-50 transition-colors group"
                     >
-                      <div className="relative h-16 w-20 shrink-0 bg-[#f5f5f7] rounded-xl overflow-hidden p-2">
+                      <div className="relative h-16 w-20 shrink-0 bg-white rounded-xl overflow-hidden p-2">
                         <Image 
                           src={product.image} 
                           alt={product.title} 
                           fill 
                           sizes="80px" 
-                          className="object-contain mix-blend-multiply" 
+                          className="object-cover" 
                         />
                       </div>
                       <div className="flex-1 min-w-0">

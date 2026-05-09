@@ -12,7 +12,7 @@ interface HeaderThemeContextType {
 const HeaderThemeContext = createContext<HeaderThemeContextType | undefined>(undefined);
 
 export function HeaderThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setThemeState] = useState<Theme>('dark');
+  const [theme, setThemeState] = useState<Theme>('light');
 
   const setTheme = useCallback((newTheme: Theme) => {
     setThemeState(newTheme);

@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { Rocket, ShieldCheck, ChevronRight, Zap, Target, Gauge } from 'lucide-react';
+import { Rocket, ShieldCheck, ChevronRight, Zap, Target, Gauge, type LucideIcon } from 'lucide-react';
 import ThemeMarker from '@/components/ThemeMarker';
 import { projects, home } from '@/lib/catalog';
 
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   description: 'A deep dive into Kiran Slido Craft’s mission-critical engineering for ISRO’s Gaganyaan crew entry mechanism. Indigenous precision for India’s space mission.',
 };
 
-const iconMap: Record<string, any> = {
+const iconMap: Record<string, LucideIcon> = {
   ShieldCheck,
   Zap,
   Target,

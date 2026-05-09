@@ -1,12 +1,10 @@
 'use client';
 
-'use client';
-
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import type { Variants } from 'framer-motion';
 import { X, Phone, MessageSquare, Mail, ChevronRight, Copy, Check, Globe2, ShieldCheck } from 'lucide-react';
 import { catalog } from '@/lib/catalog';
-import { cn } from '@/lib/utils';
 
 type QuoteModalProps = {
   isOpen: boolean;
@@ -28,7 +26,7 @@ export default function QuoteModal({ isOpen, onClose, productName }: QuoteModalP
   const callUrl = `tel:${phone}`;
   const emailUrl = `mailto:${email}?subject=${encodeURIComponent(`Quote Request: ${productName || 'Technical Inquiry'}`)}`;
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0, scale: 0.95, y: 20 },
     visible: { 
       opacity: 1, 
@@ -36,7 +34,7 @@ export default function QuoteModal({ isOpen, onClose, productName }: QuoteModalP
       y: 0,
       transition: {
         duration: 0.6,
-        ease: [0.16, 1, 0.3, 1] as any,
+        ease: 'easeOut',
         staggerChildren: 0.1,
         delayChildren: 0.2
       }
@@ -66,27 +64,31 @@ export default function QuoteModal({ isOpen, onClose, productName }: QuoteModalP
             initial="hidden"
             animate="visible"
             exit="exit"
-            className="relative w-full max-w-xl bg-white/90 backdrop-blur-3xl rounded-[3rem] shadow-[0_40px_100px_-12px_rgba(0,0,0,0.3)] border border-white/20 overflow-hidden"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="quote-modal-title"
+            className="relative max-h-[92svh] w-full max-w-xl overflow-y-auto rounded-[2rem] border border-white/20 bg-white/95 shadow-[0_40px_100px_-12px_rgba(0,0,0,0.3)] backdrop-blur-3xl sm:rounded-[3rem]"
           >
             {/* Top Navigation Bar */}
-            <div className="flex items-center justify-between px-10 py-8 border-b border-slate-100/50">
+            <div className="flex items-center justify-between gap-4 border-b border-slate-100/50 px-6 py-5 sm:px-10 sm:py-8">
               <div className="flex items-center gap-3">
                 <div className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-600 text-white shadow-lg shadow-blue-600/20">
                   <ShieldCheck className="w-4 h-4" />
                 </div>
-                <span className="text-[10px] font-black text-slate-400 uppercase tracking-[0.3em]">Engineering Inquiry</span>
+                <span className="break-words text-[10px] font-black uppercase leading-5 tracking-[0.22em] text-slate-400">Engineering Inquiry</span>
               </div>
               <button 
                 onClick={onClose}
                 className="group p-3 rounded-full bg-slate-100/50 text-slate-500 hover:bg-slate-950 hover:text-white transition-all active:scale-90"
+                aria-label="Close quote options"
               >
                 <X className="w-4 h-4 transition-transform group-hover:rotate-90" />
               </button>
             </div>
 
-            <div className="p-10 lg:p-14">
+            <div className="p-6 sm:p-10 lg:p-14">
               <div className="mb-12">
-                <h2 className="text-4xl lg:text-5xl font-black text-slate-900 uppercase tracking-tighter leading-[0.9] mb-6">
+                <h2 id="quote-modal-title" className="mb-6 break-words text-4xl font-black uppercase leading-none tracking-tight text-slate-900 lg:text-5xl">
                   Get a <br /><span className="text-blue-600">Specification</span> Quote.
                 </h2>
                 <p className="text-lg text-slate-500 font-medium leading-relaxed max-w-sm">
@@ -113,7 +115,7 @@ export default function QuoteModal({ isOpen, onClose, productName }: QuoteModalP
                       <p className="text-[9px] font-black text-green-600 uppercase tracking-widest">{ui.reachViaWhatsApp}</p>
                       <span className="h-1 w-1 rounded-full bg-green-500 animate-pulse"></span>
                     </div>
-                    <p className="text-lg font-bold text-slate-900 tracking-tight">Direct Technical Chat</p>
+                    <p className="break-words text-lg font-bold tracking-tight text-slate-900">Direct Technical Chat</p>
                   </div>
                   <ChevronRight className="w-5 h-5 text-slate-300 group-hover:text-blue-600 group-hover:translate-x-1 transition-all" />
                 </motion.a>
@@ -129,13 +131,13 @@ export default function QuoteModal({ isOpen, onClose, productName }: QuoteModalP
                     </div>
                     <div className="flex-1">
                       <p className="text-[9px] font-black text-blue-600 uppercase tracking-widest mb-0.5">{ui.reachViaCall}</p>
-                      <p className="text-lg font-bold text-slate-900 tracking-tight">{phoneDisplay}</p>
+                      <p className="break-words text-lg font-bold tracking-tight text-slate-900">{phoneDisplay}</p>
                     </div>
                     <ChevronRight className="w-5 h-5 text-slate-300 group-hover:text-blue-600 group-hover:translate-x-1 transition-all" />
                   </a>
                   <button 
                     onClick={(e) => { e.preventDefault(); copyToClipboard(phone, 'phone'); }}
-                    className="absolute right-14 top-1/2 -translate-y-1/2 p-3 rounded-xl bg-white border border-slate-100 text-slate-400 hover:text-blue-600 hover:shadow-md transition-all opacity-0 group-hover:opacity-100"
+                    className="absolute right-14 top-1/2 -translate-y-1/2 rounded-xl border border-slate-100 bg-white p-3 text-slate-400 opacity-100 transition-all hover:text-blue-600 hover:shadow-md sm:opacity-0 sm:group-hover:opacity-100"
                     title="Copy phone"
                   >
                     {copiedType === 'phone' ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
@@ -159,7 +161,7 @@ export default function QuoteModal({ isOpen, onClose, productName }: QuoteModalP
                   </a>
                   <button 
                     onClick={(e) => { e.preventDefault(); copyToClipboard(email, 'email'); }}
-                    className="absolute right-14 top-1/2 -translate-y-1/2 p-3 rounded-xl bg-white border border-slate-100 text-slate-400 hover:text-blue-600 hover:shadow-md transition-all opacity-0 group-hover:opacity-100"
+                    className="absolute right-14 top-1/2 -translate-y-1/2 rounded-xl border border-slate-100 bg-white p-3 text-slate-400 opacity-100 transition-all hover:text-blue-600 hover:shadow-md sm:opacity-0 sm:group-hover:opacity-100"
                     title="Copy email"
                   >
                     {copiedType === 'email' ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}

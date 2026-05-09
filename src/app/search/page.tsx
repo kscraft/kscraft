@@ -2,13 +2,13 @@
 
 import { useState, useMemo, Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
-import Image from 'next/image';
 import Link from 'next/link';
-import { products, catalog, categories } from '@/lib/catalog';
+import { products, catalog, categories, projects } from '@/lib/catalog';
 import { getProductTrie } from '@/lib/trie';
-import { Search, X, SlidersHorizontal, ArrowRight, Filter, ShieldCheck, Gauge } from 'lucide-react';
+import { Search, X, ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import ProductCard from '@/components/ProductCard';
+import ThemeMarker from '@/components/ThemeMarker';
 
 function SearchContent() {
   const searchParams = useSearchParams();
@@ -50,12 +50,32 @@ function SearchContent() {
     return matchCategory.filter(product => intersectionSlugs.has(product.slug));
   }, [query, selectedCategory, trie]);
 
+  const matchingProjects = useMemo(() => {
+    const terms = query.toLowerCase().split(' ').filter(Boolean);
+    if (!terms.length || selectedCategory !== 'all') return [];
+
+    return projects.highlights.filter((project) => {
+      const searchableText = [
+        project.title,
+        project.subtitle,
+        project.detail,
+        project.showcase?.heroTitle,
+        project.showcase?.heroDescription,
+      ].filter(Boolean).join(' ').toLowerCase();
+
+      return terms.every((term) => searchableText.includes(term));
+    });
+  }, [query, selectedCategory]);
+
+  const totalResults = filteredResults.length + matchingProjects.length;
+
   const { ui } = catalog.company;
 
   return (
     <div className="flex flex-col min-h-screen bg-white">
       {/* Search Header */}
       <section className="hero-light">
+        <ThemeMarker theme="light" className="absolute top-0" />
         <div className="max-container">
           <h1 className="heading-hero text-slate-900 mb-6">
             {ui.searchPageTitle}
@@ -153,15 +173,38 @@ function SearchContent() {
             <main className="flex-1">
               <div className="mb-10 flex items-center justify-between">
                 <p className="text-sm font-bold text-slate-400 uppercase tracking-widest">
-                  {ui.resultsCount.replace('{count}', filteredResults.length.toString())}
+                  {ui.resultsCount.replace('{count}', totalResults.toString())}
                 </p>
               </div>
 
-              {filteredResults.length > 0 ? (
-                <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
-                  {filteredResults.map((product) => (
-                    <ProductCard key={product.slug} product={product} compact />
-                  ))}
+              {totalResults > 0 ? (
+                <div className="space-y-12">
+                  {filteredResults.length > 0 && (
+                    <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+                      {filteredResults.map((product) => (
+                        <ProductCard key={product.slug} product={product} compact />
+                      ))}
+                    </div>
+                  )}
+
+                  {matchingProjects.length > 0 && (
+                    <div className="grid gap-4">
+                      {matchingProjects.map((project) => (
+                        <Link
+                          key={project.slug ?? project.title}
+                          href={project.slug ? `/showcase/${project.slug}` : '/clients'}
+                          className="group flex min-w-0 items-center justify-between gap-6 rounded-[2rem] border border-slate-200 bg-white p-6 transition hover:border-blue-200 hover:shadow-[0_24px_60px_-36px_rgba(15,23,42,0.55)]"
+                        >
+                          <div className="min-w-0">
+                            <p className="mb-2 text-[10px] font-black uppercase tracking-[0.22em] text-blue-600">Engineering Case Study</p>
+                            <h2 className="break-words text-2xl font-black uppercase leading-tight tracking-tight text-slate-950">{project.title}</h2>
+                            <p className="mt-3 line-clamp-2 text-sm font-medium leading-6 text-slate-500">{project.detail}</p>
+                          </div>
+                          <ArrowRight className="h-5 w-5 shrink-0 text-blue-600 transition group-hover:translate-x-1" />
+                        </Link>
+                      ))}
+                    </div>
+                  )}
                 </div>
               ) : (
                 <div className="py-40 text-center bg-slate-50 rounded-[4rem] border border-dashed border-slate-200">

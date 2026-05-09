@@ -1,11 +1,13 @@
 import Image from 'next/image';
 import { Play } from 'lucide-react';
 import { catalog, media } from '@/lib/catalog';
+import ThemeMarker from '@/components/ThemeMarker';
 
 export default function MediaPage() {
   return (
     <div className="flex flex-col min-h-screen bg-white">
       <header className="hero-light">
+        <ThemeMarker theme="light" className="absolute top-0" />
         <div className="max-container">
           <p className="text-eyebrow text-center mb-6">
             Gallery

@@ -2,11 +2,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { catalog, projects } from '@/lib/catalog';
 import { ChevronRight } from 'lucide-react';
+import ThemeMarker from '@/components/ThemeMarker';
 
 export default function ClientsPage() {
   return (
     <div className="flex flex-col min-h-screen bg-white">
       <header className="hero-light">
+        <ThemeMarker theme="light" className="absolute top-0" />
         <div className="max-container">
           <p className="text-eyebrow text-center mb-6">
             Case Studies

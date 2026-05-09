@@ -2,11 +2,10 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Scale, ArrowRightLeft, ChevronUp, ChevronDown, Trash2, ArrowRight } from 'lucide-react';
+import { ArrowRightLeft, ChevronUp, ChevronDown, Trash2, ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Product } from '@/lib/catalog';
-import { cn } from '@/lib/utils';
 
 export default function CompareEngine({ products }: { products: Product[] }) {
   const [selectedSlugs, setSelectedSlugs] = useState<string[]>([]);
@@ -14,8 +13,10 @@ export default function CompareEngine({ products }: { products: Product[] }) {
 
   // Sync with global custom event for adding to compare
   useEffect(() => {
-    const handleCompare = (e: any) => {
-      const slug = e.detail;
+    const handleCompare = (event: Event) => {
+      const slug = (event as CustomEvent<string>).detail;
+      if (!slug) return;
+
       setSelectedSlugs(prev => {
         if (prev.includes(slug)) return prev.filter(s => s !== slug);
         if (prev.length >= 3) return prev;
@@ -35,26 +36,26 @@ export default function CompareEngine({ products }: { products: Product[] }) {
   if (selectedSlugs.length === 0) return null;
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-[100] flex justify-center pointer-events-none pb-8">
+    <div className="pointer-events-none fixed inset-x-0 bottom-0 z-[100] flex justify-center px-3 pb-4 sm:px-6 sm:pb-8">
       <motion.div 
         initial={{ y: 100 }}
         animate={{ y: 0 }}
-        className="w-full max-w-4xl bg-white/70 backdrop-blur-3xl border border-slate-200/50 rounded-full shadow-[0_30px_60px_-12px_rgba(0,0,0,0.1)] overflow-hidden pointer-events-auto"
+        className="pointer-events-auto max-h-[min(78svh,720px)] w-full max-w-4xl overflow-hidden rounded-[2rem] border border-slate-200/60 bg-white/85 shadow-[0_30px_60px_-12px_rgba(0,0,0,0.16)] backdrop-blur-3xl sm:rounded-[2.5rem]"
       >
         {/* Header Bar */}
         <div 
-          className="px-10 py-5 flex items-center justify-between cursor-pointer group"
+          className="group flex cursor-pointer items-center justify-between gap-4 px-5 py-4 sm:px-8 sm:py-5"
           onClick={() => setIsExpanded(!isExpanded)}
         >
-          <div className="flex items-center gap-5">
-            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-600 text-white shadow-lg shadow-blue-600/20 group-hover:scale-105 transition-transform">
+          <div className="flex min-w-0 items-center gap-4">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-blue-600 text-white shadow-lg shadow-blue-600/20 transition-transform group-hover:scale-105">
               <ArrowRightLeft className="w-4 h-4" />
             </div>
-            <p className="text-[11px] font-black text-slate-900 uppercase tracking-[0.2em]">
+            <p className="min-w-0 break-words text-[11px] font-black uppercase leading-5 tracking-[0.16em] text-slate-900">
               Compare Systems ({selectedSlugs.length}/3)
             </p>
           </div>
-          <div className="flex items-center gap-6">
+          <div className="flex shrink-0 items-center gap-3 sm:gap-6">
             <button 
               onClick={(e) => { e.stopPropagation(); setSelectedSlugs([]); }}
               className="text-[10px] font-bold text-slate-400 hover:text-red-500 uppercase tracking-widest transition-colors"
@@ -73,11 +74,11 @@ export default function CompareEngine({ products }: { products: Product[] }) {
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: 'auto', opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
-              className="px-10 pb-12"
+              className="max-h-[calc(min(78svh,720px)-78px)] overflow-y-auto px-5 pb-6 sm:px-8 sm:pb-10"
             >
-              <div className="grid md:grid-cols-3 gap-10 pt-6 border-t border-slate-100">
+              <div className="grid gap-8 border-t border-slate-100 pt-6 md:grid-cols-3">
                 {items.map(product => (
-                  <div key={product.slug} className="space-y-6">
+                  <div key={product.slug} className="min-w-0 space-y-6">
                     <div className="relative aspect-video bg-slate-50 rounded-2xl overflow-hidden p-4 group/item">
                       <Image 
                         src={product.image} 
@@ -93,8 +94,8 @@ export default function CompareEngine({ products }: { products: Product[] }) {
                         <Trash2 className="w-3.5 h-3.5" />
                       </button>
                     </div>
-                    <div>
-                      <h4 className="text-base font-bold text-slate-900 uppercase tracking-tighter leading-none">{product.title}</h4>
+                    <div className="min-w-0">
+                      <h4 className="break-words text-base font-bold uppercase leading-tight tracking-tight text-slate-900">{product.title}</h4>
                       <p className="text-[9px] font-black text-blue-600 uppercase tracking-widest mt-1">{product.category.replace(/-/g, ' ')}</p>
                     </div>
                     

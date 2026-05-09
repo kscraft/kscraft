@@ -4,7 +4,7 @@ test.describe('Kiran Slido Craft E2E', () => {
   test('homepage loads and has correct title', async ({ page }) => {
     await page.goto('/');
     await expect(page).toHaveTitle(/Kiran Slido Craft/);
-    await expect(page.getByText(/Engineering Silence/i)).toBeVisible();
+    await expect(page.getByText('Engineering Silence. Automating Movement.', { exact: true })).toBeVisible();
   });
 
   test('navigation works', async ({ page }) => {
@@ -25,8 +25,6 @@ test.describe('Kiran Slido Craft E2E', () => {
   test('contact form drafts email', async ({ page }) => {
     await page.goto('/contact');
     await page.getByRole('button', { name: /Send Technical Request/i }).click();
-    // Should show validation error or stay on page if native validation is triggered
-    // For our custom server action errors:
-    await expect(page.getByText(/Missing or invalid fields/i).or(page.locator('input:invalid'))).toBeVisible();
+    await expect(page.locator('form [role="alert"]')).toContainText(/Missing or invalid fields/i);
   });
 });

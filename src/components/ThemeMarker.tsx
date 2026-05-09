@@ -12,8 +12,8 @@ type ThemeMarkerProps = {
 export default function ThemeMarker({ theme, className }: ThemeMarkerProps) {
   const { setTheme } = useHeaderTheme();
   const { ref, inView } = useInView({
-    threshold: 0.1,
-    rootMargin: '-10% 0px -90% 0px', // Trigger when section starts hitting the top
+    threshold: 0,
+    rootMargin: '0px 0px -90% 0px', // Trigger while the marker is in the top band of the viewport.
   });
 
   useEffect(() => {
@@ -22,5 +22,5 @@ export default function ThemeMarker({ theme, className }: ThemeMarkerProps) {
     }
   }, [inView, theme, setTheme]);
 
-  return <div ref={ref} className={className} />;
+  return <div ref={ref} className={`pointer-events-none h-px w-px ${className ?? ''}`} />;
 }

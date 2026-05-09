@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useMemo } from 'react';
+import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import { products, catalog } from '@/lib/catalog';
@@ -11,6 +12,7 @@ import { cn } from '@/lib/utils';
 export default function SpecsSearch() {
   const [query, setQuery] = useState('');
   const [isOpen, setIsOpen] = useState(false);
+  const router = useRouter();
 
   const trie = useMemo(() => getProductTrie(products), []);
 
@@ -49,8 +51,14 @@ export default function SpecsSearch() {
             setIsOpen(true);
           }}
           onFocus={() => setIsOpen(true)}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' && query.trim()) {
+              setIsOpen(false);
+              router.push(`/search?q=${encodeURIComponent(query)}`);
+            }
+          }}
           placeholder={catalog.company.ui.searchPlaceholder}
-          className="w-full bg-transparent px-4 py-4 outline-none text-slate-900 text-sm font-semibold placeholder:text-slate-400"
+          className="w-full bg-transparent px-4 h-14 outline-none text-slate-900 text-sm font-semibold placeholder:text-slate-400"
         />
         {query && (
           <button 
@@ -60,9 +68,14 @@ export default function SpecsSearch() {
             <X className="w-4 h-4" />
           </button>
         )}
-        <div className="pr-6 text-slate-300 border-l border-slate-100 ml-2 pl-4">
+        <Link 
+          href="/search"
+          onClick={() => setIsOpen(false)}
+          className="pr-6 text-slate-300 hover:text-blue-600 transition-colors border-l border-slate-100 ml-2 pl-4 cursor-pointer flex items-center h-full"
+          aria-label="Advanced Search Filters"
+        >
           <SlidersHorizontal className="w-4 h-4" />
-        </div>
+        </Link>
       </div>
 
       {/* Results Dropdown */}
@@ -89,13 +102,13 @@ export default function SpecsSearch() {
                       onClick={() => setIsOpen(false)}
                       className="flex items-center gap-6 p-6 hover:bg-slate-50 transition-colors group"
                     >
-                      <div className="relative h-16 w-20 shrink-0 bg-[#f5f5f7] rounded-xl overflow-hidden p-2">
+                      <div className="relative h-16 w-20 shrink-0 bg-white rounded-xl overflow-hidden p-2">
                         <Image 
                           src={product.image} 
                           alt={product.title} 
                           fill 
                           sizes="80px" 
-                          className="object-contain mix-blend-multiply" 
+                          className="object-cover" 
                         />
                       </div>
                       <div className="flex-1 min-w-0">
@@ -124,7 +137,8 @@ export default function SpecsSearch() {
             {filteredProducts.length > 0 && (
               <div className="p-4 bg-slate-50 border-t border-slate-100 text-center">
                 <Link 
-                  href="/category/sound-proof-windows" 
+                  href={`/search?q=${encodeURIComponent(query)}`}
+                  onClick={() => setIsOpen(false)}
                   className="text-xs font-bold text-blue-600 hover:text-blue-700 transition-colors uppercase tracking-widest"
                 >
                   {catalog.company.ui.viewFullCatalog}

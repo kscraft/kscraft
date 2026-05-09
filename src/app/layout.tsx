@@ -7,6 +7,7 @@ import PageTransition from '@/components/PageTransition';
 import CompareEngine from '@/components/CompareEngine';
 import { HeaderThemeProvider } from '@/lib/HeaderThemeContext';
 import { products } from '@/lib/catalog';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -176,6 +177,7 @@ export default function RootLayout({
             <Footer />
           </div>
         </HeaderThemeProvider>
+        <SpeedInsights />
       </body>
     </html>
   );

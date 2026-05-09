@@ -272,7 +272,7 @@ export default function Home() {
                     {home.featured.ctaLabel} <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
                   </span>
                 </div>
-                <div className="absolute bottom-5 right-4 h-[44%] w-[58%] max-w-xl sm:bottom-0 sm:right-0 sm:h-[64%] sm:w-[62%] sm:translate-y-4">
+                <div className="absolute bottom-0 right-0 h-[50%] w-[90%] max-w-xl sm:bottom-0 sm:right-0 sm:h-[64%] sm:w-[62%] sm:translate-y-4">
                   <Image
                     src={item.image}
                     alt={item.title}

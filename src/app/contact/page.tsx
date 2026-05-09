@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { catalog, categories, home } from '@/lib/catalog';
-import { Mail, MapPin, Video, Link as LinkIcon, Send } from 'lucide-react';
+import { Mail, MapPin, Video, Link as LinkIcon, Send, Phone } from 'lucide-react';
 import ThemeMarker from '@/components/ThemeMarker';
 
 export default function ContactPage() {
@@ -77,7 +77,7 @@ export default function ContactPage() {
                       </div>
                       <div>
                         <h3 className="text-2xl font-black text-slate-900 mb-2 uppercase tracking-tighter">{loc.city} Operations</h3>
-                        <p className="text-slate-500 font-medium leading-relaxed">
+                        <p className="text-slate-500 font-medium leading-relaxed whitespace-pre-wrap">
                           {loc.address}
                         </p>
                       </div>
@@ -95,6 +95,19 @@ export default function ContactPage() {
                     </div>
                     <span className="min-w-0 break-all text-xl font-black tracking-tight text-slate-900 transition-colors group-hover:text-blue-600">{catalog.company.email}</span>
                   </a>
+
+                  <div className="group flex min-w-0 items-center gap-8">
+                    <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-blue-50 text-blue-600 border border-blue-100 transition-all group-hover:bg-blue-600 group-hover:text-white shadow-sm">
+                      <Phone className="w-6 h-6" />
+                    </div>
+                    <div className="flex flex-col">
+                      {catalog.company.phoneDisplay.split(', ').map((phone, idx) => (
+                        <a key={idx} href={`tel:${phone.replace(/[^\d+]/g, '')}`} className="min-w-0 break-all text-xl font-black tracking-tight text-slate-900 transition-colors hover:text-blue-600">
+                          {phone}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
                   <div className="flex gap-4 pt-4">
                     <a href={catalog.company.social.youtube} target="_blank" rel="noopener noreferrer" className="flex h-16 w-16 items-center justify-center rounded-2xl bg-slate-50 border border-slate-100 text-slate-900 hover:bg-red-50 hover:text-red-600 hover:border-red-100 transition-all">
                       <Video className="w-7 h-7" />

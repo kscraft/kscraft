@@ -175,7 +175,7 @@ export default function GaganyaanShowcase() {
           </p>
           <Link 
             href={home.engineeringDNA.cta.href} 
-            className="apple-button px-12 py-6 text-sm uppercase tracking-[0.2em] font-black"
+            className="group apple-button px-12 py-6 text-sm uppercase tracking-[0.2em] font-black inline-flex items-center justify-center"
           >
             {home.engineeringDNA.cta.label} <ChevronRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
           </Link>

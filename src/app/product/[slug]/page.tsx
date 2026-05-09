@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { ExternalLink, ShieldCheck } from 'lucide-react';
+import { ExternalLink, ShieldCheck, ChevronRight } from 'lucide-react';
 import ProductCard from '@/components/ProductCard';
 import ProductActions from '@/components/ProductActions';
 import AcousticGraph from '@/components/AcousticGraph';
@@ -244,13 +244,17 @@ export default async function ProductPage({ params }: Props) {
       {related.length > 0 && (
         <section className="section-standard bg-slate-50/30 border-t border-slate-100">
           <div className="max-container">
-            <div className="flex justify-between items-end mb-16 px-6">
-              <div>
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-16 px-6 gap-8">
+              <div className="max-w-2xl">
                 <span className="text-eyebrow">Systems Selection</span>
                 <h2 className="heading-section">Related <br />Solutions.</h2>
               </div>
-              <Link href={`/category/${product.category}`} className="apple-link text-sm uppercase tracking-widest font-black">
-                {catalog.company.ui.exploreAllSystems} &rarr;
+              <Link 
+                href={`/category/${product.category}`} 
+                className="group apple-button-secondary px-8 py-4 text-[11px] uppercase tracking-[0.2em] font-black flex items-center gap-3 self-start sm:self-auto"
+              >
+                {catalog.company.ui.exploreAllSystems} 
+                <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </Link>
             </div>
             <div className="grid gap-10 md:grid-cols-3">

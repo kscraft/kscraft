@@ -176,15 +176,18 @@ export default function Home() {
           <div className="mb-20">
             <SpecsSearch />
           </div>
-          <div className="mb-14 flex flex-col justify-between gap-6 md:flex-row md:items-end">
+          <div className="mb-14 flex flex-col sm:flex-row justify-between items-start sm:items-end gap-10">
             <div className="min-w-0">
               <p className="text-eyebrow mb-4">{home.catalogNav.eyebrow}</p>
               <h2 className="heading-section mb-0">
                 {home.catalogNav.title}
               </h2>
             </div>
-            <Link href={home.catalogNav.cta.href} className="apple-link text-sm">
-              {home.catalogNav.cta.label} <ChevronRight className="h-4 w-4" />
+            <Link 
+              href={home.catalogNav.cta.href} 
+              className="group apple-button-secondary px-8 py-4 text-[11px] uppercase tracking-[0.2em] font-black flex items-center gap-3"
+            >
+              {home.catalogNav.cta.label} <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </Link>
           </div>
 

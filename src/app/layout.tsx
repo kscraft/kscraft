@@ -8,6 +8,7 @@ import CompareEngine from '@/components/CompareEngine';
 import { HeaderThemeProvider } from '@/lib/HeaderThemeContext';
 import { products } from '@/lib/catalog';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Analytics } from '@vercel/analytics/next';
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -178,6 +179,7 @@ export default function RootLayout({
           </div>
         </HeaderThemeProvider>
         <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );

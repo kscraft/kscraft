@@ -1,7 +1,27 @@
+import type { Metadata } from 'next';
 import Image from 'next/image';
 import { Play } from 'lucide-react';
-import { catalog, media } from '@/lib/catalog';
+import { catalog, media, home } from '@/lib/catalog';
 import ThemeMarker from '@/components/ThemeMarker';
+
+export const metadata: Metadata = {
+  title: 'Media Gallery | Kiran Slido Craft – Project Videos & Installation Photos',
+  description: 'Explore video demonstrations and project installation photos of soundproof windows, doors, partitions, motorized sliding roofs, and automation systems.',
+  alternates: {
+    canonical: 'https://kiranslidocraft.com/media',
+  },
+  openGraph: {
+    title: 'Media Gallery | Kiran Slido Craft',
+    description: 'Video demonstrations and project visuals of our precision-engineered acoustic and automation systems.',
+    url: 'https://kiranslidocraft.com/media',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Kiran Slido Craft Media | Videos & Project Gallery',
+    description: 'Watch product demonstrations and explore installation documentation for our acoustic and automation systems.',
+  },
+};
 
 export default function MediaPage() {
   return (
@@ -10,13 +30,13 @@ export default function MediaPage() {
         <ThemeMarker theme="light" className="absolute top-0" />
         <div className="max-container">
           <p className="text-eyebrow text-center mb-6">
-            Gallery
+            {home.mediaUI.heroEyebrow}
           </p>
           <h1 className="heading-hero text-black">
-            Systems <br /> in Focus.
+            {home.mediaUI.heroTitle.split(' in ')[0]} <br /> in {home.mediaUI.heroTitle.split(' in ')[1]}
           </h1>
           <p className="text-body-lg max-w-2xl mx-auto mt-10">
-            A visual documentation of precision engineering and automated movement.
+            {home.mediaUI.heroDescription}
           </p>
         </div>
       </header>
@@ -24,7 +44,7 @@ export default function MediaPage() {
       {/* Video Catalog */}
       <section className="section-standard">
         <div className="max-container">
-          <h2 className="heading-section mb-20">Video Demonstrations.</h2>
+          <h2 className="heading-section mb-20">{home.mediaUI.videoSectionTitle}</h2>
           <div className="grid gap-10 md:grid-cols-2">
             {media.videos.map((video) => (
               <a 
@@ -57,9 +77,9 @@ export default function MediaPage() {
         <div className="max-container">
           <div className="mb-20 flex flex-col md:flex-row md:items-end justify-between gap-8">
             <div className="max-w-2xl">
-              <h2 className="heading-section mb-4">Project Visuals.</h2>
+              <h2 className="heading-section mb-4">{home.mediaUI.imageSectionTitle}</h2>
               <p className="text-slate-500 font-medium text-lg leading-relaxed">
-                Documentation of live engineering deployments across residential and industrial sectors.
+                {home.mediaUI.imageSectionDescription}
               </p>
             </div>
             <div className="bg-blue-600/5 border border-blue-600/10 rounded-[2rem] p-8 md:max-w-xs backdrop-blur-sm">

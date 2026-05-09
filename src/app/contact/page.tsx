@@ -14,7 +14,7 @@ export default function ContactPage() {
     setFormError('');
 
     if (!e.currentTarget.checkValidity()) {
-      setFormError('Missing or invalid fields. Please complete the highlighted fields before sending.');
+      setFormError(home.contact.ui.formError);
       e.currentTarget.reportValidity();
       return;
     }
@@ -25,12 +25,13 @@ export default function ContactPage() {
     const scope = formData.get('scope') as string;
     const requirements = formData.get('requirements') as string;
 
-    const subject = encodeURIComponent(`Technical Inquiry: ${scope} from ${name}`);
+    const subject = encodeURIComponent(home.contact.ui.emailSubject.replace('{scope}', scope).replace('{name}', name));
     const body = encodeURIComponent(
-      `Name: ${name}\n` +
-      `Email: ${email}\n` +
-      `Scope: ${scope}\n\n` +
-      `Technical Requirements:\n${requirements}`
+      home.contact.ui.emailBody
+        .replace('{name}', name)
+        .replace('{email}', email)
+        .replace('{scope}', scope)
+        .replace('{requirements}', requirements)
     );
 
     window.location.href = `mailto:${catalog.company.email}?subject=${subject}&body=${body}`;
@@ -76,7 +77,7 @@ export default function ContactPage() {
                         <MapPin className="w-6 h-6" />
                       </div>
                       <div>
-                        <h3 className="text-2xl font-black text-slate-900 mb-2 uppercase tracking-tighter">{loc.city} Operations</h3>
+                        <h3 className="text-2xl font-black text-slate-900 mb-2 uppercase tracking-tighter">{catalog.company.ui.operationsLabel.replace('{city}', loc.city)}</h3>
                         <p className="text-slate-500 font-medium leading-relaxed whitespace-pre-wrap">
                           {loc.address}
                         </p>
@@ -171,7 +172,7 @@ export default function ContactPage() {
                         {categories.map((category) => (
                           <option key={category.id} value={category.title} className="bg-slate-950 font-bold">{category.title}</option>
                         ))}
-                        <option value="Custom Engineering" className="bg-slate-950 font-bold">Custom Engineering</option>
+                        <option value={home.contact.ui.customEngineering} className="bg-slate-950 font-bold">{home.contact.ui.customEngineering}</option>
                       </select>
                     </div>
                     <div className="space-y-4">

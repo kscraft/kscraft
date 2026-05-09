@@ -1,8 +1,28 @@
+import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { catalog, projects } from '@/lib/catalog';
+import { catalog, projects, home } from '@/lib/catalog';
 import { ChevronRight } from 'lucide-react';
 import ThemeMarker from '@/components/ThemeMarker';
+
+export const metadata: Metadata = {
+  title: 'Clients & Case Studies | Kiran Slido Craft – ISRO, Defence & Enterprise',
+  description: 'Trusted by ISRO Gaganyaan, Indian Defence, and leading enterprises. Explore case studies and project highlights from the Kiran Slido Craft acoustic and automation engineering portfolio.',
+  alternates: {
+    canonical: 'https://kiranslidocraft.com/clients',
+  },
+  openGraph: {
+    title: 'Clients & Case Studies | Kiran Slido Craft',
+    description: 'Engineering trust with ISRO, Defence, and global enterprises. View our high-impact project portfolio.',
+    url: 'https://kiranslidocraft.com/clients',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Kiran Slido Craft Clients | ISRO, Defence & Enterprise Engineering',
+    description: 'Trusted by India\u2019s space program and leading enterprises for mission-critical acoustic and automation systems.',
+  },
+};
 
 export default function ClientsPage() {
   return (
@@ -11,13 +31,13 @@ export default function ClientsPage() {
         <ThemeMarker theme="light" className="absolute top-0" />
         <div className="max-container">
           <p className="text-eyebrow text-center mb-6">
-            Case Studies
+            {home.showcaseUI.caseStudies}
           </p>
           <h1 className="heading-hero text-black">
-            Trust & <br /> Precision.
+            {home.showcaseUI.trustAndPrecision.split(' & ')[0]} & <br /> {home.showcaseUI.trustAndPrecision.split(' & ')[1]}
           </h1>
           <p className="text-body-lg max-w-2xl mx-auto mt-10">
-            Delivering high-impact engineering solutions for leading global organizations.
+            {home.showcaseUI.trustAndPrecisionSub}
           </p>
         </div>
       </header>
@@ -57,7 +77,7 @@ export default function ClientsPage() {
       {/* Client Grid */}
       <section className="section-tint">
         <div className="max-container">
-          <h2 className="heading-section text-center mb-24">Partnering with Leaders.</h2>
+          <h2 className="heading-section text-center mb-24">{home.showcaseUI.partneringWithLeaders}</h2>
           
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-12 items-center justify-items-center opacity-40 grayscale contrast-150">
             {catalog.company.clientLogos.map((client) => (

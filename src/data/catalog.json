@@ -114,7 +114,29 @@
       "reachViaCall": "Call Now",
       "reachViaEmail": "Send Email",
       "quoteTitle": "Get a Specification Quote",
-      "quoteSubtitle": "Connect directly with our engineering team for technical pricing and lead times."
+      "quoteSubtitle": "Connect directly with our engineering team for technical pricing and lead times.",
+      "copyright": "\u00a9 {year} {companyName}. All Rights Reserved.",
+      "privacyPolicy": "Privacy Policy",
+      "termsOfUse": "Terms of Use",
+      "siteMap": "Site Map",
+      "solutions": "Solutions",
+      "company": "Company",
+      "inquiries": "Inquiries",
+      "operationsLabel": "{city} Operations",
+      "corporate": "Corporate",
+      "productsCount": "Products"
+    },
+    "legal": {
+      "privacy": {
+        "title": "Privacy Policy.",
+        "description": "At {companyName}, we take your privacy seriously. This Privacy Policy outlines how we collect, use, and protect your personal information when you use our website or engage with our services.",
+        "contentHtml": "<h2>1. Information We Collect</h2>\n            <p>\n              We may collect the following types of information when you interact with us:\n            </p>\n            <ul>\n              <li><strong>Personal Data:</strong> Name, email address, phone number, and company details when you submit a contact form or request a quote.</li>\n              <li><strong>Usage Data:</strong> Information about how you navigate our website, including IP address, browser type, and operating system, collected via cookies and analytics tools.</li>\n            </ul>\n\n            <h2>2. How We Use Your Information</h2>\n            <p>\n              We use the collected information for the following purposes:\n            </p>\n            <ul>\n              <li>To provide and maintain our engineering and export services.</li>\n              <li>To communicate with you regarding quotes, projects, and support.</li>\n              <li>To improve our website functionality and user experience.</li>\n              <li>To comply with legal and regulatory requirements.</li>\n            </ul>\n\n            <h2>3. Data Protection and Security</h2>\n            <p>\n              We implement industry-standard security measures to protect your personal data from unauthorized access, alteration, or disclosure. However, no internet transmission is entirely secure, and we cannot guarantee absolute security.\n            </p>\n\n            <h2>4. Third-Party Sharing</h2>\n            <p>\n              We do not sell your personal data. We may share necessary information with trusted third-party service providers (e.g., shipping partners, analytics providers) solely to facilitate our services. These partners are bound by strict confidentiality agreements.\n            </p>\n\n            <h2>5. Your Rights</h2>\n            <p>\n              Depending on your jurisdiction, you may have the right to access, update, or delete your personal data. To exercise these rights, please contact us at <a href=\"mailto:{email}\">{email}</a>.\n            </p>\n\n            <h2>6. Changes to This Policy</h2>\n            <p>\n              We may update this Privacy Policy from time to time to reflect changes in our practices or legal obligations. The \"Last Updated\" date will indicate the latest revision.\n            </p>\n\n            <h2>7. Contact Us</h2>\n            <p>\n              If you have any questions or concerns about this Privacy Policy, please contact us at:\n            </p>\n            <address class=\"not-italic\">\n              <strong>{companyName}</strong><br />\n              {address}<br />\n              {city}<br />\n              Email: <a href=\"mailto:{email}\">{email}</a><br />\n              Phone: {phone}\n            </address>"
+      },
+      "terms": {
+        "title": "Terms of Use.",
+        "description": "Welcome to {companyName}. By accessing our website and using our engineering, manufacturing, and export services, you agree to comply with and be bound by the following Terms of Use.",
+        "contentHtml": "<h2>1. Acceptance of Terms</h2>\n            <p>\n              By accessing this website, you accept these Terms of Use in full. If you disagree with any part of these terms, please do not use our website or services.\n            </p>\n\n            <h2>2. Intellectual Property Rights</h2>\n            <p>\n              Unless otherwise stated, {companyName} owns the intellectual property rights for all material on this website, including but not limited to technical specifications, designs, text, and images. All intellectual property rights are reserved. You may view and print pages for your personal use subject to restrictions set in these terms.\n            </p>\n\n            <h2>3. Website Usage</h2>\n            <p>\n              You are specifically restricted from:\n            </p>\n            <ul>\n              <li>Publishing any website material in any other media without prior consent.</li>\n              <li>Selling, sublicensing, or commercializing any website material.</li>\n              <li>Using this website in any way that is or may be damaging to this website or {companyName}.</li>\n              <li>Engaging in any data mining, data harvesting, data extracting, or any other similar activity in relation to this website.</li>\n            </ul>\n\n            <h2>4. Technical Specifications and Accuracy</h2>\n            <p>\n              While we strive to provide accurate technical data, specifications for acoustic systems, automation systems, and other products are subject to change due to ongoing engineering improvements. We do not warrant the completeness or absolute accuracy of the information published on this website. Final product specifications should be confirmed during the quotation and contract phase.\n            </p>\n\n            <h2>5. Limitation of Liability</h2>\n            <p>\n              In no event shall {companyName}, nor any of its officers, directors, and employees, be held liable for anything arising out of or in any way connected with your use of this website. {companyName} shall not be held liable for any indirect, consequential, or special liability arising out of or in any way related to your use of this website.\n            </p>\n\n            <h2>6. Governing Law & Jurisdiction</h2>\n            <p>\n              These Terms will be governed by and interpreted in accordance with the laws of India, and you submit to the non-exclusive jurisdiction of the state and federal courts located in Mumbai, India for the resolution of any disputes.\n            </p>\n\n            <h2>7. Contact Us</h2>\n            <p>\n              If you have any questions about these Terms of Use, please contact us at <a href=\"mailto:{email}\">{email}</a>.\n            </p>"
+      }
     }
   },
   "sources": [
@@ -303,7 +325,12 @@
       "experienceLabel": "Years Experience",
       "systemsLabel": "System Lines",
       "missionTitle": "Our Mission",
-      "visionTitle": "Our Vision"
+      "visionTitle": "Our Vision",
+      "ui": {
+        "systemsLabel": "Systems",
+        "experienceLabel": "Years Experience",
+        "certDetail": "Strict adherence to international quality management systems in every project."
+      }
     },
     "services": {
       "heroTitle": "Service Support.",
@@ -311,7 +338,10 @@
       "assistLabel": "Ready to Assist",
       "assistTitle": "International Standards, Indigenous Support.",
       "assistDescription": "Kiran Slido Craft provides technical response times and support availability that matches our high engineering quality.",
-      "ctaLabel": "Request Service Support"
+      "ctaLabel": "Request Service Support",
+      "ui": {
+        "learnMore": "Learn more"
+      }
     },
     "contact": {
       "heroTitle": "Let us Connect.",
@@ -330,7 +360,43 @@
       "placeholderEmail": "email@company.com",
       "placeholderRequirements": "Briefly describe dimensions, acoustic targets, or automation needs...",
       "submitButton": "Send Technical Request",
-      "processing": "Processing..."
+      "processing": "Processing...",
+      "ui": {
+        "customEngineering": "Custom Engineering",
+        "formError": "Missing or invalid fields. Please complete the highlighted fields before sending.",
+        "emailSubject": "Technical Inquiry: {scope} from {name}",
+        "emailBody": "Name: {name}\nEmail: {email}\nScope: {scope}\n\nTechnical Requirements:\n{requirements}"
+      }
+    },
+    "sitemap": {
+      "title": "Site Map.",
+      "description": "Complete index of all {companyName} engineering solutions and corporate resources.",
+      "corporateLabel": "Corporate",
+      "systemsLabel": "Engineering Systems",
+      "homeLabel": "Home",
+      "contactLabel": "Contact Us",
+      "privacyLabel": "Privacy Policy",
+      "termsLabel": "Terms of Use"
+    },
+    "showcaseUI": {
+      "eliteShowcase": "Elite Showcase",
+      "spaceGrade": "Space Grade",
+      "precisionCertification": "Precision Certification",
+      "viewCaseStudy": "View Case Study",
+      "requestTechnicalDetails": "Request Technical Details",
+      "partneringWithLeaders": "Partnering with Leaders.",
+      "caseStudies": "Case Studies",
+      "trustAndPrecision": "Trust & Precision.",
+      "trustAndPrecisionSub": "Delivering high-impact engineering solutions for leading global organizations.",
+      "productsCount": "products"
+    },
+    "mediaUI": {
+      "heroEyebrow": "Gallery",
+      "heroTitle": "Systems in Focus.",
+      "heroDescription": "A visual documentation of precision engineering and automated movement.",
+      "videoSectionTitle": "Video Demonstrations.",
+      "imageSectionTitle": "Project Visuals.",
+      "imageSectionDescription": "Documentation of live engineering deployments across residential and industrial sectors."
     }
   },
   "media": {

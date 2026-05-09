@@ -32,6 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${product.title} | Kiran Slido Craft - Global Export`,
     description: `${product.description} Available for export to UK, Europe, GCC/MENA, APAC, and Australia. Precision engineered by Kiran Slido Craft.`,
+    keywords: [product.title, `${product.title} manufacturer`, `${product.title} exporter`, 'acoustic engineering', 'soundproofing', 'Kiran Slido Craft'],
     alternates: {
       canonical: url,
     },
@@ -41,7 +42,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       url: url,
       images: [{ url: product.image }],
       type: 'article',
-    }
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${product.title} | Kiran Slido Craft`,
+      description: `${product.description.slice(0, 150)}…`,
+      images: [product.image],
+    },
   };
 }
 

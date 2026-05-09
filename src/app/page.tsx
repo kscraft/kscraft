@@ -117,7 +117,7 @@ export default function Home() {
                   <Rocket className="w-8 h-8" />
                 </div>
                 <div>
-                  <p className="text-[10px] font-black text-blue-600 uppercase tracking-widest mb-1">Elite Showcase</p>
+                  <p className="text-[10px] font-black text-blue-600 uppercase tracking-widest mb-1">{home.showcaseUI.eliteShowcase}</p>
                   <h3 className="text-2xl font-black text-slate-900 uppercase tracking-tight">{projects.highlights[0].title}</h3>
                   <p className="text-sm text-slate-500 font-medium mt-1">{projects.highlights[0].detail.split('. ')[1]}</p>
                 </div>
@@ -136,8 +136,8 @@ export default function Home() {
               </div>
               {/* Floating metrics */}
               <div className="absolute -bottom-10 -left-10 bg-white p-10 rounded-[3rem] shadow-2xl border border-slate-100 hidden md:block">
-                <p className="text-5xl font-black text-blue-600 tracking-tighter">Space Grade</p>
-                <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mt-2">Precision Certification</p>
+                <p className="text-5xl font-black text-blue-600 tracking-tighter">{home.showcaseUI.spaceGrade}</p>
+                <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mt-2">{home.showcaseUI.precisionCertification}</p>
               </div>
             </div>
           </div>
@@ -227,7 +227,7 @@ export default function Home() {
                       </div>
                     </div>
                     <div className="mt-8 flex items-center justify-between gap-3 text-sm font-semibold text-blue-700">
-                      <span className="min-w-0 break-words">{getProductsByCategory(cat.id).length} products</span>
+                      <span className="min-w-0 break-words">{getProductsByCategory(cat.id).length} {home.showcaseUI.productsCount}</span>
                       <ArrowRight className="h-4 w-4 shrink-0 transition group-hover:translate-x-1" />
                     </div>
                   </div>
@@ -358,7 +358,7 @@ export default function Home() {
                         href={`/showcase/${project.slug}`} 
                         className="mt-6 inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest text-blue-600 hover:gap-3 transition-all"
                       >
-                        {catalog.company.ui.viewCaseStudy} <ChevronRight className="h-4 w-4" />
+                        {home.showcaseUI.viewCaseStudy} <ChevronRight className="h-4 w-4" />
                       </Link>
                     )}
                   </div>

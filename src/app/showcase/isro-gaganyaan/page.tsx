@@ -8,7 +8,23 @@ import { projects, home } from '@/lib/catalog';
 
 export const metadata: Metadata = {
   title: 'ISRO Gaganyaan Case Study | Kiran Slido Craft - Aerospace Engineering',
-  description: 'A deep dive into Kiran Slido Craft’s mission-critical engineering for ISRO’s Gaganyaan crew entry mechanism. Indigenous precision for India’s space mission.',
+  description: 'A deep dive into Kiran Slido Craft’s mission-critical engineering for ISRO’s Gaganyaan crew entry mechanism. Indigenous precision for India’s first human space mission.',
+  keywords: ['ISRO Gaganyaan', 'crew entry mechanism', 'aerospace engineering India', 'Kiran Slido Craft ISRO', 'space mission engineering', 'indigenous manufacturing'],
+  alternates: {
+    canonical: 'https://kiranslidocraft.com/showcase/isro-gaganyaan',
+  },
+  openGraph: {
+    title: 'ISRO Gaganyaan Case Study | Kiran Slido Craft',
+    description: 'Mission-critical engineering for ISRO’s Gaganyaan human spaceflight programme. Indigenous precision manufacturing by Kiran Slido Craft.',
+    url: 'https://kiranslidocraft.com/showcase/isro-gaganyaan',
+    images: [{ url: '/images/projects/gaganyaan.jpg' }],
+    type: 'article',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'ISRO Gaganyaan × Kiran Slido Craft | Aerospace Engineering',
+    description: 'How Kiran Slido Craft engineered mission-critical crew entry mechanisms for India’s Gaganyaan space programme.',
+  },
 };
 
 const iconMap: Record<string, LucideIcon> = {

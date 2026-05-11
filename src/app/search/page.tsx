@@ -3,7 +3,7 @@
 import { useState, useMemo, Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { products, catalog, categories, projects } from '@/lib/catalog';
+import { products, catalog, categories, projects, getProductCategoryIds } from '@/lib/catalog';
 import { getProductTrie } from '@/lib/trie';
 import { Search, X, ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -33,7 +33,7 @@ function SearchContent() {
   const filteredResults = useMemo(() => {
     const matchCategory = selectedCategory === 'all' 
       ? products 
-      : products.filter(p => p.category === selectedCategory);
+      : products.filter(p => getProductCategoryIds(p).includes(selectedCategory));
     
     if (!query.trim()) return matchCategory;
     

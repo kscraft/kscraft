@@ -40,8 +40,15 @@ describe('Catalog Library', () => {
     const categoryProducts = getProductsByCategory('sound-proof-windows');
     expect(categoryProducts.length).toBeGreaterThan(0);
     categoryProducts.forEach(product => {
-      expect(product.category).toBe('sound-proof-windows');
+      expect(product.categories).toContain('sound-proof-windows');
     });
+  });
+
+  it('should allow products to appear in multiple categories', () => {
+    const product = getProduct('motorized-vertical-sliding-window');
+    expect(product?.primaryCategory).toBe('motorized-systems');
+    expect(product?.categories).toEqual(expect.arrayContaining(['motorized-systems', 'sound-proof-windows']));
+    expect(getProductsByCategory('sound-proof-windows').some(item => item.slug === product?.slug)).toBe(true);
   });
 
   it('should return an empty array for non-existent category products', () => {

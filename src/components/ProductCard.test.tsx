@@ -6,9 +6,11 @@ import type { Product } from '@/lib/catalog';
 const mockProduct: Product = {
   slug: 'test-product',
   title: 'Test Product',
-  category: 'test-category',
+  primaryCategory: 'test-category',
+  categories: ['test-category'],
   description: 'Test Description',
   image: '/test-image.jpg',
+  images: ['/test-image.jpg'],
   sourceUrls: [],
   legacyRoutes: [],
   specifications: {},

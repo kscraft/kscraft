@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ShieldCheck, ChevronRight } from 'lucide-react';
@@ -7,7 +6,14 @@ import ProductCard from '@/components/ProductCard';
 import ProductActions from '@/components/ProductActions';
 import ProductGallery from '@/components/ProductGallery';
 import AcousticGraph from '@/components/AcousticGraph';
-import { catalog, getCategory, getProduct, getProductsByCategory, products } from '@/lib/catalog';
+import {
+  catalog,
+  getProduct,
+  getProductsByCategory,
+  getProductPrimaryCategory,
+  getProductPrimaryCategoryId,
+  products,
+} from '@/lib/catalog';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -60,8 +66,9 @@ export default async function ProductPage({ params }: Props) {
     notFound();
   }
 
-  const category = getCategory(product.category);
-  const related = getProductsByCategory(product.category)
+  const primaryCategoryId = getProductPrimaryCategoryId(product);
+  const category = getProductPrimaryCategory(product);
+  const related = getProductsByCategory(primaryCategoryId)
     .filter((item) => item.slug !== product.slug)
     .slice(0, 3);
 
@@ -100,7 +107,7 @@ export default async function ProductPage({ params }: Props) {
         '@type': 'ListItem',
         'position': 2,
         'name': category?.title || 'Catalog',
-        'item': `https://kiranslidocraft.com/category/${product.category}`
+        'item': `https://kiranslidocraft.com/category/${primaryCategoryId}`
       },
       {
         '@type': 'ListItem',
@@ -241,7 +248,7 @@ export default async function ProductPage({ params }: Props) {
                 <h2 className="heading-section">Related <br />Solutions.</h2>
               </div>
               <Link 
-                href={`/category/${product.category}`} 
+                href={`/category/${primaryCategoryId}`}
                 className="group apple-button-secondary px-8 py-4 text-[11px] uppercase tracking-[0.2em] font-black inline-flex items-center justify-center gap-3 self-start sm:self-auto"
               >
                 {catalog.company.ui.exploreAllSystems} 

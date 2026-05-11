@@ -17,12 +17,14 @@ export async function GET() {
     supportedInterfaces: [
       {
         name: 'public-web',
+        url: SITE_URL,
         serviceUrl: SITE_URL,
         transport: 'https',
         protocol: 'A2A',
       },
       {
         name: 'llms-catalog',
+        url: `${SITE_URL}/llms.txt`,
         serviceUrl: `${SITE_URL}/llms.txt`,
         transport: 'https',
         protocol: 'text/plain',

@@ -4,9 +4,11 @@ Generated from local checkout of `https://github.com/kscraft/kscraft` on 2026-05
 
 ## Executive Summary
 
-Current `HEAD` does not track `.env`, private key files, service-account JSON, or obvious API tokens in source/config files. The main confirmed leak was historical: reachable git history contained an old WordPress deployment with `.env`, `wp-config.php`, and a database dump. History was rewritten on 2026-05-11 to remove those artifacts from local refs before force-pushing the cleaned repository.
+Current `HEAD` does not track `.env`, private key files, service-account JSON, or obvious API tokens in source/config files. The main confirmed leak was historical: reachable git history contained an old WordPress deployment with `.env`, `wp-config.php`, and a database dump. History was rewritten on 2026-05-11 to remove those artifacts before force-pushing the cleaned repository branches.
 
 GitHub secret scanning and push protection were enabled for this repository on 2026-05-11.
+
+Important residual: GitHub still exposes hidden merged pull-request refs (`refs/pull/1/head` through `refs/pull/4/head`) that clients cannot update or delete. Branch refs are clean, but GitHub Support must purge those hidden refs/cached objects, or the repository should be made private until Support completes the purge.
 
 ## Critical
 
@@ -26,12 +28,16 @@ GitHub secret scanning and push protection were enabled for this repository on 2
   - Redacted inspection confirmed the SQL file is a phpMyAdmin dump for the WordPress database.
 - Remediation performed:
   - Rewrote git history with `git filter-repo` to remove `.env`, `.env.local`, `.env.example`, `docker-compose.yml`, `wp-config.php`, `wp-data/`, `wp_data/`, `wp-admin/`, `wp-content/`, `wp_content/`, `wp-includes/`, root `wp-*.php`, `legacy-wp-backup*`, and historical `node_modules/`.
-  - Verification command found no matching leaked paths across rewritten local refs.
+  - Force-pushed cleaned branch refs for `master`, `main`, `codex/agent-discovery-readiness`, and `feat/amazon-product-gallery`.
+  - Verification command found no matching leaked paths across rewritten public branch refs.
+- Residual:
+  - GitHub rejected client updates to hidden `refs/pull/1/head`, `refs/pull/2/head`, `refs/pull/3/head`, and `refs/pull/4/head`.
+  - These hidden refs require GitHub Support intervention to purge, or repository visibility should be changed to private until Support completes the purge.
 - Impact: Public clone access can recover historical database credentials, WordPress keys/salts, and database contents. If any of those credentials, users, hashes, salts, hostnames, or data are still valid or reused, the affected systems are compromised.
 - Remaining fix outside repository:
   - Rotate every credential ever present in the historical WordPress `.env`, `wp-config.php`, `docker-compose.yml`, and SQL dump.
   - Treat WordPress user password hashes and salts as exposed; force resets for affected users if the data maps to real accounts.
-- Mitigation: Anyone who cloned the repository before the force-push may still have old objects locally.
+- Mitigation: Anyone who cloned the repository before the force-push may still have old objects locally. Hidden GitHub pull-request refs may still expose old objects until GitHub purges them.
 - False positive notes: This is not a false positive. I did not print secret values, but the historical files are recoverable from git.
 
 ## High

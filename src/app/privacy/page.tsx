@@ -6,12 +6,12 @@ export const metadata: Metadata = {
   title: 'Privacy Policy | Kiran Slido Craft',
   description: 'Privacy Policy for Kiran Slido Craft. Learn how we collect, use, and protect your personal data when using our acoustic engineering services and website.',
   alternates: {
-    canonical: 'https://kiranslidocraft.com/privacy',
+    canonical: 'https://doorwindowcraft.com/privacy',
   },
   openGraph: {
     title: 'Privacy Policy | Kiran Slido Craft',
     description: 'How we handle and protect your data. Read our full privacy policy.',
-    url: 'https://kiranslidocraft.com/privacy',
+    url: 'https://doorwindowcraft.com/privacy',
     type: 'website',
   },
 };

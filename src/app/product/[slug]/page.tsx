@@ -6,6 +6,7 @@ import ProductCard from '@/components/ProductCard';
 import ProductActions from '@/components/ProductActions';
 import ProductGallery from '@/components/ProductGallery';
 import AcousticGraph from '@/components/AcousticGraph';
+import blogsData from '@/data/blogs.json';
 import {
   catalog,
   getProduct,
@@ -33,7 +34,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return {};
   }
 
-  const url = `https://kiranslidocraft.com/product/${product.slug}`;
+  const url = `https://doorwindowcraft.com/product/${product.slug}`;
 
   return {
     title: `${product.title} | Kiran Slido Craft - Global Export`,
@@ -72,6 +73,10 @@ export default async function ProductPage({ params }: Props) {
     .filter((item) => item.slug !== product.slug)
     .slice(0, 3);
 
+  const relatedBlogs = blogsData.blogs.filter(blog => 
+    blog.relatedProducts && blog.relatedProducts.includes(product.slug)
+  );
+
   const stcMatch = Object.values(product.specifications).find(v => v.includes('STC'))?.match(/\d+/);
   const stcRating = stcMatch ? parseInt(stcMatch[0]) : null;
 
@@ -80,14 +85,14 @@ export default async function ProductPage({ params }: Props) {
     '@type': 'Product',
     'name': product.title,
     'description': product.description,
-    'image': `https://kiranslidocraft.com${product.image}`,
+    'image': `https://doorwindowcraft.com${product.image}`,
     'brand': {
       '@type': 'Brand',
       'name': 'Kiran Slido Craft'
     },
     'offers': {
       '@type': 'Offer',
-      'url': `https://kiranslidocraft.com/product/${product.slug}`,
+      'url': `https://doorwindowcraft.com/product/${product.slug}`,
       'availability': 'https://schema.org/InStock',
       'areaServed': ['UK', 'Europe', 'GCC', 'MENA', 'APAC', 'Australia', 'India', 'Americas', 'Africa']
     }
@@ -101,19 +106,19 @@ export default async function ProductPage({ params }: Props) {
         '@type': 'ListItem',
         'position': 1,
         'name': 'Home',
-        'item': 'https://kiranslidocraft.com'
+        'item': 'https://doorwindowcraft.com'
       },
       {
         '@type': 'ListItem',
         'position': 2,
         'name': category?.title || 'Catalog',
-        'item': `https://kiranslidocraft.com/category/${primaryCategoryId}`
+        'item': `https://doorwindowcraft.com/category/${primaryCategoryId}`
       },
       {
         '@type': 'ListItem',
         'position': 3,
         'name': product.title,
-        'item': `https://kiranslidocraft.com/product/${product.slug}`
+        'item': `https://doorwindowcraft.com/product/${product.slug}`
       }
     ]
   };
@@ -232,6 +237,42 @@ export default async function ProductPage({ params }: Props) {
                   <h4 className="text-2xl font-black text-slate-900 uppercase tracking-tight">{faq.q}</h4>
                   <p className="text-lg text-slate-500 font-medium leading-relaxed">{faq.a}</p>
                 </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Related Insights Section */}
+      {relatedBlogs.length > 0 && (
+        <section className="section-standard bg-slate-50/50 border-t border-slate-100">
+          <div className="max-container">
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-16 px-6 gap-8">
+              <div className="max-w-2xl">
+                <span className="text-eyebrow">Engineering Resources</span>
+                <h2 className="heading-section">Related <br />Insights.</h2>
+              </div>
+              <Link 
+                href="/blog"
+                className="group apple-button-secondary px-8 py-4 text-[11px] uppercase tracking-[0.2em] font-black inline-flex items-center justify-center gap-3 self-start sm:self-auto"
+              >
+                View all articles
+                <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {relatedBlogs.map(blog => (
+                <Link key={blog.id} href={`/blog/${blog.slug}`} className="group bg-white rounded-3xl p-8 shadow-sm border border-slate-100 hover:shadow-xl hover:border-blue-100 transition-all">
+                  <h3 className="text-xl font-black text-slate-900 mb-3 group-hover:text-blue-600 transition-colors leading-tight">
+                    {blog.title}
+                  </h3>
+                  <p className="text-sm text-slate-500 line-clamp-3 mb-6 font-medium leading-relaxed">
+                    {blog.excerpt}
+                  </p>
+                  <span className="text-[10px] font-black uppercase tracking-widest text-blue-600 inline-flex items-center gap-1">
+                    Read Article <ChevronRight className="w-3 h-3" />
+                  </span>
+                </Link>
               ))}
             </div>
           </div>

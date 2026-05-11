@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 import { products, categories } from '@/lib/catalog';
 
-const SITE_URL = 'https://kiranslidocraft.com';
+const SITE_URL = 'https://doorwindowcraft.com';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();

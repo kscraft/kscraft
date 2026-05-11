@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return {};
   }
 
-  const url = `https://kiranslidocraft.com/category/${category.id}`;
+  const url = `https://doorwindowcraft.com/category/${category.id}`;
   const productCount = getProductsByCategory(category.id).length;
 
   return {
@@ -66,14 +66,14 @@ export default async function CategoryPage({ params }: Props) {
     '@type': 'CollectionPage',
     'name': `${category.title} Lineup`,
     'description': category.description,
-    'url': `https://kiranslidocraft.com/category/${category.id}`,
+    'url': `https://doorwindowcraft.com/category/${category.id}`,
     'mainEntity': {
       '@type': 'ItemList',
       'numberOfItems': products.length,
       'itemListElement': products.map((prod, index) => ({
         '@type': 'ListItem',
         'position': index + 1,
-        'url': `https://kiranslidocraft.com/product/${prod.slug}`,
+        'url': `https://doorwindowcraft.com/product/${prod.slug}`,
         'name': prod.title
       }))
     }
@@ -87,13 +87,13 @@ export default async function CategoryPage({ params }: Props) {
         '@type': 'ListItem',
         'position': 1,
         'name': 'Home',
-        'item': 'https://kiranslidocraft.com'
+        'item': 'https://doorwindowcraft.com'
       },
       {
         '@type': 'ListItem',
         'position': 2,
         'name': category.title,
-        'item': `https://kiranslidocraft.com/category/${category.id}`
+        'item': `https://doorwindowcraft.com/category/${category.id}`
       }
     ]
   };

@@ -34,7 +34,7 @@ ${prod.features.map(f => `  - ${f}`).join('\n')}
 
 ---
 Generated dynamically for AI Agents (Perplexity, ChatGPT, Claude).
-Source: https://kiranslidocraft.com
+Source: https://doorwindowcraft.com
 `;
 
   return new NextResponse(content, {

@@ -7,12 +7,12 @@ export const metadata: Metadata = {
   title: 'Site Map | Kiran Slido Craft – Complete Navigation Index',
   description: 'Navigate through all pages, products, categories, and engineering solutions of Kiran Slido Craft. Complete site index for acoustic systems and automation products.',
   alternates: {
-    canonical: 'https://kiranslidocraft.com/sitemap',
+    canonical: 'https://doorwindowcraft.com/sitemap',
   },
   openGraph: {
     title: 'Site Map | Kiran Slido Craft',
     description: 'Complete index of all Kiran Slido Craft pages, products, and engineering categories.',
-    url: 'https://kiranslidocraft.com/sitemap',
+    url: 'https://doorwindowcraft.com/sitemap',
     type: 'website',
   },
 };

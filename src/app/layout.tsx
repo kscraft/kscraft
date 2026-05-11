@@ -6,10 +6,12 @@ import Footer from '@/components/Footer';
 import PageTransition from '@/components/PageTransition';
 import CompareEngine from '@/components/CompareEngine';
 import ConsentBanner from '@/components/ConsentBanner';
+import WebMcpProvider from '@/components/WebMcpProvider';
 import { HeaderThemeProvider } from '@/lib/HeaderThemeContext';
 import { products } from '@/lib/catalog';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Analytics } from '@vercel/analytics/next';
+import { GoogleAnalytics } from '@next/third-parties/google';
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -186,26 +188,6 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
         />
         <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM Site Map" />
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-HS8VPLD95B"></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-
-            gtag('consent', 'default', {
-              'ad_storage': 'denied',
-              'ad_user_data': 'denied',
-              'ad_personalization': 'denied',
-              'analytics_storage': 'denied'
-            });
-
-            gtag('js', new Date());
-
-            gtag('config', 'G-HS8VPLD95B');
-            `,
-          }}
-        />
       </head>
       <body className="font-sans bg-white antialiased text-slate-900 overflow-x-hidden">
         <HeaderThemeProvider>
@@ -220,6 +202,7 @@ export default function RootLayout({
             <Footer />
           </div>
           <ConsentBanner />
+          <WebMcpProvider />
         </HeaderThemeProvider>
         {isVercelRuntime && (
           <>
@@ -227,6 +210,7 @@ export default function RootLayout({
             <Analytics />
           </>
         )}
+        <GoogleAnalytics gaId="G-HS8VPLD95B" />
       </body>
     </html>
   );

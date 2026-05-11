@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 declare global {
   interface Window {
-    gtag?: (...args: any[]) => void;
+    gtag?: (...args: unknown[]) => void;
   }
 }
 
@@ -59,7 +59,7 @@ export default function ConsentBanner() {
             <div className="flex-1">
               <h3 className="text-lg font-bold tracking-tight mb-2">We value your privacy</h3>
               <p className="text-sm text-slate-400 font-medium leading-relaxed max-w-2xl">
-                We use cookies and similar technologies to measure site traffic and improve your experience. By clicking "Accept", you consent to our use of cookies as described in our{' '}
+                We use cookies and similar technologies to measure site traffic and improve your experience. By clicking &quot;Accept&quot;, you consent to our use of cookies as described in our{' '}
                 <Link href="/privacy" className="text-blue-400 hover:text-blue-300 underline underline-offset-2">
                   Privacy Policy
                 </Link>.

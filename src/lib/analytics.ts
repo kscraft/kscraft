@@ -56,7 +56,7 @@ export async function getPageViews(propertyId: string) {
 export async function trackServerEvent(
   clientId: string, 
   eventName: string, 
-  params: Record<string, any> = {}
+  params: Record<string, unknown> = {}
 ) {
   const measurementId = process.env.GA4_MEASUREMENT_ID;
   const apiSecret = process.env.GA4_API_SECRET;

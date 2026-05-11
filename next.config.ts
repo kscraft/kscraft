@@ -1,6 +1,14 @@
 import type { NextConfig } from "next";
 import catalog from "./src/data/catalog.json";
 
+const AGENT_LINK_HEADER = [
+  '</.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json"',
+  '</openapi.json>; rel="service-desc"; type="application/openapi+json"',
+  '</docs/api>; rel="service-doc"; type="text/html"',
+  '</llms.txt>; rel="describedby"; type="text/plain"',
+  '</.well-known/agent-skills/index.json>; rel="describedby"; type="application/json"',
+].join(', ');
+
 const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
@@ -9,6 +17,23 @@ const nextConfig: NextConfig = {
         hostname: "img.youtube.com",
       },
     ],
+  },
+  async headers() {
+    return [
+      {
+        source: "/",
+        headers: [
+          {
+            key: "Link",
+            value: AGENT_LINK_HEADER,
+          },
+          {
+            key: "Vary",
+            value: "Accept",
+          },
+        ],
+      },
+    ];
   },
   async redirects() {
     const productRedirects = catalog.products.flatMap((product) =>

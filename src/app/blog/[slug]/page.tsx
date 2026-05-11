@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ChevronLeft } from 'lucide-react';
 import ThemeMarker from '@/components/ThemeMarker';
+import { sanitizeTrustedHtml } from '@/lib/sanitize';
 import blogsData from '@/data/blogs.json';
 
 type Props = {
@@ -71,7 +72,7 @@ function renderMarkdown(content: string) {
     return `<p>${p}</p>`;
   });
   
-  return paragraphs.join('');
+  return sanitizeTrustedHtml(paragraphs.join(''));
 }
 
 export default async function BlogPostPage({ params }: Props) {

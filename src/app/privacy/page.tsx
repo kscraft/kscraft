@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { catalog } from '@/lib/catalog';
+import { sanitizeTrustedHtml } from '@/lib/sanitize';
 import ThemeMarker from '@/components/ThemeMarker';
 
 export const metadata: Metadata = {
@@ -41,12 +42,12 @@ export default function PrivacyPolicyPage() {
               {company.legal.privacy.description.replace(/{companyName}/g, company.name)}
             </p>
             <div dangerouslySetInnerHTML={{ 
-              __html: company.legal.privacy.contentHtml
+              __html: sanitizeTrustedHtml(company.legal.privacy.contentHtml
                 .replace(/{companyName}/g, company.name)
                 .replace(/{email}/g, company.email)
                 .replace(/{address}/g, company.locations[0].address)
                 .replace(/{city}/g, company.locations[0].city)
-                .replace(/{phone}/g, company.phoneDisplay)
+                .replace(/{phone}/g, company.phoneDisplay))
             }} />
           </div>
         </div>

@@ -17,6 +17,7 @@ const inter = Inter({
 });
 
 const SITE_URL = 'https://kiranslidocraft.com';
+const isVercelRuntime = process.env.VERCEL === '1' || Boolean(process.env.VERCEL_ENV);
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -198,8 +199,12 @@ export default function RootLayout({
             <Footer />
           </div>
         </HeaderThemeProvider>
-        <SpeedInsights />
-        <Analytics />
+        {isVercelRuntime && (
+          <>
+            <SpeedInsights />
+            <Analytics />
+          </>
+        )}
       </body>
     </html>
   );

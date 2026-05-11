@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRightLeft } from 'lucide-react';
-import { catalog, type Product } from '@/lib/catalog';
+import { catalog, getProductCategoryLabel, type Product } from '@/lib/catalog';
 import { motion } from 'framer-motion';
 
 type ProductCardProps = {
@@ -35,7 +35,7 @@ export default function ProductCard({ product, compact = false }: ProductCardPro
         {/* Content surface */}
         <div className={compact ? "min-w-0 p-4 pb-0 text-center sm:p-8 sm:pb-0" : "min-w-0 p-4 pb-0 text-center sm:p-10 sm:pb-0"}>
           <p className="mb-3 break-words text-[10px] font-bold uppercase tracking-widest text-blue-600">
-            {product.category.replace(/-/g, ' ')}
+            {getProductCategoryLabel(product)}
           </p>
           <h3 className={compact ? "mb-4 break-words text-2xl font-bold leading-tight tracking-tight text-black transition-colors group-hover:text-zinc-600" : "mb-4 break-words text-3xl font-bold leading-tight tracking-tight text-black transition-colors group-hover:text-zinc-600"}>
             {product.title}

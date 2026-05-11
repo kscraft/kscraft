@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRightLeft, ChevronUp, ChevronDown, Trash2, ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Product } from '@/lib/catalog';
+import { getProductCategoryLabel, type Product } from '@/lib/catalog';
 
 export default function CompareEngine({ products }: { products: Product[] }) {
   const [selectedSlugs, setSelectedSlugs] = useState<string[]>([]);
@@ -96,7 +96,7 @@ export default function CompareEngine({ products }: { products: Product[] }) {
                     </div>
                     <div className="min-w-0">
                       <h4 className="break-words text-base font-bold uppercase leading-tight tracking-tight text-slate-900">{product.title}</h4>
-                      <p className="text-[9px] font-black text-blue-600 uppercase tracking-widest mt-1">{product.category.replace(/-/g, ' ')}</p>
+                      <p className="text-[9px] font-black text-blue-600 uppercase tracking-widest mt-1">{getProductCategoryLabel(product)}</p>
                     </div>
                     
                     <div className="space-y-4 pt-4">

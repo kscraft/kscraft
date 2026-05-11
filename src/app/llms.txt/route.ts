@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { catalog, products, categories } from '@/lib/catalog';
+import { catalog, products, categories, getProductCategoryIds, getProductPrimaryCategory } from '@/lib/catalog';
 
 export async function GET() {
   const { company } = catalog;
@@ -23,7 +23,8 @@ ${categories.map(cat => `- ${cat.title}: ${cat.description}`).join('\n')}
 ## Technical Product Specification Index
 ${products.map(prod => `
 ### ${prod.title}
-Category: ${prod.category}
+Primary Category: ${getProductPrimaryCategory(prod)?.title || prod.primaryCategory}
+Categories: ${getProductCategoryIds(prod).join(', ')}
 Description: ${prod.description}
 Technical Specs:
 ${Object.entries(prod.specifications).map(([k, v]) => `  - ${k}: ${v}`).join('\n')}

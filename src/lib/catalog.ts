@@ -16,7 +16,9 @@ export type Category = {
 export type Product = {
   slug: string;
   title: string;
-  category: string;
+  primaryCategory: string;
+  categories: string[];
+  tags?: string[];
   description: string;
   image: string;
   images: string[];
@@ -74,6 +76,12 @@ export type ClientLogo = {
   image: string;
 };
 
+export type LegalDocument = {
+  title: string;
+  description: string;
+  contentHtml: string;
+};
+
 export type HomeContentBlock = {
   eyebrow: string;
   title: string;
@@ -112,7 +120,10 @@ export const catalog = catalogData as {
       badge: string;
       description: string;
     };
-    legal: any;
+    legal: {
+      privacy: LegalDocument;
+      terms: LegalDocument;
+    };
     ui: {
       viewCaseStudy: string;
       requestTechnicalDetails: string;
@@ -227,7 +238,7 @@ export const home = catalogData.home as {
     assistTitle: string;
     assistDescription: string;
     ctaLabel: string;
-    ui: any;
+    ui: Record<string, string>;
   };
   contact: {
     heroTitle: string;
@@ -247,11 +258,11 @@ export const home = catalogData.home as {
     placeholderRequirements: string;
     submitButton: string;
     processing: string;
-    ui: any;
+    ui: Record<string, string>;
   };
-  mediaUI: any;
-  showcaseUI: any;
-  sitemap: any;
+  mediaUI: Record<string, string>;
+  showcaseUI: Record<string, string>;
+  sitemap: Record<string, string>;
 };
 
 export const media = catalogData.media as {
@@ -274,7 +285,23 @@ export function getProduct(slug: string) {
 }
 
 export function getProductsByCategory(categoryId: string) {
-  return products.filter((product) => product.category === categoryId);
+  return products.filter((product) => getProductCategoryIds(product).includes(categoryId));
+}
+
+export function getProductCategoryIds(product: Product) {
+  return product.categories?.length ? product.categories : [product.primaryCategory];
+}
+
+export function getProductPrimaryCategoryId(product: Product) {
+  return product.primaryCategory || getProductCategoryIds(product)[0];
+}
+
+export function getProductPrimaryCategory(product: Product) {
+  return getCategory(getProductPrimaryCategoryId(product));
+}
+
+export function getProductCategoryLabel(product: Product) {
+  return getProductPrimaryCategory(product)?.title || getProductPrimaryCategoryId(product).replace(/-/g, ' ');
 }
 
 export function getFeaturedProducts(limit = 8) {

@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { catalog, categories, products, navigation, home } from '@/lib/catalog';
+import { catalog, categories, navigation, home, getProductsByCategory } from '@/lib/catalog';
 import ThemeMarker from '@/components/ThemeMarker';
 
 export const metadata: Metadata = {
@@ -62,7 +62,7 @@ export default function SitemapPage() {
               <h2 className="text-sm font-black text-blue-600 uppercase tracking-[0.2em] mb-8">{home.sitemap.systemsLabel}</h2>
               <div className="space-y-12">
                 {categories.map((cat) => {
-                  const catProducts = products.filter(p => p.category === cat.id);
+                  const catProducts = getProductsByCategory(cat.id);
                   return (
                     <div key={cat.id}>
                       <Link href={`/category/${cat.id}`} className="text-xl font-black text-slate-900 uppercase tracking-tight hover:text-blue-600 transition-colors block mb-4">

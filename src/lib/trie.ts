@@ -2,7 +2,7 @@
  * A highly optimized Trie (Prefix Tree) implementation for fast 
  * word-level indexing and retrieval of product results.
  */
-import type { Product } from '@/lib/catalog';
+import { categories, getProductCategoryIds, type Product } from '@/lib/catalog';
 
 export class TrieNode {
   children: { [key: string]: TrieNode } = {};
@@ -58,11 +58,16 @@ export function getProductTrie(products: Product[]) {
   if (globalTrie) return globalTrie;
 
   const trie = new SearchTrie();
+  const categoryTitleById = new Map(categories.map((category) => [category.id, category.title]));
+
   for (const product of products) {
+    const categoryIds = getProductCategoryIds(product);
     const searchableText = [
       product.title,
       product.description,
-      product.category,
+      ...categoryIds,
+      ...categoryIds.map((id) => categoryTitleById.get(id) || ''),
+      ...(product.tags || []),
       ...product.features,
       ...product.applications,
       ...Object.values(product.specifications || {}),

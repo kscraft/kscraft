@@ -576,13 +576,14 @@
     {
       "id": "motorized-systems",
       "title": "Automation Systems",
-      "description": "Advanced motorized solutions for security gates, barriers, and specialized architectural movement.",
-      "summary": "Telescopic gates, barriers, and soundproof automation.",
+      "description": "Advanced motorized solutions for security gates, barriers, vertical sliding systems, and specialized architectural movement.",
+      "summary": "Telescopic gates, barriers, vertical sliding systems, and soundproof automation.",
       "image": "/images/products/motorized-sliding-gates.jpg",
       "accent": "Controlled Movement",
       "bestFor": "Entrances, compounds, premium glazing",
       "highlights": [
         "Remote-controlled movement",
+        "Vertical sliding automation",
         "Soft-start drive systems",
         "Safety sensor integration"
       ]
@@ -606,7 +607,6 @@
     {
       "slug": "sound-proof-windows",
       "title": "Acoustic Window Series",
-      "category": "sound-proof-windows",
       "description": "High-performance aluminum acoustic windows featuring precision compression seals and specialized multi-layer glass.",
       "image": "/images/products/sound-proof-windows.jpg",
       "sourceUrls": [
@@ -633,12 +633,15 @@
       ],
       "images": [
         "/images/products/sound-proof-windows.jpg"
+      ],
+      "primaryCategory": "sound-proof-windows",
+      "categories": [
+        "sound-proof-windows"
       ]
     },
     {
       "slug": "sound-proof-sliding-windows",
       "title": "Sound Proof Sliding Windows",
-      "category": "sound-proof-windows",
       "description": "Engineered for wide openings where sound isolation and horizontal movement are critical.",
       "image": "/images/products/sound-proof-sliding-windows.jpg",
       "sourceUrls": [
@@ -679,12 +682,15 @@
         "/images/products/sound-proof-sliding-windows-gallery-3.jpg",
         "/images/products/sound-proof-sliding-windows-gallery-5.jpg",
         "/images/products/sound-proof-sliding-windows-gallery-6.jpg"
+      ],
+      "primaryCategory": "sound-proof-windows",
+      "categories": [
+        "sound-proof-windows"
       ]
     },
     {
       "slug": "sound-proof-tilt-turn-windows",
       "title": "Acoustic Tilt & Turn Windows",
-      "category": "sound-proof-windows",
       "description": "European-style dual opening windows providing maximum perimeter sealing and versatile ventilation.",
       "image": "/images/products/sound-proof-tilt-turn-windows.jpg",
       "sourceUrls": [
@@ -714,12 +720,15 @@
         "/images/products/sound-proof-tilt-turn-windows-gallery-3.jpg",
         "/images/products/sound-proof-tilt-turn-windows-gallery-4.jpg",
         "/images/products/sound-proof-tilt-turn-windows-gallery-5.jpg"
+      ],
+      "primaryCategory": "sound-proof-windows",
+      "categories": [
+        "sound-proof-windows"
       ]
     },
     {
       "slug": "sound-proof-casement-windows",
       "title": "Acoustic Casement Windows",
-      "category": "sound-proof-windows",
       "description": "Traditional openable windows with advanced compression sealing for maximum acoustic isolation.",
       "image": "/images/products/sound-proof-casement-windows.jpg",
       "sourceUrls": [
@@ -749,12 +758,15 @@
         "/images/products/sound-proof-casement-windows-gallery-3.jpg",
         "/images/products/sound-proof-casement-windows-gallery-5.jpg",
         "/images/products/sound-proof-casement-windows-gallery-6.jpg"
+      ],
+      "primaryCategory": "sound-proof-windows",
+      "categories": [
+        "sound-proof-windows"
       ]
     },
     {
       "slug": "sound-proof-top-hung-windows",
       "title": "Acoustic Top Hung Windows",
-      "category": "sound-proof-windows",
       "description": "Specialized windows designed for high-level ventilation with reliable soundproofing performance.",
       "image": "/images/products/sound-proof-top-hung-windows.jpg",
       "sourceUrls": [
@@ -785,12 +797,15 @@
         "/images/products/sound-proof-top-hung-windows-gallery-2.jpg",
         "/images/products/sound-proof-top-hung-windows-gallery-3.jpg",
         "/images/products/sound-proof-top-hung-windows-gallery-4.jpg"
+      ],
+      "primaryCategory": "sound-proof-windows",
+      "categories": [
+        "sound-proof-windows"
       ]
     },
     {
       "slug": "sound-proof-vertical-sliding-windows",
       "title": "Acoustic Vertical Sliding Windows",
-      "category": "sound-proof-windows",
       "description": "Classic vertical sash windows reimagined with modern acoustic engineering for space-saving ventilation.",
       "image": "/images/products/sound-proof-vertical-sliding-windows.jpg",
       "sourceUrls": [
@@ -820,12 +835,15 @@
         "/images/products/sound-proof-vertical-sliding-windows-gallery-1.jpg",
         "/images/products/sound-proof-vertical-sliding-windows-gallery-2.jpg",
         "/images/products/sound-proof-vertical-sliding-windows-gallery-4.jpg"
+      ],
+      "primaryCategory": "sound-proof-windows",
+      "categories": [
+        "sound-proof-windows"
       ]
     },
     {
       "slug": "sound-proof-acoustic-fix-partition",
       "title": "Fixed Acoustic Partition",
-      "category": "sound-proof-partitions",
       "description": "Permanent sound isolation walls with clean architectural finishes and high transmission loss.",
       "image": "/images/products/sound-proof-acoustic-fix-partition.jpg",
       "sourceUrls": [
@@ -854,12 +872,15 @@
         "/images/products/sound-proof-acoustic-fix-partition.jpg",
         "/images/products/sound-proof-acoustic-fix-partition-gallery-2.jpg",
         "/images/products/sound-proof-acoustic-fix-partition-gallery-3.jpg"
+      ],
+      "primaryCategory": "sound-proof-partitions",
+      "categories": [
+        "sound-proof-partitions"
       ]
     },
     {
       "slug": "sound-proof-sliding-folding-partition",
       "title": "Sliding Folding Partition",
-      "category": "sound-proof-partitions",
       "description": "Flexible acoustic partitions that stack neatly, allowing for rapid conversion of large spaces.",
       "image": "/images/products/sound-proof-sliding-folding-partition.jpg",
       "sourceUrls": [
@@ -890,12 +911,15 @@
         "/images/products/sound-proof-sliding-folding-partition-gallery-3.jpg",
         "/images/products/sound-proof-sliding-folding-partition-gallery-5.jpg",
         "/images/products/sound-proof-sliding-folding-partition-gallery-6.jpg"
+      ],
+      "primaryCategory": "sound-proof-partitions",
+      "categories": [
+        "sound-proof-partitions"
       ]
     },
     {
       "slug": "sound-proof-sliding-doors",
       "title": "Acoustic Sliding Doors",
-      "category": "sound-proof-doors",
       "description": "Heavy-duty acoustic sliding systems for wide access points in sound-critical environments.",
       "image": "/images/products/sound-proof-sliding-doors.jpg",
       "sourceUrls": [
@@ -921,12 +945,15 @@
       ],
       "images": [
         "/images/products/sound-proof-sliding-doors.jpg"
+      ],
+      "primaryCategory": "sound-proof-doors",
+      "categories": [
+        "sound-proof-doors"
       ]
     },
     {
       "slug": "sound-proof-sliding-folding-doors",
       "title": "Acoustic Slide-Fold Doors",
-      "category": "sound-proof-doors",
       "description": "Bifold acoustic door systems providing versatile opening widths with high performance sealing.",
       "image": "/images/products/sound-proof-sliding-folding-doors.jpg",
       "sourceUrls": [
@@ -954,12 +981,15 @@
         "/images/products/sound-proof-sliding-folding-doors.jpg",
         "/images/products/sound-proof-sliding-folding-doors-gallery-1.jpg",
         "/images/products/sound-proof-sliding-folding-doors-gallery-3.jpg"
+      ],
+      "primaryCategory": "sound-proof-doors",
+      "categories": [
+        "sound-proof-doors"
       ]
     },
     {
       "slug": "sound-proof-swing-doors",
       "title": "Acoustic Swing Doors",
-      "category": "sound-proof-doors",
       "description": "Professional swing doors engineered for maximum sound transmission loss and daily reliability.",
       "image": "/images/products/sound-proof-swing-doors.jpg",
       "sourceUrls": [
@@ -987,12 +1017,15 @@
         "/images/products/sound-proof-swing-doors.jpg",
         "/images/products/sound-proof-swing-doors-gallery-2.jpg",
         "/images/products/sound-proof-swing-doors-gallery-3.jpg"
+      ],
+      "primaryCategory": "sound-proof-doors",
+      "categories": [
+        "sound-proof-doors"
       ]
     },
     {
       "slug": "motorized-sliding-system",
       "title": "Automated Movement Systems",
-      "category": "motorized-systems",
       "description": "Bespoke motorized solutions for architectural elements requiring high-torque controlled movement.",
       "image": "/images/products/motorized-sliding-system.jpg",
       "sourceUrls": [
@@ -1018,12 +1051,15 @@
       "images": [
         "/images/products/motorized-sliding-system.jpg",
         "/images/products/motorized-sliding-system-gallery-2.jpg"
+      ],
+      "primaryCategory": "motorized-systems",
+      "categories": [
+        "motorized-systems"
       ]
     },
     {
       "slug": "motorized-sound-proof-window",
       "title": "Automated Acoustic Window",
-      "category": "motorized-systems",
       "description": "Soundproof window systems equipped with integrated automation for effortless remote operation.",
       "image": "/images/products/motorized-sound-proof-window.jpg",
       "sourceUrls": [
@@ -1054,12 +1090,16 @@
         "/images/products/motorized-sound-proof-window-gallery-3.jpg",
         "/images/products/motorized-sound-proof-window-gallery-5.jpg",
         "/images/products/motorized-sound-proof-window-gallery-6.jpg"
+      ],
+      "primaryCategory": "motorized-systems",
+      "categories": [
+        "motorized-systems",
+        "sound-proof-windows"
       ]
     },
     {
       "slug": "motorized-frameless-vertical-sliding-system",
       "title": "Frameless Vertical Automation",
-      "category": "motorized-systems",
       "description": "Minimalist frameless vertical sliding systems for modern architectural balconies and terraces.",
       "image": "/images/products/motorized-frameless-vertical-sliding-system.jpg",
       "sourceUrls": [
@@ -1086,12 +1126,16 @@
       "images": [
         "/images/products/motorized-frameless-vertical-sliding-system.jpg",
         "/images/products/motorized-frameless-vertical-sliding-system-gallery-1.jpg"
+      ],
+      "primaryCategory": "motorized-systems",
+      "categories": [
+        "motorized-systems",
+        "sound-proof-windows"
       ]
     },
     {
       "slug": "motorized-sliding-roof",
       "title": "Motorized Sliding Roof",
-      "category": "roof-sliding-systems",
       "description": "High-end retractable roofing for architectural terraces, offering up to 100% open-to-sky capability.",
       "image": "/images/products/motorized-sliding-roof.jpg",
       "sourceUrls": [
@@ -1121,12 +1165,16 @@
         "/images/products/motorized-sliding-roof-gallery-2.jpg",
         "/images/products/motorized-sliding-roof-gallery-4.jpg",
         "/images/products/motorized-sliding-roof-gallery-5.jpg"
+      ],
+      "primaryCategory": "roof-sliding-systems",
+      "categories": [
+        "roof-sliding-systems",
+        "motorized-systems"
       ]
     },
     {
       "slug": "stainless-steel-frame-roof-sliding-system",
       "title": "SS Frame Retractable Roof",
-      "category": "roof-sliding-systems",
       "description": "Premium sliding roof systems utilizing high-grade stainless steel frames for extreme durability.",
       "image": "/images/products/stainless-steel-frame-roof-sliding-system.jpg",
       "sourceUrls": [
@@ -1154,12 +1202,16 @@
         "/images/products/stainless-steel-frame-roof-sliding-system-gallery-1.jpg",
         "/images/products/stainless-steel-frame-roof-sliding-system-gallery-3.jpg",
         "/images/products/stainless-steel-frame-roof-sliding-system-gallery-4.jpg"
+      ],
+      "primaryCategory": "roof-sliding-systems",
+      "categories": [
+        "roof-sliding-systems",
+        "motorized-systems"
       ]
     },
     {
       "slug": "aluminium-frame-roof-sliding-system",
       "title": "Aluminum Frame Sliding Roof",
-      "category": "roof-sliding-systems",
       "description": "Lightweight and efficient sliding roof solutions using architectural grade aluminum extrusions.",
       "image": "/images/products/aluminium-frame-roof-sliding-system-gallery-2.jpg",
       "sourceUrls": [
@@ -1187,12 +1239,16 @@
         "/images/products/aluminium-frame-roof-sliding-system-gallery-2.jpg",
         "/images/products/aluminium-frame-roof-sliding-system-gallery-3.jpg",
         "/images/products/aluminium-frame-roof-sliding-system-gallery-4.jpg"
+      ],
+      "primaryCategory": "roof-sliding-systems",
+      "categories": [
+        "roof-sliding-systems",
+        "motorized-systems"
       ]
     },
     {
       "slug": "sound-proof-acoustic-movable-partition",
       "title": "Movable Acoustic Partition",
-      "category": "sound-proof-partitions",
       "description": "Large-scale flexible wall systems designed for professional environments requiring quick layout changes.",
       "image": "/images/products/sound-proof-acoustic-movable-partition.jpg",
       "sourceUrls": [
@@ -1224,12 +1280,15 @@
         "/images/products/sound-proof-acoustic-movable-partition-gallery-4.jpg",
         "/images/products/sound-proof-acoustic-movable-partition-gallery-5.jpg",
         "/images/products/sound-proof-acoustic-movable-partition-gallery-6.jpg"
+      ],
+      "primaryCategory": "sound-proof-partitions",
+      "categories": [
+        "sound-proof-partitions"
       ]
     },
     {
       "slug": "motorized-soundproof-sliding-windows",
       "title": "Motorized Acoustic Sliding Windows",
-      "category": "motorized-systems",
       "description": "Automated soundproof glass systems for premium residential and hospitality projects.",
       "image": "/images/products/motorized-soundproof-sliding-windows.jpg",
       "sourceUrls": [
@@ -1257,13 +1316,17 @@
       "images": [
         "/images/products/motorized-soundproof-sliding-windows.jpg",
         "/images/products/motorized-soundproof-sliding-windows-gallery-2.jpg"
+      ],
+      "primaryCategory": "motorized-systems",
+      "categories": [
+        "motorized-systems",
+        "sound-proof-windows"
       ]
     },
     {
       "slug": "motorized-vertical-sliding-window",
-      "title": "Motorized Vertical sliding Window",
-      "category": "motorized-systems",
-      "description": "Automated vertical sash windows for space-efficient ventilation and acoustic control.",
+      "title": "Motorized Vertical Sliding System",
+      "description": "Automated vertical sliding systems for space-efficient ventilation, glazing movement, and acoustic control.",
       "image": "/images/products/motorized-vertical-sliding-window.jpg",
       "sourceUrls": [
         "https://www.kiranslidocraft.co.in/motorized-vertical-sliding-window.htm"
@@ -1278,6 +1341,7 @@
         "Safety": "Anti-pinch sensors"
       },
       "features": [
+        "Automation-ready vertical movement",
         "Sleek frameless look available",
         "Programmable opening heights",
         "Superior sound reduction"
@@ -1290,12 +1354,16 @@
         "/images/products/motorized-vertical-sliding-window.jpg",
         "/images/products/motorized-vertical-sliding-window-gallery-3.jpg",
         "/images/products/motorized-vertical-sliding-window-gallery-4.jpg"
+      ],
+      "primaryCategory": "motorized-systems",
+      "categories": [
+        "motorized-systems",
+        "sound-proof-windows"
       ]
     },
     {
       "slug": "motorized-telescopic-gates",
       "title": "Motorized Telescopic Gates",
-      "category": "motorized-systems",
       "description": "Space-saving multi-leaf automated gates for narrow entryways requiring wide opening clearance.",
       "image": "/images/products/motorized-telescopic-gates.jpg",
       "sourceUrls": [
@@ -1321,12 +1389,15 @@
       ],
       "images": [
         "/images/products/motorized-telescopic-gates.jpg"
+      ],
+      "primaryCategory": "motorized-systems",
+      "categories": [
+        "motorized-systems"
       ]
     },
     {
       "slug": "motorized-sliding-gates",
       "title": "Automated Sliding Gates",
-      "category": "motorized-systems",
       "description": "Heavy-duty automated sliding entry systems for high-security residential and industrial compounds.",
       "image": "/images/products/motorized-sliding-gates.jpg",
       "sourceUrls": [
@@ -1352,12 +1423,15 @@
       ],
       "images": [
         "/images/products/motorized-sliding-gates.jpg"
+      ],
+      "primaryCategory": "motorized-systems",
+      "categories": [
+        "motorized-systems"
       ]
     },
     {
       "slug": "motorized-barrier-system",
       "title": "Motorized Barrier System",
-      "category": "motorized-systems",
       "description": "Rapid response automated boom barriers for vehicle access control and site security.",
       "image": "/images/products/motorized-barrier-system.jpg",
       "sourceUrls": [
@@ -1384,6 +1458,10 @@
       ],
       "images": [
         "/images/products/motorized-barrier-system.jpg"
+      ],
+      "primaryCategory": "motorized-systems",
+      "categories": [
+        "motorized-systems"
       ]
     }
   ]

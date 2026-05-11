@@ -4,7 +4,7 @@ import { useState, useMemo } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
-import { products, catalog } from '@/lib/catalog';
+import { products, catalog, getProductCategoryLabel } from '@/lib/catalog';
 import { getProductTrie } from '@/lib/trie';
 import { Search, SlidersHorizontal, ArrowRight, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -113,7 +113,7 @@ export default function SpecsSearch() {
                       </div>
                       <div className="flex-1 min-w-0">
                         <p className="text-[10px] font-bold text-blue-600 uppercase tracking-widest mb-1">
-                          {product.category.replace(/-/g, ' ')}
+                          {getProductCategoryLabel(product)}
                         </p>
                         <h4 className="text-lg font-bold text-slate-900 truncate leading-tight">
                           {product.title}

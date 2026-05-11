@@ -8,7 +8,7 @@ Current `HEAD` does not track `.env`, private key files, service-account JSON, o
 
 GitHub secret scanning and push protection were enabled for this repository on 2026-05-11.
 
-Important residual: GitHub still exposes hidden merged pull-request refs (`refs/pull/1/head` through `refs/pull/4/head`) that clients cannot update or delete. Branch refs are clean, and `main`, `master`, `feat/amazon-product-gallery`, and `codex/agent-discovery-readiness` now all point at the cleaned `372f768` commit. `git push --mirror`, the GitHub REST API, GitHub GraphQL, and the installed GitHub connector all rejected or could not address changes to those hidden refs. GitHub Support must purge those hidden refs/cached objects, or the repository should be made private until Support completes the purge.
+Important residual: GitHub still exposes hidden merged pull-request refs (`refs/pull/1/head` through `refs/pull/4/head`) that clients cannot update or delete. Branch refs are clean, and `main`, `master`, `feat/amazon-product-gallery`, and `codex/agent-discovery-readiness` now point at cleaned branch tips. `git push --mirror`, the GitHub REST API, GitHub GraphQL, and the installed GitHub connector all rejected or could not address changes to those hidden refs. GitHub Support must purge those hidden refs/cached objects, or the repository should be made private until Support completes the purge.
 
 ## Critical
 
@@ -29,7 +29,7 @@ Important residual: GitHub still exposes hidden merged pull-request refs (`refs/
 - Remediation performed:
   - Rewrote git history with `git filter-repo` to remove `.env`, `.env.local`, `.env.example`, `docker-compose.yml`, `wp-config.php`, `wp-data/`, `wp_data/`, `wp-admin/`, `wp-content/`, `wp_content/`, `wp-includes/`, root `wp-*.php`, `legacy-wp-backup*`, and historical `node_modules/`.
   - Force-pushed cleaned branch refs for `master`, `main`, `codex/agent-discovery-readiness`, and `feat/amazon-product-gallery`.
-  - Verified the normal branch refs now all point to cleaned commit `372f7688af8c04966a2471d82be5550bccda4231`.
+  - Verified the normal branch refs now point to cleaned commits.
   - Verification command found no matching leaked paths across rewritten public branch refs.
 - Residual:
   - GitHub rejected client updates to hidden `refs/pull/1/head`, `refs/pull/2/head`, `refs/pull/3/head`, and `refs/pull/4/head`.

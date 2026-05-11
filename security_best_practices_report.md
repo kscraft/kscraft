@@ -8,7 +8,7 @@ Current `HEAD` does not track `.env`, private key files, service-account JSON, o
 
 GitHub secret scanning and push protection were enabled for this repository on 2026-05-11.
 
-Important residual: GitHub still exposes hidden merged pull-request refs (`refs/pull/1/head` through `refs/pull/4/head`) that clients cannot update or delete. Branch refs are clean, but GitHub Support must purge those hidden refs/cached objects, or the repository should be made private until Support completes the purge.
+Important residual: GitHub still exposes hidden merged pull-request refs (`refs/pull/1/head` through `refs/pull/4/head`) that clients cannot update or delete. Branch refs are clean, and both `git push --mirror` and the GitHub REST API rejected changes to those hidden refs. GitHub Support must purge those hidden refs/cached objects, or the repository should be made private until Support completes the purge.
 
 ## Critical
 
@@ -59,13 +59,14 @@ Important residual: GitHub still exposes hidden merged pull-request refs (`refs/
 ### SEC-003: Vulnerable Next.js proxy bypass advisory reported by npm audit
 
 - Severity: High
-- Status: Remediated for the high proxy-bypass advisory; residual moderate PostCSS advisory remains upstream inside Next
+- Status: Remediated
 - Location: `package.json` / `package-lock.json`
 - Evidence: `npm audit --audit-level=moderate --json` reports `next >=16.0.0 <16.2.6` affected by `GHSA-26hh-7cqf-hhc6`, "Middleware / Proxy bypass in App Router applications via segment-prefetch routes - Incomplete Fix Follow-Up".
-- Remediation performed: Updated `next`, `@next/third-parties`, and `eslint-config-next` to `16.2.6`.
+- Remediation performed:
+  - Updated `next`, `@next/third-parties`, and `eslint-config-next` to `16.2.6`.
+  - Added an npm `overrides.postcss` rule so Next's nested PostCSS resolves to patched `postcss@8.5.14`.
 - Impact: App Router proxy/middleware protections can potentially be bypassed on affected versions. This app uses a Next proxy for markdown negotiation and discovery headers.
-- Remaining issue: npm audit still reports a moderate PostCSS advisory through `next/node_modules/postcss@8.4.31`; npm reports no non-breaking fix in the current Next release.
-- Fix: Monitor and update to the next patched Next release once it vendors PostCSS `>=8.5.10`.
+- Verification: `npm audit --audit-level=moderate --json` reports `0` vulnerabilities after the override.
 - Mitigation: Avoid relying on Proxy/Middleware as the sole auth boundary for sensitive routes until patched.
 - False positive notes: `npm audit` reported no direct fix available from the installed advisory data at scan time.
 

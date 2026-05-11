@@ -9,7 +9,7 @@ import { HeaderThemeProvider } from '@/lib/HeaderThemeContext';
 import { products } from '@/lib/catalog';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Analytics } from '@vercel/analytics/next';
-import { GoogleAnalytics } from '@next/third-parties/google';
+import Script from 'next/script';
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -186,6 +186,19 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
         />
         <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM Site Map" />
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-HS8VPLD95B"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-HS8VPLD95B');
+          `}
+        </Script>
       </head>
       <body className="font-sans bg-white antialiased text-slate-900 overflow-x-hidden">
         <HeaderThemeProvider>
@@ -206,7 +219,6 @@ export default function RootLayout({
             <Analytics />
           </>
         )}
-        <GoogleAnalytics gaId="G-HS8VPLD95B" />
       </body>
     </html>
   );

@@ -6,12 +6,12 @@ export const metadata: Metadata = {
   title: 'Terms of Use | Kiran Slido Craft',
   description: 'Terms of Use for Kiran Slido Craft. Read our terms and conditions governing the use of our website, engineering services, and intellectual property.',
   alternates: {
-    canonical: 'https://kiranslidocraft.com/terms',
+    canonical: 'https://doorwindowcraft.com/terms',
   },
   openGraph: {
     title: 'Terms of Use | Kiran Slido Craft',
     description: 'Terms and conditions for using Kiran Slido Craft services and website.',
-    url: 'https://kiranslidocraft.com/terms',
+    url: 'https://doorwindowcraft.com/terms',
     type: 'website',
   },
 };

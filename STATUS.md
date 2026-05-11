@@ -34,9 +34,9 @@ The website has been reimagined with **Apple's iconic minimalist design language
 - **Data Source:** `src/data/catalog.json` (Verified technical data)
 
 ## Pending Tasks / Next Steps
-- [ ] **Contact Form Backend:** Implement Next.js Server Actions to handle quote requests and technical inquiries.
-- [ ] **Specs Search:** Add a focused search interface for finding specific systems by technical requirements (e.g., searching for "STC 50").
-- [ ] **SEO Tuning:** Enhance `generateMetadata` with industry-specific keywords (Acoustics, Automation, ISO Certified).
+- [ ] **Contact Form Backend:** Implement Next.js Server Actions to handle quote requests and technical inquiries. (Note: May be unnecessary for static export).
+- [x] **Specs Search:** Added a focused search interface for finding specific systems by technical requirements.
+- [x] **SEO Tuning:** Enhanced `generateMetadata` with industry-specific keywords (Acoustics, Automation, ISO Certified).
 
 ## Handover Instructions for Codex Agent
 The project is in a highly polished, minimalist state. Maintain the "Apple-style" discipline: avoid adding unnecessary borders, shadows, or colors. Keep focus on high-quality product photography and technical precision.

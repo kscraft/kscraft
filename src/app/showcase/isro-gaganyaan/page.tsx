@@ -11,12 +11,12 @@ export const metadata: Metadata = {
   description: 'A deep dive into Kiran Slido Craft’s mission-critical engineering for ISRO’s Gaganyaan crew entry mechanism. Indigenous precision for India’s first human space mission.',
   keywords: ['ISRO Gaganyaan', 'crew entry mechanism', 'aerospace engineering India', 'Kiran Slido Craft ISRO', 'space mission engineering', 'indigenous manufacturing'],
   alternates: {
-    canonical: 'https://kiranslidocraft.com/showcase/isro-gaganyaan',
+    canonical: 'https://doorwindowcraft.com/showcase/isro-gaganyaan',
   },
   openGraph: {
     title: 'ISRO Gaganyaan Case Study | Kiran Slido Craft',
     description: 'Mission-critical engineering for ISRO’s Gaganyaan human spaceflight programme. Indigenous precision manufacturing by Kiran Slido Craft.',
-    url: 'https://kiranslidocraft.com/showcase/isro-gaganyaan',
+    url: 'https://doorwindowcraft.com/showcase/isro-gaganyaan',
     images: [{ url: '/images/projects/gaganyaan.jpg' }],
     type: 'article',
   },
@@ -51,19 +51,19 @@ export default function GaganyaanShowcase() {
         '@type': 'ListItem',
         'position': 1,
         'name': 'Home',
-        'item': 'https://kiranslidocraft.com'
+        'item': 'https://doorwindowcraft.com'
       },
       {
         '@type': 'ListItem',
         'position': 2,
         'name': 'Case Studies',
-        'item': 'https://kiranslidocraft.com/clients'
+        'item': 'https://doorwindowcraft.com/clients'
       },
       {
         '@type': 'ListItem',
         'position': 3,
         'name': project.title,
-        'item': `https://kiranslidocraft.com/showcase/${project.slug}`
+        'item': `https://doorwindowcraft.com/showcase/${project.slug}`
       }
     ]
   };

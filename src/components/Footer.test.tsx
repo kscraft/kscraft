@@ -19,6 +19,6 @@ describe('Footer Component', () => {
 
   it('renders contact email', () => {
     render(<Footer />);
-    expect(screen.getByRole('link', { name: /info@kiranslidocraft.com/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /info@doorwindowcraft.com/i })).toBeInTheDocument();
   });
 });

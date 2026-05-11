@@ -6,7 +6,7 @@
     "description": "Kiran Slido Craft is an ISO 9001:2015 certified leader and licensed global exporter of advanced acoustic systems and architectural automation. We deliver European-standard precision through indigenous Indian engineering across the UK, Europe, GCC/MENA, APAC, Australia, and the Indian Subcontinent.",
     "mission": "To engineer world-class acoustic and automation solutions that define modern living and working environments.",
     "vision": "Leading the future of architectural engineering through continuous innovation and customized technical excellence.",
-    "email": "info@kiranslidocraft.com",
+    "email": "info@doorwindowcraft.com",
     "phone": "+919324084590",
     "phoneDisplay": "+91 - 22 - 28897880, +91 - 93240 84590",
     "locations": [
@@ -115,7 +115,7 @@
       "reachViaEmail": "Send Email",
       "quoteTitle": "Get a Specification Quote",
       "quoteSubtitle": "Connect directly with our engineering team for technical pricing and lead times.",
-      "copyright": "\u00a9 {year} {companyName}. All Rights Reserved.",
+      "copyright": "© {year} {companyName}. All Rights Reserved.",
       "privacyPolicy": "Privacy Policy",
       "termsOfUse": "Terms of Use",
       "siteMap": "Site Map",
@@ -140,8 +140,8 @@
     }
   },
   "sources": [
-    "https://kiranslidocraft.com/",
-    "https://www.kiranslidocraft.co.in/"
+    "https://doorwindowcraft.com/",
+    "https://www.doorwindowcraft.com/"
   ],
   "navigation": {
     "header": [
@@ -160,6 +160,10 @@
       {
         "label": "Engineering",
         "href": "/services"
+      },
+      {
+        "label": "Insights",
+        "href": "/blog"
       },
       {
         "label": "Media",
@@ -458,7 +462,7 @@
           "heroDescription": "Engineering the crew entry and deboarding mechanism for India's pioneering Gaganyaan space mission.",
           "challengeLabel": "The Challenge",
           "challengeTitle": "Beyond Standard Specifications.",
-          "challengeDescription": "When ISRO required a reliable, precision-engineered mechanism for astronaut movement, they didn't just need a vendor\u2014they needed an engineering partner capable of indigenous innovation. The ask: A robust crew onboarding and deboarding lander mechanism designed for the extreme demands of the Gaganyaan program. Every millimeter of movement had to be perfectly orchestrated, ensuring absolute safety for India's first manned space flight.",
+          "challengeDescription": "When ISRO required a reliable, precision-engineered mechanism for astronaut movement, they didn't just need a vendor—they needed an engineering partner capable of indigenous innovation. The ask: A robust crew onboarding and deboarding lander mechanism designed for the extreme demands of the Gaganyaan program. Every millimeter of movement had to be perfectly orchestrated, ensuring absolute safety for India's first manned space flight.",
           "stats": [
             {
               "label": "Zero Failure Tolerance",
@@ -487,7 +491,7 @@
         },
         "faqs": [
           {
-            "q": "What was Kiran Slido Craft\u2019s role in the Gaganyaan mission?",
+            "q": "What was Kiran Slido Craft’s role in the Gaganyaan mission?",
             "a": "We engineered the critical crew onboarding and deboarding lander mechanism, ensuring precise movement and safety for astronauts."
           },
           {
@@ -610,7 +614,7 @@
       "description": "High-performance aluminum acoustic windows featuring precision compression seals and specialized multi-layer glass.",
       "image": "/images/products/sound-proof-windows.jpg",
       "sourceUrls": [
-        "https://www.kiranslidocraft.co.in/sound-proof-windows.htm"
+        "https://www.doorwindowcraft.com/sound-proof-windows.htm"
       ],
       "legacyRoutes": [
         "soundproofwindow.php",
@@ -645,7 +649,7 @@
       "description": "Engineered for wide openings where sound isolation and horizontal movement are critical.",
       "image": "/images/products/sound-proof-sliding-windows.jpg",
       "sourceUrls": [
-        "https://www.kiranslidocraft.co.in/sound-proof-sliding-windows.htm"
+        "https://www.doorwindowcraft.com/sound-proof-sliding-windows.htm"
       ],
       "legacyRoutes": [
         "sliding-windows.php",
@@ -694,7 +698,7 @@
       "description": "European-style dual opening windows providing maximum perimeter sealing and versatile ventilation.",
       "image": "/images/products/sound-proof-tilt-turn-windows.jpg",
       "sourceUrls": [
-        "https://www.kiranslidocraft.co.in/sound-proof-tilt-turn-windows.htm"
+        "https://www.doorwindowcraft.com/sound-proof-tilt-turn-windows.htm"
       ],
       "legacyRoutes": [
         "tilt-n-turn-windows.php",
@@ -729,10 +733,10 @@
     {
       "slug": "sound-proof-casement-windows",
       "title": "Acoustic Casement Windows",
-      "description": "Traditional openable windows with advanced compression sealing for maximum acoustic isolation.",
+      "description": "The industry standard for maximum noise reduction. Our Sound Proof Casement Windows utilize a triple-point compression seal and heavy-duty decoupled frames to completely eliminate flanking paths. Delivering exceptional OITC and STC acoustic ratings, these windows are the definitive solution for properties situated near airports, highways, or heavy industrial zones.",
       "image": "/images/products/sound-proof-casement-windows.jpg",
       "sourceUrls": [
-        "https://www.kiranslidocraft.co.in/sound-proof-casement-windows.htm"
+        "https://www.doorwindowcraft.com/sound-proof-casement-windows.htm"
       ],
       "legacyRoutes": [
         "sound-proof-casement-windows.htm"
@@ -770,7 +774,7 @@
       "description": "Specialized windows designed for high-level ventilation with reliable soundproofing performance.",
       "image": "/images/products/sound-proof-top-hung-windows.jpg",
       "sourceUrls": [
-        "https://www.kiranslidocraft.co.in/sound-proof-top-hung-windows.htm"
+        "https://www.doorwindowcraft.com/sound-proof-top-hung-windows.htm"
       ],
       "legacyRoutes": [
         "top-hung-windows.php",
@@ -809,7 +813,7 @@
       "description": "Classic vertical sash windows reimagined with modern acoustic engineering for space-saving ventilation.",
       "image": "/images/products/sound-proof-vertical-sliding-windows.jpg",
       "sourceUrls": [
-        "https://www.kiranslidocraft.co.in/sound-proof-vertical-sliding-windows.htm"
+        "https://www.doorwindowcraft.com/sound-proof-vertical-sliding-windows.htm"
       ],
       "legacyRoutes": [
         "vertical-sliding-windows.php",
@@ -847,7 +851,7 @@
       "description": "Permanent sound isolation walls with clean architectural finishes and high transmission loss.",
       "image": "/images/products/sound-proof-acoustic-fix-partition.jpg",
       "sourceUrls": [
-        "https://www.kiranslidocraft.co.in/sound-proof-acoustic-fix-partition.htm"
+        "https://www.doorwindowcraft.com/sound-proof-acoustic-fix-partition.htm"
       ],
       "legacyRoutes": [
         "sound-proof-fixed-partition.php",
@@ -884,7 +888,7 @@
       "description": "Flexible acoustic partitions that stack neatly, allowing for rapid conversion of large spaces.",
       "image": "/images/products/sound-proof-sliding-folding-partition.jpg",
       "sourceUrls": [
-        "https://www.kiranslidocraft.co.in/sound-proof-sliding-folding-partition.htm"
+        "https://www.doorwindowcraft.com/sound-proof-sliding-folding-partition.htm"
       ],
       "legacyRoutes": [
         "sound-proof-sliding-folding-partition.htm"
@@ -920,10 +924,10 @@
     {
       "slug": "sound-proof-sliding-doors",
       "title": "Acoustic Sliding Doors",
-      "description": "Heavy-duty acoustic sliding systems for wide access points in sound-critical environments.",
+      "description": "Engineered for ultimate acoustic isolation, our Sound Proof Sliding Doors feature an advanced compression sealing system and multi-layered acoustic laminated glass. Designed to achieve superior STC ratings, these doors block high-decibel exterior noise, making them ideal for recording studios, luxury hotels, and commercial boardrooms where space-saving sliding mechanics and speech privacy are critical.",
       "image": "/images/products/sound-proof-sliding-doors.jpg",
       "sourceUrls": [
-        "https://www.kiranslidocraft.co.in/sound-proof-sliding-doors.htm"
+        "https://www.doorwindowcraft.com/sound-proof-sliding-doors.htm"
       ],
       "legacyRoutes": [
         "sound-proof-sliding-doors.htm"
@@ -957,7 +961,7 @@
       "description": "Bifold acoustic door systems providing versatile opening widths with high performance sealing.",
       "image": "/images/products/sound-proof-sliding-folding-doors.jpg",
       "sourceUrls": [
-        "https://www.kiranslidocraft.co.in/sound-proof-sliding-folding-doors.htm"
+        "https://www.doorwindowcraft.com/sound-proof-sliding-folding-doors.htm"
       ],
       "legacyRoutes": [
         "sound-proof-sliding-folding-doors.htm"
@@ -993,7 +997,7 @@
       "description": "Professional swing doors engineered for maximum sound transmission loss and daily reliability.",
       "image": "/images/products/sound-proof-swing-doors.jpg",
       "sourceUrls": [
-        "https://www.kiranslidocraft.co.in/sound-proof-swing-doors.htm"
+        "https://www.doorwindowcraft.com/sound-proof-swing-doors.htm"
       ],
       "legacyRoutes": [
         "sound-proof-swing-doors.htm"
@@ -1029,7 +1033,7 @@
       "description": "Bespoke motorized solutions for architectural elements requiring high-torque controlled movement.",
       "image": "/images/products/motorized-sliding-system.jpg",
       "sourceUrls": [
-        "https://kiranslidocraft.com/motorized-sliding-system.php"
+        "https://doorwindowcraft.com/motorized-sliding-system.php"
       ],
       "legacyRoutes": [
         "motorized-sliding-system.php"
@@ -1063,7 +1067,7 @@
       "description": "Soundproof window systems equipped with integrated automation for effortless remote operation.",
       "image": "/images/products/motorized-sound-proof-window.jpg",
       "sourceUrls": [
-        "https://www.kiranslidocraft.co.in/motorized-sound-proof-window.htm"
+        "https://www.doorwindowcraft.com/motorized-sound-proof-window.htm"
       ],
       "legacyRoutes": [
         "motorized-sound-proof-window.htm"
@@ -1103,7 +1107,7 @@
       "description": "Minimalist frameless vertical sliding systems for modern architectural balconies and terraces.",
       "image": "/images/products/motorized-frameless-vertical-sliding-system.jpg",
       "sourceUrls": [
-        "https://www.kiranslidocraft.co.in/motorized-frameless-vertical-sliding-system.htm"
+        "https://www.doorwindowcraft.com/motorized-frameless-vertical-sliding-system.htm"
       ],
       "legacyRoutes": [
         "motorized-frameless-vertical-sliding-system.htm"
@@ -1136,10 +1140,10 @@
     {
       "slug": "motorized-sliding-roof",
       "title": "Motorized Sliding Roof",
-      "description": "High-end retractable roofing for architectural terraces, offering up to 100% open-to-sky capability.",
+      "description": "Transform indoor spaces with our premium Motorized Sliding Roofs. Engineered with high-torque electromechanical drives and thermally broken aluminum frames, these retractable glass roofs provide seamless climate control, natural ventilation via the stack effect, and spectacular sky views. Built to withstand extreme weather while maintaining perfect acoustic and thermal insulation when closed.",
       "image": "/images/products/motorized-sliding-roof.jpg",
       "sourceUrls": [
-        "https://www.kiranslidocraft.co.in/motorized-sliding-roof.htm"
+        "https://www.doorwindowcraft.com/motorized-sliding-roof.htm"
       ],
       "legacyRoutes": [
         "motorized-sliding-roof.htm"
@@ -1178,7 +1182,7 @@
       "description": "Premium sliding roof systems utilizing high-grade stainless steel frames for extreme durability.",
       "image": "/images/products/stainless-steel-frame-roof-sliding-system.jpg",
       "sourceUrls": [
-        "https://kiranslidocraft.com/stainless-steel-frame.php"
+        "https://doorwindowcraft.com/stainless-steel-frame.php"
       ],
       "legacyRoutes": [
         "stainless-steel-frame.php"
@@ -1215,7 +1219,7 @@
       "description": "Lightweight and efficient sliding roof solutions using architectural grade aluminum extrusions.",
       "image": "/images/products/aluminium-frame-roof-sliding-system-gallery-2.jpg",
       "sourceUrls": [
-        "https://kiranslidocraft.com/aluminium-frame.php"
+        "https://doorwindowcraft.com/aluminium-frame.php"
       ],
       "legacyRoutes": [
         "aluminium-frame.php"
@@ -1252,7 +1256,7 @@
       "description": "Large-scale flexible wall systems designed for professional environments requiring quick layout changes.",
       "image": "/images/products/sound-proof-acoustic-movable-partition.jpg",
       "sourceUrls": [
-        "https://www.kiranslidocraft.co.in/sound-proof-acoustic-movable-partition.htm"
+        "https://www.doorwindowcraft.com/sound-proof-acoustic-movable-partition.htm"
       ],
       "legacyRoutes": [
         "sound-proof-movable-partition.php",
@@ -1292,7 +1296,7 @@
       "description": "Automated soundproof glass systems for premium residential and hospitality projects.",
       "image": "/images/products/motorized-soundproof-sliding-windows.jpg",
       "sourceUrls": [
-        "https://www.kiranslidocraft.co.in/motorized-soundproof-sliding-windows.htm"
+        "https://www.doorwindowcraft.com/motorized-soundproof-sliding-windows.htm"
       ],
       "legacyRoutes": [
         "motorized-sound-proof-sliding-windows.php",
@@ -1329,7 +1333,7 @@
       "description": "Automated vertical sliding systems for space-efficient ventilation, glazing movement, and acoustic control.",
       "image": "/images/products/motorized-vertical-sliding-window.jpg",
       "sourceUrls": [
-        "https://www.kiranslidocraft.co.in/motorized-vertical-sliding-window.htm"
+        "https://www.doorwindowcraft.com/motorized-vertical-sliding-window.htm"
       ],
       "legacyRoutes": [
         "motorized-vertical-sliding-window.php",
@@ -1367,7 +1371,7 @@
       "description": "Space-saving multi-leaf automated gates for narrow entryways requiring wide opening clearance.",
       "image": "/images/products/motorized-telescopic-gates.jpg",
       "sourceUrls": [
-        "https://www.kiranslidocraft.co.in/motorized-telescopic-gates.htm"
+        "https://www.doorwindowcraft.com/motorized-telescopic-gates.htm"
       ],
       "legacyRoutes": [
         "motorized-telescopic-gate.php",
@@ -1401,7 +1405,7 @@
       "description": "Heavy-duty automated sliding entry systems for high-security residential and industrial compounds.",
       "image": "/images/products/motorized-sliding-gates.jpg",
       "sourceUrls": [
-        "https://www.kiranslidocraft.co.in/motorized-sliding-gates.htm"
+        "https://www.doorwindowcraft.com/motorized-sliding-gates.htm"
       ],
       "legacyRoutes": [
         "motorized-sliding-gate.php",
@@ -1435,7 +1439,7 @@
       "description": "Rapid response automated boom barriers for vehicle access control and site security.",
       "image": "/images/products/motorized-barrier-system.jpg",
       "sourceUrls": [
-        "https://www.kiranslidocraft.co.in/motorized-barrier-system.htm"
+        "https://www.doorwindowcraft.com/motorized-barrier-system.htm"
       ],
       "legacyRoutes": [
         "barrier-system.php",

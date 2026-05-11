@@ -2,7 +2,7 @@
 
 ## Project Goal
 
-Rebuild the Kiran Slido Craft website so it aligns with `kiranslidocraft.com` and `kiranslidocraft.co.in`, restores the missing catalog/product pages, uses source product imagery, and presents a modern responsive UI.
+Rebuild the Kiran Slido Craft website for the new domain `doorwindowcraft.com`, restores the missing catalog/product pages, uses source product imagery, and presents a modern responsive UI.
 
 ## Current Implementation
 
@@ -10,7 +10,7 @@ Rebuild the Kiran Slido Craft website so it aligns with `kiranslidocraft.com` an
 - Product source of truth: `src/data/catalog.json`.
 - Catalog helpers: `src/lib/catalog.ts`.
 - Current catalog coverage: 23 products across 5 categories.
-- Source-site crawl coverage: 31 reachable pages from `kiranslidocraft.com`, 40 sitemap/internal pages from `kiranslidocraft.co.in`.
+- Source-site crawl coverage: 31 reachable pages from the original `.com` site, 40 sitemap/internal pages from the original `.co.in` site.
 - Static routes generated:
   - `/`
   - `/about`

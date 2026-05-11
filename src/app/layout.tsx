@@ -9,6 +9,7 @@ import { HeaderThemeProvider } from '@/lib/HeaderThemeContext';
 import { products } from '@/lib/catalog';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Analytics } from '@vercel/analytics/next';
+import { GoogleAnalytics } from '@next/third-parties/google';
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -16,7 +17,7 @@ const inter = Inter({
   variable: '--font-inter',
 });
 
-const SITE_URL = 'https://kiranslidocraft.com';
+const SITE_URL = 'https://doorwindowcraft.com';
 const isVercelRuntime = process.env.VERCEL === '1' || Boolean(process.env.VERCEL_ENV);
 
 export const metadata: Metadata = {
@@ -105,7 +106,7 @@ export default function RootLayout({
       '@type': 'ContactPoint',
       'telephone': '+91-9324084590',
       'contactType': 'customer service',
-      'email': 'info@kiranslidocraft.com',
+      'email': 'info@doorwindowcraft.com',
       'availableLanguage': ['English', 'Hindi', 'Marathi', 'Bengali']
     },
     'areaServed': [
@@ -205,6 +206,7 @@ export default function RootLayout({
             <Analytics />
           </>
         )}
+        <GoogleAnalytics gaId="G-HS8VPLD95B" />
       </body>
     </html>
   );

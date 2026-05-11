@@ -9,12 +9,12 @@ export const metadata: Metadata = {
   title: 'Services & Support | Kiran Slido Craft – AMC, Installation & Maintenance',
   description: 'Comprehensive installation, annual maintenance contracts (AMC), and technical lifecycle support for acoustic systems, motorized automation, and architectural soundproofing solutions.',
   alternates: {
-    canonical: 'https://kiranslidocraft.com/services',
+    canonical: 'https://doorwindowcraft.com/services',
   },
   openGraph: {
     title: 'Services & Technical Support | Kiran Slido Craft',
     description: 'Installation, maintenance, and lifecycle support for our acoustic and automation systems. ISO 9001 certified service excellence.',
-    url: 'https://kiranslidocraft.com/services',
+    url: 'https://doorwindowcraft.com/services',
     type: 'website',
   },
   twitter: {

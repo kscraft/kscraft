@@ -11,9 +11,15 @@ import { BetaAnalyticsDataClient } from '@google-analytics/data';
 
 /**
  * Initialize the Analytics Data Client.
- * Requires GOOGLE_APPLICATION_CREDENTIALS environment variable to be set.
+ * Supports GOOGLE_APPLICATION_CREDENTIALS (file path) or GA4_SERVICE_ACCOUNT_JSON (raw JSON string).
  */
-export const analyticsDataClient = new BetaAnalyticsDataClient();
+const credentials = process.env.GA4_SERVICE_ACCOUNT_JSON 
+  ? JSON.parse(process.env.GA4_SERVICE_ACCOUNT_JSON) 
+  : undefined;
+
+export const analyticsDataClient = new BetaAnalyticsDataClient(
+  credentials ? { credentials } : undefined
+);
 
 /**
  * Example: Fetch page views for the last 30 days.

@@ -5,6 +5,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import PageTransition from '@/components/PageTransition';
 import CompareEngine from '@/components/CompareEngine';
+import ConsentBanner from '@/components/ConsentBanner';
 import { HeaderThemeProvider } from '@/lib/HeaderThemeContext';
 import { products } from '@/lib/catalog';
 import { SpeedInsights } from '@vercel/speed-insights/next';
@@ -212,6 +213,7 @@ export default function RootLayout({
             <CompareEngine products={products} />
             <Footer />
           </div>
+          <ConsentBanner />
         </HeaderThemeProvider>
         {isVercelRuntime && (
           <>

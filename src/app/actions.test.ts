@@ -60,6 +60,7 @@ describe('Server Actions', () => {
     formData.append('name', 'John Doe');
     formData.append('email', 'john@example.com');
     formData.append('phone', '+91 9876543210');
+    formData.append('city', 'Mumbai');
     formData.append('scope', 'Acoustic Windows');
     formData.append('requirements', 'I need STC 50 windows for my studio.');
 
@@ -78,6 +79,7 @@ describe('Server Actions', () => {
     formData.append('name', 'John Doe');
     formData.append('email', 'john@example.com');
     formData.append('phone', '+91 9876543210');
+    formData.append('city', 'Mumbai');
     formData.append('scope', 'Acoustic Windows');
     formData.append('requirements', 'I need STC 50 windows for my studio.');
 
@@ -107,6 +109,7 @@ describe('Server Actions', () => {
     formData.append('name', 'John Doe');
     formData.append('email', 'john@example.com');
     formData.append('phone', '+91 9876543210');
+    formData.append('city', 'Mumbai');
     formData.append('scope', 'Acoustic Windows');
     formData.append('requirements', 'I need STC 50 windows for my studio.');
 
@@ -126,6 +129,7 @@ describe('Server Actions', () => {
     formData.append('name', 'John Doe');
     formData.append('email', 'john@example.com');
     formData.append('phone', '+91 9876543210');
+    formData.append('city', 'Mumbai');
     formData.append('scope', 'Acoustic Windows');
     formData.append('requirements', 'I need STC 50 windows for my studio.');
 
@@ -162,6 +166,7 @@ describe('Server Actions', () => {
     formData.append('name', 'John Doe');
     formData.append('email', 'john@example.com');
     formData.append('phone', '+91 9876543210');
+    formData.append('city', 'Mumbai');
     formData.append('scope', 'Acoustic Windows');
     formData.append('requirements', 'I need STC 50 windows for my studio.');
 

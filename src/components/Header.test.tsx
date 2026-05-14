@@ -10,8 +10,8 @@ describe('Header Component', () => {
 
   it('renders desktop navigation links', () => {
     render(<Header />);
-    expect(screen.getByRole('link', { name: 'Overview' })).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: 'Acoustics' })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: 'Engineering' })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: 'Case Studies' })).toBeInTheDocument();
   });
 
   it('renders get quote button', () => {

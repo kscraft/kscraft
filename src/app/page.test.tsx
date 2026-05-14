@@ -5,8 +5,8 @@ import Home from './page';
 describe('Home Page', () => {
   it('renders hero section', () => {
     render(<Home />);
-    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(/Kiran Slido Craft/i);
-    expect(screen.getByText(/serving the UK, Europe/i)).toBeInTheDocument();
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(/Soundproof Windows/i);
+    expect(screen.getByText(/Gaganyaan's capsule entry/i)).toBeInTheDocument();
   });
 
   it('renders call to action buttons', () => {

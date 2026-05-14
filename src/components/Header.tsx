@@ -54,14 +54,6 @@ const Header = () => {
               Engineering & Manufacturing
             </span>
           </div>
-          <div className="h-8 w-px bg-slate-200/20 hidden sm:block"></div>
-          <Image 
-            src={isHeaderLight ? "/images/make-in-india-white.svg" : "/images/make-in-india.svg"} 
-            alt="Make in India" 
-            width={80} 
-            height={24} 
-            className="h-5 w-auto hidden sm:block opacity-90" 
-          />
         </Link>
 
         {/* Desktop Nav */}

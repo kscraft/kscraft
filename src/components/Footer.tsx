@@ -19,10 +19,6 @@ export default function Footer() {
               {catalog.company.tagline} <br />
               Precision architectural solutions since {catalog.company.founded}.
             </p>
-            <div className="flex items-center gap-4 pt-4 border-t border-slate-200/50">
-              <Image src="/images/make-in-india.svg" alt="Make in India" width={90} height={32} className="h-7 w-auto opacity-100" />
-              <span className="text-[8px] font-bold text-slate-500 uppercase tracking-widest leading-tight">Indigenous Indian <br />Engineering</span>
-            </div>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 md:col-span-3 gap-12">

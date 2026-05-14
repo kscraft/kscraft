@@ -62,7 +62,7 @@ real-world projects.
 **Differentiation:**
 
 - ISO 9001:2015 certified Engineering and Manufacturing.
-- Core contributor to the 'Make in India' initiative with indigenous precision.
+- Indigenous precision and European-standard quality.
 - Mission-critical credibility from Gaganyaan's capsule entry mechanism.
 - Broad acoustic plus automation catalog from one engineering-led manufacturer.
 - Verified installation imagery and project references.

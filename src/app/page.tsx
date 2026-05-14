@@ -117,8 +117,6 @@ export default function Home() {
             <div className="lg:w-1/2">
               <div className="flex items-center gap-6 mb-8">
                 <span className="text-eyebrow mb-0">{home.engineeringDNA.eyebrow}</span>
-                <div className="h-px w-12 bg-slate-200"></div>
-                <Image src="/images/make-in-india.svg" alt="Make in India" width={100} height={32} className="h-8 w-auto opacity-100 transition-all" />
               </div>
               <h2 className="heading-page text-slate-900 mb-10">
                 World-Class <br />

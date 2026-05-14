@@ -93,8 +93,12 @@ async function submitToGoogleIndexingApi(urls: string[]) {
           },
         });
         console.log(`✅ Google updated: ${url} (Status: ${res.status})`);
-      } catch (err: any) {
-        console.error(`❌ Google API error for ${url}:`, err.message || err);
+      } catch (err: unknown) {
+        if (err instanceof Error) {
+          console.error(`❌ Google API error for ${url}:`, err.message);
+        } else {
+          console.error(`❌ Google API error for ${url}:`, err);
+        }
       }
     }
   } catch (err) {

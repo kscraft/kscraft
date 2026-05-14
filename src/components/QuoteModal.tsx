@@ -1,9 +1,10 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { Variants } from 'framer-motion';
-import { X, Phone, MessageSquare, Mail, ChevronRight, Copy, Check, Globe2, ShieldCheck } from 'lucide-react';
+import { X, Phone, MessageSquare, Mail, ChevronRight, Copy, Check, Globe2, ShieldCheck, Send } from 'lucide-react';
 import { catalog } from '@/lib/catalog';
 
 type QuoteModalProps = {
@@ -166,6 +167,24 @@ export default function QuoteModal({ isOpen, onClose, productName }: QuoteModalP
                   >
                     {copiedType === 'email' ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
                   </button>
+                </motion.div>
+
+                {/* Technical Form Redirect */}
+                <motion.div variants={itemVariants}>
+                  <Link 
+                    href={`/contact?scope=${encodeURIComponent(productName || '')}`}
+                    onClick={onClose}
+                    className="group flex items-center gap-6 p-6 rounded-3xl bg-blue-600 hover:bg-blue-700 text-white shadow-xl shadow-blue-600/20 transition-all"
+                  >
+                    <div className="h-12 w-12 rounded-2xl bg-white/20 flex items-center justify-center text-white group-hover:scale-110 transition-transform">
+                      <Send className="w-5 h-5" />
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-[9px] font-black text-blue-200 uppercase tracking-widest mb-0.5">Formal Inquiry</p>
+                      <p className="break-words text-lg font-bold tracking-tight">Detailed Technical Request</p>
+                    </div>
+                    <ChevronRight className="w-5 h-5 text-blue-300 group-hover:translate-x-1 transition-all" />
+                  </Link>
                 </motion.div>
               </div>
             </div>

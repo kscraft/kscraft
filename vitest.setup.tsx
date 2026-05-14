@@ -11,6 +11,9 @@ vi.mock('next/navigation', () => ({
     replace: vi.fn(),
     prefetch: vi.fn(),
   }),
+  useSearchParams: () => ({
+    get: vi.fn(),
+  }),
   notFound: vi.fn(),
 }));
 

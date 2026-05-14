@@ -36,17 +36,17 @@ export default function Home() {
       <section className="hero-dark isolate">
         <ThemeMarker theme="dark" className="absolute top-0" />
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_20%_15%,rgba(37,99,235,0.26),transparent_32%),linear-gradient(135deg,#020617_0%,#0f172a_48%,#111827_100%)]" />
-        <div className="max-container grid min-h-[74svh] w-full gap-10 lg:grid-cols-[minmax(0,0.95fr)_minmax(360px,0.82fr)] lg:items-center px-6">
+        <div className="max-container grid min-h-[74svh] w-full gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center px-6">
           <motion.div
             initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="min-w-0 max-w-4xl"
+            className="min-w-0"
           >
             <p className="text-eyebrow text-blue-200">
               {home.hero.eyebrow}
             </p>
-            <h1 className="heading-hero text-white">
+            <h1 className="heading-hero text-white max-w-[15ch] lg:max-w-none">
               {home.hero.title.split(' ').slice(0, 2).join(' ')} <br /><span className="text-blue-500">{home.hero.title.split(' ').slice(2).join(' ')}</span>
             </h1>
             <p className="mt-7 max-w-full break-words text-base font-medium leading-7 text-slate-200 sm:text-lg sm:leading-8 md:max-w-2xl md:text-2xl md:leading-9">

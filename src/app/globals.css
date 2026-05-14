@@ -21,7 +21,7 @@ body {
 @layer components {
   /* Typography Design System */
   .heading-hero {
-    @apply text-5xl sm:text-7xl md:text-[clamp(4.5rem,8vw,8rem)] font-black leading-[0.9] uppercase tracking-tighter transition-all duration-700;
+    @apply text-5xl sm:text-6xl md:text-[clamp(3rem,5.5vw,5.5rem)] font-black leading-[0.95] uppercase tracking-tighter transition-all duration-700;
   }
 
   .heading-page {

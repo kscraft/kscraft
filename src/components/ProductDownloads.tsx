@@ -12,10 +12,11 @@ type DownloadItem = {
 
 type ProductDownloadsProps = {
   productTitle: string;
+  downloads?: DownloadItem[];
 };
 
-export default function ProductDownloads({ productTitle }: ProductDownloadsProps) {
-  const downloads: DownloadItem[] = [
+export default function ProductDownloads({ productTitle, downloads: productDownloads }: ProductDownloadsProps) {
+  const defaultDownloads: DownloadItem[] = [
     {
       title: 'Technical Data Sheet',
       type: 'PDF',
@@ -29,12 +30,14 @@ export default function ProductDownloads({ productTitle }: ProductDownloadsProps
       href: '#',
     },
     {
-      title: 'Installation Guide',
-      type: 'PDF',
+      title: 'CAD Section Details',
+      type: 'CAD',
       size: '3.1 MB',
       href: '#',
     },
   ];
+
+  const downloads = productDownloads || defaultDownloads;
 
   return (
     <div className="mt-24 rounded-[2.5rem] bg-slate-950 p-8 text-white sm:p-12">

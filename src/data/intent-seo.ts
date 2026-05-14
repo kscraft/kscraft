@@ -20,7 +20,7 @@ export const intentSeoPages: IntentSeo[] = [
     heroSubtitle: 'Silence Any Environment',
     heroDescription: 'Engineered for maximum acoustic attenuation, our soundproof windows drop external noise by up to 50 dB. Designed with the same precision we apply to aerospace components.',
     primaryCategorySlug: 'sound-proof-windows',
-    relatedProducts: ['sound-proof-sliding-windows', 'sound-proof-openable-windows', 'sound-proof-fixed-windows'],
+    relatedProducts: ['sound-proof-sliding-windows', 'sound-proof-casement-windows', 'sound-proof-acoustic-fix-partition'],
     faqs: [
       { question: 'How much noise do your soundproof windows block?', answer: 'Depending on the glazing configuration, our systems achieve an STC (Sound Transmission Class) rating of 40 to 50+, effectively reducing traffic, rail, or airport noise by up to 90%.' },
       { question: 'Do you offer motorized options?', answer: 'Yes, we provide motorized sliding options for heavy acoustic panels, allowing effortless operation at the push of a button.' }
@@ -35,7 +35,7 @@ export const intentSeoPages: IntentSeo[] = [
     heroSubtitle: 'Complete Acoustic Isolation',
     heroDescription: 'Stop sound leaks dead in their tracks. Our high-density acoustic doors feature specialized multi-point locking and perimeter seals to ensure true soundproofing for your most critical spaces.',
     primaryCategorySlug: 'sound-proof-doors',
-    relatedProducts: ['acoustic-wood-door', 'acoustic-steel-door'],
+    relatedProducts: ['sound-proof-swing-doors', 'sound-proof-sliding-doors'],
     faqs: [
       { question: 'What is the STC rating of your soundproof doors?', answer: 'Our standard acoustic doors provide STC 42 to STC 55 ratings depending on the material (wood or steel) and core density.' },
       { question: 'Can these be installed in existing frames?', answer: 'For maximum acoustic performance, we recommend installing our doors with their engineered acoustic frames, which include integrated seals.' }
@@ -50,7 +50,7 @@ export const intentSeoPages: IntentSeo[] = [
     heroSubtitle: 'Flexible Space, Uncompromised Silence',
     heroDescription: 'Divide large spaces dynamically without sacrificing acoustic privacy. Our movable sliding partitions offer STC 50+ isolation with effortless, track-based movement.',
     primaryCategorySlug: 'sound-proof-partitions',
-    relatedProducts: ['movable-acoustic-partitions', 'glass-acoustic-partitions'],
+    relatedProducts: ['sound-proof-acoustic-movable-partition', 'sound-proof-sliding-folding-partition'],
     faqs: [
       { question: 'How heavy are the movable partitions?', answer: 'While acoustic panels are dense (weighing up to 45kg/sqm), our aerospace-grade tracking and carriage systems allow a single person to move them effortlessly.' },
       { question: 'Are bottom tracks required?', answer: 'No, our advanced top-hung systems do not require floor tracks, preserving your flooring aesthetics while maintaining acoustic seals via retractable bottom sweeps.' }
@@ -65,7 +65,7 @@ export const intentSeoPages: IntentSeo[] = [
     heroSubtitle: 'Smooth Operation, Total Silence',
     heroDescription: 'Get the space-saving benefits of sliding windows without the typical acoustic leaks. Our heavy-duty tracks and specialized brush seals deliver uncompromising noise reduction.',
     primaryCategorySlug: 'sound-proof-windows',
-    relatedProducts: ['sound-proof-sliding-windows', 'motorized-vertical-sliding-system'],
+    relatedProducts: ['sound-proof-sliding-windows', 'motorized-soundproof-sliding-windows'],
     faqs: [
       { question: 'Do sliding windows block sound as well as casement windows?', answer: 'Standard sliding windows leak sound. However, our engineered acoustic sliding windows use overlapping interlocking profiles and dense acoustic seals to match the performance of fixed windows.' },
       { question: 'Can they be retrofitted?', answer: 'Yes, we often install secondary acoustic sliding windows behind your existing windows to drastically reduce noise without altering the building facade.' }
@@ -95,7 +95,7 @@ export const intentSeoPages: IntentSeo[] = [
     heroSubtitle: 'End-to-End Acoustic Isolation',
     heroDescription: 'When a single window isn\'t enough. We provide holistic room soundproofing including windows, doors, and partitions to guarantee absolute acoustic privacy.',
     primaryCategorySlug: 'sound-proof-windows',
-    relatedProducts: ['sound-proof-sliding-windows', 'acoustic-wood-door', 'movable-acoustic-partitions'],
+    relatedProducts: ['sound-proof-sliding-windows', 'sound-proof-swing-doors', 'sound-proof-acoustic-movable-partition'],
     faqs: [
       { question: 'Do you offer complete room isolation?', answer: 'Yes, we manufacture and install the entire acoustic envelope: windows, doors, and movable walls.' },
       { question: 'Is this suitable for home theaters?', answer: 'Perfectly. We provide specialized high-density doors and windows to keep theater audio in and environmental noise out.' }
@@ -110,7 +110,7 @@ export const intentSeoPages: IntentSeo[] = [
     heroSubtitle: 'Heavy-Duty Noise Control',
     heroDescription: 'Protect your personnel and equipment. Our industrial-grade acoustic windows and doors are designed to withstand extreme decibel levels in factories and control rooms.',
     primaryCategorySlug: 'sound-proof-doors',
-    relatedProducts: ['acoustic-steel-door', 'sound-proof-fixed-windows', 'motorized-sliding-gates'],
+    relatedProducts: ['sound-proof-swing-doors', 'sound-proof-acoustic-fix-partition', 'motorized-sliding-gates'],
     faqs: [
       { question: 'Can your windows handle factory floor noise?', answer: 'Yes, our industrial fixed windows are built with multi-layered acoustic laminated glass capable of handling extreme decibel levels.' },
       { question: 'Do you make oversized acoustic doors for equipment rooms?', answer: 'Yes, we manufacture custom oversized acoustic steel doors for plant and machinery access.' }
@@ -125,7 +125,7 @@ export const intentSeoPages: IntentSeo[] = [
     heroSubtitle: 'Premium Silence for Guests',
     heroDescription: 'Elevate your guest experience. From soundproof windows that block city noise to movable banquet partitions that allow simultaneous events, we provide complete hospitality acoustics.',
     primaryCategorySlug: 'sound-proof-partitions',
-    relatedProducts: ['movable-acoustic-partitions', 'glass-acoustic-partitions', 'sound-proof-sliding-windows'],
+    relatedProducts: ['sound-proof-acoustic-movable-partition', 'sound-proof-sliding-folding-partition', 'sound-proof-sliding-windows'],
     faqs: [
       { question: 'Can we retrofit hotel windows without stopping operations?', answer: 'Yes, our secondary glazing systems can be installed quickly from the inside, minimizing room downtime.' },
       { question: 'How do you handle banquet hall acoustics?', answer: 'Our STC 50+ movable partitions allow you to divide large halls for simultaneous events without noise bleed, maximizing revenue.' }

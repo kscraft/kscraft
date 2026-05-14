@@ -94,6 +94,7 @@ ${catalog.company.name} provides technical consultation, fabrication, export sup
 - Email: ${catalog.company.email}
 - Phone: ${catalog.company.phoneDisplay}
 - Headquarters: ${catalog.company.locations[0].address}, ${catalog.company.locations[0].city}
+- Regional Hub: ${catalog.company.locations[1].address}, ${catalog.company.locations[1].city}
 `;
   }
 

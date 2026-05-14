@@ -55,7 +55,7 @@ export default function SolutionsPage() {
             </h1>
             <p className="mt-8 max-w-3xl text-xl font-medium leading-9 text-slate-300">
               City-specific pages for high-intent searches such as automatic sliding window in Dubai,
-              automatic acoustic partition near me, motorized soundproof window in Mumbai, and sliding roof systems in Goa.
+              automatic acoustic partition near me, motorized soundproof window in Mumbai, and folding doors in Kolkata.
             </p>
           </div>
         </div>

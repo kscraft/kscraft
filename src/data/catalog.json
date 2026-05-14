@@ -100,7 +100,7 @@
       "exploreAllSystems": "Explore all systems",
       "certified": "ISO 9001:2015 Certified",
       "exporter": "Licensed Global Exporter",
-      "hq": "Engineering Headquarters, Mumbai.",
+      "hq": "Global Headquarters: Mumbai | Regional Hub: Kolkata.",
       "searchPlaceholder": "Search specifications (e.g. STC 50, Motorized, Sliding)...",
       "matchingSystems": "Matching Systems",
       "noSystemsFound": "No technical systems match your query.",
@@ -519,7 +519,51 @@
       {
         "title": "Hilton Hotel Bengaluru",
         "subtitle": "Commercial Acoustics",
-        "detail": "Bespoke motorized vertical sliding window systems for high-performance acoustic isolation."
+        "detail": "Bespoke motorized vertical sliding window systems for high-performance acoustic isolation in premium hospitality suites.",
+        "slug": "hilton-bengaluru",
+        "image": "/images/media/project-2.jpg",
+        "showcase": {
+          "heroTitle": "Premium Silence.",
+          "heroDescription": "Delivering high-performance motorized acoustic windows for Hilton Bengaluru's executive suites.",
+          "challengeLabel": "The Challenge",
+          "challengeTitle": "Urban Noise in Luxury Settings.",
+          "challengeDescription": "Hilton Bengaluru required an acoustic solution that could effectively block dense city traffic noise while maintaining the hotel's sleek, modern aesthetic. The requirement called for oversized vertical sliding windows that could be operated effortlessly by guests while providing lab-tested sound isolation.",
+          "stats": [
+            {
+              "label": "Sound Reduction",
+              "value": "48 dB",
+              "icon": "ShieldCheck"
+            },
+            {
+              "label": "Motorized Precision",
+              "value": "100%",
+              "icon": "Zap"
+            },
+            {
+              "label": "Guest Satisfaction",
+              "value": "Top Tier",
+              "icon": "Target"
+            },
+            {
+              "label": "Vertical Travel",
+              "value": "2.4m",
+              "icon": "Building2"
+            }
+          ],
+          "uspLabel": "The Solution",
+          "uspTitle": "Vertical Automation for Hospitality.",
+          "uspDescription": "We engineered a custom motorized vertical sliding system using high-density acoustic glazing and silent-drive motors, ensuring guests enjoy panoramic views without the intrusion of external city noise."
+        },
+        "faqs": [
+          {
+            "q": "How silent are the motorized windows?",
+            "a": "Our hospitality-grade drives operate below 40dB, ensuring that the window movement itself does not disturb the guest's quiet environment."
+          },
+          {
+            "q": "Can these windows be integrated with Room Management Systems?",
+            "a": "Yes, our automation controllers are fully compatible with Hilton's existing building and guest-room management systems (BMS/GRMS)."
+          }
+        ]
       }
     ]
   },
@@ -732,6 +776,11 @@
         "Urban Residences",
         "Hotels",
         "Boardrooms"
+      ],
+      "downloads": [
+        { "title": "Acoustic Performance Data", "type": "PDF", "size": "1.4 MB", "href": "#" },
+        { "title": "Technical Section Drawings", "type": "CAD/PDF", "size": "2.8 MB", "href": "#" },
+        { "title": "Installation Methodology", "type": "PDF", "size": "1.1 MB", "href": "#" }
       ],
       "faqs": [
         {
@@ -1225,6 +1274,11 @@
         "Terrace Restaurants",
         "Villas",
         "Swimming Pools"
+      ],
+      "downloads": [
+        { "title": "Motorized System Specs", "type": "PDF", "size": "3.2 MB", "href": "#" },
+        { "title": "Weather Sealing Details", "type": "PDF", "size": "1.8 MB", "href": "#" },
+        { "title": "Electrical Layout Requirements", "type": "CAD", "size": "4.5 MB", "href": "#" }
       ],
       "images": [
         "/images/products/motorized-sliding-roof.jpg",

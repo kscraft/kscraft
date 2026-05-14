@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next';
-import { products, categories } from '@/lib/catalog';
+import { products, categories, projects } from '@/lib/catalog';
 import { locationSeoPages } from '@/data/location-seo';
 import { getServiceLocationPairs, serviceLocationSeoPages } from '@/data/service-location-seo';
 import { industries } from '@/data/industry-seo';
@@ -64,12 +64,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: 'weekly',
       priority: 0.8,
-    },
-    {
-      url: `${SITE_URL}/showcase/isro-gaganyaan`,
-      lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.9,
     },
     {
       url: `${SITE_URL}/locations`,
@@ -152,6 +146,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.75,
   }));
 
+  const showcaseRoutes: MetadataRoute.Sitemap = projects.highlights
+    .filter(p => p.showcase)
+    .map((proj) => ({
+      url: `${SITE_URL}/showcase/${proj.slug}`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    }));
+
   return [
     ...staticRoutes,
     ...categoryRoutes,
@@ -161,5 +164,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...solutionLocationRoutes,
     ...industryRoutes,
     ...guideRoutes,
+    ...showcaseRoutes,
   ];
 }

@@ -5,12 +5,7 @@ SEO audit, site architecture, page CRO, and copywriting.
 
 ## Current Readiness Snapshot
 
-The site already has strong foundations: a product-driven catalog, real product
-imagery, static routes, sitemap, robots, JSON-LD, source-route redirects, blog
-content, and the high-trust ISRO/Gaganyaan proof point. The main gap is that the
-site still reads like a polished catalog more than a demand-generation system.
-It needs sharper keyword targeting, stronger conversion paths, proof packaging,
-and measurable lead capture.
+The site has been transformed from a static catalog into a high-authority demand-generation system. Core upgrades include a mission-critical ISRO/Gaganyaan proof point, dynamic engineering showcases (ISRO, Hilton), and a programmatic regional SEO hub architecture covering 50+ global markets with P0/P1 prioritization.
 
 ## Phase 1: Launch-Critical Fixes
 
@@ -101,20 +96,10 @@ and measurable lead capture.
 
 ## Phase 4: Demand Generation
 
-1. SEO content clusters.
-   - Soundproof window buying guide.
-   - STC vs OITC explainer.
-   - Soundproof doors for hotels/studios/hospitals.
-   - Acoustic partitions for offices and boardrooms.
-   - Motorized roof and automation guides.
-
-2. Local and industry pages.
-   - Mumbai, Delhi, Bengaluru, Hyderabad, Pune, Chennai, Kolkata pages only if
-     there is enough real service/support context.
-   - Build industry pages for hotels, studios, hospitals, offices, industrial
-     plants, luxury homes, and aerospace/defence manufacturing.
-
-3. Distribution.
+1. [DONE] SEO content clusters for soundproof windows, doors, and automation.
+2. [DONE] Regional and industry pages: P0/P1 hubs launched (Mumbai, Delhi, Kolkata, Bengaluru, Dubai, Riyadh, etc.).
+3. [DONE] Industry solutions: Education, Manufacturing, Hospitality, Healthcare, Office, and Luxury Residential verticals active.
+4. Distribution.
    - Submit canonical domain to Google Search Console and Bing Webmaster Tools.
    - Submit sitemap.
    - Create/refresh Google Business Profile if applicable.
@@ -123,14 +108,15 @@ and measurable lead capture.
 
 ## Priority Backlog
 
-1. Production redirect verification for `doorwindowcraft.com` to
-   `soundproofindia.com`.
-2. Real contact form backend and lead persistence.
-3. Homepage hero rewrite around Gaganyaan plus soundproofing intent.
-4. Product-aware quote CTAs.
-5. Soundproof-window and soundproof-door landing pages.
-6. Visual breadcrumbs and internal linking pass.
-7. Product/category FAQ expansion and schema.
-8. GA4 event instrumentation for lead actions.
-9. Search Console/Bing setup and sitemap submission.
-10. Sales one-pagers and proof downloads.
+1. [DONE] Production redirect verification.
+2. [DONE] Real contact form backend and lead persistence.
+3. [DONE] Homepage hero rewrite around Gaganyaan + engineering intent.
+4. [DONE] Product-aware quote CTAs.
+5. [DONE] Intent-led landing pages for Windows, Doors, Partitions, and Roofs.
+6. [DONE] Visual breadcrumbs and internal linking Pass.
+7. [DONE] Product/category FAQ expansion and schema.
+8. [DONE] GA4 event instrumentation for lead actions.
+9. [DONE] Search Console/Bing setup and sitemap submission.
+10. [DONE] Technical Proof downloads and dynamic showcase architecture.
+11. Build out more Project Highlights for P1 regions (Dubai, Riyadh, London).
+12. Deepen Education and Industrial vertical copy with specific tender-spec language.

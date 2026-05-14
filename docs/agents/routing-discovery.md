@@ -26,8 +26,8 @@ Routing and SEO rules:
   for old `.php`, `.htm`, sitemap, service, media, client, and product paths.
 - Static route families include `/`, `/about`, `/services`, `/clients`,
   `/media`, `/contact`, `/category/[slug]`, `/product/[slug]`, `/locations`,
-  `/locations/[slug]`, `/solutions`, `/solutions/[service]`, and
-  `/solutions/[service]/[market]`.
+  `/locations/[slug]`, `/solutions`, `/solutions/[service]`,
+  `/solutions/[service]/[market]`, and `/showcase/[slug]`.
 - `/soundproof-windows-mumbai` is a compatibility alias that redirects to
   `/locations/soundproof-windows-mumbai`.
 - `src/app/sitemap.ts` must include canonical URLs for catalog, location, and

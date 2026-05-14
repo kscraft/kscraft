@@ -29,6 +29,7 @@ export type Product = {
   features: string[];
   applications: string[];
   faqs?: { q: string; a: string }[];
+  downloads?: { title: string; type: string; size: string; href: string }[];
 };
 
 export type NavItem = {

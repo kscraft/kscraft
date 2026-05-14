@@ -2,40 +2,67 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { Rocket, ShieldCheck, ChevronRight, Zap, Target, Gauge, type LucideIcon } from 'lucide-react';
+import { Rocket, ShieldCheck, ChevronRight, Zap, Target, Gauge, type LucideIcon, Building2, Hotel } from 'lucide-react';
 import ThemeMarker from '@/components/ThemeMarker';
 import { projects, home } from '@/lib/catalog';
 
-export const metadata: Metadata = {
-  title: 'ISRO Gaganyaan Case Study | Kiran Slido Craft - Aerospace Engineering',
-  description: 'A deep dive into Kiran Slido Craft’s mission-critical manufacturing for ISRO’s Gaganyaan capsule entry mechanism. Indigenous precision for India’s first human space mission.',
-  keywords: ['ISRO Gaganyaan', 'capsule entry mechanism', 'crew entry mechanism', 'aerospace engineering India', 'Kiran Slido Craft ISRO', 'space mission engineering', 'indigenous manufacturing'],
-  alternates: {
-    canonical: 'https://soundproofindia.com/showcase/isro-gaganyaan',
-  },
-  openGraph: {
-    title: 'ISRO Gaganyaan Case Study | Kiran Slido Craft',
-    description: 'Mission-critical manufacturing for ISRO’s Gaganyaan capsule entry mechanism. Indigenous precision by Kiran Slido Craft.',
-    url: 'https://soundproofindia.com/showcase/isro-gaganyaan',
-    images: [{ url: '/images/projects/gaganyaan.jpg' }],
-    type: 'article',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'ISRO Gaganyaan × Kiran Slido Craft | Aerospace Engineering',
-    description: 'How Kiran Slido Craft manufactured the mission-critical capsule entry mechanism for India’s Gaganyaan space programme.',
-  },
-};
+interface Props {
+  params: Promise<{ slug: string }>;
+}
+
+export async function generateStaticParams() {
+  return projects.highlights
+    .filter(p => p.showcase)
+    .map((project) => ({
+      slug: project.slug
+    }));
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const project = projects.highlights.find(p => p.slug === slug);
+
+  if (!project) {
+    return {};
+  }
+
+  const title = `${project.title} Case Study | Kiran Slido Craft`;
+  const description = project.detail.slice(0, 160);
+  const url = `https://soundproofindia.com/showcase/${slug}`;
+
+  return {
+    title,
+    description,
+    alternates: { canonical: url },
+    openGraph: {
+      title,
+      description,
+      url,
+      images: project.image ? [{ url: project.image }] : [],
+      type: 'article',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: project.image ? [project.image] : [],
+    },
+  };
+}
 
 const iconMap: Record<string, LucideIcon> = {
   ShieldCheck,
   Zap,
   Target,
-  Gauge
+  Gauge,
+  Building2,
+  Hotel,
+  Rocket
 };
 
-export default function GaganyaanShowcase() {
-  const project = projects.highlights.find(p => p.slug === 'isro-gaganyaan');
+export default async function ProjectShowcase({ params }: Props) {
+  const { slug } = await params;
+  const project = projects.highlights.find(p => p.slug === slug);
   
   if (!project || !project.showcase) {
     notFound();
@@ -93,8 +120,9 @@ export default function GaganyaanShowcase() {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
         />
       )}
-      {/* Immersive Space Hero */}
-      <section className="hero-dark !h-screen flex items-center justify-center">
+      
+      {/* Immersive Dark Hero */}
+      <section className="hero-dark !min-h-screen flex items-center justify-center py-20">
         <ThemeMarker theme="dark" className="absolute top-0" />
         <div className="absolute inset-0 z-0">
           {project.image && (
@@ -112,10 +140,10 @@ export default function GaganyaanShowcase() {
 
         <div className="relative z-10 max-container px-6 text-center">
           <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-blue-600/20 border border-blue-500/30 text-blue-400 text-[10px] font-black uppercase tracking-[0.3em] mb-10">
-            <Rocket className="w-4 h-4" /> {project.subtitle}
+             {project.subtitle}
           </div>
           <h1 className="heading-hero text-white mb-12 animate-in fade-in slide-in-from-bottom-8 duration-1000">
-            {showcase.heroTitle.split(' ')[0]} <br /><span className="text-blue-500">{showcase.heroTitle.split(' ')[1]}</span>
+            {showcase.heroTitle}
           </h1>
           <p className="max-w-3xl mx-auto text-xl lg:text-3xl text-slate-300 font-medium leading-relaxed">
             {showcase.heroDescription}
@@ -134,9 +162,9 @@ export default function GaganyaanShowcase() {
           <div className="grid lg:grid-cols-12 gap-20 items-center">
             <div className="lg:col-span-6">
               <span className="text-eyebrow">{showcase.challengeLabel}</span>
-              <p className="heading-page text-slate-900 mb-12">
-                {showcase.challengeTitle.split(' ').slice(0, 2).join(' ')} <br />{showcase.challengeTitle.split(' ').slice(2).join(' ')}
-              </p>
+              <h2 className="heading-page text-slate-900 mb-12">
+                {showcase.challengeTitle}
+              </h2>
               <div className="space-y-8 text-xl text-slate-500 leading-relaxed font-medium">
                 <p>{showcase.challengeDescription}</p>
               </div>
@@ -168,9 +196,7 @@ export default function GaganyaanShowcase() {
           <div className="max-w-3xl">
             <span className="text-eyebrow text-blue-400">{showcase.uspLabel}</span>
             <h3 className="heading-page text-white mb-16">
-              {showcase.uspTitle.split(' ').slice(0, 3).join(' ')} <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">{showcase.uspTitle.split(' ')[3]}</span> <br />
-              {showcase.uspTitle.split(' ').slice(4).join(' ')}
+              {showcase.uspTitle}
             </h3>
             <p className="text-2xl text-slate-400 leading-relaxed font-medium mb-12">
               {showcase.uspDescription}

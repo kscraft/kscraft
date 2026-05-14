@@ -13,7 +13,7 @@ export const faqCategories: FaqCategory[] = [
     faqs: [
       {
         question: 'Which regions do you deliver to?',
-        answer: 'We are a licensed global exporter and deliver to the UK, Europe, GCC/MENA, APAC, Australia, and across the Indian Subcontinent. Our Mumbai headquarters manages all international shipping and logistics.',
+        answer: 'We are a licensed global exporter and deliver to the UK, Europe, GCC/MENA, APAC, Australia, and across the Indian Subcontinent. Our Mumbai headquarters and Kolkata regional operations manage domestic logistics and international shipping.',
       },
       {
         question: 'What is the typical delivery timeline?',

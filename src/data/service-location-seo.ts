@@ -93,6 +93,19 @@ export const serviceLocationSeoPages: ServiceLocationSeo[] = [
     noiseOrMotionNeed: 'room-to-room acoustic separation, smooth movement, privacy, and premium closure quality',
     proof: 'Kiran Slido Craft manufactures acoustic doors as part of a broader soundproofing system package.',
   },
+  {
+    slug: 'automatic-folding-doors',
+    title: 'Automatic Folding Doors',
+    shortTitle: 'Automatic Folding Doors',
+    intentPhrase: 'automatic folding door',
+    nearMePhrase: 'automatic folding door near me',
+    metaLead: 'Automatic and motorized folding doors for villas, hotels, and commercial spaces. Space-saving designs with high-performance automation.',
+    categoryIds: ['motorized-systems', 'sound-proof-doors'],
+    productSlugs: ['sound-proof-sliding-folding-doors', 'motorized-sliding-system', 'sound-proof-sliding-folding-partition'],
+    buyerFit: ['Premium villas', 'Hotels', 'Restaurants', 'Commercial facades'],
+    noiseOrMotionNeed: 'wide-opening capability, space optimization, effortless automation, and acoustic integrity',
+    proof: 'Our experience in building retractable aerospace and architectural systems ensures high-reliability folding mechanisms.',
+  },
 ];
 
 export function getServiceLocationSeo(slug: string) {

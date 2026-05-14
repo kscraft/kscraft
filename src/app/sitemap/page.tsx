@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { catalog, categories, navigation, home, getProductsByCategory } from '@/lib/catalog';
+import { catalog, categories, navigation, home, getProductsByCategory, projects } from '@/lib/catalog';
 import ThemeMarker from '@/components/ThemeMarker';
 import { locationSeoPages } from '@/data/location-seo';
 import { serviceLocationSeoPages } from '@/data/service-location-seo';
@@ -58,6 +58,16 @@ export default function SitemapPage() {
                 <li><Link href="/solutions" className="text-lg font-bold text-slate-700 hover:text-black transition-colors">Solutions</Link></li>
                 <li><Link href="/privacy" className="text-lg font-bold text-slate-700 hover:text-black transition-colors">{home.sitemap.privacyLabel}</Link></li>
                 <li><Link href="/terms" className="text-lg font-bold text-slate-700 hover:text-black transition-colors">{home.sitemap.termsLabel}</Link></li>
+              </ul>
+              <h2 className="mt-14 text-sm font-black text-blue-600 uppercase tracking-[0.2em] mb-8">Engineering Case Studies</h2>
+              <ul className="space-y-3">
+                {projects.highlights.filter(p => p.showcase).map((project) => (
+                  <li key={project.slug}>
+                    <Link href={`/showcase/${project.slug}`} className="text-base font-bold text-slate-700 hover:text-black transition-colors">
+                      {project.title}
+                    </Link>
+                  </li>
+                ))}
               </ul>
               <h2 className="mt-14 text-sm font-black text-blue-600 uppercase tracking-[0.2em] mb-8">Automation Solutions</h2>
               <ul className="space-y-3">

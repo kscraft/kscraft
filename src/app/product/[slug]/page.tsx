@@ -217,7 +217,7 @@ export default async function ProductPage({ params }: Props) {
               </ul>
             </div>
           </div>
-          <ProductDownloads productTitle={product.title} />
+          <ProductDownloads productTitle={product.title} downloads={product.downloads} />
         </div>
       </section>
 

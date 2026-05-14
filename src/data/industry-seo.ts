@@ -27,7 +27,7 @@ export const industries: IndustrySolution[] = [
       { title: 'Facade Noise Control', description: 'Precision-engineered windows that block city and airport traffic noise.' },
       { title: 'Aesthetic Integration', description: 'Sleek, slim-profile systems that complement luxury interior designs.' }
     ],
-    productSlugs: ['sound-proof-windows', 'sound-proof-sliding-windows', 'sound-proof-partitions'],
+    productSlugs: ['sound-proof-windows', 'sound-proof-sliding-windows', 'sound-proof-acoustic-movable-partition'],
     metaTitle: 'Acoustic Solutions for Hotels & Hospitality | Kiran Slido Craft',
     metaDescription: 'Specialized soundproofing and acoustic solutions for luxury hotels. High-STC windows and partitions engineered for guest comfort and privacy.'
   },
@@ -75,6 +75,36 @@ export const industries: IndustrySolution[] = [
     productSlugs: ['sound-proof-partitions', 'automatic-acoustic-partitions', 'sound-proof-doors'],
     metaTitle: 'Office Acoustic Solutions | Corporate Soundproofing',
     metaDescription: 'Maximize productivity with professional office acoustics. Movable partitions and soundproof glass for boardrooms and open-plan offices.'
+  },
+  {
+    slug: 'education-institutions',
+    title: 'Education & Institutions',
+    eyebrow: 'Quiet Learning',
+    description: 'Optimize learning environments by eliminating noise distractions. Our acoustic solutions for classrooms, auditoriums, and music rooms foster concentration and academic excellence.',
+    heroImage: '/images/industries/education-school.jpg',
+    benefits: [
+      { title: 'Improved Concentration', description: 'Blocking external traffic and hallway noise for focused student learning.' },
+      { title: 'Auditorium Acoustics', description: 'Large-span movable partitions that divide halls while maintaining speech clarity.' },
+      { title: 'Music Room Isolation', description: 'Extreme soundproofing for dedicated performance and practice spaces.' }
+    ],
+    productSlugs: ['sound-proof-windows', 'sound-proof-sliding-folding-partition', 'sound-proof-swing-doors'],
+    metaTitle: 'Acoustic Solutions for Schools & Universities | Kiran Slido Craft',
+    metaDescription: 'High-performance soundproofing for educational facilities. Improve student focus with acoustic windows and movable partitions for auditoriums and classrooms.'
+  },
+  {
+    slug: 'industrial-manufacturing',
+    title: 'Industrial & Manufacturing',
+    eyebrow: 'Heavy-Duty Noise Control',
+    description: 'Protect your workforce and comply with occupational health standards. We provide high-decibel noise containment for factories, power plants, and control rooms.',
+    heroImage: '/images/industries/industrial-factory.jpg',
+    benefits: [
+      { title: 'Worker Safety', description: 'Reducing ambient factory noise to safe levels for personnel health and communication.' },
+      { title: 'Control Room Privacy', description: 'Ensuring absolute silence for monitoring stations in high-noise environments.' },
+      { title: 'Durability', description: 'Ruggedized acoustic steel doors and heavy-duty frames built for industrial cycles.' }
+    ],
+    productSlugs: ['sound-proof-swing-doors', 'sound-proof-acoustic-fix-partition', 'motorized-sliding-gates'],
+    metaTitle: 'Industrial Soundproofing Solutions | Factory Noise Control',
+    metaDescription: 'Heavy-duty acoustic isolation for manufacturing and industrial plants. Ruggedized soundproof doors and windows designed for high-decibel environments.'
   }
 ];
 

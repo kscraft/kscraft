@@ -45,24 +45,25 @@ Each market is scored out of 100 using:
 | 6 | Riyadh | 90 | Vision 2030 construction, hospitality, offices, villas, and mixed-use growth. |
 | 7 | Hyderabad | 89 | Tech corridors, premium housing, healthcare, hotels, and offices. |
 | 8 | Doha | 88 | High-value villas, offices, schools, healthcare, and hospitality. |
-| 9 | Singapore | 87 | Dense urban premium retrofit market and regional credibility value. |
+| 9 | Kolkata | 87 | Regional HQ, severe noise, dense urban commercial/residential, and historic retrofit. |
+| 10 | Singapore | 86 | Dense urban premium retrofit market and regional credibility value. |
 
 ### P1: Strong Revenue Expansion
 
-Pune, Chennai, Kuala Lumpur, Goa, Jeddah, Kolkata, Dhaka, Maldives, Mauritius.
+Pune, Chennai, Kuala Lumpur, Goa, Jeddah, Dhaka, Maldives, Mauritius, Ahmedabad, Kochi, Jaipur, Surat, Chandigarh.
 
 These markets have strong enough project value or strategic fit to launch early
 after P0 indexing is confirmed.
 
 ### P2: Good Supporting Markets
 
-Kochi, Ahmedabad, Sharjah, Muscat, Kuwait City, Manama.
+Sharjah, Muscat, Kuwait City, Manama.
 
 These should be monitored for query impressions and partner/channel demand.
 
 ### P3: Long-Tail and Coverage Markets
 
-Jaipur, Surat, Chandigarh, Kathmandu, Penang, Colombo, Seychelles.
+Kathmandu, Penang, Colombo, Seychelles.
 
 These are useful for topical coverage and occasional high-ticket leads, but they
 should not consume sales effort before P0/P1 markets.

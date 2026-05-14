@@ -1,0 +1,21 @@
+# Antigravity AI Rules
+
+You are operating within the Kiran Slido Craft workspace. To provide the best assistance, always follow the established agent context and utilize the installed skills.
+
+## Core Directives
+
+1. **Start Here:** Always review `AGENTS.md` for high-level repository rules and commands.
+2. **Agent Context:** For any non-trivial edits, routing, UI, or security work, read `docs/agent-context.md` first. It serves as the index for all specialized rules.
+3. **Product & Marketing Context:** When writing copy, doing SEO, or making architectural decisions, read `docs/marketing/product-marketing-context.md`. Never invent claims; stick to the verified proof points (e.g., Gaganyaan capsule entry mechanism).
+4. **Growth & SEO:** For site analysis and GTM readiness, refer to `docs/agents/seo-growth-agent.md`.
+
+## Available Subagents
+
+The project's AI capabilities have been consolidated into expert subagents located in `.gemini/agents/`. When performing tasks, you can leverage these subagents:
+
+- `@marketing-expert`: For SEO audits, programmatic SEO, site architecture, analytics tracking, copywriting, and CRO.
+- `@design-expert`: For frontend design, styling, and visual/branding tasks.
+- `@document-expert`: For generating or editing docs, presentations, and spreadsheets.
+- `@developer-expert`: For testing, MCP building, and Claude API updates.
+
+Whenever a task overlaps with one of these domains, actively apply the best practices associated with that domain to ensure high-quality, conversion-optimized, and on-brand output.

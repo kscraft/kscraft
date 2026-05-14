@@ -207,21 +207,21 @@
   },
   "home": {
     "hero": {
-      "eyebrow": "Engineering Silence. Automating Movement.",
+      "eyebrow": "Manufacturers of Gaganyaan's capsule entry mechanism",
       "title": "Kiran Slido Craft",
-      "highlight": "Precision acoustic and architectural automation systems",
+      "highlight": "Builders of soundproof windows, doors, and automation systems",
       "subhighlight": "serving the UK, Europe, GCC/MENA, APAC, and Australia with certified export precision.",
       "description": "Explore engineered soundproofing, retractable roofing, and motorized movement systems built for demanding residential, commercial, and industrial projects worldwide.",
       "image": "/images/products/motorized-sliding-roof.jpg",
       "productTitle": "Motorized Sliding Roof",
       "productSubtitle": "Retractable open-to-sky roofing for terraces, atriums, and premium outdoor spaces.",
       "cta": {
-        "label": "Explore retractable roofs",
-        "href": "/product/motorized-sliding-roof"
+        "label": "Request Technical Quote",
+        "href": "/contact"
       },
       "secondaryCta": {
-        "label": "Browse acoustic systems",
-        "href": "/category/sound-proof-windows"
+        "label": "View ISRO Case Study",
+        "href": "/showcase/isro-gaganyaan"
       },
       "metrics": [
         {

@@ -11,8 +11,8 @@ describe('Home Page', () => {
 
   it('renders call to action buttons', () => {
     render(<Home />);
-    expect(screen.getByRole('link', { name: /Explore retractable roofs/i })).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: /Browse acoustic systems/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /Request Technical Quote/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /View ISRO Case Study/i })).toBeInTheDocument();
   });
 
   it('renders engineering promise section', () => {

@@ -1,41 +1,20 @@
 'use client';
 
-import { useState } from 'react';
+import { useActionState } from 'react';
 import Image from 'next/image';
 import { catalog, categories, home } from '@/lib/catalog';
-import { Mail, MapPin, Video, Link as LinkIcon, Send, Phone } from 'lucide-react';
+import { Mail, MapPin, Video, Link as LinkIcon, Send, Phone, CheckCircle2 } from 'lucide-react';
 import ThemeMarker from '@/components/ThemeMarker';
+import { submitInquiry } from '@/app/actions';
+
+const initialState = {
+  success: false,
+  message: '',
+  errors: undefined,
+};
 
 export default function ContactPage() {
-  const [formError, setFormError] = useState('');
-
-  const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setFormError('');
-
-    if (!e.currentTarget.checkValidity()) {
-      setFormError(home.contact.ui.formError);
-      e.currentTarget.reportValidity();
-      return;
-    }
-
-    const formData = new FormData(e.currentTarget);
-    const name = formData.get('name') as string;
-    const email = formData.get('email') as string;
-    const scope = formData.get('scope') as string;
-    const requirements = formData.get('requirements') as string;
-
-    const subject = encodeURIComponent(home.contact.ui.emailSubject.replace('{scope}', scope).replace('{name}', name));
-    const body = encodeURIComponent(
-      home.contact.ui.emailBody
-        .replace('{name}', name)
-        .replace('{email}', email)
-        .replace('{scope}', scope)
-        .replace('{requirements}', requirements)
-    );
-
-    window.location.href = `mailto:${catalog.company.email}?subject=${subject}&body=${body}`;
-  };
+  const [state, formAction, isPending] = useActionState(submitInquiry, initialState);
 
   return (
     <div className="flex flex-col min-h-screen bg-white">
@@ -130,70 +109,87 @@ export default function ContactPage() {
                     {home.contact.formDescription}
                   </p>
                   
-                  <form onSubmit={handleFormSubmit} className="space-y-10" noValidate>
-                    {formError && (
-                      <div className="rounded-2xl border border-red-400/30 bg-red-500/10 px-5 py-4 text-sm font-bold leading-6 text-red-100" role="alert">
-                        {formError}
+                  {state?.success ? (
+                    <div className="rounded-3xl border border-blue-400/30 bg-blue-500/10 p-10 text-center flex flex-col items-center">
+                      <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mb-6 shadow-[0_10px_30px_rgba(37,99,235,0.4)]">
+                        <CheckCircle2 className="w-8 h-8 text-white" />
                       </div>
-                    )}
-                    <div className="grid md:grid-cols-2 gap-10">
-                      <div className="space-y-4">
-                        <label htmlFor="contact-name" className="text-[10px] font-black text-blue-500 uppercase tracking-[0.2em] ml-2">{home.contact.nameLabel}</label>
-                        <input 
-                          id="contact-name"
-                          name="name"
-                          type="text" 
-                          required 
-                          aria-invalid={Boolean(formError)}
-                          className="w-full bg-white/5 border border-white/10 rounded-2xl px-8 py-5 text-white focus:bg-white/10 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all placeholder:text-slate-600 font-bold" 
-                          placeholder={home.contact.placeholderName} 
-                        />
-                      </div>
-                      <div className="space-y-4">
-                        <label htmlFor="contact-email" className="text-[10px] font-black text-blue-500 uppercase tracking-[0.2em] ml-2">{home.contact.emailLabel}</label>
-                        <input 
-                          id="contact-email"
-                          name="email"
-                          type="email" 
-                          required 
-                          aria-invalid={Boolean(formError)}
-                          className="w-full bg-white/5 border border-white/10 rounded-2xl px-8 py-5 text-white focus:bg-white/10 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all placeholder:text-slate-600 font-bold" 
-                          placeholder={home.contact.placeholderEmail} 
-                        />
-                      </div>
+                      <h3 className="text-2xl font-black mb-4 uppercase tracking-tighter text-white">Inquiry Received</h3>
+                      <p className="text-slate-300 leading-relaxed font-medium">
+                        {state.message}
+                      </p>
                     </div>
-                    <div className="space-y-4">
-                      <label htmlFor="contact-scope" className="text-[10px] font-black text-blue-500 uppercase tracking-[0.2em] ml-2">{home.contact.scopeLabel}</label>
-                      <select 
-                        id="contact-scope"
-                        name="scope"
-                        className="w-full bg-white/5 border border-white/10 rounded-2xl px-8 py-5 text-white focus:bg-white/10 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all appearance-none font-bold"
+                  ) : (
+                    <form action={formAction} className="space-y-10" noValidate>
+                      {state?.message && !state?.success && (
+                        <div className="rounded-2xl border border-red-400/30 bg-red-500/10 px-5 py-4 text-sm font-bold leading-6 text-red-100" role="alert">
+                          {state.message}
+                        </div>
+                      )}
+                      <div className="grid md:grid-cols-2 gap-10">
+                        <div className="space-y-4">
+                          <label htmlFor="contact-name" className="text-[10px] font-black text-blue-500 uppercase tracking-[0.2em] ml-2">{home.contact.nameLabel}</label>
+                          <input 
+                            id="contact-name"
+                            name="name"
+                            type="text" 
+                            required 
+                            aria-invalid={Boolean(state?.errors?.name)}
+                            className="w-full bg-white/5 border border-white/10 rounded-2xl px-8 py-5 text-white focus:bg-white/10 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all placeholder:text-slate-600 font-bold" 
+                            placeholder={home.contact.placeholderName} 
+                          />
+                          {state?.errors?.name && <p className="text-xs font-bold text-red-400 px-2">{state.errors.name[0]}</p>}
+                        </div>
+                        <div className="space-y-4">
+                          <label htmlFor="contact-email" className="text-[10px] font-black text-blue-500 uppercase tracking-[0.2em] ml-2">{home.contact.emailLabel}</label>
+                          <input 
+                            id="contact-email"
+                            name="email"
+                            type="email" 
+                            required 
+                            aria-invalid={Boolean(state?.errors?.email)}
+                            className="w-full bg-white/5 border border-white/10 rounded-2xl px-8 py-5 text-white focus:bg-white/10 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all placeholder:text-slate-600 font-bold" 
+                            placeholder={home.contact.placeholderEmail} 
+                          />
+                          {state?.errors?.email && <p className="text-xs font-bold text-red-400 px-2">{state.errors.email[0]}</p>}
+                        </div>
+                      </div>
+                      <div className="space-y-4">
+                        <label htmlFor="contact-scope" className="text-[10px] font-black text-blue-500 uppercase tracking-[0.2em] ml-2">{home.contact.scopeLabel}</label>
+                        <select 
+                          id="contact-scope"
+                          name="scope"
+                          className="w-full bg-white/5 border border-white/10 rounded-2xl px-8 py-5 text-white focus:bg-white/10 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all appearance-none font-bold"
+                        >
+                          {categories.map((category) => (
+                            <option key={category.id} value={category.title} className="bg-slate-950 font-bold">{category.title}</option>
+                          ))}
+                          <option value={home.contact.ui.customEngineering} className="bg-slate-950 font-bold">{home.contact.ui.customEngineering}</option>
+                        </select>
+                        {state?.errors?.scope && <p className="text-xs font-bold text-red-400 px-2">{state.errors.scope[0]}</p>}
+                      </div>
+                      <div className="space-y-4">
+                        <label htmlFor="contact-requirements" className="text-[10px] font-black text-blue-500 uppercase tracking-[0.2em] ml-2">{home.contact.requirementsLabel}</label>
+                        <textarea 
+                          id="contact-requirements"
+                          name="requirements"
+                          required 
+                          aria-invalid={Boolean(state?.errors?.requirements)}
+                          className="w-full bg-white/5 border border-white/10 rounded-2xl px-8 py-8 text-white focus:bg-white/10 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all min-h-[220px] placeholder:text-slate-600 font-bold" 
+                          placeholder={home.contact.placeholderRequirements} 
+                        ></textarea>
+                        {state?.errors?.requirements && <p className="text-xs font-bold text-red-400 px-2">{state.errors.requirements[0]}</p>}
+                      </div>
+                      
+                      <button 
+                        type="submit" 
+                        disabled={isPending}
+                        className="w-full group flex items-center justify-center gap-4 py-6 bg-blue-600 text-white font-black uppercase tracking-[0.3em] text-xs rounded-2xl hover:bg-blue-500 transition-all shadow-[0_20px_50px_rgba(37,99,235,0.3)] hover:scale-[1.02] active:scale-95 disabled:opacity-70 disabled:hover:scale-100 disabled:cursor-not-allowed"
                       >
-                        {categories.map((category) => (
-                          <option key={category.id} value={category.title} className="bg-slate-950 font-bold">{category.title}</option>
-                        ))}
-                        <option value={home.contact.ui.customEngineering} className="bg-slate-950 font-bold">{home.contact.ui.customEngineering}</option>
-                      </select>
-                    </div>
-                    <div className="space-y-4">
-                      <label htmlFor="contact-requirements" className="text-[10px] font-black text-blue-500 uppercase tracking-[0.2em] ml-2">{home.contact.requirementsLabel}</label>
-                      <textarea 
-                        id="contact-requirements"
-                        name="requirements"
-                        required 
-                        aria-invalid={Boolean(formError)}
-                        className="w-full bg-white/5 border border-white/10 rounded-2xl px-8 py-8 text-white focus:bg-white/10 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all min-h-[220px] placeholder:text-slate-600 font-bold" 
-                        placeholder={home.contact.placeholderRequirements} 
-                      ></textarea>
-                    </div>
-                    
-                    <button 
-                      type="submit" 
-                      className="w-full group flex items-center justify-center gap-4 py-6 bg-blue-600 text-white font-black uppercase tracking-[0.3em] text-xs rounded-2xl hover:bg-blue-500 transition-all shadow-[0_20px_50px_rgba(37,99,235,0.3)] hover:scale-[1.02] active:scale-95"
-                    >
-                      {home.contact.submitButton} <Send className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
-                    </button>
-                  </form>
+                        {isPending ? 'SUBMITTING...' : home.contact.submitButton} {!isPending && <Send className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />}
+                      </button>
+                    </form>
+                  )}
                 </div>
                 
                 <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-blue-600/10 rounded-full blur-[120px]"></div>

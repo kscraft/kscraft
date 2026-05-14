@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { catalog } from '@/lib/catalog';
 
-const SITE_URL = 'https://doorwindowcraft.com';
+const SITE_URL = 'https://soundproofindia.com';
 
 export async function GET() {
   return NextResponse.json({

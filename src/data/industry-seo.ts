@@ -21,7 +21,7 @@ export const industries: IndustrySolution[] = [
     title: 'Hospitality & Luxury Hotels',
     eyebrow: 'Five-Star Silence',
     description: 'Ensure guest comfort and privacy with world-class acoustic insulation. From grand ballrooms to peaceful suites, we provide the silence your guests expect.',
-    heroImage: '/images/industries/hotel-luxury.jpg',
+    heroImage: '/images/blogs/commercial-soundproofing.jpg',
     benefits: [
       { title: 'Room-to-Room Privacy', description: 'Certified high-STC partitions prevent sound leakage between guest rooms.' },
       { title: 'Facade Noise Control', description: 'Precision-engineered windows that block city and airport traffic noise.' },
@@ -36,7 +36,7 @@ export const industries: IndustrySolution[] = [
     title: 'Recording & Broadcast Studios',
     eyebrow: 'Precision Acoustics',
     description: 'Zero tolerance for ambient noise. Our systems are the choice of elite broadcast studios and professional music producers globally.',
-    heroImage: '/images/industries/studio-broadcast.jpg',
+    heroImage: '/images/blogs/stc-oitc-acoustics.jpg',
     benefits: [
       { title: 'Extreme STC Ratings', description: 'Dual and triple glazed systems reaching up to STC 55+ for total isolation.' },
       { title: 'Mechanical Silence', description: 'Motorized systems with near-silent operation for controlled environments.' },
@@ -51,7 +51,7 @@ export const industries: IndustrySolution[] = [
     title: 'Healthcare & Hospitals',
     eyebrow: 'Healing Environments',
     description: 'Quiet environments are essential for patient recovery and confidential consultations. Our antimicrobial acoustic systems meet stringent medical standards.',
-    heroImage: '/images/industries/healthcare-facility.jpg',
+    heroImage: '/images/blogs/acoustic-glass-partitions.jpg',
     benefits: [
       { title: 'Patient Recovery', description: 'Reducing ambient ward noise to facilitate faster healing and better sleep.' },
       { title: 'HIPAA Compliance', description: 'Soundproof consultation rooms for guaranteed patient confidentiality.' },
@@ -66,7 +66,7 @@ export const industries: IndustrySolution[] = [
     title: 'Corporate & Commercial Offices',
     eyebrow: 'Productive Workspaces',
     description: 'Transform open offices into hubs of concentration. Our movable partitions and soundproof glass optimize focus and meeting room privacy.',
-    heroImage: '/images/industries/corporate-office.jpg',
+    heroImage: '/images/blogs/aesthetic-acoustics.jpg',
     benefits: [
       { title: 'Dynamic Layouts', description: 'Movable acoustic walls that reconfigure boardrooms in minutes.' },
       { title: 'Focus Zones', description: 'Glass partitions that maintain visual openness while blocking acoustic distractions.' },
@@ -81,7 +81,7 @@ export const industries: IndustrySolution[] = [
     title: 'Education & Institutions',
     eyebrow: 'Quiet Learning',
     description: 'Optimize learning environments by eliminating noise distractions. Our acoustic solutions for classrooms, auditoriums, and music rooms foster concentration and academic excellence.',
-    heroImage: '/images/industries/education-school.jpg',
+    heroImage: '/images/media/project-2.jpg',
     benefits: [
       { title: 'Improved Concentration', description: 'Blocking external traffic and hallway noise for focused student learning.' },
       { title: 'Auditorium Acoustics', description: 'Large-span movable partitions that divide halls while maintaining speech clarity.' },
@@ -96,7 +96,7 @@ export const industries: IndustrySolution[] = [
     title: 'Industrial & Manufacturing',
     eyebrow: 'Heavy-Duty Noise Control',
     description: 'Protect your workforce and comply with occupational health standards. We provide high-decibel noise containment for factories, power plants, and control rooms.',
-    heroImage: '/images/industries/industrial-factory.jpg',
+    heroImage: '/images/blogs/industrial-barriers.jpg',
     benefits: [
       { title: 'Worker Safety', description: 'Reducing ambient factory noise to safe levels for personnel health and communication.' },
       { title: 'Control Room Privacy', description: 'Ensuring absolute silence for monitoring stations in high-noise environments.' },

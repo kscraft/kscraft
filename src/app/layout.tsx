@@ -111,7 +111,7 @@ export default function RootLayout({
       '@type': 'ContactPoint',
       'telephone': '+91-9324084590',
       'contactType': 'customer service',
-      'email': 'info@doorwindowcraft.com',
+      'email': 'info@kiranslidocraft.com',
       'availableLanguage': ['English', 'Hindi', 'Marathi', 'Bengali']
     },
     'areaServed': [

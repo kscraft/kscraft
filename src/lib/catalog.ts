@@ -251,10 +251,12 @@ export const home = catalogData.home as {
     anotherRequest: string;
     nameLabel: string;
     emailLabel: string;
+    phoneLabel: string;
     scopeLabel: string;
     requirementsLabel: string;
     placeholderName: string;
     placeholderEmail: string;
+    placeholderPhone: string;
     placeholderRequirements: string;
     submitButton: string;
     processing: string;

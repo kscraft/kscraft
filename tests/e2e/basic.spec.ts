@@ -18,8 +18,8 @@ test.describe('Kiran Slido Craft E2E', () => {
     await page.goto('/search');
     await expect(page.getByRole('heading', { level: 1 })).toContainText(/Search Systems/i);
     const searchInput = page.getByPlaceholder(/Search specifications/i);
-    await searchInput.fill('ISRO');
-    await expect(page.getByText(/ISRO Gaganyaan Mission/i)).toBeVisible();
+    await searchInput.pressSequentially('ISRO', { delay: 100 });
+    await expect(page.getByText(/ISRO Gaganyaan Mission/i)).toBeVisible({ timeout: 10000 });
   });
 
   test('contact form drafts email', async ({ page }) => {

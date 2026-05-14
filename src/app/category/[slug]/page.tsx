@@ -204,7 +204,7 @@ export default async function CategoryPage({ params }: Props) {
         <div className="max-container max-w-4xl">
           <span className="text-eyebrow text-center mb-6">Technical Consultation</span>
           <h2 className="heading-section text-center mb-10">Need custom <br />specifications?</h2>
-          <Link href="/contact" className="apple-button px-10 py-4 text-sm uppercase tracking-widest font-black">
+          <Link href={`/contact?scope=${encodeURIComponent(category.title)}`} className="apple-button px-10 py-4 text-sm uppercase tracking-widest font-black">
             Contact our Engineering Team
           </Link>
         </div>

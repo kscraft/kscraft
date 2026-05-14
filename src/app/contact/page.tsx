@@ -72,7 +72,23 @@ function ContactForm() {
                 />
                 {state?.errors?.email && <p className="text-xs font-bold text-red-400 px-2">{state.errors.email[0]}</p>}
               </div>
+              <div className="space-y-4 md:col-span-2">
+                <label htmlFor="contact-phone" className="text-[10px] font-black text-blue-500 uppercase tracking-[0.2em] ml-2">{home.contact.phoneLabel}</label>
+                <input 
+                  id="contact-phone"
+                  name="phone"
+                  type="tel" 
+                  required 
+                  aria-invalid={Boolean(state?.errors?.phone)}
+                  className="w-full bg-white/5 border border-white/10 rounded-2xl px-8 py-5 text-white focus:bg-white/10 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all placeholder:text-slate-600 font-bold" 
+                  placeholder={home.contact.placeholderPhone} 
+                />
+                {state?.errors?.phone && <p className="text-xs font-bold text-red-400 px-2">{state.errors.phone[0]}</p>}
+              </div>
             </div>
+            
+            {/* Hidden field for UTM Source */}
+            <input type="hidden" name="utmSource" value={searchParams.get('utm_source') || 'direct'} />
             <div className="space-y-4">
               <label htmlFor="contact-scope" className="text-[10px] font-black text-blue-500 uppercase tracking-[0.2em] ml-2">{home.contact.scopeLabel}</label>
               <select 

@@ -12,7 +12,8 @@ import { HeaderThemeProvider } from '@/lib/HeaderThemeContext';
 import { products } from '@/lib/catalog';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Analytics } from '@vercel/analytics/next';
-import { GoogleAnalytics } from '@next/third-parties/google';
+import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google';
+import ClarityAnalytics from '@/components/ClarityAnalytics';
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -212,15 +213,8 @@ export default function RootLayout({
           </>
         )}
         <GoogleAnalytics gaId="G-HS8VPLD95B" />
-        <Script id="microsoft-clarity" strategy="afterInteractive">
-          {`
-            (function(c,l,a,r,i,t,y){
-                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";
-                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-            })(window, document, "clarity", "script", "wqurhlymlt");
-          `}
-        </Script>
+        <GoogleTagManager gtmId="GTM-KPV97XW9" />
+        <ClarityAnalytics />
       </body>
     </html>
   );

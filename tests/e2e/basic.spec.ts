@@ -4,7 +4,7 @@ test.describe('Kiran Slido Craft E2E', () => {
   test('homepage loads and has correct title', async ({ page }) => {
     await page.goto('/');
     await expect(page).toHaveTitle(/Kiran Slido Craft/);
-    await expect(page.getByText('Engineering Silence. Automating Movement.', { exact: true })).toBeVisible();
+    await expect(page.getByRole('heading', { level: 1 }).first()).toContainText('Kiran Slido Craft');
   });
 
   test('navigation works', async ({ page }) => {

@@ -1,6 +1,8 @@
 import type { NextConfig } from "next";
 import catalog from "./src/data/catalog.json";
 
+const CANONICAL_SITE_URL = "https://soundproofindia.com";
+
 const AGENT_LINK_HEADER = [
   '</.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json"',
   '</openapi.json>; rel="service-desc"; type="application/openapi+json"',
@@ -45,6 +47,24 @@ const nextConfig: NextConfig = {
     );
 
     return [
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "doorwindowcraft.com" }],
+        destination: `${CANONICAL_SITE_URL}/:path*`,
+        permanent: true,
+      },
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.doorwindowcraft.com" }],
+        destination: `${CANONICAL_SITE_URL}/:path*`,
+        permanent: true,
+      },
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.soundproofindia.com" }],
+        destination: `${CANONICAL_SITE_URL}/:path*`,
+        permanent: true,
+      },
       { source: "/company.php", destination: "/about", permanent: false },
       { source: "/index.html", destination: "/", permanent: false },
       { source: "/company-profile.htm", destination: "/about", permanent: false },

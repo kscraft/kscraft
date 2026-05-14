@@ -9,12 +9,12 @@ export const metadata: Metadata = {
   title: 'Insights & Engineering Blog | Kiran Slido Craft',
   description: 'Technical insights, case studies, and engineering guides on soundproofing, architectural acoustics, and motorized automation systems.',
   alternates: {
-    canonical: 'https://doorwindowcraft.com/blog',
+    canonical: 'https://soundproofindia.com/blog',
   },
   openGraph: {
     title: 'Insights & Engineering Blog | Kiran Slido Craft',
     description: 'Technical insights, case studies, and engineering guides on soundproofing, and automation.',
-    url: 'https://doorwindowcraft.com/blog',
+    url: 'https://soundproofindia.com/blog',
     type: 'website',
   },
 };

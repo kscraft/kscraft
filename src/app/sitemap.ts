@@ -1,7 +1,9 @@
 import { MetadataRoute } from 'next';
 import { products, categories } from '@/lib/catalog';
+import { locationSeoPages } from '@/data/location-seo';
+import { getServiceLocationPairs, serviceLocationSeoPages } from '@/data/service-location-seo';
 
-const SITE_URL = 'https://doorwindowcraft.com';
+const SITE_URL = 'https://soundproofindia.com';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
@@ -56,6 +58,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: `${SITE_URL}/locations`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.95,
+    },
+    {
+      url: `${SITE_URL}/solutions`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.95,
+    },
+    {
       url: `${SITE_URL}/privacy`,
       lastModified: now,
       changeFrequency: 'yearly',
@@ -89,5 +103,33 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  return [...staticRoutes, ...categoryRoutes, ...productRoutes];
+  const locationRoutes: MetadataRoute.Sitemap = locationSeoPages.map((location) => ({
+    url: `${SITE_URL}/locations/${location.slug}`,
+    lastModified: now,
+    changeFrequency: 'weekly',
+    priority: location.priority === 'P0' ? 0.95 : location.priority === 'P1' ? 0.85 : 0.7,
+  }));
+
+  const solutionHubRoutes: MetadataRoute.Sitemap = serviceLocationSeoPages.map((service) => ({
+    url: `${SITE_URL}/solutions/${service.slug}`,
+    lastModified: now,
+    changeFrequency: 'weekly',
+    priority: 0.85,
+  }));
+
+  const solutionLocationRoutes: MetadataRoute.Sitemap = getServiceLocationPairs().map(({ service, location, marketSlug }) => ({
+    url: `${SITE_URL}/solutions/${service.slug}/${marketSlug}`,
+    lastModified: now,
+    changeFrequency: 'weekly',
+    priority: location.priority === 'P0' ? 0.9 : location.priority === 'P1' ? 0.8 : 0.65,
+  }));
+
+  return [
+    ...staticRoutes,
+    ...categoryRoutes,
+    ...productRoutes,
+    ...locationRoutes,
+    ...solutionHubRoutes,
+    ...solutionLocationRoutes,
+  ];
 }

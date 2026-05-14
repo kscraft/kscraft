@@ -7,14 +7,14 @@ import ThemeMarker from '@/components/ThemeMarker';
 
 export const metadata: Metadata = {
   title: 'Clients & Case Studies | Kiran Slido Craft – ISRO, Defence & Enterprise',
-  description: 'Trusted by ISRO Gaganyaan, Indian Defence, and leading enterprises. Explore case studies and project highlights from the Kiran Slido Craft acoustic and automation engineering portfolio.',
+  description: 'Trusted by ISRO Gaganyaan, Indian Defence, and leading enterprises. Explore how Kiran Slido Craft manufactured Gaganyaan’s capsule entry mechanism and delivered acoustic and automation engineering projects.',
   alternates: {
-    canonical: 'https://doorwindowcraft.com/clients',
+    canonical: 'https://soundproofindia.com/clients',
   },
   openGraph: {
     title: 'Clients & Case Studies | Kiran Slido Craft',
     description: 'Engineering trust with ISRO, Defence, and global enterprises. View our high-impact project portfolio.',
-    url: 'https://doorwindowcraft.com/clients',
+    url: 'https://soundproofindia.com/clients',
     type: 'website',
   },
   twitter: {

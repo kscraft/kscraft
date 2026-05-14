@@ -176,6 +176,14 @@
     ],
     "footer": [
       {
+        "label": "Locations",
+        "href": "/locations"
+      },
+      {
+        "label": "Solutions",
+        "href": "/solutions"
+      },
+      {
         "label": "Legacy",
         "href": "/about"
       },
@@ -454,15 +462,15 @@
       {
         "title": "ISRO Gaganyaan Mission",
         "subtitle": "Strategic Aerospace Engineering",
-        "detail": "Kiran Slido Craft engineered the mission-critical crew onboarding and deboarding mechanism for India's premier space flight. Designed for the Gaganyaan program at SHAR Sriharikota, this lander-compatible entry system represents the pinnacle of indigenous engineering precision.",
+        "detail": "Kiran Slido Craft manufactured Gaganyaan's mission-critical capsule entry mechanism for crew onboarding and deboarding. Designed for the Gaganyaan program at SHAR Sriharikota, this lander-compatible entry system represents the pinnacle of indigenous engineering precision.",
         "slug": "isro-gaganyaan",
         "image": "/images/media/project-1.jpg",
         "showcase": {
           "heroTitle": "Mission Critical.",
-          "heroDescription": "Engineering the crew entry and deboarding mechanism for India's pioneering Gaganyaan space mission.",
+          "heroDescription": "Manufacturing the capsule entry and deboarding mechanism for India's pioneering Gaganyaan space mission.",
           "challengeLabel": "The Challenge",
           "challengeTitle": "Beyond Standard Specifications.",
-          "challengeDescription": "When ISRO required a reliable, precision-engineered mechanism for astronaut movement, they didn't just need a vendor—they needed an engineering partner capable of indigenous innovation. The ask: A robust crew onboarding and deboarding lander mechanism designed for the extreme demands of the Gaganyaan program. Every millimeter of movement had to be perfectly orchestrated, ensuring absolute safety for India's first manned space flight.",
+          "challengeDescription": "When ISRO required a reliable, precision-engineered mechanism for astronaut movement, they didn't just need a vendor—they needed an engineering partner capable of indigenous innovation. The ask: A robust capsule entry, crew onboarding, and deboarding lander mechanism manufactured for the extreme demands of the Gaganyaan program. Every millimeter of movement had to be perfectly orchestrated, ensuring absolute safety for India's first manned space flight.",
           "stats": [
             {
               "label": "Zero Failure Tolerance",
@@ -487,12 +495,12 @@
           ],
           "uspLabel": "The USP",
           "uspTitle": "We are an Engineering Company First.",
-          "uspDescription": "Kiran Slido Craft thrives on unique, high-stakes engineering requirements. Whether it is a space-grade entry mechanism or a complex industrial soundproofing challenge, we apply the same aerospace-level rigor to every system we build."
+          "uspDescription": "Kiran Slido Craft thrives on unique, high-stakes engineering requirements. Whether it is Gaganyaan's space-grade capsule entry mechanism or a complex industrial soundproofing challenge, we apply the same aerospace-level rigor to every system we build."
         },
         "faqs": [
           {
             "q": "What was Kiran Slido Craft’s role in the Gaganyaan mission?",
-            "a": "We engineered the critical crew onboarding and deboarding lander mechanism, ensuring precise movement and safety for astronauts."
+            "a": "We manufactured the critical Gaganyaan capsule entry, crew onboarding, and deboarding lander mechanism, ensuring precise movement and safety for astronauts."
           },
           {
             "q": "Is the Gaganyaan entry system indigenous?",

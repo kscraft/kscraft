@@ -19,7 +19,7 @@ const inter = Inter({
   variable: '--font-inter',
 });
 
-const SITE_URL = 'https://doorwindowcraft.com';
+const SITE_URL = 'https://soundproofindia.com';
 const isVercelRuntime = process.env.VERCEL === '1' || Boolean(process.env.VERCEL_ENV);
 
 export const metadata: Metadata = {

@@ -8,12 +8,12 @@ export const metadata: Metadata = {
   title: 'Media Gallery | Kiran Slido Craft – Project Videos & Installation Photos',
   description: 'Explore video demonstrations and project installation photos of soundproof windows, doors, partitions, motorized sliding roofs, and automation systems.',
   alternates: {
-    canonical: 'https://doorwindowcraft.com/media',
+    canonical: 'https://soundproofindia.com/media',
   },
   openGraph: {
     title: 'Media Gallery | Kiran Slido Craft',
     description: 'Video demonstrations and project visuals of our precision-engineered acoustic and automation systems.',
-    url: 'https://doorwindowcraft.com/media',
+    url: 'https://soundproofindia.com/media',
     type: 'website',
   },
   twitter: {

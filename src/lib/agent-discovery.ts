@@ -1,6 +1,6 @@
 import { categories, catalog, products } from '@/lib/catalog';
 
-export const SITE_URL = 'https://doorwindowcraft.com';
+export const SITE_URL = 'https://soundproofindia.com';
 
 export const AGENT_LINK_HEADER = [
   '</.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json"',

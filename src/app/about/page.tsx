@@ -8,12 +8,12 @@ export const metadata: Metadata = {
   title: 'About Us | Kiran Slido Craft – ISO 9001 Certified Acoustic Engineers',
   description: 'Founded in 1989, Kiran Slido Craft is an ISO 9001:2015 certified manufacturer and global exporter of premium soundproofing windows, doors, partitions, and architectural automation systems.',
   alternates: {
-    canonical: 'https://doorwindowcraft.com/about',
+    canonical: 'https://soundproofindia.com/about',
   },
   openGraph: {
     title: 'About Kiran Slido Craft | 35+ Years of Acoustic Engineering Excellence',
     description: 'ISO 9001:2015 certified manufacturer and global exporter of precision-engineered acoustic systems and architectural automation. Serving UK, Europe, GCC/MENA, APAC, and Australia.',
-    url: 'https://doorwindowcraft.com/about',
+    url: 'https://soundproofindia.com/about',
     images: [{ url: '/images/hero/modern-architecture.jpg' }],
     type: 'website',
   },

@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return {};
   }
 
-  const url = `https://doorwindowcraft.com/product/${product.slug}`;
+  const url = `https://soundproofindia.com/product/${product.slug}`;
 
   return {
     title: `${product.title} | Kiran Slido Craft - Global Export`,
@@ -85,14 +85,14 @@ export default async function ProductPage({ params }: Props) {
     '@type': 'Product',
     'name': product.title,
     'description': product.description,
-    'image': `https://doorwindowcraft.com${product.image}`,
+    'image': `https://soundproofindia.com${product.image}`,
     'brand': {
       '@type': 'Brand',
       'name': 'Kiran Slido Craft'
     },
     'offers': {
       '@type': 'Offer',
-      'url': `https://doorwindowcraft.com/product/${product.slug}`,
+      'url': `https://soundproofindia.com/product/${product.slug}`,
       'availability': 'https://schema.org/InStock',
       'areaServed': ['UK', 'Europe', 'GCC', 'MENA', 'APAC', 'Australia', 'India', 'Americas', 'Africa']
     }
@@ -106,19 +106,19 @@ export default async function ProductPage({ params }: Props) {
         '@type': 'ListItem',
         'position': 1,
         'name': 'Home',
-        'item': 'https://doorwindowcraft.com'
+        'item': 'https://soundproofindia.com'
       },
       {
         '@type': 'ListItem',
         'position': 2,
         'name': category?.title || 'Catalog',
-        'item': `https://doorwindowcraft.com/category/${primaryCategoryId}`
+        'item': `https://soundproofindia.com/category/${primaryCategoryId}`
       },
       {
         '@type': 'ListItem',
         'position': 3,
         'name': product.title,
-        'item': `https://doorwindowcraft.com/product/${product.slug}`
+        'item': `https://soundproofindia.com/product/${product.slug}`
       }
     ]
   };

@@ -29,12 +29,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${blog.title} | Kiran Slido Craft Insights`,
     description: blog.excerpt,
     alternates: {
-      canonical: `https://doorwindowcraft.com/blog/${blog.slug}`,
+      canonical: `https://soundproofindia.com/blog/${blog.slug}`,
     },
     openGraph: {
       title: blog.title,
       description: blog.excerpt,
-      url: `https://doorwindowcraft.com/blog/${blog.slug}`,
+      url: `https://soundproofindia.com/blog/${blog.slug}`,
       images: [{ url: blog.image }],
       type: 'article',
       publishedTime: blog.date,

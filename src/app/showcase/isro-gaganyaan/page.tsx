@@ -8,22 +8,22 @@ import { projects, home } from '@/lib/catalog';
 
 export const metadata: Metadata = {
   title: 'ISRO Gaganyaan Case Study | Kiran Slido Craft - Aerospace Engineering',
-  description: 'A deep dive into Kiran Slido Craft’s mission-critical engineering for ISRO’s Gaganyaan crew entry mechanism. Indigenous precision for India’s first human space mission.',
-  keywords: ['ISRO Gaganyaan', 'crew entry mechanism', 'aerospace engineering India', 'Kiran Slido Craft ISRO', 'space mission engineering', 'indigenous manufacturing'],
+  description: 'A deep dive into Kiran Slido Craft’s mission-critical manufacturing for ISRO’s Gaganyaan capsule entry mechanism. Indigenous precision for India’s first human space mission.',
+  keywords: ['ISRO Gaganyaan', 'capsule entry mechanism', 'crew entry mechanism', 'aerospace engineering India', 'Kiran Slido Craft ISRO', 'space mission engineering', 'indigenous manufacturing'],
   alternates: {
-    canonical: 'https://doorwindowcraft.com/showcase/isro-gaganyaan',
+    canonical: 'https://soundproofindia.com/showcase/isro-gaganyaan',
   },
   openGraph: {
     title: 'ISRO Gaganyaan Case Study | Kiran Slido Craft',
-    description: 'Mission-critical engineering for ISRO’s Gaganyaan human spaceflight programme. Indigenous precision manufacturing by Kiran Slido Craft.',
-    url: 'https://doorwindowcraft.com/showcase/isro-gaganyaan',
+    description: 'Mission-critical manufacturing for ISRO’s Gaganyaan capsule entry mechanism. Indigenous precision by Kiran Slido Craft.',
+    url: 'https://soundproofindia.com/showcase/isro-gaganyaan',
     images: [{ url: '/images/projects/gaganyaan.jpg' }],
     type: 'article',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'ISRO Gaganyaan × Kiran Slido Craft | Aerospace Engineering',
-    description: 'How Kiran Slido Craft engineered mission-critical crew entry mechanisms for India’s Gaganyaan space programme.',
+    description: 'How Kiran Slido Craft manufactured the mission-critical capsule entry mechanism for India’s Gaganyaan space programme.',
   },
 };
 
@@ -51,19 +51,19 @@ export default function GaganyaanShowcase() {
         '@type': 'ListItem',
         'position': 1,
         'name': 'Home',
-        'item': 'https://doorwindowcraft.com'
+        'item': 'https://soundproofindia.com'
       },
       {
         '@type': 'ListItem',
         'position': 2,
         'name': 'Case Studies',
-        'item': 'https://doorwindowcraft.com/clients'
+        'item': 'https://soundproofindia.com/clients'
       },
       {
         '@type': 'ListItem',
         'position': 3,
         'name': project.title,
-        'item': `https://doorwindowcraft.com/showcase/${project.slug}`
+        'item': `https://soundproofindia.com/showcase/${project.slug}`
       }
     ]
   };

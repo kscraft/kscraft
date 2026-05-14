@@ -3,6 +3,8 @@ import React from 'react';
 export const YoutubeIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
     viewBox="0 0 24 24"
     fill="currentColor"
     stroke="none"
@@ -15,6 +17,8 @@ export const YoutubeIcon = (props: React.SVGProps<SVGSVGElement>) => (
 export const LinkedinIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
     viewBox="0 0 24 24"
     fill="currentColor"
     stroke="none"
@@ -27,6 +31,8 @@ export const LinkedinIcon = (props: React.SVGProps<SVGSVGElement>) => (
 export const InstagramIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
     viewBox="0 0 24 24"
     fill="currentColor"
     stroke="none"

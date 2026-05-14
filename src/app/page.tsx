@@ -115,10 +115,14 @@ export default function Home() {
         <div className="max-container">
           <div className="flex flex-col lg:flex-row items-center gap-20">
             <div className="lg:w-1/2">
-              <span className="text-eyebrow">{home.engineeringDNA.eyebrow}</span>
+              <div className="flex items-center gap-6 mb-8">
+                <span className="text-eyebrow mb-0">{home.engineeringDNA.eyebrow}</span>
+                <div className="h-px w-12 bg-slate-200"></div>
+                <Image src="/images/make-in-india.svg" alt="Make in India" width={80} height={32} className="h-6 w-auto opacity-70 grayscale hover:grayscale-0 transition-all" />
+              </div>
               <h2 className="heading-page text-slate-900 mb-10">
-                {home.engineeringDNA.title.split('. ')[0]}. <br />
-                <span className="text-blue-600">{home.engineeringDNA.title.split('. ')[1]}</span>
+                World-Class <br />
+                <span className="text-blue-600">Engineering & Manufacturing.</span>
               </h2>
               <p className="text-2xl text-slate-500 font-medium leading-relaxed mb-12">
                 {home.engineeringDNA.description}

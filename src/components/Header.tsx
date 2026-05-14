@@ -38,14 +38,24 @@ const Header = () => {
       )}
     >
       <div className="mx-auto max-w-[1320px] px-6 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2 group transition-all active:scale-95">
+        <Link href="/" className="flex items-center gap-3 group transition-all active:scale-95">
           <Image src="/logo-ksc.png" alt="KSC" width={120} height={32} className="h-6 w-auto" priority />
-          <span className={cn(
-            "text-[14px] font-black tracking-tight uppercase transition-colors duration-500",
-            isHeaderLight ? "text-white" : "text-black"
-          )}>
-            Kiran Slido Craft
-          </span>
+          <div className="flex flex-col">
+            <span className={cn(
+              "text-[14px] font-black tracking-tight uppercase transition-colors duration-500 leading-none",
+              isHeaderLight ? "text-white" : "text-black"
+            )}>
+              Kiran Slido Craft
+            </span>
+            <span className={cn(
+              "text-[8px] font-black tracking-[0.2em] uppercase transition-colors duration-500 mt-1",
+              isHeaderLight ? "text-blue-400" : "text-blue-600"
+            )}>
+              Engineering & Manufacturing
+            </span>
+          </div>
+          <div className="h-8 w-px bg-slate-200/20 hidden sm:block"></div>
+          <Image src="/images/make-in-india.svg" alt="Make in India" width={60} height={24} className="h-5 w-auto hidden sm:block opacity-80" />
         </Link>
 
         {/* Desktop Nav */}

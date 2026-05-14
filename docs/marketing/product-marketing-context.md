@@ -8,9 +8,7 @@ but `.agents/` creation is blocked in this workspace, so use this file instead.
 
 ## Product Overview
 
-**One-liner:** Kiran Slido Craft manufactures high-performance soundproofing,
-acoustic, and architectural automation systems for demanding residential,
-commercial, industrial, hospitality, and mission-critical projects.
+**One-liner:** Kiran Slido Craft is an ISO 9001:2015 certified leader in Engineering and Manufacturing, delivering high-performance soundproofing and architectural automation systems under the 'Make in India' initiative.
 
 **What it does:** The company designs, manufactures, and supports acoustic
 windows, doors, partitions, motorized sliding systems, gates, roof systems, and
@@ -63,11 +61,11 @@ real-world projects.
 
 **Differentiation:**
 
-- Real manufacturing proof, not generic reseller claims.
+- ISO 9001:2015 certified Engineering and Manufacturing.
+- Core contributor to the 'Make in India' initiative with indigenous precision.
 - Mission-critical credibility from Gaganyaan's capsule entry mechanism.
 - Broad acoustic plus automation catalog from one engineering-led manufacturer.
 - Verified installation imagery and project references.
-- Legacy source-site coverage and redirects preserve search equity.
 
 **Brand voice:** Technical, precise, premium, direct, evidence-led.
 

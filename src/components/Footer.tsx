@@ -12,13 +12,17 @@ export default function Footer() {
               <Image src="/logo-ksc.png" alt="KSC" width={150} height={40} className="h-10 w-auto object-contain" />
               <div className="flex flex-col">
                 <span className="text-sm font-black tracking-tight text-black uppercase leading-none">{catalog.company.name}</span>
-                <span className="text-[9px] font-bold text-blue-600 uppercase tracking-widest mt-1">Engineering Silence</span>
+                <span className="text-[9px] font-bold text-blue-600 uppercase tracking-widest mt-1">Engineering & Manufacturing</span>
               </div>
             </Link>
-            <p className="text-[13px] text-slate-500 leading-relaxed font-medium">
+            <p className="text-[13px] text-slate-500 leading-relaxed font-medium mb-8">
               {catalog.company.tagline} <br />
               Precision architectural solutions since {catalog.company.founded}.
             </p>
+            <div className="flex items-center gap-4 pt-4 border-t border-slate-200/50">
+              <Image src="/images/make-in-india.svg" alt="Make in India" width={80} height={32} className="h-6 w-auto grayscale opacity-50 contrast-125" />
+              <span className="text-[8px] font-bold text-slate-400 uppercase tracking-widest leading-tight">Indigenous Indian <br />Engineering</span>
+            </div>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 md:col-span-3 gap-12">

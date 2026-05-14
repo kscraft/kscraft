@@ -27,6 +27,7 @@
     ],
     "clients": [
       "ISRO",
+      "Indian Army",
       "Johnson & Johnson",
       "Pfizer India",
       "HDFC Bank",
@@ -42,11 +43,11 @@
       "Mahindra",
       "Indian Oil",
       "BPCL",
-      "Sahara Star",
-      "Johnson Controls"
+      "Sahara Star"
     ],
     "clientLogos": [
       { "name": "ISRO", "image": "/images/clients/isro.svg" },
+      { "name": "Indian Army", "image": "/images/clients/indianarmy.svg" },
       { "name": "Johnson & Johnson", "image": "/images/clients/jnj.svg" },
       { "name": "Pfizer", "image": "/images/clients/pfizer.svg" },
       { "name": "HDFC Bank", "image": "/images/clients/hdfc.svg" },
@@ -64,8 +65,7 @@
       { "name": "Godrej", "image": "/images/clients/godrej.svg" },
       { "name": "Nalco", "image": "/images/clients/nalco.svg" },
       { "name": "Taj Air Caterers", "image": "/images/clients/taj.svg" },
-      { "name": "Intertek", "image": "/images/clients/intertek.svg" },
-      { "name": "Johnson Controls", "image": "/images/clients/johnsoncontrols.svg" }
+      { "name": "Intertek", "image": "/images/clients/intertek.svg" }
     ],
     "social": {
       "youtube": "https://www.youtube.com/kiranslidocraft",
@@ -510,6 +510,11 @@
             "a": "Yes, 100% of the design and engineering for the entry mechanism was performed in-house by our Indian engineering team."
           }
         ]
+      },
+      {
+        "title": "Indian Army, LOC Borders",
+        "subtitle": "National Defense Security",
+        "detail": "Engineered and deployed PLC-operated automatic barrier systems for the Indian Army along the Line of Control (LOC) in Jammu & Kashmir and Rajasthan, providing mission-critical access control in extreme border environments."
       },
       {
         "title": "SAARC Summit, Nepal",

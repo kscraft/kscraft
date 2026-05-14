@@ -99,12 +99,13 @@ follow-up, and case-study/proof enrichment.
     - **Nalco:** PLC-operated automatic barriers at Angul, Orissa.
     - **HDFC Bank:** Aluminium windows and partitions at Pune facility.
     - **Taj Air Caterers:** Automatic sliding gates at Sahar Airport, Mumbai.
+    - **Indian Army:** Automatic barrier systems at J&K and Rajasthan LOC borders.
     - **Mahindra:** Custom acoustic isolation for the Scorpio SUV Testing Lab.
     - **Tata Steel:** Heavy industrial acoustic containment at Jamshedpur Plant.
     - **Diplomatic:** High-performance acoustic movable partitions at SAARC Summit (Nepal).
     - **Hospitality (The Oberoi):** Premium acoustic partitions for premier ballroom spaces.
     - **Hospitality (Sahara Star):** High-performance movable walls for large-scale event halls.
-- Client references include ISRO, The Oberoi, HDFC, ICICI Bank, Asian Paints, Tata Steel, Godrej, Pfizer, Indian Oil, BPCL, Sahara Star, Mahindra, Tata Power, and others.
+- Client references include ISRO, Indian Army, The Oberoi, HDFC, ICICI Bank, Asian Paints, Tata Steel, Godrej, Pfizer, Johnson & Johnson, Indian Oil, BPCL, Sahara Star, Mahindra, Tata Power, and others.
 - Catalog includes 23 products across 5 categories.
 
 

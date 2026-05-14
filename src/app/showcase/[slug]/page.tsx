@@ -142,7 +142,7 @@ export default async function ProjectShowcase({ params }: Props) {
           <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-blue-600/20 border border-blue-500/30 text-blue-400 text-[10px] font-black uppercase tracking-[0.3em] mb-10">
              {project.subtitle}
           </div>
-          <h1 className="heading-hero text-white mb-12 animate-in fade-in slide-in-from-bottom-8 duration-1000">
+          <h1 className="heading-hero text-white mb-12 animate-in fade-in slide-in-from-bottom-8 duration-1000 max-w-[15ch] mx-auto">
             {showcase.heroTitle}
           </h1>
           <p className="max-w-3xl mx-auto text-xl lg:text-3xl text-slate-300 font-medium leading-relaxed">

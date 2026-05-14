@@ -26,7 +26,7 @@ export default function BlogIndexPage() {
 
   return (
     <div className="flex min-h-screen flex-col bg-white">
-      <header className="hero-light relative pt-48 pb-32">
+      <header className="hero-light relative">
         <ThemeMarker theme="light" className="absolute top-0" />
         <div className="max-container relative z-10 px-6 text-center">
           <span className="text-eyebrow mx-auto">Engineering Insights</span>

@@ -54,10 +54,10 @@ export default function LocationsPage() {
       <header className="hero-dark">
         <ThemeMarker theme="dark" className="absolute top-0" />
         <div className="max-container px-6">
-          <div className="max-w-5xl">
+          <div className="max-w-4xl">
             <p className="text-eyebrow text-blue-300">Location SEO growth map</p>
-            <h1 className="heading-hero text-white">
-              Soundproof Window Markets <span className="text-blue-500">Ranked by Revenue Potential</span>
+            <h1 className="heading-hero text-white max-w-[18ch]">
+              Soundproof Window Markets <span className="text-blue-500">Ranked by Revenue</span>
             </h1>
             <p className="mt-8 max-w-3xl text-xl font-medium leading-9 text-slate-300">
               Priority markets for acoustic windows, doors, partitions, and motorized systems across India,

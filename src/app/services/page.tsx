@@ -49,10 +49,10 @@ export default function ServicesPage() {
         </div>
 
         <div className="relative z-10 max-container px-6 text-center lg:text-left">
-          <h1 className="heading-hero text-white">
+          <h1 className="heading-hero text-white max-w-[15ch] lg:max-w-none">
             {home.services.heroTitle.split(' ')[0]} <span className="text-blue-500">{home.services.heroTitle.split(' ')[1]}</span>
           </h1>
-          <p className="max-w-3xl text-xl lg:text-2xl text-slate-400 leading-relaxed mx-auto lg:mx-0 font-medium">
+          <p className="max-w-3xl text-xl lg:text-2xl text-slate-400 leading-relaxed mx-auto lg:mx-0 font-medium mt-10">
             {home.services.heroDescription}
           </p>
         </div>

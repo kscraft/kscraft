@@ -32,6 +32,7 @@
       "HDFC Bank",
       "ICICI Bank",
       "Asian Paints",
+      "The Oberoi",
       "Tata Steel",
       "Godrej",
       "Nalco",
@@ -51,6 +52,7 @@
       { "name": "HDFC Bank", "image": "/images/clients/hdfc.svg" },
       { "name": "ICICI Bank", "image": "/images/clients/icici.svg" },
       { "name": "Asian Paints", "image": "/images/clients/asianpaints.svg" },
+      { "name": "The Oberoi", "image": "/images/clients/oberoi.svg" },
       { "name": "Tata Steel", "image": "/images/clients/tatasteel.svg" },
       { "name": "Tata Power", "image": "/images/clients/tatapower.jpg" },
       { "name": "Sahara Star", "image": "/images/clients/saharastar.jpg" },
@@ -508,6 +510,16 @@
             "a": "Yes, 100% of the design and engineering for the entry mechanism was performed in-house by our Indian engineering team."
           }
         ]
+      },
+      {
+        "title": "SAARC Summit, Nepal",
+        "subtitle": "Diplomatic Flexible Space",
+        "detail": "Engineered a high-performance acoustic movable wall system that converts a grand summit hall into two independent, sound-isolated conference environments. The system features a 'stow-away' design that hides into a wall corner when not in use."
+      },
+      {
+        "title": "The Oberoi & Sahara Star",
+        "subtitle": "Luxury Hospitality Acoustics",
+        "detail": "Deployment of premium acoustic movable partitions at The Oberoi and Sahara Star Mumbai, enabling flexible ballroom management with laboratory-tested sound isolation between events."
       },
       {
         "title": "Tata Steel, Jamshedpur",

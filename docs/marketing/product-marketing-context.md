@@ -101,7 +101,9 @@ follow-up, and case-study/proof enrichment.
     - **Taj Air Caterers:** Automatic sliding gates at Sahar Airport, Mumbai.
     - **Mahindra:** Custom acoustic isolation for the Scorpio SUV Testing Lab.
     - **Tata Steel:** Heavy industrial acoustic containment at Jamshedpur Plant.
-    - **Diplomatic/Hospitality:** Acoustic movable partitions at SAARC Summit (Nepal), The Oberoi, and Sahara Star Mumbai.
+    - **Diplomatic:** High-performance acoustic movable partitions at SAARC Summit (Nepal).
+    - **Hospitality (The Oberoi):** Premium acoustic partitions for premier ballroom spaces.
+    - **Hospitality (Sahara Star):** High-performance movable walls for large-scale event halls.
 - Client references include ISRO, The Oberoi, HDFC, ICICI Bank, Asian Paints, Tata Steel, Godrej, Pfizer, Indian Oil, BPCL, Sahara Star, Mahindra, Tata Power, and others.
 - Catalog includes 23 products across 5 categories.
 

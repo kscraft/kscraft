@@ -17,8 +17,8 @@ export default function ConsentBanner() {
     // Check if the user has already consented
     const hasConsented = localStorage.getItem('ksc_cookie_consent');
     if (!hasConsented) {
-      // Small delay to not overwhelm the user immediately on load
-      const timer = setTimeout(() => setIsVisible(true), 1500);
+      // Delay to avoid overwhelming user immediately and preventing it from hijacking the Largest Contentful Paint (LCP)
+      const timer = setTimeout(() => setIsVisible(true), 4500);
       return () => clearTimeout(timer);
     } else {
       if (typeof window !== 'undefined' && typeof window.gtag === 'function') {

@@ -6,19 +6,19 @@ export async function GET() {
 Allow: /
 Disallow: /private/
 Disallow: /api/
-Content-Signal: ai-train=no, search=yes, ai-input=yes
+# Content-Signal: ai-train=no, search=yes, ai-input=yes
 
 User-agent: GPTBot
 Allow: /
-Content-Signal: ai-train=no, search=yes, ai-input=yes
+# Content-Signal: ai-train=no, search=yes, ai-input=yes
 
 User-agent: Google-Extended
 Allow: /
-Content-Signal: ai-train=no, search=yes, ai-input=yes
+# Content-Signal: ai-train=no, search=yes, ai-input=yes
 
 User-agent: ClaudeBot
 Allow: /
-Content-Signal: ai-train=no, search=yes, ai-input=yes
+# Content-Signal: ai-train=no, search=yes, ai-input=yes
 
 Sitemap: ${SITE_URL}/sitemap.xml
 Host: ${SITE_URL}

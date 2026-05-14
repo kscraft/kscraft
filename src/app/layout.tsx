@@ -190,6 +190,10 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
         />
+        <link rel="preconnect" href="https://www.clarity.ms" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://c.clarity.ms" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://www.clarity.ms" />
+        <link rel="dns-prefetch" href="https://c.clarity.ms" />
         <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM Site Map" />
       </head>
       <body className="font-sans bg-white antialiased text-slate-900 overflow-x-hidden">

@@ -10,7 +10,11 @@ export default function ClarityAnalytics() {
     const isVercelRuntime = process.env.NEXT_PUBLIC_VERCEL_ENV === 'production' || process.env.NODE_ENV === 'production';
     
     if (isVercelRuntime) {
-      Clarity.init('wqurhlymlt');
+      // Delay initialization by 5 seconds to avoid blocking main thread and affecting TBT/LCP
+      const timer = setTimeout(() => {
+        Clarity.init('wqurhlymlt');
+      }, 5000);
+      return () => clearTimeout(timer);
     }
   }, []);
 

@@ -102,6 +102,37 @@ async function submitToGoogleIndexingApi(urls: string[]) {
   }
 }
 
+async function submitToBaidu(urls: string[]) {
+  console.log(`\n▶ Submitting ${urls.length} URLs to Baidu...`);
+  
+  const token = process.env.BAIDU_SITE_TOKEN;
+  if (!token) {
+    console.log('⚠️ BAIDU_SITE_TOKEN is not set.');
+    console.log('To push to Baidu, get your API token from Baidu Webmaster Tools and set it in your .env file.');
+    return;
+  }
+
+  const baiduUrl = `http://data.zz.baidu.com/urls?site=${CANONICAL_SITE_URL}&token=${token}`;
+  try {
+    const res = await fetch(baiduUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'text/plain',
+      },
+      body: urls.join('\n')
+    });
+
+    const text = await res.text();
+    if (res.ok) {
+      console.log('✅ Baidu submission successful! Response:', text);
+    } else {
+      console.error(`❌ Baidu submission failed: ${res.status}`, text);
+    }
+  } catch (err) {
+    console.error('❌ Network error during Baidu submission:', err);
+  }
+}
+
 async function run() {
   console.log(`Starting Universal SEO Submission Engine for ${CANONICAL_SITE_URL}...`);
   console.log('Note: AI Bots (ChatGPT, Claude) discover content via live search (Bing/Google) and /llms.txt.\n');
@@ -110,6 +141,7 @@ async function run() {
   
   await submitToIndexNow(urls);
   await submitToGoogleIndexingApi(urls);
+  await submitToBaidu(urls);
   
   console.log('\n✅ SEO Submission sweep complete.');
 }

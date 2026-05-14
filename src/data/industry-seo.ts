@@ -79,32 +79,32 @@ export const industries: IndustrySolution[] = [
   {
     slug: 'education-institutions',
     title: 'Education & Institutions',
-    eyebrow: 'Quiet Learning',
-    description: 'Optimize learning environments by eliminating noise distractions. Our acoustic solutions for classrooms, auditoriums, and music rooms foster concentration and academic excellence.',
+    eyebrow: 'Quiet Learning Environments',
+    description: 'Optimize academic performance by eliminating noise distractions. Our acoustic solutions for classrooms, auditoriums, and music conservatories meet stringent institutional standards for speech clarity and background noise control.',
     heroImage: '/images/media/project-2.jpg',
     benefits: [
-      { title: 'Improved Concentration', description: 'Blocking external traffic and hallway noise for focused student learning.' },
-      { title: 'Auditorium Acoustics', description: 'Large-span movable partitions that divide halls while maintaining speech clarity.' },
-      { title: 'Music Room Isolation', description: 'Extreme soundproofing for dedicated performance and practice spaces.' }
+      { title: 'Acoustic Comfort Standards', description: 'Systems designed to meet BB93 (UK) and similar global educational acoustic criteria.' },
+      { title: 'Auditorium Versatility', description: 'Large-span movable partitions with STC 50+ ratings for simultaneous multi-use hall operations.' },
+      { title: 'Music Suite Isolation', description: 'Extreme soundproofing for dedicated performance, practice, and recording spaces within institutions.' }
     ],
-    productSlugs: ['sound-proof-windows', 'sound-proof-sliding-folding-partition', 'sound-proof-swing-doors'],
-    metaTitle: 'Acoustic Solutions for Schools & Universities | Kiran Slido Craft',
-    metaDescription: 'High-performance soundproofing for educational facilities. Improve student focus with acoustic windows and movable partitions for auditoriums and classrooms.'
+    productSlugs: ['sound-proof-windows', 'sound-proof-sliding-folding-partition', 'sound-proof-swing-doors', 'sound-proof-acoustic-fix-partition'],
+    metaTitle: 'Acoustic Solutions for Schools & Universities | Institutional Soundproofing',
+    metaDescription: 'High-performance soundproofing for educational facilities. Improve student focus with acoustic windows and movable partitions designed for auditoriums, music rooms, and classrooms.'
   },
   {
     slug: 'industrial-manufacturing',
     title: 'Industrial & Manufacturing',
-    eyebrow: 'Heavy-Duty Noise Control',
-    description: 'Protect your workforce and comply with occupational health standards. We provide high-decibel noise containment for factories, power plants, and control rooms.',
+    eyebrow: 'Heavy-Duty Noise Containment',
+    description: 'Ensure regulatory compliance and protect workforce health with high-decibel noise containment. We provide engineered acoustic barriers for factories, power plants, and mission-critical control rooms.',
     heroImage: '/images/blogs/industrial-barriers.jpg',
     benefits: [
-      { title: 'Worker Safety', description: 'Reducing ambient factory noise to safe levels for personnel health and communication.' },
-      { title: 'Control Room Privacy', description: 'Ensuring absolute silence for monitoring stations in high-noise environments.' },
-      { title: 'Durability', description: 'Ruggedized acoustic steel doors and heavy-duty frames built for industrial cycles.' }
+      { title: 'OSHA & NIOSH Compliance', description: 'Reducing ambient factory noise to levels that satisfy occupational health and safety regulations.' },
+      { title: 'Control Room Integrity', description: 'Absolute silence for monitoring stations in high-decibel environments (turbine halls, forge shops).' },
+      { title: 'Ruggedized Engineering', description: 'Acoustic steel doors and heavy-duty reinforced frames built for millions of industrial operational cycles.' }
     ],
-    productSlugs: ['sound-proof-swing-doors', 'sound-proof-acoustic-fix-partition', 'motorized-sliding-gates'],
-    metaTitle: 'Industrial Soundproofing Solutions | Factory Noise Control',
-    metaDescription: 'Heavy-duty acoustic isolation for manufacturing and industrial plants. Ruggedized soundproof doors and windows designed for high-decibel environments.'
+    productSlugs: ['sound-proof-swing-doors', 'sound-proof-acoustic-fix-partition', 'motorized-sliding-gates', 'motorized-telescopic-gates'],
+    metaTitle: 'Industrial Soundproofing Solutions | Factory & Plant Noise Control',
+    metaDescription: 'Heavy-duty acoustic isolation for manufacturing and industrial plants. Ruggedized soundproof doors, partitions, and windows designed for high-decibel containment and safety.'
   }
 ];
 

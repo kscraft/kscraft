@@ -8,6 +8,7 @@ import ProductCard from '@/components/ProductCard';
 import SpecsSearch from '@/components/SpecsSearch';
 import ThemeMarker from '@/components/ThemeMarker';
 import SpecProcess from '@/components/SpecProcess';
+import ClientMarquee from '@/components/ClientMarquee';
 import { catalog, categories, getFeaturedProducts, getProductsByCategory, home, projects } from '@/lib/catalog';
 import { cn } from '@/lib/utils';
 import { trackQuoteClick, trackClientEvent } from '@/lib/analytics-client';
@@ -104,6 +105,9 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
+
+      {/* Enterprise Trust Marquee */}
+      <ClientMarquee />
 
       {/* Engineering DNA Showcase */}
       <section className="section-standard">

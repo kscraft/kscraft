@@ -4,7 +4,7 @@ test.describe('Kiran Slido Craft E2E', () => {
   test('homepage loads and has correct title', async ({ page }) => {
     await page.goto('/');
     await expect(page).toHaveTitle(/Kiran Slido Craft/);
-    await expect(page.getByRole('heading', { level: 1 }).first()).toContainText('Kiran Slido Craft');
+    await expect(page.getByRole('heading', { level: 1 }).first()).toContainText(/Soundproof Windows/i);
   });
 
   test('navigation works', async ({ page }) => {
@@ -16,7 +16,7 @@ test.describe('Kiran Slido Craft E2E', () => {
 
   test('dedicated search page works', async ({ page }) => {
     await page.goto('/search');
-    await expect(page.getByRole('heading', { level: 1 })).toContainText(/Search Systems/i);
+    await expect(page.getByRole('heading', { level: 1 })).toContainText(/Search Architectural Systems/i);
     const searchInput = page.getByPlaceholder(/Search specifications/i);
     await searchInput.pressSequentially('ISRO', { delay: 100 });
     await expect(page.getByText(/ISRO Gaganyaan Mission/i)).toBeVisible({ timeout: 10000 });

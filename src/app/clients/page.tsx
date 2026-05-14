@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { catalog, projects, home } from '@/lib/catalog';
 import { ChevronRight } from 'lucide-react';
 import ThemeMarker from '@/components/ThemeMarker';
+import ClientMarquee from '@/components/ClientMarquee';
 
 export const metadata: Metadata = {
   title: 'Clients & Case Studies | Kiran Slido Craft – ISRO, Defence & Enterprise',
@@ -29,11 +30,11 @@ export default function ClientsPage() {
     <div className="flex flex-col min-h-screen bg-white">
       <header className="hero-light">
         <ThemeMarker theme="light" className="absolute top-0" />
-        <div className="max-container">
-          <p className="text-eyebrow text-center mb-6">
+        <div className="max-container text-center">
+          <p className="text-eyebrow mb-6">
             {home.showcaseUI.caseStudies}
           </p>
-          <h1 className="heading-hero text-black">
+          <h1 className="heading-hero text-black mx-auto">
             {home.showcaseUI.trustAndPrecision.split(' & ')[0]} & <br /> {home.showcaseUI.trustAndPrecision.split(' & ')[1]}
           </h1>
           <p className="text-body-lg max-w-2xl mx-auto mt-10">
@@ -41,6 +42,9 @@ export default function ClientsPage() {
           </p>
         </div>
       </header>
+
+      {/* Auto-rolling Logo Catalog */}
+      <ClientMarquee />
 
       {/* Project Milestones */}
       <section className="section-standard">

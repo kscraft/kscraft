@@ -90,12 +90,20 @@ follow-up, and case-study/proof enrichment.
 
 ## Proof Points
 
-- Manufactured Gaganyaan's capsule entry mechanism for ISRO.
-- ISO 9001 certified.
+- Manufactured Gaganyaan's capsule entry mechanism for ISRO (SHAR Sriharikota).
+- ISO 9001:2015 certified.
 - NSIC and MSME registered.
-- Client references include ISRO, HDFC, Godrej, Pfizer, Indian Oil, BPCL,
-  Sahara Star, Mahindra, Tata Power, and others.
+- **Enterprise Proof:**
+    - **Johnson & Johnson:** Automatic sliding doors at Gowandi Plant, Mumbai.
+    - **Pfizer India:** Motorized rolling shutters at Turbhe, Vashi plant.
+    - **Nalco:** PLC-operated automatic barriers at Angul, Orissa.
+    - **HDFC Bank:** Aluminium windows and partitions at Pune facility.
+    - **Taj Air Caterers:** Automatic sliding gates at Sahar Airport, Mumbai.
+    - **Mahindra:** Custom acoustic isolation for the Scorpio SUV Testing Lab.
+    - **Tata Steel:** Heavy industrial acoustic containment at Jamshedpur Plant.
+- Client references include ISRO, HDFC, ICICI Bank, Asian Paints, Tata Steel, Godrej, Pfizer, Indian Oil, BPCL, Sahara Star, Mahindra, Tata Power, and others.
 - Catalog includes 23 products across 5 categories.
+
 
 ## Messaging Guardrails
 

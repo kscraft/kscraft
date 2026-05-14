@@ -8,9 +8,12 @@ const inquirySchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
   email: z.string().email('Invalid corporate email'),
   phone: z.string().min(8, 'Please enter a valid phone number'),
+  city: z.string().min(2, 'Please enter your project city'),
   scope: z.string().min(1, 'Please select a project scope'),
   requirements: z.string().min(10, 'Technical requirements must be more detailed'),
   utmSource: z.string().optional(),
+  referrer: z.string().optional(),
+  pagePath: z.string().optional(),
 });
 
 type Inquiry = z.infer<typeof inquirySchema> & {
@@ -78,8 +81,11 @@ function getLeadEmailHtml(inquiry: Inquiry) {
       <tr><td><strong>Name</strong></td><td>${escapeHtml(inquiry.name)}</td></tr>
       <tr><td><strong>Email</strong></td><td>${escapeHtml(inquiry.email)}</td></tr>
       <tr><td><strong>Phone</strong></td><td>${escapeHtml(inquiry.phone)}</td></tr>
+      <tr><td><strong>City</strong></td><td>${escapeHtml(inquiry.city)}</td></tr>
       <tr><td><strong>Scope</strong></td><td>${escapeHtml(inquiry.scope)}</td></tr>
       <tr><td><strong>Source</strong></td><td>${escapeHtml(inquiry.utmSource || 'direct')}</td></tr>
+      <tr><td><strong>Referrer</strong></td><td>${escapeHtml(inquiry.referrer || 'none')}</td></tr>
+      <tr><td><strong>Page</strong></td><td>${escapeHtml(inquiry.pagePath || 'direct')}</td></tr>
       <tr><td><strong>Timestamp</strong></td><td>${escapeHtml(inquiry.timestamp)}</td></tr>
     </table>
     <h3>Requirements</h3>
@@ -94,8 +100,11 @@ function getLeadEmailText(inquiry: Inquiry) {
     `Name: ${inquiry.name}`,
     `Email: ${inquiry.email}`,
     `Phone: ${inquiry.phone}`,
+    `City: ${inquiry.city}`,
     `Scope: ${inquiry.scope}`,
     `Source: ${inquiry.utmSource || 'direct'}`,
+    `Referrer: ${inquiry.referrer || 'none'}`,
+    `Page: ${inquiry.pagePath || 'direct'}`,
     `Timestamp: ${inquiry.timestamp}`,
     '',
     'Requirements:',
@@ -114,7 +123,7 @@ async function postLeadEmail(apiKey: string, from: string, inquiry: Inquiry) {
       from: from || 'Kiran Slido Craft <onboarding@resend.dev>',
       to: [LEAD_RECIPIENT_EMAIL],
       reply_to: inquiry.email,
-      subject: `Technical inquiry: ${inquiry.scope}`,
+      subject: `Technical inquiry: ${inquiry.scope} (${inquiry.city})`,
       text: getLeadEmailText(inquiry),
       html: getLeadEmailHtml(inquiry),
     }),
@@ -142,6 +151,7 @@ async function sendLeadEmail(inquiry: Inquiry) {
 
     console.info('RESEND_API_KEY is not configured; skipping lead email in development', {
       scope: inquiry.scope,
+      city: inquiry.city,
       utmSource: inquiry.utmSource,
     });
     return;
@@ -163,6 +173,7 @@ async function sendLeadEmail(inquiry: Inquiry) {
 
     console.warn('Lead email sender domain is not verified; retrying with Resend fallback sender', {
       scope: inquiry.scope,
+      city: inquiry.city,
       utmSource: inquiry.utmSource,
     });
     await postLeadEmail(apiKey, fallbackFrom, inquiry);
@@ -173,6 +184,7 @@ async function archiveInquiry(inquiry: Inquiry) {
   if (!isR2Configured()) {
     console.info('R2 lead archive is not configured', {
       scope: inquiry.scope,
+      city: inquiry.city,
       utmSource: inquiry.utmSource,
     });
     return;
@@ -194,9 +206,12 @@ export async function submitInquiry(prevState: unknown, formData: FormData) {
     name: formData.get('name'),
     email: formData.get('email'),
     phone: formData.get('phone'),
+    city: formData.get('city'),
     scope: formData.get('scope'),
     requirements: formData.get('requirements'),
     utmSource: formData.get('utmSource') || 'direct',
+    referrer: formData.get('referrer') || 'none',
+    pagePath: formData.get('pagePath') || 'unknown',
   });
 
   if (!validatedFields.success) {
@@ -218,6 +233,7 @@ export async function submitInquiry(prevState: unknown, formData: FormData) {
     console.error('Failed to process lead', {
       error: error instanceof Error ? error.message : 'Unknown error',
       scope: leadData.scope,
+      city: leadData.city,
       utmSource: leadData.utmSource,
     });
 
@@ -233,12 +249,14 @@ export async function submitInquiry(prevState: unknown, formData: FormData) {
     console.error('Failed to archive lead', {
       error: error instanceof Error ? error.message : 'Unknown error',
       scope: leadData.scope,
+      city: leadData.city,
       utmSource: leadData.utmSource,
     });
   }
 
   console.info('Technical inquiry accepted', {
     scope: leadData.scope,
+    city: leadData.city,
     utmSource: leadData.utmSource,
   });
 

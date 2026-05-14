@@ -114,6 +114,7 @@ export const faqCategories: FaqCategory[] = [
         question: 'How do you handle international shipping and customs?',
         answer: 'As a licensed global exporter registered with NSIC, we handle all export documentation, customs clearance, and freight logistics. Systems are packed in custom marine-grade crating designed for safe international transit.',
       },
+
       {
         question: 'Can you work with our local contractors for installation?',
         answer: 'Absolutely. For international projects, we provide comprehensive installation training, detailed video guides, and remote supervision via video call during critical installation phases. We can also send our installation supervisors to site for complex projects.',

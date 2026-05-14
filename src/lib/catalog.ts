@@ -11,6 +11,7 @@ export type Category = {
   accent: string;
   bestFor: string;
   highlights: string[];
+  faqs?: { q: string; a: string }[];
   extendedContent?: string[];
 };
 
@@ -254,11 +255,13 @@ export const home = catalogData.home as {
     nameLabel: string;
     emailLabel: string;
     phoneLabel: string;
+    cityLabel: string;
     scopeLabel: string;
     requirementsLabel: string;
     placeholderName: string;
     placeholderEmail: string;
     placeholderPhone: string;
+    placeholderCity: string;
     placeholderRequirements: string;
     submitButton: string;
     processing: string;

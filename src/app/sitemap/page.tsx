@@ -26,9 +26,9 @@ export default function SitemapPage() {
     <article className="bg-white min-h-screen">
       <header className="hero-light border-b border-slate-100">
         <ThemeMarker theme="light" className="absolute top-0" />
-        <div className="max-container pt-32 pb-20">
+        <div className="max-container pt-32 pb-20 text-center">
           <p className="text-eyebrow mb-6">Navigation</p>
-          <h1 className="text-5xl md:text-7xl font-black text-slate-900 tracking-tighter uppercase leading-none">
+          <h1 className="text-5xl md:text-7xl font-black text-slate-900 tracking-tighter uppercase leading-none mx-auto">
             {home.sitemap.title}
           </h1>
           <p className="text-xl text-slate-500 font-medium max-w-2xl mx-auto mt-8">

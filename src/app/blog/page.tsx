@@ -28,12 +28,12 @@ export default function BlogIndexPage() {
     <div className="flex min-h-screen flex-col bg-white">
       <header className="hero-light relative pt-48 pb-32">
         <ThemeMarker theme="light" className="absolute top-0" />
-        <div className="max-container relative z-10 px-6">
-          <span className="text-eyebrow">Engineering Insights</span>
-          <h1 className="heading-page text-slate-900 mb-8">
+        <div className="max-container relative z-10 px-6 text-center">
+          <span className="text-eyebrow mx-auto">Engineering Insights</span>
+          <h1 className="heading-page text-slate-900 mb-8 mx-auto">
             Technical <span className="text-blue-600">Journal</span>
           </h1>
-          <p className="max-w-2xl text-xl text-slate-500 font-medium">
+          <p className="max-w-2xl text-xl text-slate-500 font-medium mx-auto">
             Deep dives, case studies, and guides on architectural acoustics, automation, and precision engineering.
           </p>
         </div>

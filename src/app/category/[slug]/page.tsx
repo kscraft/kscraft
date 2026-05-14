@@ -182,16 +182,32 @@ export default async function CategoryPage({ params }: Props) {
         <section className="section-standard border-t border-slate-100 bg-slate-50/50">
           <ThemeMarker theme="light" className="absolute top-0" />
           <div className="max-container">
-            <div className="prose prose-slate prose-lg max-w-4xl">
-              {category.extendedContent.map((paragraph, index) => {
-                if (paragraph.startsWith('### ')) {
-                  return <h3 key={index} className="text-2xl font-black uppercase tracking-tight text-slate-900 mt-12 mb-6">{paragraph.replace('### ', '')}</h3>;
-                }
-                if (paragraph.startsWith('**') && paragraph.endsWith('**')) {
-                  return <h4 key={index} className="text-lg font-bold text-slate-800 mt-8 mb-4">{paragraph.replace(/\*\*/g, '')}</h4>;
-                }
-                return <p key={index} className="text-slate-600 leading-relaxed mb-6">{paragraph}</p>;
-              })}
+            <div className="flex flex-col lg:flex-row gap-20">
+              <div className="lg:w-2/3 prose prose-slate prose-lg max-w-none">
+                {category.extendedContent.map((paragraph, index) => {
+                  if (paragraph.startsWith('### ')) {
+                    return <h3 key={index} className="text-2xl font-black uppercase tracking-tight text-slate-900 mt-12 mb-6">{paragraph.replace('### ', '')}</h3>;
+                  }
+                  if (paragraph.startsWith('**') && paragraph.endsWith('**')) {
+                    return <h4 key={index} className="text-lg font-bold text-slate-800 mt-8 mb-4">{paragraph.replace(/\*\*/g, '')}</h4>;
+                  }
+                  return <p key={index} className="text-slate-600 leading-relaxed mb-6">{paragraph}</p>;
+                })}
+              </div>
+
+              {category.faqs && category.faqs.length > 0 && (
+                <div className="lg:w-1/3">
+                  <div className="sticky top-32 space-y-8">
+                    <h3 className="text-xl font-black uppercase tracking-tight text-slate-900 mb-8">Technical FAQs</h3>
+                    {category.faqs.map((faq, idx) => (
+                      <div key={idx} className="p-8 rounded-3xl bg-white border border-slate-200 shadow-sm">
+                        <p className="text-base font-bold text-slate-900 leading-tight mb-4">{faq.q}</p>
+                        <p className="text-sm font-medium text-slate-500 leading-relaxed">{faq.a}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </section>

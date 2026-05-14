@@ -26,48 +26,44 @@
       "MSME Registered"
     ],
     "clients": [
+      "ISRO",
       "Johnson & Johnson",
       "Pfizer India",
-      "Intertek Lab",
       "HDFC Bank",
-      "Taj Air Caterers",
-      "Godrej",
-      "Nalco",
-      "Lupin",
       "ICICI Bank",
       "Asian Paints",
-      "Tata SSL",
+      "Tata Steel",
+      "Godrej",
+      "Nalco",
+      "Taj Air Caterers",
+      "Intertek Lab",
+      "Tata Power",
+      "Mahindra",
+      "Indian Oil",
+      "BPCL",
+      "Sahara Star",
       "Johnson Controls"
     ],
     "clientLogos": [
-      {
-        "name": "Tata Power",
-        "image": "/images/clients/tatapower.jpg"
-      },
-      {
-        "name": "Sahara Star",
-        "image": "/images/clients/saharastar.jpg"
-      },
-      {
-        "name": "Mahindra",
-        "image": "/images/clients/mahindra4.jpg"
-      },
-      {
-        "name": "Indian Oil",
-        "image": "/images/clients/indianoil.jpg"
-      },
-      {
-        "name": "Cadbury",
-        "image": "/images/clients/cadbury.jpg"
-      },
-      {
-        "name": "BPCL",
-        "image": "/images/clients/bpcl.jpg"
-      },
-      {
-        "name": "Billimoria",
-        "image": "/images/clients/billimoria.jpg"
-      }
+      { "name": "ISRO", "image": "/images/clients/isro.svg" },
+      { "name": "Johnson & Johnson", "image": "/images/clients/jnj.svg" },
+      { "name": "Pfizer", "image": "/images/clients/pfizer.svg" },
+      { "name": "HDFC Bank", "image": "/images/clients/hdfc.svg" },
+      { "name": "ICICI Bank", "image": "/images/clients/icici.svg" },
+      { "name": "Asian Paints", "image": "/images/clients/asianpaints.svg" },
+      { "name": "Tata Steel", "image": "/images/clients/tatasteel.svg" },
+      { "name": "Tata Power", "image": "/images/clients/tatapower.jpg" },
+      { "name": "Sahara Star", "image": "/images/clients/saharastar.jpg" },
+      { "name": "Mahindra", "image": "/images/clients/mahindra4.jpg" },
+      { "name": "Indian Oil", "image": "/images/clients/indianoil.jpg" },
+      { "name": "Cadbury", "image": "/images/clients/cadbury.jpg" },
+      { "name": "BPCL", "image": "/images/clients/bpcl.jpg" },
+      { "name": "Billimoria", "image": "/images/clients/billimoria.jpg" },
+      { "name": "Godrej", "image": "/images/clients/godrej.svg" },
+      { "name": "Nalco", "image": "/images/clients/nalco.svg" },
+      { "name": "Taj Air Caterers", "image": "/images/clients/taj.svg" },
+      { "name": "Intertek", "image": "/images/clients/intertek.svg" },
+      { "name": "Johnson Controls", "image": "/images/clients/johnsoncontrols.svg" }
     ],
     "social": {
       "youtube": "https://www.youtube.com/kiranslidocraft",
@@ -106,7 +102,7 @@
       "noSystemsFound": "No technical systems match your query.",
       "viewFullCatalog": "View full technical catalog",
       "tryBroaderTerms": "Try searching for broader terms like \"Sound\" or \"Roof\".",
-      "searchPageTitle": "Search Systems",
+      "searchPageTitle": "Search Architectural Systems",
       "searchPageSubtitle": "Find high-performance acoustic and automation systems by technical specification.",
       "resultsCount": "Found {count} systems matching your query",
       "noResultsTitle": "No systems found",
@@ -208,11 +204,11 @@
   },
   "home": {
     "hero": {
-      "eyebrow": "Manufacturers of Gaganyaan's capsule entry mechanism",
-      "title": "Kiran Slido Craft",
-      "highlight": "Builders of soundproof windows, doors, and automation systems",
-      "subhighlight": "serving the UK, Europe, GCC/MENA, APAC, and Australia with certified export precision.",
-      "description": "Explore engineered soundproofing, retractable roofing, and motorized movement systems built for demanding residential, commercial, and industrial projects worldwide.",
+      "eyebrow": "Manufacturers of Gaganyaan's capsule entry mechanism for ISRO",
+      "title": "Soundproof Windows, Doors & Automation Systems",
+      "highlight": "Kiran Slido Craft builds high-performance acoustic isolation and architectural automation systems",
+      "subhighlight": "for mission-critical aerospace, residential, and industrial projects worldwide.",
+      "description": "Custom-engineered soundproof windows, doors, partitions, and motorized roofs designed to international standards and exported globally from our ISO 9001 certified manufacturing hubs.",
       "image": "/images/products/motorized-sliding-roof.jpg",
       "productTitle": "Motorized Sliding Roof",
       "productSubtitle": "Retractable open-to-sky roofing for terraces, atriums, and premium outdoor spaces.",
@@ -368,11 +364,13 @@
       "nameLabel": "Contact Name",
       "emailLabel": "Corporate Email",
       "phoneLabel": "Phone Number",
+      "cityLabel": "Project City",
       "scopeLabel": "Project Scope",
       "requirementsLabel": "Technical Requirements",
       "placeholderName": "Enter name",
       "placeholderEmail": "email@company.com",
       "placeholderPhone": "+91 98765 43210",
+      "placeholderCity": "Enter project city",
       "placeholderRequirements": "Briefly describe dimensions, acoustic targets, or automation needs...",
       "submitButton": "Send Technical Request",
       "processing": "Processing...",
@@ -512,9 +510,34 @@
         ]
       },
       {
+        "title": "Tata Steel, Jamshedpur",
+        "subtitle": "Heavy Industrial Acoustics",
+        "detail": "Large-scale acoustic containment and specialized door systems for the Tata Steel Jamshedpur plant, managing extreme decibel environments in steel manufacturing."
+      },
+      {
+        "title": "Mahindra Scorpio SUV Testing Lab",
+        "subtitle": "Automotive Engineering",
+        "detail": "Custom-engineered acoustic isolation system for Mahindra's Scorpio SUV testing laboratory, ensuring high-decibel containment during engine and stress testing."
+      },
+      {
         "title": "VJ Villa Pune",
         "subtitle": "Residential Automation",
         "detail": "Complete architectural automation integration including motorized sliding windows and terrace roofing systems."
+      },
+      {
+        "title": "Johnson & Johnson, Mumbai",
+        "subtitle": "Pharmaceutical Automation",
+        "detail": "Installation of high-performance automatic sliding doors for the Gowandi Plant, ensuring sterile environments and efficient personnel movement."
+      },
+      {
+        "title": "Pfizer India, Vashi",
+        "subtitle": "Industrial Movement",
+        "detail": "Deployment of 5 units of motorized rolling shutters at the Turbhe pharmaceutical plant for high-cycle operational reliability."
+      },
+      {
+        "title": "Nalco, Angul",
+        "subtitle": "Infrastructure Security",
+        "detail": "Integration of 4 units of PLC-operated automatic barrier systems for high-security access control at the Nalco Orissa facility."
       },
       {
         "title": "Hilton Hotel Bengaluru",
@@ -677,6 +700,16 @@
         "Vertical sliding automation",
         "Soft-start drive systems",
         "Safety sensor integration"
+      ],
+      "faqs": [
+        {
+          "q": "Are your motorized gates and roofs safe for daily use?",
+          "a": "Every system is equipped with active infrared safety sensors and auto-reverse mechanisms. They comply with international safety standards to prevent accidental closure or entrapment."
+        },
+        {
+          "q": "Can these systems be integrated with my existing smart home or BMS?",
+          "a": "Yes. Our automation controllers support standard protocols for integration with Crestron, Control4, and most industrial Building Management Systems (BMS)."
+        }
       ],
       "extendedContent": [
         "### Complete Specification Guide: Architectural Automation",
@@ -971,6 +1004,7 @@
       ],
       "specifications": {
         "Type": "Permanent Acoustic Wall",
+        "STC Rating": "Up to 50dB",
         "Core": "Multi-layer acoustic infill",
         "Finish": "MDF / Fabric / Laminate"
       },
@@ -1530,7 +1564,7 @@
       ],
       "specifications": {
         "Build": "Industrial grade steel/aluminum",
-        "Capacity": "Up to 5000kg+",
+        "Capacity": "300kg to 3500kg+",
         "Speed": "Variable frequency drive"
       },
       "features": [

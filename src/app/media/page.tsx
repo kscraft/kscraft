@@ -28,11 +28,11 @@ export default function MediaPage() {
     <div className="flex flex-col min-h-screen bg-white">
       <header className="hero-light">
         <ThemeMarker theme="light" className="absolute top-0" />
-        <div className="max-container">
-          <p className="text-eyebrow text-center mb-6">
+        <div className="max-container text-center">
+          <p className="text-eyebrow mb-6">
             {home.mediaUI.heroEyebrow}
           </p>
-          <h1 className="heading-hero text-black">
+          <h1 className="heading-hero text-black mx-auto">
             {home.mediaUI.heroTitle.split(' in ')[0]} <br /> in {home.mediaUI.heroTitle.split(' in ')[1]}
           </h1>
           <p className="text-body-lg max-w-2xl mx-auto mt-10">

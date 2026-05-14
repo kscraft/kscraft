@@ -1,13 +1,17 @@
 'use client';
 
+import * as React from 'react';
 import { useActionState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Image from 'next/image';
 import { catalog, categories, home } from '@/lib/catalog';
-import { Mail, MapPin, Send, Phone, CheckCircle2 } from 'lucide-react';
+import { Mail, MapPin, Send, Phone, CheckCircle2, HelpCircle } from 'lucide-react';
 import { YoutubeIcon, LinkedinIcon, InstagramIcon } from '@/components/SocialIcons';
 import ThemeMarker from '@/components/ThemeMarker';
+import SpecProcess from '@/components/SpecProcess';
 import { submitInquiry } from '@/app/actions';
+import { faqCategories } from '@/data/faqs';
+import { trackFormStart, trackClientEvent, trackContactClick } from '@/lib/analytics-client';
 
 const initialState = {
   success: false,
@@ -19,6 +23,24 @@ function ContactForm() {
   const [state, formAction, isPending] = useActionState(submitInquiry, initialState);
   const searchParams = useSearchParams();
   const initialScope = searchParams.get('scope') || '';
+  const [hasStarted, setHasStarted] = React.useState(false);
+
+  // Track successful submission
+  React.useEffect(() => {
+    if (state.success) {
+      trackClientEvent('generate_lead', {
+        form_id: 'contact_form',
+        scope: searchParams.get('scope') || 'general'
+      });
+    }
+  }, [state.success, searchParams]);
+
+  const handleFocus = () => {
+    if (!hasStarted) {
+      trackFormStart('contact_form');
+      setHasStarted(true);
+    }
+  };
 
   return (
     <div className="bg-slate-950 rounded-[3.5rem] p-10 lg:p-20 text-white shadow-[0_50px_100px_-12px_rgba(0,0,0,0.4)] relative overflow-hidden">
@@ -39,7 +61,7 @@ function ContactForm() {
             </p>
           </div>
         ) : (
-          <form action={formAction} className="space-y-10" noValidate>
+          <form action={formAction} className="space-y-10" noValidate onFocus={handleFocus}>
             {state?.message && !state?.success && (
               <div className="rounded-2xl border border-red-400/30 bg-red-500/10 px-5 py-4 text-sm font-bold leading-6 text-red-100" role="alert">
                 {state.message}
@@ -160,6 +182,50 @@ export default function ContactPage() {
           </p>
         </div>
       </header>
+
+      {/* How It Works */}
+      <section className="section-tint">
+        <div className="max-container">
+          <div className="mb-14 max-w-3xl">
+            <p className="text-eyebrow">How Specification Works</p>
+            <h2 className="heading-section mb-0">From drawings to installed system in 5 steps</h2>
+          </div>
+          <SpecProcess />
+        </div>
+      </section>
+
+      {/* Key FAQs Preview */}
+      <section className="section-standard border-b border-slate-100">
+        <div className="max-container">
+          <div className="mb-14 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+            <div>
+              <p className="text-eyebrow">Common Questions</p>
+              <h2 className="heading-section mb-0">Before you reach out</h2>
+            </div>
+            <a href="/faq" className="apple-button-secondary inline-flex items-center justify-center px-8 py-4 text-xs font-black uppercase tracking-[0.2em]">
+              View All FAQs
+            </a>
+          </div>
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {faqCategories.slice(0, 3).map((cat) => (
+              <div key={cat.id} className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
+                <div className="flex items-center gap-3 mb-6">
+                  <HelpCircle className="h-5 w-5 text-blue-600" />
+                  <h3 className="text-sm font-black uppercase tracking-tight text-slate-900">{cat.title}</h3>
+                </div>
+                <div className="space-y-4">
+                  {cat.faqs.slice(0, 2).map((faq, idx) => (
+                    <div key={idx}>
+                      <p className="text-sm font-bold text-slate-800">{faq.question}</p>
+                      <p className="mt-1 text-xs font-medium leading-5 text-slate-500 line-clamp-2">{faq.answer}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <section className="section-standard">
         <div className="max-container">

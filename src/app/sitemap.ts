@@ -2,6 +2,8 @@ import { MetadataRoute } from 'next';
 import { products, categories } from '@/lib/catalog';
 import { locationSeoPages } from '@/data/location-seo';
 import { getServiceLocationPairs, serviceLocationSeoPages } from '@/data/service-location-seo';
+import { industries } from '@/data/industry-seo';
+import { guides } from '@/data/guides';
 
 const SITE_URL = 'https://soundproofindia.com';
 
@@ -50,6 +52,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: 'weekly',
       priority: 0.6,
+    },
+    {
+      url: `${SITE_URL}/faq`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.7,
+    },
+    {
+      url: `${SITE_URL}/blog`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.8,
     },
     {
       url: `${SITE_URL}/showcase/isro-gaganyaan`,
@@ -124,6 +138,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: location.priority === 'P0' ? 0.9 : location.priority === 'P1' ? 0.8 : 0.65,
   }));
 
+  const industryRoutes: MetadataRoute.Sitemap = industries.map((ind) => ({
+    url: `${SITE_URL}/industries/${ind.slug}`,
+    lastModified: now,
+    changeFrequency: 'monthly',
+    priority: 0.75,
+  }));
+
+  const guideRoutes: MetadataRoute.Sitemap = guides.map((guide) => ({
+    url: `${SITE_URL}/guides/${guide.slug}`,
+    lastModified: now,
+    changeFrequency: 'monthly',
+    priority: 0.75,
+  }));
+
   return [
     ...staticRoutes,
     ...categoryRoutes,
@@ -131,5 +159,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...locationRoutes,
     ...solutionHubRoutes,
     ...solutionLocationRoutes,
+    ...industryRoutes,
+    ...guideRoutes,
   ];
 }

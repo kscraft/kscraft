@@ -93,3 +93,6 @@ export async function trackServerEvent(
     console.error('Failed to send GA4 server event:', error);
   }
 }
+
+// --- 3. CLIENT-SIDE TRACKING ---
+

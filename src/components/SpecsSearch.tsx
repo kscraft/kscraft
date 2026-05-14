@@ -8,6 +8,7 @@ import { products, catalog, getProductCategoryLabel } from '@/lib/catalog';
 import { getProductTrie } from '@/lib/trie';
 import { Search, SlidersHorizontal, ArrowRight, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { trackSearch, trackClientEvent } from '@/lib/analytics-client';
 
 export default function SpecsSearch() {
   const [query, setQuery] = useState('');
@@ -29,8 +30,17 @@ export default function SpecsSearch() {
       return new Set([...acc].filter(slug => currentSet.has(slug)));
     }, resultSets[0] || new Set<string>());
 
-    return products.filter(p => intersectionSlugs.has(p.slug)).slice(0, 5);
+    const results = products.filter(p => intersectionSlugs.has(p.slug));
+    return results.slice(0, 5);
   }, [query, trie]);
+
+  const handleSearch = () => {
+    if (query.trim()) {
+      trackSearch(query, filteredProducts.length);
+      setIsOpen(false);
+      router.push(`/search?q=${encodeURIComponent(query)}`);
+    }
+  };
 
   return (
     <div className="relative w-full max-w-2xl mx-auto px-4 md:px-0">
@@ -52,9 +62,8 @@ export default function SpecsSearch() {
           }}
           onFocus={() => setIsOpen(true)}
           onKeyDown={(e) => {
-            if (e.key === 'Enter' && query.trim()) {
-              setIsOpen(false);
-              router.push(`/search?q=${encodeURIComponent(query)}`);
+            if (e.key === 'Enter') {
+              handleSearch();
             }
           }}
           placeholder={catalog.company.ui.searchPlaceholder}
@@ -70,7 +79,10 @@ export default function SpecsSearch() {
         )}
         <Link 
           href="/search"
-          onClick={() => setIsOpen(false)}
+          onClick={() => {
+            trackClientEvent('search_icon_click');
+            setIsOpen(false);
+          }}
           className="pr-6 text-slate-300 hover:text-blue-600 transition-colors border-l border-slate-100 ml-2 pl-4 cursor-pointer flex items-center h-full"
           aria-label="Advanced Search Filters"
         >
@@ -99,7 +111,10 @@ export default function SpecsSearch() {
                     <Link 
                       key={product.slug}
                       href={`/product/${product.slug}`}
-                      onClick={() => setIsOpen(false)}
+                      onClick={() => {
+                        trackClientEvent('search_result_click', { product_slug: product.slug });
+                        setIsOpen(false);
+                      }}
                       className="flex items-center gap-6 p-6 hover:bg-slate-50 transition-colors group"
                     >
                       <div className="relative h-16 w-20 shrink-0 bg-white rounded-xl overflow-hidden p-2">
@@ -138,7 +153,9 @@ export default function SpecsSearch() {
               <div className="p-4 bg-slate-50 border-t border-slate-100 text-center">
                 <Link 
                   href={`/search?q=${encodeURIComponent(query)}`}
-                  onClick={() => setIsOpen(false)}
+                  onClick={() => {
+                    handleSearch();
+                  }}
                   className="text-xs font-bold text-blue-600 hover:text-blue-700 transition-colors uppercase tracking-widest"
                 >
                   {catalog.company.ui.viewFullCatalog}

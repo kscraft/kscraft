@@ -7,6 +7,7 @@ import ProductActions from '@/components/ProductActions';
 import ProductGallery from '@/components/ProductGallery';
 import AcousticGraph from '@/components/AcousticGraph';
 import Breadcrumbs from '@/components/Breadcrumbs';
+import ProductDownloads from '@/components/ProductDownloads';
 import blogsData from '@/data/blogs.json';
 import {
   catalog,
@@ -216,6 +217,7 @@ export default async function ProductPage({ params }: Props) {
               </ul>
             </div>
           </div>
+          <ProductDownloads productTitle={product.title} />
         </div>
       </section>
 

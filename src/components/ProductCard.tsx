@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { ArrowRightLeft } from 'lucide-react';
 import { catalog, getProductCategoryLabel, type Product } from '@/lib/catalog';
 import { motion } from 'framer-motion';
+import { trackClientEvent } from '@/lib/analytics-client';
 
 type ProductCardProps = {
   product: Product;
@@ -23,6 +24,7 @@ export default function ProductCard({ product, compact = false }: ProductCardPro
         onClick={(e) => {
           e.preventDefault();
           e.stopPropagation();
+          trackClientEvent('add_to_compare', { product: product.slug });
           window.dispatchEvent(new CustomEvent('add-to-compare', { detail: product.slug }));
         }}
         className="absolute top-5 left-5 z-20 flex h-8 w-8 items-center justify-center rounded-full bg-white/40 backdrop-blur-md text-slate-400 hover:text-blue-600 hover:bg-white shadow-sm opacity-0 group-hover:opacity-100 transition-all active:scale-90"
@@ -31,7 +33,11 @@ export default function ProductCard({ product, compact = false }: ProductCardPro
         <ArrowRightLeft className="w-3.5 h-3.5" />
       </button>
 
-      <Link href={`/product/${product.slug}`} className="flex h-full min-w-0 flex-col overflow-hidden rounded-[2rem] bg-[#f5f5f7] transition-shadow hover:shadow-[0_40px_80px_-12px_rgba(0,0,0,0.12)]">
+      <Link 
+        href={`/product/${product.slug}`} 
+        onClick={() => trackClientEvent('product_view_click', { product: product.slug })}
+        className="flex h-full min-w-0 flex-col overflow-hidden rounded-[2rem] bg-[#f5f5f7] transition-shadow hover:shadow-[0_40px_80px_-12px_rgba(0,0,0,0.12)]"
+      >
         {/* Content surface */}
         <div className={compact ? "min-w-0 p-4 pb-0 text-center sm:p-8 sm:pb-0" : "min-w-0 p-4 pb-0 text-center sm:p-10 sm:pb-0"}>
           <p className="mb-3 break-words text-[10px] font-bold uppercase tracking-widest text-blue-600">

@@ -7,8 +7,10 @@ import { motion } from 'framer-motion';
 import ProductCard from '@/components/ProductCard';
 import SpecsSearch from '@/components/SpecsSearch';
 import ThemeMarker from '@/components/ThemeMarker';
+import SpecProcess from '@/components/SpecProcess';
 import { catalog, categories, getFeaturedProducts, getProductsByCategory, home, projects } from '@/lib/catalog';
 import { cn } from '@/lib/utils';
+import { trackQuoteClick, trackClientEvent } from '@/lib/analytics-client';
 
 const categoryIcons: Record<string, LucideIcon> = {
   'sound-proof-windows': Wind,
@@ -53,11 +55,19 @@ export default function Home() {
               {home.hero.description}
             </p>
             <div className="mt-10 flex max-w-full flex-col gap-4 sm:flex-row">
-              <Link href={home.hero.cta.href} className="inline-flex min-h-12 w-full min-w-0 items-center justify-center rounded-full bg-white px-5 text-center text-sm font-semibold leading-5 text-slate-950 transition hover:bg-blue-50 sm:w-auto sm:px-7">
+              <Link 
+                href={home.hero.cta.href} 
+                onClick={() => trackQuoteClick('hero_cta', 'homepage')}
+                className="inline-flex min-h-12 w-full min-w-0 items-center justify-center rounded-full bg-white px-5 text-center text-sm font-semibold leading-5 text-slate-950 transition hover:bg-blue-50 sm:w-auto sm:px-7"
+              >
                 <span className="min-w-0 break-words">{home.hero.cta.label}</span>
                 <ArrowRight className="ml-2 h-4 w-4 shrink-0" />
               </Link>
-              <Link href={home.hero.secondaryCta.href} className="inline-flex min-h-12 w-full min-w-0 items-center justify-center rounded-full border border-white/35 px-5 text-center text-sm font-semibold leading-5 text-white transition hover:border-white hover:bg-white/10 sm:w-auto sm:px-7">
+              <Link 
+                href={home.hero.secondaryCta.href} 
+                onClick={() => trackClientEvent('view_all_solutions_click', { location: 'hero_secondary' })}
+                className="inline-flex min-h-12 w-full min-w-0 items-center justify-center rounded-full border border-white/35 px-5 text-center text-sm font-semibold leading-5 text-white transition hover:border-white hover:bg-white/10 sm:w-auto sm:px-7"
+              >
                 <span className="min-w-0 break-words">{home.hero.secondaryCta.label}</span>
               </Link>
             </div>
@@ -111,6 +121,7 @@ export default function Home() {
               </p>
               <Link 
                 href="/showcase/isro-gaganyaan" 
+                onClick={() => trackClientEvent('view_showcase_click', { project: 'gaganyaan' })}
                 className="group flex items-center gap-6 p-8 rounded-[2.5rem] bg-white border border-slate-200 shadow-xl hover:shadow-2xl transition-all"
               >
                 <div className="h-16 w-16 shrink-0 rounded-2xl bg-slate-950 flex items-center justify-center text-blue-500 group-hover:scale-110 transition-transform">
@@ -319,6 +330,18 @@ export default function Home() {
               {home.lineup.cta.label} <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </div>
+        </div>
+      </section>
+      
+      {/* Specification Process */}
+      <section className="section-standard border-b border-slate-100">
+        <ThemeMarker theme="light" className="absolute top-0" />
+        <div className="max-container">
+          <div className="mb-16 text-center">
+            <p className="text-eyebrow text-center mb-4">Engineering Workflow</p>
+            <h2 className="heading-section text-center mb-0">How we deliver precision</h2>
+          </div>
+          <SpecProcess />
         </div>
       </section>
 

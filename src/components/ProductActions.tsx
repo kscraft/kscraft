@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { ExternalLink } from 'lucide-react';
 import QuoteModal from '@/components/QuoteModal';
 import { catalog } from '@/lib/catalog';
+import { trackQuoteClick } from '@/lib/analytics-client';
 
 type ProductActionsProps = {
   productTitle: string;
@@ -17,7 +18,10 @@ export default function ProductActions({ productTitle, sourceUrl }: ProductActio
     <>
       <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
         <button 
-          onClick={() => setIsOpen(true)}
+          onClick={() => {
+            trackQuoteClick(productTitle, 'product_page');
+            setIsOpen(true);
+          }}
           className="apple-button px-12 py-4 text-sm uppercase tracking-widest font-black"
         >
           {catalog.company.ui.getQuote}

@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import type { Variants } from 'framer-motion';
 import { X, Phone, MessageSquare, Mail, ChevronRight, Copy, Check, Globe2, ShieldCheck, Send } from 'lucide-react';
 import { catalog } from '@/lib/catalog';
+import { trackContactClick, trackClientEvent } from '@/lib/analytics-client';
 
 type QuoteModalProps = {
   isOpen: boolean;
@@ -106,6 +107,7 @@ export default function QuoteModal({ isOpen, onClose, productName }: QuoteModalP
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackContactClick('whatsapp', phone)}
                   className="group flex items-center gap-6 p-6 rounded-3xl bg-slate-50 hover:bg-white border border-slate-100 hover:border-blue-200 hover:shadow-2xl hover:shadow-blue-600/5 transition-all"
                 >
                   <div className="h-12 w-12 rounded-2xl bg-green-500 flex items-center justify-center text-white group-hover:scale-110 transition-transform shadow-lg shadow-green-500/20">
@@ -125,6 +127,7 @@ export default function QuoteModal({ isOpen, onClose, productName }: QuoteModalP
                 <motion.div variants={itemVariants} className="relative group">
                   <a 
                     href={callUrl}
+                    onClick={() => trackContactClick('phone', phone)}
                     className="flex items-center gap-6 p-6 rounded-3xl bg-slate-50 hover:bg-white border border-slate-100 hover:border-blue-200 hover:shadow-2xl hover:shadow-blue-600/5 transition-all"
                   >
                     <div className="h-12 w-12 rounded-2xl bg-blue-600 flex items-center justify-center text-white group-hover:scale-110 transition-transform shadow-lg shadow-blue-600/20">
@@ -149,6 +152,7 @@ export default function QuoteModal({ isOpen, onClose, productName }: QuoteModalP
                 <motion.div variants={itemVariants} className="relative group">
                   <a 
                     href={emailUrl}
+                    onClick={() => trackContactClick('email', email)}
                     className="flex items-center gap-6 p-6 rounded-3xl bg-slate-50 hover:bg-white border border-slate-100 hover:border-blue-200 hover:shadow-2xl hover:shadow-blue-600/5 transition-all"
                   >
                     <div className="h-12 w-12 rounded-2xl bg-slate-900 flex items-center justify-center text-white group-hover:scale-110 transition-transform shadow-lg shadow-slate-900/20">
@@ -173,7 +177,10 @@ export default function QuoteModal({ isOpen, onClose, productName }: QuoteModalP
                 <motion.div variants={itemVariants}>
                   <Link 
                     href={`/contact?scope=${encodeURIComponent(productName || '')}`}
-                    onClick={onClose}
+                    onClick={() => {
+                      trackClientEvent('formal_quote_form_redirect', { product: productName });
+                      onClose();
+                    }}
                     className="group flex items-center gap-6 p-6 rounded-3xl bg-blue-600 hover:bg-blue-700 text-white shadow-xl shadow-blue-600/20 transition-all"
                   >
                     <div className="h-12 w-12 rounded-2xl bg-white/20 flex items-center justify-center text-white group-hover:scale-110 transition-transform">

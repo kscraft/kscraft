@@ -51,6 +51,11 @@ export const metadata: Metadata = {
       'bn-IN': SITE_URL,
     },
   },
+  icons: {
+    icon: '/logo-ksc.svg',
+    shortcut: '/logo-ksc.png',
+    apple: '/logo-ksc.png',
+  },
   openGraph: {
     title: 'Kiran Slido Craft | Global Acoustic & Automation Excellence',
     description: 'Precision engineering for silence and movement. Exporting to UK, Europe, GCC/MENA, APAC, and Australia.',

@@ -97,7 +97,8 @@ export default function RootLayout({
     ],
     'sameAs': [
       'https://www.youtube.com/kiranslidocraft',
-      'https://www.linkedin.com/company/kiranslidocraft/'
+      'https://www.linkedin.com/company/kiranslidocraft/',
+      'https://www.instagram.com/kiranslidocraft'
     ],
     'address': {
       '@type': 'PostalAddress',

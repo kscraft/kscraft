@@ -113,7 +113,7 @@ export const catalog = catalogData as {
     certifications: string[];
     clients: string[];
     clientLogos: ClientLogo[];
-    social: { youtube: string; linkedin: string };
+    social: { youtube: string; linkedin: string; instagram: string; };
     areaServed: string[];
     authenticity: {
       title: string;

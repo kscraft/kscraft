@@ -4,7 +4,8 @@ import { useActionState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Image from 'next/image';
 import { catalog, categories, home } from '@/lib/catalog';
-import { Mail, MapPin, Video, Link as LinkIcon, Send, Phone, CheckCircle2 } from 'lucide-react';
+import { Mail, MapPin, Send, Phone, CheckCircle2 } from 'lucide-react';
+import { YoutubeIcon, LinkedinIcon, InstagramIcon } from '@/components/SocialIcons';
 import ThemeMarker from '@/components/ThemeMarker';
 import { submitInquiry } from '@/app/actions';
 
@@ -192,10 +193,13 @@ export default function ContactPage() {
                   </div>
                   <div className="flex gap-4 pt-4">
                     <a href={catalog.company.social.youtube} target="_blank" rel="noopener noreferrer" className="flex h-16 w-16 items-center justify-center rounded-2xl bg-slate-50 border border-slate-100 text-slate-900 hover:bg-red-50 hover:text-red-600 hover:border-red-100 transition-all">
-                      <Video className="w-7 h-7" />
+                      <YoutubeIcon className="w-7 h-7" />
                     </a>
                     <a href={catalog.company.social.linkedin} target="_blank" rel="noopener noreferrer" className="flex h-16 w-16 items-center justify-center rounded-2xl bg-slate-50 border border-slate-100 text-slate-900 hover:bg-blue-50 hover:text-blue-700 hover:border-blue-100 transition-all">
-                      <LinkIcon className="w-7 h-7" />
+                      <LinkedinIcon className="w-7 h-7" />
+                    </a>
+                    <a href={catalog.company.social.instagram} target="_blank" rel="noopener noreferrer" className="flex h-16 w-16 items-center justify-center rounded-2xl bg-slate-50 border border-slate-100 text-slate-900 hover:bg-pink-50 hover:text-pink-600 hover:border-pink-100 transition-all">
+                      <InstagramIcon className="w-7 h-7" />
                     </a>
                   </div>
                 </div>

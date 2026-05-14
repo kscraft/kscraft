@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, Settings, Wrench, ShieldCheck, ClipboardCheck, ChevronRight } from 'lucide-react';
+import { ArrowRight, Settings, Wrench, ShieldCheck, ClipboardCheck, ChevronRight, Box, Cpu, Activity } from 'lucide-react';
 import { catalog, services, home } from '@/lib/catalog';
 import ThemeMarker from '@/components/ThemeMarker';
 
@@ -100,6 +100,68 @@ export default function ServicesPage() {
             </div>
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-600/10 via-transparent to-transparent"></div>
             <div className="absolute top-0 right-0 w-96 h-96 bg-blue-600/5 blur-[120px] rounded-full translate-x-1/2 -translate-y-1/2"></div>
+          </div>
+
+          {/* Talos Protocol Deep Dive */}
+          <div className="mt-32">
+            <div className="mb-14">
+              <span className="text-eyebrow">Open Engineering Standards</span>
+              <h2 className="heading-section">Talos Protocol: <br /><span className="text-blue-600">The Trust Layer for AI Agents.</span></h2>
+              <p className="max-w-3xl text-xl text-slate-500 font-medium leading-relaxed">
+                As part of our commitment to forward-thinking engineering, Kiran Slido Craft supports the Talos Protocol—an open-source initiative providing secure orchestration for autonomous systems.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              <div className="p-10 rounded-[3rem] bg-slate-50 border border-slate-100 transition-all hover:bg-white hover:shadow-xl group">
+                <div className="h-12 w-12 rounded-2xl bg-slate-900 flex items-center justify-center text-white mb-8 group-hover:scale-110 transition-transform">
+                  <ShieldCheck className="w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-black uppercase tracking-tight text-slate-900 mb-4">Cryptographic Trust</h3>
+                <p className="text-slate-500 text-sm font-medium leading-relaxed">
+                  Decentralized Identity (DID) and self-sovereign infrastructure replacing centralized trust with verifiable cryptographic proof.
+                </p>
+              </div>
+
+              <div className="p-10 rounded-[3rem] bg-slate-50 border border-slate-100 transition-all hover:bg-white hover:shadow-xl group">
+                <div className="h-12 w-12 rounded-2xl bg-slate-900 flex items-center justify-center text-white mb-8 group-hover:scale-110 transition-transform">
+                  <Cpu className="w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-black uppercase tracking-tight text-slate-900 mb-4">Scoped Authorization</h3>
+                <p className="text-slate-500 text-sm font-medium leading-relaxed">
+                  Time-limited, revocable capability tokens granting restricted tool access rather than entire accounts for secure AI operations.
+                </p>
+              </div>
+
+              <div className="p-10 rounded-[3rem] bg-slate-50 border border-slate-100 transition-all hover:bg-white hover:shadow-xl group">
+                <div className="h-12 w-12 rounded-2xl bg-slate-900 flex items-center justify-center text-white mb-8 group-hover:scale-110 transition-transform">
+                  <Activity className="w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-black uppercase tracking-tight text-slate-900 mb-4">High Performance</h3>
+                <p className="text-slate-500 text-sm font-medium leading-relaxed">
+                  Optimized for mission-critical loads: 12,000 authorizations/sec and &lt;5ms latency for authorization and audit ingestion.
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-12 flex flex-col sm:flex-row items-center gap-8 p-10 rounded-[3rem] border border-blue-100 bg-blue-50/50">
+               <div className="h-14 w-14 rounded-2xl bg-blue-600 flex items-center justify-center text-white shrink-0">
+                  <Box className="w-8 h-8" />
+               </div>
+               <div className="flex-1">
+                  <p className="text-sm font-bold text-blue-900 leading-relaxed">
+                    The Talos Protocol is an open-source project licensed under the Apache License 2.0. All protocol schemas and cryptographic primitives are open for public inspection and integration.
+                  </p>
+               </div>
+               <a 
+                 href="https://talosprotocol.com" 
+                 target="_blank" 
+                 rel="noopener noreferrer"
+                 className="apple-button-secondary px-8 py-4 text-[10px] font-black uppercase tracking-[0.2em] whitespace-nowrap"
+               >
+                 View Protocol Docs
+               </a>
+            </div>
           </div>
         </div>
       </section>

@@ -13,7 +13,9 @@ but `.agents/` creation is blocked in this workspace, so use this file instead.
 **What it does:** The company designs, manufactures, and supports acoustic
 windows, doors, partitions, motorized sliding systems, gates, roof systems, and
 custom engineering mechanisms. The proof point to lead with is that Kiran Slido
-Craft manufactured Gaganyaan's capsule entry mechanism for ISRO.
+Craft manufactured Gaganyaan's capsule entry mechanism for ISRO. Additionally,
+the company contributes to the **Talos Protocol**, an open-source security and
+trust layer for autonomous AI agents.
 
 **Product category:** Soundproof windows and doors, acoustic partitions,
 architectural automation, motorized systems, custom precision manufacturing.
@@ -103,6 +105,7 @@ follow-up, and case-study/proof enrichment.
     - **Diplomatic:** High-performance acoustic movable partitions at SAARC Summit (Nepal).
     - **Hospitality (The Oberoi):** Premium acoustic partitions for premier ballroom spaces.
     - **Hospitality (Sahara Star):** High-performance movable walls for large-scale event halls.
+- **Open Source:** Major contributor to the **Talos Protocol**, establishing open standards for secure AI agent orchestration and decentralized trust.
 - Client references include ISRO, Indian Army, The Oberoi, HDFC, ICICI Bank, Asian Paints, Tata Steel, Godrej, Pfizer, Johnson & Johnson, Indian Oil, BPCL, Sahara Star, Mahindra, Tata Power, and others.
 - Catalog includes 23 products across 5 categories.
 

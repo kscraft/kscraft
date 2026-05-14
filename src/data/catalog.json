@@ -3,7 +3,7 @@
     "name": "Kiran Slido Craft",
     "founded": 1985,
     "tagline": "Engineering and Manufacturing.",
-    "description": "Kiran Slido Craft is an ISO 9001:2015 certified leader in Engineering and Manufacturing, specializing in advanced acoustic systems and architectural automation. Under the 'Make in India' initiative, we deliver European-standard precision through indigenous engineering across the UK, Europe, GCC/MENA, APAC, Australia, and the Indian Subcontinent.",
+    "description": "Kiran Slido Craft is an ISO 9001:2015 certified leader in Engineering and Manufacturing, specializing in advanced acoustic systems and architectural automation. We deliver European-standard precision through indigenous engineering across the UK, Europe, GCC/MENA, APAC, Australia, and the Indian Subcontinent.",
     "mission": "To engineer world-class acoustic and automation solutions that define modern living and working environments.",
     "vision": "Leading the future of architectural engineering through continuous innovation and customized technical excellence.",
     "email": "info@kiranslidocraft.com",
@@ -607,6 +607,11 @@
       "title": "Acoustic Support",
       "icon": "Wrench",
       "description": "Post-installation service support for sound proof windows, acoustic movable wall partitions, and specialized acoustic door systems."
+    },
+    {
+      "title": "Open Source Initiative",
+      "icon": "Box",
+      "description": "Contributing to the future of autonomous engineering through the Talos Protocol, an open-source security and trust layer for AI agent orchestration and tool authorization."
     },
     {
       "title": "Technical Consultation",

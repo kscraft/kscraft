@@ -144,34 +144,10 @@
   ],
   "navigation": {
     "header": [
-      {
-        "label": "Overview",
-        "href": "/"
-      },
-      {
-        "label": "Acoustics",
-        "href": "/category/sound-proof-windows"
-      },
-      {
-        "label": "Automation",
-        "href": "/category/motorized-systems"
-      },
-      {
-        "label": "Engineering",
-        "href": "/services"
-      },
-      {
-        "label": "Insights",
-        "href": "/blog"
-      },
-      {
-        "label": "Media",
-        "href": "/media"
-      },
-      {
-        "label": "About",
-        "href": "/about"
-      }
+      { "label": "Engineering", "href": "/services" },
+      { "label": "Case Studies", "href": "/clients" },
+      { "label": "Technical Journal", "href": "/blog" },
+      { "label": "About", "href": "/about" }
     ],
     "footer": [
       {

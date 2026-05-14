@@ -159,33 +159,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Engineering Promise */}
-      <section className="section-standard overflow-hidden">
-        <ThemeMarker theme="light" className="absolute top-0" />
-        <div className="max-container grid gap-20 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
-          <div className="min-w-0">
-            <p className="text-eyebrow">{home.promise.eyebrow}</p>
-            <h2 className="heading-section">
-              {home.promise.title}
-            </h2>
-          </div>
-          <div className="grid gap-4 md:grid-cols-3">
-            {home.promise.items.map((signal) => {
-              const Icon = promiseIcons[signal.id] || Shield;
-              return (
-                <div key={signal.id} className="min-w-0 rounded-3xl border border-slate-100 bg-slate-50 p-8 transition-all hover:bg-white hover:shadow-xl group">
-                  <Icon className="h-8 w-8 text-blue-600 transition-transform group-hover:scale-110" />
-                  <h3 className="mt-6 break-words text-xl font-bold uppercase tracking-tight text-slate-950 leading-tight">{signal.title}</h3>
-                  <p className="mt-3 text-sm font-medium leading-relaxed text-slate-500">{signal.description}</p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Primary Catalog Navigation */}
-      <section className="section-tint">
+      {/* Engineering DNA Showcase */}
+      <section className="section-standard">
         <ThemeMarker theme="light" className="absolute top-0" />
         <div className="max-container">
           <div className="mb-20">
@@ -305,38 +280,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Secondary Product Wall */}
-      <section className="section-tint">
-        <div className="max-container">
-          <div className="mb-20 flex flex-col justify-between gap-6 md:flex-row md:items-end">
-            <div className="min-w-0">
-              <p className="text-eyebrow mb-4">{home.lineup.eyebrow}</p>
-              <h2 className="heading-section mb-0">
-                {home.lineup.title}
-              </h2>
-            </div>
-            <p className="max-w-xl text-body-lg">
-              {home.lineup.description}
-            </p>
-          </div>
-
-          <div className="grid max-w-7xl gap-10 md:grid-cols-2 lg:grid-cols-3 mx-auto">
-            {featuredProducts.map((product) => (
-              <ProductCard key={product.slug} product={product} />
-            ))}
-          </div>
-          
-          <div className="mt-20 text-center">
-            <Link
-              href={home.lineup.cta.href}
-              className="apple-button-secondary px-10 py-4 text-sm uppercase tracking-widest font-black inline-flex items-center justify-center"
-            >
-              {home.lineup.cta.label} <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
-          </div>
-        </div>
-      </section>
-      
       {/* Specification Process */}
       <section className="section-standard border-b border-slate-100">
         <ThemeMarker theme="light" className="absolute top-0" />
@@ -349,49 +292,69 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Trust & Engineering */}
+      {/* Case Studies Teaser */}
       <section className="section-standard">
-        <div className="max-container grid gap-20 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
-          <div className="min-w-0">
-            <p className="text-eyebrow">{home.trust.eyebrow}</p>
-            <h2 className="heading-section">
-              {home.trust.title}
-            </h2>
-            <p className="mt-8 text-body-lg">
-              {home.trust.description}
-            </p>
-            <div className="mt-10 flex flex-wrap gap-4">
-              {catalog.company.certifications.map((cert) => (
-                <span key={cert} className="rounded-2xl border border-slate-100 bg-slate-50 px-6 py-3 text-xs font-black uppercase tracking-widest text-slate-600">
-                  {cert}
-                </span>
-              ))}
+        <div className="max-container">
+          <div className="flex flex-col md:flex-row justify-between items-end gap-10 mb-20">
+            <div className="max-w-2xl">
+              <p className="text-eyebrow mb-4">{home.trust.eyebrow}</p>
+              <h2 className="heading-section mb-0">
+                Engineering trust across <span className="text-blue-600">mission-critical sectors.</span>
+              </h2>
             </div>
+            <Link 
+              href="/clients" 
+              className="group apple-button-secondary px-8 py-4 text-[11px] uppercase tracking-[0.2em] font-black inline-flex items-center justify-center gap-3"
+            >
+              Explore All Case Studies <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+            </Link>
           </div>
 
-          <div className="grid gap-6">
-            {projects.highlights.map((project) => (
-              <div key={project.title} className="min-w-0 rounded-[2.5rem] border border-slate-100 bg-slate-50 p-10 transition-all hover:bg-white hover:shadow-2xl group">
-                <div className="flex items-start gap-8">
-                  <div className="mt-1 flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-blue-600 text-white shadow-lg shadow-blue-600/20 group-hover:scale-110 transition-transform">
-                    {project.slug === 'isro-gaganyaan' ? <Rocket className="h-6 w-6" /> : <Sparkles className="h-6 w-6" />}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* ISRO Highlight (Aerospace) */}
+            <div className="rounded-[2.5rem] bg-slate-950 p-10 text-white flex flex-col justify-between group hover:shadow-2xl transition-all">
+               <div>
+                  <div className="h-12 w-12 rounded-xl bg-blue-600 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
+                    <Rocket className="w-6 h-6" />
                   </div>
-                  <div className="min-w-0 flex-1">
-                    <p className="text-[10px] font-black uppercase tracking-widest text-blue-600 mb-2">{project.subtitle}</p>
-                    <h3 className="break-words text-2xl font-black tracking-tighter text-slate-900 uppercase leading-none">{project.title}</h3>
-                    <p className="mt-4 text-base font-medium leading-relaxed text-slate-500">{project.detail}</p>
-                    {project.slug && (
-                      <Link 
-                        href={`/showcase/${project.slug}`} 
-                        className="mt-6 inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest text-blue-600 hover:gap-3 transition-all"
-                      >
-                        {home.showcaseUI.viewCaseStudy} <ChevronRight className="h-4 w-4" />
-                      </Link>
-                    )}
+                  <p className="text-[10px] font-black uppercase tracking-widest text-blue-400 mb-2">{projects.highlights[0].subtitle}</p>
+                  <h3 className="text-2xl font-black uppercase tracking-tight mb-4">{projects.highlights[0].title}</h3>
+                  <p className="text-slate-400 text-sm font-medium leading-relaxed">{projects.highlights[0].detail.split('. ')[0]}.</p>
+               </div>
+               <Link href="/showcase/isro-gaganyaan" className="mt-10 inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-blue-400">
+                  {home.showcaseUI.viewCaseStudy} <ChevronRight className="w-4 h-4" />
+               </Link>
+            </div>
+
+            {/* Army Highlight (Defense) */}
+            <div className="rounded-[2.5rem] bg-slate-50 border border-slate-100 p-10 flex flex-col justify-between group hover:bg-white hover:shadow-2xl transition-all">
+               <div>
+                  <div className="h-12 w-12 rounded-xl bg-slate-900 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform text-white">
+                    <Shield className="w-6 h-6" />
                   </div>
-                </div>
-              </div>
-            ))}
+                  <p className="text-[10px] font-black uppercase tracking-widest text-blue-600 mb-2">{projects.highlights[1].subtitle}</p>
+                  <h3 className="text-2xl font-black uppercase tracking-tight mb-4">{projects.highlights[1].title}</h3>
+                  <p className="text-slate-500 text-sm font-medium leading-relaxed">{projects.highlights[1].detail.split(', providing')[0]}.</p>
+               </div>
+               <Link href="/clients" className="mt-10 inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-blue-600">
+                  Technical Details <ChevronRight className="w-4 h-4" />
+               </Link>
+            </div>
+
+            {/* Hospitality Highlight */}
+            <div className="rounded-[2.5rem] bg-slate-50 border border-slate-100 p-10 flex flex-col justify-between group hover:bg-white hover:shadow-2xl transition-all">
+               <div>
+                  <div className="h-12 w-12 rounded-xl bg-slate-900 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform text-white">
+                    <Building2 className="w-6 h-6" />
+                  </div>
+                  <p className="text-[10px] font-black uppercase tracking-widest text-blue-600 mb-2">{projects.highlights[3].subtitle}</p>
+                  <h3 className="text-2xl font-black uppercase tracking-tight mb-4">{projects.highlights[3].title}</h3>
+                  <p className="text-slate-500 text-sm font-medium leading-relaxed">{projects.highlights[3].detail}</p>
+               </div>
+               <Link href="/clients" className="mt-10 inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-blue-600">
+                  Technical Details <ChevronRight className="w-4 h-4" />
+               </Link>
+            </div>
           </div>
         </div>
       </section>

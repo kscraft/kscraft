@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation';
 import { ArrowRight, BadgeCheck, BarChart3, Building2, MapPin, Phone, ShieldCheck, Sparkles } from 'lucide-react';
 import ProductCard from '@/components/ProductCard';
 import ThemeMarker from '@/components/ThemeMarker';
+import ClientMarquee from '@/components/ClientMarquee';
 import { catalog, getProductsByCategory } from '@/lib/catalog';
 import { getLocationSeo, getRelatedLocationPages, locationSeoPages } from '@/data/location-seo';
 
@@ -182,30 +183,30 @@ export default async function LocationSeoPage({ params }: Props) {
         <ThemeMarker theme="dark" className="absolute top-0" />
         <div className="max-container grid gap-12 px-6 lg:grid-cols-[minmax(0,0.95fr)_minmax(360px,0.78fr)] lg:items-center">
           <div className="min-w-0">
-            <p className="text-eyebrow text-blue-300">
-              {location.region} priority {location.priority} market
+            <p className="text-eyebrow text-blue-200">
+              {location.region} Engineering Operations
             </p>
             <h1 className="heading-hero text-white">
               Soundproof Windows <span className="text-blue-500">in {location.city}</span>
             </h1>
             <p className="mt-8 max-w-3xl text-xl font-medium leading-9 text-slate-300">
-              {location.marketSignal} Kiran Slido Craft manufactures acoustic window, door, partition,
-              and motorized systems for project teams that need measured noise control and premium finishes.
+              {location.marketSignal} Kiran Slido Craft delivers high-performance acoustic isolation and architectural
+              automation systems for {location.city} project teams requiring measured noise control and premium finishes.
             </p>
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-              <Link href="/contact" className="inline-flex min-h-12 items-center justify-center rounded-full bg-white px-6 text-sm font-bold text-slate-950 transition hover:bg-blue-50">
+              <Link href="/contact" className="inline-flex min-h-12 items-center justify-center rounded-full bg-white px-8 text-sm font-bold text-slate-950 transition hover:bg-blue-50">
                 Request {location.city} Quote
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
-              <a href={`tel:${catalog.company.phone}`} className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/35 px-6 text-sm font-bold text-white transition hover:bg-white/10">
+              <a href={`tel:${catalog.company.phone}`} className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/35 px-8 text-sm font-bold text-white transition hover:bg-white/10">
                 <Phone className="mr-2 h-4 w-4" />
-                Call Engineering Team
+                Engineering Consultation
               </a>
             </div>
           </div>
 
-          <div className="overflow-hidden rounded-[2rem] border border-white/15 bg-white/[0.08] p-4 shadow-[0_40px_120px_-50px_rgba(15,23,42,1)]">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-[1.5rem] bg-white">
+          <div className="overflow-hidden rounded-[2.5rem] border border-white/15 bg-white/[0.08] p-5 shadow-[0_40px_120px_-50px_rgba(15,23,42,1)] backdrop-blur-md">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-[1.8rem] bg-white">
               <Image
                 src="/images/products/sound-proof-windows.jpg"
                 alt={`${location.title} by Kiran Slido Craft`}
@@ -217,13 +218,13 @@ export default async function LocationSeoPage({ params }: Props) {
             </div>
             <div className="grid gap-3 pt-5 sm:grid-cols-3">
               {[
-                [String(location.rank), 'Revenue priority'],
-                [String(location.score), 'Growth score'],
-                [location.priority, 'Launch tier'],
+                ['ISO 9001', 'Certified'],
+                ['STC 50+', 'Rating'],
+                [location.priority === 'P0' ? 'Priority' : 'Regional', 'Service'],
               ].map(([value, label]) => (
                 <div key={label} className="rounded-2xl border border-white/10 bg-white/10 p-4">
                   <p className="text-xl font-black text-white">{value}</p>
-                  <p className="mt-2 text-[10px] font-bold uppercase leading-4 text-slate-300">{label}</p>
+                  <p className="mt-1 text-[9px] font-bold uppercase tracking-widest text-slate-300">{label}</p>
                 </div>
               ))}
             </div>
@@ -231,27 +232,30 @@ export default async function LocationSeoPage({ params }: Props) {
         </div>
       </header>
 
+      {/* Enterprise Trust Marquee */}
+      <ClientMarquee />
+
       <section className="section-standard">
         <ThemeMarker theme="light" className="absolute top-0" />
         <div className="max-container grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <div>
-            <p className="text-eyebrow">Market rationale</p>
-            <h2 className="heading-section">Why {location.city} is a priority acoustic market</h2>
+            <p className="text-eyebrow">Technical Footprint</p>
+            <h2 className="heading-section">Why {location.city} demands <br /><span className="text-blue-600">Precision Engineering</span></h2>
             <p className="text-body-lg">{location.growthReason}</p>
             <p className="mt-7 text-base font-medium leading-8 text-slate-600">{location.proofAngle}</p>
           </div>
           <div className="grid gap-4">
             {[
-              ['Revenue fit', location.marketSignal, BarChart3],
-              ['Primary buyers', location.buyerSegments.join(', '), Building2],
-              ['Noise drivers', location.noiseDrivers.join(', '), ShieldCheck],
+              ['Local Insights', location.marketSignal, BarChart3],
+              ['Sector Focus', location.buyerSegments.join(', '), Building2],
+              ['Noise Mitigation', location.noiseDrivers.join(', '), ShieldCheck],
             ].map(([label, value, Icon]) => (
-              <div key={label as string} className="flex gap-5 rounded-2xl border border-slate-200 bg-slate-50 p-6">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-700">
+              <div key={label as string} className="flex gap-5 rounded-[2rem] border border-slate-200 bg-slate-50 p-7 group hover:bg-white hover:shadow-xl transition-all">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-blue-600 text-white shadow-lg shadow-blue-600/20 group-hover:scale-110 transition-transform">
                   <Icon className="h-5 w-5" />
                 </div>
                 <div>
-                  <h3 className="text-[11px] font-black uppercase tracking-[0.2em] text-blue-700">{label as string}</h3>
+                  <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-blue-600">{label as string}</h3>
                   <p className="mt-2 text-base font-semibold leading-7 text-slate-700">{value as string}</p>
                 </div>
               </div>
@@ -265,12 +269,12 @@ export default async function LocationSeoPage({ params }: Props) {
         <div className="max-container">
           <div className="mb-12 max-w-3xl">
             <p className="text-eyebrow">Local service areas</p>
-            <h2 className="heading-section">Target zones for {location.city} projects</h2>
+            <h2 className="heading-section">Operational zones for <br />{location.city} projects</h2>
           </div>
-          <div className="flex flex-wrap gap-3">
+          <div className="flex flex-wrap gap-4">
             {location.serviceAreas.map((area) => (
-              <span key={area} className="inline-flex items-center rounded-full border border-slate-200 bg-white px-5 py-3 text-sm font-bold text-slate-700 shadow-sm">
-                <MapPin className="mr-2 h-4 w-4 text-blue-600" />
+              <span key={area} className="inline-flex items-center rounded-2xl border border-slate-200 bg-white px-6 py-4 text-sm font-bold text-slate-700 shadow-sm hover:border-blue-200 transition-colors">
+                <MapPin className="mr-3 h-4 w-4 text-blue-600" />
                 {area}
               </span>
             ))}
@@ -309,25 +313,27 @@ export default async function LocationSeoPage({ params }: Props) {
         <ThemeMarker theme="light" className="absolute top-0" />
         <div className="max-container grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <div>
-            <p className="text-eyebrow">Selection logic</p>
-            <h2 className="heading-section">Ranked by revenue potential, not just search volume</h2>
+            <p className="text-eyebrow">Engineering Rigor</p>
+            <h2 className="heading-section">Why KSC is the <br /><span className="text-blue-600">Calculated Choice.</span></h2>
             <p className="text-body-lg">
-              {location.city} ranks #{location.rank} with a {location.score}/100 opportunity score. The score
-              combines buyer budget, hospitality and commercial construction depth, acoustic pain, export fit,
-              and Kiran Slido Craft&apos;s credibility advantage.
+              Our presence in {location.city} is backed by technical depth and project-specific engineering.
+              Whether it is high-decibel traffic noise or complex architectural movement, we provide
+              systems validated by laboratory testing and mission-grade manufacturing proof points.
             </p>
           </div>
-          <div className="rounded-3xl border border-slate-200 bg-slate-50 p-8">
-            <h3 className="text-2xl font-black uppercase tracking-tight text-slate-950">Why Kiran Slido Craft</h3>
-            <div className="mt-7 grid gap-4">
+          <div className="rounded-[3rem] border border-slate-200 bg-slate-50 p-10 shadow-sm">
+            <h3 className="text-3xl font-black uppercase tracking-tight text-slate-950 mb-8">Why Shortlist KSC</h3>
+            <div className="grid gap-6">
               {[
                 'ISO 9001:2015 certified acoustic and automation manufacturing.',
-                "Kiran Slido Craft manufactured Gaganyaan's capsule entry mechanism.",
+                "Kiran Slido Craft manufactured Gaganyaan's capsule entry mechanism for ISRO.",
                 'Custom systems for dimensions, finish, acoustic target, movement, and project documentation.',
               ].map((item) => (
-                <div key={item} className="flex gap-4">
-                  <BadgeCheck className="mt-1 h-5 w-5 shrink-0 text-blue-700" />
-                  <p className="text-sm font-semibold leading-7 text-slate-700">{item}</p>
+                <div key={item} className="flex gap-5">
+                  <div className="mt-1 h-6 w-6 shrink-0 rounded-full bg-blue-600 flex items-center justify-center text-white">
+                    <BadgeCheck className="h-4 w-4" />
+                  </div>
+                  <p className="text-lg font-semibold leading-relaxed text-slate-700">{item}</p>
                 </div>
               ))}
             </div>

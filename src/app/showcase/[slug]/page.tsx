@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation';
 import { Rocket, ShieldCheck, ChevronRight, Zap, Target, Gauge, type LucideIcon, Building2, Hotel } from 'lucide-react';
 import ThemeMarker from '@/components/ThemeMarker';
 import { projects, home } from '@/lib/catalog';
+import ClientMarquee from '@/components/ClientMarquee';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -154,6 +155,9 @@ export default async function ProjectShowcase({ params }: Props) {
           <div className="w-px h-24 bg-gradient-to-b from-blue-500/50 to-transparent"></div>
         </div>
       </section>
+
+      {/* Enterprise Trust Marquee */}
+      <ClientMarquee />
 
       {/* The Engineering Ask */}
       <section className="section-standard">

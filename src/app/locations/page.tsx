@@ -55,25 +55,25 @@ export default function LocationsPage() {
         <ThemeMarker theme="dark" className="absolute top-0" />
         <div className="max-container px-6">
           <div className="max-w-4xl">
-            <p className="text-eyebrow text-blue-300">Location SEO growth map</p>
+            <p className="text-eyebrow text-blue-200">Global Service Network</p>
             <h1 className="heading-hero text-white max-w-[18ch]">
-              Soundproof Window Markets <span className="text-blue-500">Ranked by Revenue</span>
+              Soundproof Window Hubs <span className="text-blue-500">Across Global Regions</span>
             </h1>
             <p className="mt-8 max-w-3xl text-xl font-medium leading-9 text-slate-300">
-              Priority markets for acoustic windows, doors, partitions, and motorized systems across India,
-              the Middle East, Southeast Asia, South Asia, and island hospitality destinations.
+              Kiran Slido Craft delivers high-performance acoustic and automation systems to priority markets
+              across India, the Middle East, Southeast Asia, and island hospitality destinations.
             </p>
           </div>
 
           <div className="mt-12 grid gap-4 md:grid-cols-3">
             {[
-              [String(locationSeoPages.length), 'location pages'],
-              [String(priorityLocationPages.length), 'P0 markets'],
-              ['4', 'regions'],
+              [String(locationSeoPages.length), 'Market Hubs'],
+              [String(priorityLocationPages.length), 'Primary Centers'],
+              ['4', 'Strategic Regions'],
             ].map(([value, label]) => (
-              <div key={label} className="rounded-2xl border border-white/10 bg-white/10 p-6">
+              <div key={label} className="rounded-[2rem] border border-white/10 bg-white/10 p-8 backdrop-blur-sm">
                 <p className="text-4xl font-black tracking-tight text-white">{value}</p>
-                <p className="mt-2 text-[11px] font-bold uppercase tracking-[0.2em] text-slate-300">{label}</p>
+                <p className="mt-2 text-[10px] font-bold uppercase tracking-[0.2em] text-blue-300">{label}</p>
               </div>
             ))}
           </div>
@@ -84,24 +84,24 @@ export default function LocationsPage() {
         <ThemeMarker theme="light" className="absolute top-0" />
         <div className="max-container">
           <div className="mb-14 max-w-3xl">
-            <p className="text-eyebrow">Launch sequence</p>
-            <h2 className="heading-section">Highest-priority revenue generators</h2>
+            <p className="text-eyebrow">Service Deployment</p>
+            <h2 className="heading-section">Strategic Regional Footprint</h2>
           </div>
-          <div className="grid gap-5 lg:grid-cols-3">
+          <div className="grid gap-6 lg:grid-cols-3">
             {priorityLocationPages.map((location) => (
-              <Link key={location.slug} href={`/locations/${location.slug}`} className="group rounded-2xl border border-slate-200 bg-slate-50 p-7 transition hover:border-blue-200 hover:bg-white hover:shadow-[0_24px_60px_-32px_rgba(15,23,42,0.55)]">
-                <div className="mb-5 flex items-center justify-between gap-4">
-                  <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-blue-600 text-sm font-black text-white">
+              <Link key={location.slug} href={`/locations/${location.slug}`} className="group rounded-[2.5rem] border border-slate-200 bg-slate-50 p-10 transition hover:border-blue-200 hover:bg-white hover:shadow-2xl">
+                <div className="mb-8 flex items-center justify-between gap-4">
+                  <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-950 text-sm font-black text-white group-hover:bg-blue-600 transition-colors">
                     {location.rank}
                   </span>
-                  <span className="rounded-full bg-white px-4 py-2 text-xs font-black text-blue-700">
-                    {location.score}/100
+                  <span className="text-[10px] font-black uppercase tracking-widest text-blue-600">
+                    Precision Tier
                   </span>
                 </div>
-                <h3 className="text-2xl font-black tracking-tight text-slate-950">{location.title}</h3>
-                <p className="mt-4 line-clamp-3 text-sm font-medium leading-6 text-slate-600">{location.growthReason}</p>
-                <span className="mt-7 inline-flex items-center text-sm font-bold text-blue-700">
-                  Open Market Page
+                <h3 className="text-3xl font-black uppercase tracking-tighter text-slate-950">{location.city}</h3>
+                <p className="mt-5 line-clamp-3 text-sm font-medium leading-7 text-slate-500">{location.growthReason}</p>
+                <span className="mt-10 inline-flex items-center text-xs font-black uppercase tracking-widest text-blue-600">
+                  Open Region Page
                   <ArrowRight className="ml-2 h-4 w-4 transition group-hover:translate-x-1" />
                 </span>
               </Link>

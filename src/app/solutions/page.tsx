@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { ArrowRight, Layers, Settings2, Zap } from 'lucide-react';
+import { ArrowRight, Layers, Settings2, Zap, MapPin, ChevronRight } from 'lucide-react';
 import ThemeMarker from '@/components/ThemeMarker';
 import { getLocationMarketSlug, priorityLocationPages } from '@/data/location-seo';
 import { serviceLocationSeoPages } from '@/data/service-location-seo';
@@ -49,13 +49,13 @@ export default function SolutionsPage() {
         <ThemeMarker theme="dark" className="absolute top-0" />
         <div className="max-container px-6">
           <div className="max-w-5xl">
-            <p className="text-eyebrow text-blue-300">Automation plus location SEO</p>
+            <p className="text-eyebrow text-blue-200">System Deployment Map</p>
             <h1 className="heading-hero text-white">
-              Automatic Sliding Windows, Acoustic Partitions <span className="text-blue-500">and Motorized Systems</span>
+              Architectural Automation <span className="text-blue-500">and Acoustic Systems</span>
             </h1>
             <p className="mt-8 max-w-3xl text-xl font-medium leading-9 text-slate-300">
-              City-specific pages for high-intent searches such as automatic sliding window in Dubai,
-              automatic acoustic partition near me, motorized soundproof window in Mumbai, and folding doors in Kolkata.
+              Specialized regional solutions for high-performance architectural needs, from automatic acoustic 
+              partitions in global hubs to motorized soundproof windows for premium urban projects.
             </p>
           </div>
         </div>
@@ -65,25 +65,25 @@ export default function SolutionsPage() {
         <ThemeMarker theme="light" className="absolute top-0" />
         <div className="max-container">
           <div className="mb-14 max-w-3xl">
-            <p className="text-eyebrow">Solution families</p>
-            <h2 className="heading-section">Service-intent pages by city</h2>
+            <p className="text-eyebrow">Solution Families</p>
+            <h2 className="heading-section">Specialized Regional Services</h2>
           </div>
-          <div className="grid gap-5 lg:grid-cols-3">
+          <div className="grid gap-8 lg:grid-cols-3">
             {serviceLocationSeoPages.map((service, index) => {
               const icons = [Zap, Settings2, Layers];
               const Icon = icons[index % icons.length];
               const topMarket = priorityLocationPages[0];
               return (
-                <article key={service.slug} className="rounded-2xl border border-slate-200 bg-slate-50 p-7">
-                  <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-blue-600 text-white">
-                    <Icon className="h-5 w-5" />
+                <article key={service.slug} className="group rounded-[2.5rem] border border-slate-200 bg-slate-50 p-10 hover:bg-white hover:shadow-2xl transition-all">
+                  <div className="mb-10 flex h-14 w-14 items-center justify-center rounded-2xl bg-slate-950 text-blue-500 group-hover:bg-blue-600 group-hover:text-white shadow-lg transition-all">
+                    <Icon className="h-6 w-6" />
                   </div>
-                  <p className="text-[10px] font-black uppercase tracking-[0.2em] text-blue-700">{service.intentPhrase}</p>
-                  <h3 className="mt-3 text-2xl font-black tracking-tight text-slate-950">{service.title}</h3>
-                  <p className="mt-4 text-sm font-medium leading-7 text-slate-600">{service.metaLead}</p>
-                  <Link href={`/solutions/${service.slug}/${getLocationMarketSlug(topMarket)}`} className="mt-7 inline-flex items-center text-sm font-bold text-blue-700">
-                    Open Mumbai Example
-                    <ArrowRight className="ml-2 h-4 w-4" />
+                  <p className="text-[10px] font-black uppercase tracking-[0.2em] text-blue-600 mb-2">{service.shortTitle}</p>
+                  <h3 className="text-3xl font-black tracking-tighter text-slate-950 uppercase">{service.title}</h3>
+                  <p className="mt-6 text-sm font-medium leading-relaxed text-slate-500">{service.metaLead}</p>
+                  <Link href={`/solutions/${service.slug}/${getLocationMarketSlug(topMarket)}`} className="mt-10 inline-flex items-center text-xs font-black uppercase tracking-widest text-blue-600">
+                    View Technical Details
+                    <ArrowRight className="ml-2 h-4 w-4 transition group-hover:translate-x-1" />
                   </Link>
                 </article>
               );
@@ -96,22 +96,26 @@ export default function SolutionsPage() {
         <ThemeMarker theme="light" className="absolute top-0" />
         <div className="max-container">
           <div className="mb-14 max-w-3xl">
-            <p className="text-eyebrow">P0 market links</p>
-            <h2 className="heading-section">Launch automation pages in highest-value cities first</h2>
+            <p className="text-eyebrow">Regional Specifications</p>
+            <h2 className="heading-section">Primary Operations by Global Hub</h2>
           </div>
-          <div className="grid gap-8">
+          <div className="grid gap-10">
             {priorityLocationPages.map((location) => (
-              <div key={location.slug} className="rounded-3xl border border-slate-200 bg-white p-7">
-                <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-                  <h3 className="text-2xl font-black tracking-tight text-slate-950">{location.city}</h3>
-                  <span className="text-xs font-black uppercase tracking-[0.2em] text-blue-700">
-                    Rank #{location.rank} | {location.score}/100
+              <div key={location.slug} className="rounded-[3rem] border border-slate-200 bg-white p-10 shadow-sm overflow-hidden relative">
+                <div className="absolute top-0 right-0 p-10 opacity-5 group-hover:opacity-10 transition-opacity">
+                   <MapPin className="w-40 h-40 text-slate-900" />
+                </div>
+                <div className="relative z-10 mb-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                  <h3 className="text-4xl font-black tracking-tighter text-slate-950 uppercase">{location.city}</h3>
+                  <span className="text-[10px] font-black uppercase tracking-[0.2em] text-blue-600 px-4 py-2 bg-blue-50 rounded-full">
+                    Operational Tier #{location.rank}
                   </span>
                 </div>
-                <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+                <div className="relative z-10 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
                   {serviceLocationSeoPages.map((service) => (
-                    <Link key={service.slug} href={`/solutions/${service.slug}/${getLocationMarketSlug(location)}`} className="rounded-2xl border border-slate-100 bg-slate-50 p-4 text-sm font-bold text-slate-700 transition hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700">
-                      {service.shortTitle} in {location.city}
+                    <Link key={service.slug} href={`/solutions/${service.slug}/${getLocationMarketSlug(location)}`} className="rounded-2xl border border-slate-100 bg-slate-50 p-6 text-sm font-bold text-slate-700 transition hover:border-blue-200 hover:bg-white hover:text-blue-600 hover:shadow-xl group flex items-center justify-between">
+                      <span>{service.shortTitle} in {location.city}</span>
+                      <ChevronRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all translate-x-[-4px] group-hover:translate-x-0" />
                     </Link>
                   ))}
                 </div>

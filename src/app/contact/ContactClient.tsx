@@ -150,17 +150,45 @@ function ContactForm() {
               </select>
               {state?.errors?.scope && <p className="text-xs font-bold text-red-400 px-2">{state.errors.scope[0]}</p>}
             </div>
-            <div className="space-y-4">
-              <label htmlFor="contact-requirements" className="text-[10px] font-black text-blue-500 uppercase tracking-[0.2em] ml-2">{home.contact.requirementsLabel}</label>
-              <textarea 
-                id="contact-requirements"
-                name="requirements"
-                required 
-                aria-invalid={Boolean(state?.errors?.requirements)}
-                className="w-full bg-white/5 border border-white/10 rounded-2xl px-8 py-8 text-white focus:bg-white/10 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all min-h-[220px] placeholder:text-slate-600 font-bold" 
-                placeholder={home.contact.placeholderRequirements} 
-              ></textarea>
-              {state?.errors?.requirements && <p className="text-xs font-bold text-red-400 px-2">{state.errors.requirements[0]}</p>}
+            <div className="space-y-6">
+              <div className="flex flex-col gap-2">
+                <label htmlFor="contact-requirements" className="text-[10px] font-black text-blue-500 uppercase tracking-[0.2em] ml-2">{home.contact.requirementsLabel}</label>
+                <div className="grid lg:grid-cols-[1fr_260px] gap-8">
+                  <div className="space-y-4">
+                    <textarea 
+                      id="contact-requirements"
+                      name="requirements"
+                      required 
+                      aria-invalid={Boolean(state?.errors?.requirements)}
+                      className="w-full bg-white/5 border border-white/10 rounded-2xl px-8 py-8 text-white focus:bg-white/10 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all min-h-[280px] placeholder:text-slate-600 font-bold" 
+                      placeholder={home.contact.placeholderRequirements} 
+                    ></textarea>
+                    {state?.errors?.requirements && <p className="text-xs font-bold text-red-400 px-2">{state.errors.requirements[0]}</p>}
+                  </div>
+                  <div className="rounded-3xl bg-white/5 border border-white/10 p-8 h-fit">
+                    <h4 className="text-[10px] font-black text-blue-400 uppercase tracking-widest mb-6">Spec Checklist</h4>
+                    <ul className="space-y-4">
+                      {[
+                        'Approx. Dimensions',
+                        'Acoustic Target (dB)',
+                        'Opening Style',
+                        'Automation Needs',
+                        'Project Timeline'
+                      ].map((item) => (
+                        <li key={item} className="flex items-center gap-3 text-xs font-bold text-slate-300">
+                          <div className="h-1 w-1 rounded-full bg-blue-500" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                    <div className="mt-8 pt-6 border-t border-white/10">
+                      <p className="text-[9px] font-medium text-slate-500 leading-relaxed uppercase tracking-wider">
+                        Providing these details helps us deliver an accurate technical assessment.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
             
             <button 

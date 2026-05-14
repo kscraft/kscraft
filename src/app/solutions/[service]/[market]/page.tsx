@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation';
 import { ArrowRight, BadgeCheck, Building2, MapPin, Phone, Settings2, ShieldCheck } from 'lucide-react';
 import ProductCard from '@/components/ProductCard';
 import ThemeMarker from '@/components/ThemeMarker';
+import ClientMarquee from '@/components/ClientMarquee';
 import { catalog, products } from '@/lib/catalog';
 import { getLocationByMarketSlug } from '@/data/location-seo';
 import {
@@ -205,30 +206,31 @@ export default async function ServiceLocationPage({ params }: Props) {
         <ThemeMarker theme="dark" className="absolute top-0" />
         <div className="max-container grid gap-12 px-6 lg:grid-cols-[minmax(0,0.95fr)_minmax(360px,0.78fr)] lg:items-center">
           <div className="min-w-0">
-            <p className="text-eyebrow text-blue-300">
-              {service.intentPhrase} in {location.city}
+            <p className="text-eyebrow text-blue-200">
+              {service.intentPhrase} &bull; {location.city}
             </p>
             <h1 className="heading-hero text-white">
               {service.shortTitle} <span className="text-blue-500">in {location.city}</span>
             </h1>
             <p className="mt-8 max-w-3xl text-xl font-medium leading-9 text-slate-300">
-              {service.metaLead} Kiran Slido Craft supports {location.city} projects where teams need
-              {` ${service.noiseOrMotionNeed}`} with reliable manufacturing and engineering documentation.
+              {service.metaLead} Kiran Slido Craft delivers specialized systems for {location.city} projects
+              requiring {` ${service.noiseOrMotionNeed.toLowerCase()}`} with reliable manufacturing and deep engineering
+              documentation.
             </p>
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-              <Link href="/contact" className="inline-flex min-h-12 items-center justify-center rounded-full bg-white px-6 text-sm font-bold text-slate-950 transition hover:bg-blue-50">
+              <Link href="/contact" className="inline-flex min-h-12 items-center justify-center rounded-full bg-white px-8 text-sm font-bold text-slate-950 transition hover:bg-blue-50">
                 Request {location.city} Quote
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
-              <a href={`tel:${catalog.company.phone}`} className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/35 px-6 text-sm font-bold text-white transition hover:bg-white/10">
+              <a href={`tel:${catalog.company.phone}`} className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/35 px-8 text-sm font-bold text-white transition hover:bg-white/10">
                 <Phone className="mr-2 h-4 w-4" />
-                Call Engineering Team
+                Engineering Consultation
               </a>
             </div>
           </div>
 
-          <div className="overflow-hidden rounded-[2rem] border border-white/15 bg-white/[0.08] p-4">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-[1.5rem] bg-white">
+          <div className="overflow-hidden rounded-[2.5rem] border border-white/15 bg-white/[0.08] p-5 shadow-[0_40px_120px_-50px_rgba(15,23,42,1)] backdrop-blur-md">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-[1.8rem] bg-white">
               <Image
                 src={selectedProducts[0]?.image || '/images/products/motorized-sliding-system.jpg'}
                 alt={`${title} by Kiran Slido Craft`}
@@ -240,13 +242,13 @@ export default async function ServiceLocationPage({ params }: Props) {
             </div>
             <div className="grid gap-3 pt-5 sm:grid-cols-3">
               {[
-                [location.priority, 'Market tier'],
-                [String(location.rank), 'City rank'],
-                [String(service.productSlugs.length), 'Systems'],
+                ['ISO 9001', 'Certified'],
+                ['STC 50+', 'Verified'],
+                [String(selectedProducts.length), 'Systems'],
               ].map(([value, label]) => (
                 <div key={label} className="rounded-2xl border border-white/10 bg-white/10 p-4">
                   <p className="text-xl font-black text-white">{value}</p>
-                  <p className="mt-2 text-[10px] font-bold uppercase leading-4 text-slate-300">{label}</p>
+                  <p className="mt-1 text-[9px] font-bold uppercase tracking-widest text-slate-300">{label}</p>
                 </div>
               ))}
             </div>
@@ -254,30 +256,33 @@ export default async function ServiceLocationPage({ params }: Props) {
         </div>
       </header>
 
+      {/* Enterprise Trust Marquee */}
+      <ClientMarquee />
+
       <section className="section-standard">
         <ThemeMarker theme="light" className="absolute top-0" />
         <div className="max-container grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <div>
-            <p className="text-eyebrow">Search intent</p>
-            <h2 className="heading-section">Built for “{service.intentPhrase} in {location.city}” demand</h2>
+            <p className="text-eyebrow">Technical Capability</p>
+            <h2 className="heading-section">Engineered for <br /><span className="text-blue-600">{location.city} Projects</span></h2>
             <p className="text-body-lg">
-              Searches like “{service.intentPhrase} in {location.city}” and “{service.nearMePhrase}”
-              usually come from buyers who already know the product category and need a project-ready supplier.
-              This page connects that demand to product options, buyer use cases, and local market context.
+              Architectural automation and acoustic control require a discipline that goes beyond standard fenestration.
+              We provide the {location.city} market with project-ready systems backed by aerospace-grade manufacturing
+              and rigorous documentation for developers and architects.
             </p>
           </div>
           <div className="grid gap-4">
             {[
-              ['Buyer fit', service.buyerFit.join(', '), Building2],
-              ['Market fit', location.growthReason, MapPin],
-              ['Technical need', service.noiseOrMotionNeed, Settings2],
+              ['Sector Fit', service.buyerFit.join(', '), Building2],
+              ['Regional Focus', location.growthReason, MapPin],
+              ['Core Function', service.noiseOrMotionNeed, Settings2],
             ].map(([label, value, Icon]) => (
-              <div key={label as string} className="flex gap-5 rounded-2xl border border-slate-200 bg-slate-50 p-6">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-700">
+              <div key={label as string} className="flex gap-5 rounded-[2rem] border border-slate-200 bg-slate-50 p-7 group hover:bg-white hover:shadow-xl transition-all">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-blue-600 text-white shadow-lg shadow-blue-600/20 group-hover:scale-110 transition-transform">
                   <Icon className="h-5 w-5" />
                 </div>
                 <div>
-                  <h3 className="text-[11px] font-black uppercase tracking-[0.2em] text-blue-700">{label as string}</h3>
+                  <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-blue-600">{label as string}</h3>
                   <p className="mt-2 text-base font-semibold leading-7 text-slate-700">{value as string}</p>
                 </div>
               </div>
@@ -290,12 +295,12 @@ export default async function ServiceLocationPage({ params }: Props) {
         <ThemeMarker theme="light" className="absolute top-0" />
         <div className="max-container">
           <div className="mb-12 max-w-3xl">
-            <p className="text-eyebrow">Target zones</p>
-            <h2 className="heading-section">{location.city} service coverage</h2>
+            <p className="text-eyebrow">Local service areas</p>
+            <h2 className="heading-section">{location.city} operational <br />coverage zones</h2>
           </div>
-          <div className="flex flex-wrap gap-3">
+          <div className="flex flex-wrap gap-4">
             {location.serviceAreas.map((area) => (
-              <span key={area} className="rounded-full border border-slate-200 bg-white px-5 py-3 text-sm font-bold text-slate-700 shadow-sm">
+              <span key={area} className="rounded-2xl border border-slate-200 bg-white px-6 py-4 text-sm font-bold text-slate-700 shadow-sm hover:border-blue-200 transition-colors">
                 {area}
               </span>
             ))}

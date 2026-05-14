@@ -9,24 +9,25 @@ export default function ClientMarquee() {
   const logos = catalog.company.clientLogos;
   
   // Duplicate logos for seamless infinite scroll
-  const duplicatedLogos = [...logos, ...logos, ...logos];
+  const duplicatedLogos = [...logos, ...logos, ...logos, ...logos];
 
   return (
     <div className="w-full overflow-hidden bg-white py-12 border-y border-slate-100 relative group">
-      {/* Gradients for soft edges */}
-      <div className="absolute inset-y-0 left-0 w-40 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
-      <div className="absolute inset-y-0 right-0 w-40 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
+      {/* Gradients for soft edges - responsive widths */}
+      <div className="absolute inset-y-0 left-0 w-12 md:w-40 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
+      <div className="absolute inset-y-0 right-0 w-12 md:w-40 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
 
       <motion.div 
-        className="flex items-center gap-20 whitespace-nowrap"
+        className="flex items-center gap-12 md:gap-20 whitespace-nowrap"
         animate={{
-          x: [0, -2000],
+          x: [0, -2500],
         }}
+
         transition={{
           x: {
             repeat: Infinity,
             repeatType: "loop",
-            duration: 50,
+            duration: 60,
             ease: "linear",
           },
         }}

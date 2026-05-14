@@ -42,6 +42,7 @@ export type ProjectHighlight = {
   title: string;
   subtitle: string;
   detail: string;
+  icon?: string;
   slug?: string;
   image?: string;
   showcase?: {

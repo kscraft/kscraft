@@ -144,7 +144,7 @@
   ],
   "navigation": {
     "header": [
-      { "label": "Systems", "href": "/solutions" },
+      { "label": "Engineering", "href": "/services" },
       { "label": "Case Studies", "href": "/clients" },
       { "label": "Technical Journal", "href": "/blog" },
       { "label": "About", "href": "/about" }
@@ -162,10 +162,7 @@
         "label": "Legacy",
         "href": "/about"
       },
-      {
-        "label": "Support",
-        "href": "/services"
-      },
+      { "label": "Engineering", "href": "/services" },
       {
         "label": "Case Studies",
         "href": "/clients"
@@ -441,6 +438,7 @@
       {
         "title": "ISRO Gaganyaan Mission",
         "subtitle": "Strategic Aerospace Engineering",
+        "icon": "Rocket",
         "detail": "Kiran Slido Craft manufactured Gaganyaan's mission-critical capsule entry mechanism for crew onboarding and deboarding. Designed for the Gaganyaan program at SHAR Sriharikota, this lander-compatible entry system represents the pinnacle of indigenous engineering precision.",
         "slug": "isro-gaganyaan",
         "image": "/images/media/project-1.jpg",
@@ -490,56 +488,67 @@
       {
         "title": "Indian Army, LOC Borders",
         "subtitle": "National Defense Security",
+        "icon": "Shield",
         "detail": "Engineered and deployed PLC-operated automatic barrier systems for the Indian Army along the Line of Control (LOC) in Jammu & Kashmir and Rajasthan, providing mission-critical access control in extreme border environments."
       },
       {
         "title": "SAARC Summit, Nepal",
         "subtitle": "Diplomatic Flexible Space",
+        "icon": "Building2",
         "detail": "Engineered a high-performance acoustic movable wall system that converts a grand summit hall into two independent, sound-isolated conference environments. The system features a 'stow-away' design that hides into a wall corner when not in use."
       },
       {
         "title": "The Oberoi",
         "subtitle": "Luxury Hospitality Acoustics",
+        "icon": "Building2",
         "detail": "Engineered and installed premium acoustic movable partitions for The Oberoi, providing high-decibel isolation for their premier ballroom and event spaces."
       },
       {
         "title": "Sahara Star, Mumbai",
         "subtitle": "Large-Scale Hospitality Automation",
+        "icon": "Building2",
         "detail": "Deployment of high-performance acoustic movable walls at Sahara Star Mumbai, enabling the flexible division of their expansive event halls with seamless stow-away functionality."
       },
       {
         "title": "Tata Steel, Jamshedpur",
         "subtitle": "Heavy Industrial Acoustics",
+        "icon": "Zap",
         "detail": "Large-scale acoustic containment and specialized door systems for the Tata Steel Jamshedpur plant, managing extreme decibel environments in steel manufacturing."
       },
       {
         "title": "Mahindra Scorpio SUV Testing Lab",
         "subtitle": "Automotive Engineering",
+        "icon": "Zap",
         "detail": "Custom-engineered acoustic isolation system for Mahindra's Scorpio SUV testing laboratory, ensuring high-decibel containment during engine and stress testing."
       },
       {
         "title": "VJ Villa Pune",
         "subtitle": "Residential Automation",
+        "icon": "Sparkles",
         "detail": "Complete architectural automation integration including motorized sliding windows and terrace roofing systems."
       },
       {
         "title": "Johnson & Johnson, Mumbai",
         "subtitle": "Pharmaceutical Automation",
+        "icon": "Zap",
         "detail": "Installation of high-performance automatic sliding doors for the Gowandi Plant, ensuring sterile environments and efficient personnel movement."
       },
       {
         "title": "Pfizer India, Vashi",
         "subtitle": "Industrial Movement",
+        "icon": "Zap",
         "detail": "Deployment of 5 units of motorized rolling shutters at the Turbhe pharmaceutical plant for high-cycle operational reliability."
       },
       {
         "title": "Nalco, Angul",
         "subtitle": "Infrastructure Security",
+        "icon": "Shield",
         "detail": "Integration of 4 units of PLC-operated automatic barrier systems for high-security access control at the Nalco Orissa facility."
       },
       {
         "title": "Hilton Hotel Bengaluru",
         "subtitle": "Commercial Acoustics",
+        "icon": "Building2",
         "detail": "Bespoke motorized vertical sliding window systems for high-performance acoustic isolation in premium hospitality suites.",
         "slug": "hilton-bengaluru",
         "image": "/images/media/project-2.jpg",

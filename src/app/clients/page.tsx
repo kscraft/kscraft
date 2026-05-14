@@ -2,8 +2,16 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { catalog, projects, home } from '@/lib/catalog';
-import { ChevronRight, Building2 } from 'lucide-react';
+import { ChevronRight, Rocket, Shield, Building2, Zap, Sparkles, type LucideIcon } from 'lucide-react';
 import ThemeMarker from '@/components/ThemeMarker';
+
+const iconMap: Record<string, LucideIcon> = {
+  Rocket,
+  Shield,
+  Building2,
+  Zap,
+  Sparkles
+};
 import ClientMarquee from '@/components/ClientMarquee';
 import Breadcrumbs from '@/components/Breadcrumbs';
 
@@ -93,49 +101,38 @@ export default function ClientsPage() {
       <section className="section-standard">
         <div className="max-container">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.highlights.map((project) => (
-              <div key={project.title} className="flex flex-col rounded-[2.5rem] bg-slate-50 border border-slate-100 group transition-all hover:bg-white hover:shadow-[0_40px_100px_-20px_rgba(0,0,0,0.1)] overflow-hidden">
-                <div className="relative aspect-[16/10] overflow-hidden bg-slate-200">
-                  {project.image ? (
-                    <Image 
-                      src={project.image} 
-                      alt={project.title} 
-                      fill 
-                      className="object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center bg-slate-100">
-                      <Building2 className="w-12 h-12 text-slate-300" />
+            {projects.highlights.map((project) => {
+              const Icon = iconMap[project.icon || 'Sparkles'] || Sparkles;
+              return (
+                <div key={project.title} className="flex flex-col rounded-[2.5rem] bg-slate-50 border border-slate-100 group transition-all hover:bg-white hover:shadow-[0_40px_100px_-20px_rgba(0,0,0,0.1)] overflow-hidden p-10">
+                  <div className="flex-1 flex flex-col">
+                    <div className="h-12 w-12 rounded-xl bg-slate-900 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform text-white">
+                      <Icon className="w-6 h-6" />
                     </div>
-                  )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 to-transparent"></div>
-                  <div className="absolute bottom-6 left-8">
-                    <p className="text-[10px] font-black text-blue-400 uppercase tracking-widest">{project.subtitle}</p>
+                    <p className="text-[10px] font-black text-blue-600 uppercase tracking-widest mb-4">{project.subtitle}</p>
+                    <h3 className="text-2xl font-black tracking-tight text-black mb-6 uppercase leading-tight">{project.title}</h3>
+                    <p className="text-slate-500 font-medium leading-relaxed mb-8 flex-1">{project.detail}</p>
+                    <div className="mt-auto">
+                      {project.slug ? (
+                        <Link 
+                          href={`/showcase/${project.slug}`} 
+                          className="group apple-button-secondary px-6 py-3 text-[10px] uppercase tracking-[0.2em] font-black inline-flex items-center justify-center gap-2 self-start"
+                        >
+                          {catalog.company.ui.viewCaseStudy} <ChevronRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+                        </Link>
+                      ) : (
+                        <Link 
+                          href="/contact" 
+                          className="group apple-button-secondary px-6 py-3 text-[10px] uppercase tracking-[0.2em] font-black inline-flex items-center justify-center gap-2 self-start"
+                        >
+                          {catalog.company.ui.requestTechnicalDetails} <ChevronRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+                        </Link>
+                      )}
+                    </div>
                   </div>
                 </div>
-                <div className="p-10 flex-1 flex flex-col">
-                  <h3 className="text-2xl font-black tracking-tight text-black mb-6 uppercase leading-tight">{project.title}</h3>
-                  <p className="text-slate-500 font-medium leading-relaxed mb-8 flex-1">{project.detail}</p>
-                  <div className="mt-auto">
-                    {project.slug ? (
-                      <Link 
-                        href={`/showcase/${project.slug}`} 
-                        className="group apple-button-secondary px-6 py-3 text-[10px] uppercase tracking-[0.2em] font-black inline-flex items-center justify-center gap-2 self-start"
-                      >
-                        {catalog.company.ui.viewCaseStudy} <ChevronRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
-                      </Link>
-                    ) : (
-                      <Link 
-                        href="/contact" 
-                        className="group apple-button-secondary px-6 py-3 text-[10px] uppercase tracking-[0.2em] font-black inline-flex items-center justify-center gap-2 self-start"
-                      >
-                        {catalog.company.ui.requestTechnicalDetails} <ChevronRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
-                      </Link>
-                    )}
-                  </div>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>

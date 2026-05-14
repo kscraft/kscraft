@@ -36,12 +36,12 @@ export default function Home() {
       <section className="hero-dark isolate">
         <ThemeMarker theme="dark" className="absolute top-0" />
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_20%_15%,rgba(37,99,235,0.26),transparent_32%),linear-gradient(135deg,#020617_0%,#0f172a_48%,#111827_100%)]" />
-        <div className="max-container grid min-h-[74svh] w-full gap-10 overflow-hidden lg:grid-cols-[minmax(0,0.95fr)_minmax(360px,0.82fr)] lg:items-center px-6">
+        <div className="max-container grid min-h-[74svh] w-full gap-10 lg:grid-cols-[minmax(0,0.95fr)_minmax(360px,0.82fr)] lg:items-center px-6">
           <motion.div
             initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="min-w-0 max-w-4xl overflow-hidden"
+            className="min-w-0 max-w-4xl"
           >
             <p className="text-eyebrow text-blue-200">
               {home.hero.eyebrow}
@@ -159,8 +159,33 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Engineering DNA Showcase */}
-      <section className="section-standard">
+      {/* Engineering Promise */}
+      <section className="section-standard overflow-hidden">
+        <ThemeMarker theme="light" className="absolute top-0" />
+        <div className="max-container grid gap-20 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
+          <div className="min-w-0">
+            <p className="text-eyebrow">{home.promise.eyebrow}</p>
+            <h2 className="heading-section">
+              {home.promise.title}
+            </h2>
+          </div>
+          <div className="grid gap-4 md:grid-cols-3">
+            {home.promise.items.map((signal) => {
+              const Icon = promiseIcons[signal.id] || Shield;
+              return (
+                <div key={signal.id} className="min-w-0 rounded-3xl border border-slate-100 bg-slate-50 p-8 transition-all hover:bg-white hover:shadow-xl group">
+                  <Icon className="h-8 w-8 text-blue-600 transition-transform group-hover:scale-110" />
+                  <h3 className="mt-6 break-words text-xl font-bold uppercase tracking-tight text-slate-950 leading-tight">{signal.title}</h3>
+                  <p className="mt-3 text-sm font-medium leading-relaxed text-slate-500">{signal.description}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Primary Catalog Navigation */}
+      <section className="section-tint">
         <ThemeMarker theme="light" className="absolute top-0" />
         <div className="max-container">
           <div className="mb-20">
@@ -280,80 +305,84 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Specification Process */}
-      <section className="section-standard border-b border-slate-100">
+      {/* Case Studies Teaser */}
+      <section className="section-standard bg-slate-50">
         <ThemeMarker theme="light" className="absolute top-0" />
         <div className="max-container">
-          <div className="mb-16 text-center">
-            <p className="text-eyebrow text-center mb-4">Engineering Workflow</p>
-            <h2 className="heading-section text-center mb-0">How we deliver precision</h2>
-          </div>
-          <SpecProcess />
-        </div>
-      </section>
-
-      {/* Case Studies Teaser */}
-      <section className="section-standard">
-        <div className="max-container">
-          <div className="flex flex-col md:flex-row justify-between items-end gap-10 mb-20">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-10 mb-20">
             <div className="max-w-2xl">
-              <p className="text-eyebrow mb-4">{home.trust.eyebrow}</p>
-              <h2 className="heading-section mb-0">
-                Engineering trust across <span className="text-blue-600">mission-critical sectors.</span>
-              </h2>
+              <span className="text-eyebrow">Project Portfolio</span>
+              <h2 className="heading-section mb-0">Engineering Proof <br /><span className="text-blue-600">Across Sectors.</span></h2>
             </div>
-            <Link 
-              href="/clients" 
-              className="group apple-button-secondary px-8 py-4 text-[11px] uppercase tracking-[0.2em] font-black inline-flex items-center justify-center gap-3"
-            >
-              Explore All Case Studies <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+            <Link href="/clients" className="apple-button-secondary px-8 py-4 text-xs font-black uppercase tracking-widest inline-flex items-center gap-3">
+              View All Case Studies <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-8">
             {/* ISRO Highlight (Aerospace) */}
-            <div className="rounded-[2.5rem] bg-slate-50 border border-slate-100 p-10 flex flex-col justify-between group hover:bg-white hover:shadow-2xl transition-all">
-               <div>
-                  <div className="h-12 w-12 rounded-xl bg-slate-900 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform text-white">
-                    <Rocket className="w-6 h-6" />
-                  </div>
-                  <p className="text-[10px] font-black uppercase tracking-widest text-blue-600 mb-2">{projects.highlights[0].subtitle}</p>
-                  <h3 className="text-2xl font-black uppercase tracking-tight mb-4 text-slate-900">{projects.highlights[0].title}</h3>
-                  <p className="text-slate-500 text-sm font-medium leading-relaxed">{projects.highlights[0].detail.split('. ')[0]}.</p>
-               </div>
-               <Link href="/showcase/isro-gaganyaan" className="mt-10 inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-blue-600">
-                  {home.showcaseUI.viewCaseStudy} <ChevronRight className="w-4 h-4" />
-               </Link>
+            <div className="flex flex-col rounded-[2.5rem] bg-white border border-slate-200 p-10 shadow-sm hover:shadow-2xl transition-all group">
+              <div>
+                <div className="h-12 w-12 rounded-xl bg-slate-900 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform text-white">
+                  <Rocket className="w-6 h-6" />
+                </div>
+                <p className="text-[10px] font-black text-blue-600 uppercase tracking-widest mb-4">Aerospace & Defense</p>
+                <h3 className="text-2xl font-black tracking-tight text-slate-900 mb-4 uppercase">{projects.highlights[0].title}</h3>
+                <p className="text-slate-500 text-sm font-medium leading-relaxed mb-8">Indigenous manufacturing of the crew entry mechanism for India's manned space flight program.</p>
+              </div>
+              <Link href="/showcase/isro-gaganyaan" className="mt-auto text-xs font-black uppercase tracking-widest text-blue-600 inline-flex items-center gap-2 group-hover:gap-3 transition-all">
+                Read Aerospace Case Study <ChevronRight className="w-4 h-4" />
+              </Link>
             </div>
 
-            {/* Army Highlight (Defense) */}
-            <div className="rounded-[2.5rem] bg-slate-50 border border-slate-100 p-10 flex flex-col justify-between group hover:bg-white hover:shadow-2xl transition-all">
-               <div>
-                  <div className="h-12 w-12 rounded-xl bg-slate-900 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform text-white">
-                    <Shield className="w-6 h-6" />
-                  </div>
-                  <p className="text-[10px] font-black uppercase tracking-widest text-blue-600 mb-2">{projects.highlights[1].subtitle}</p>
-                  <h3 className="text-2xl font-black uppercase tracking-tight mb-4 text-slate-900">{projects.highlights[1].title}</h3>
-                  <p className="text-slate-500 text-sm font-medium leading-relaxed">{projects.highlights[1].detail.split(', providing')[0]}.</p>
-               </div>
-               <Link href="/clients" className="mt-10 inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-blue-600">
-                  Technical Details <ChevronRight className="w-4 h-4" />
-               </Link>
+            {/* Indian Army Highlight (Defense) */}
+            <div className="flex flex-col rounded-[2.5rem] bg-white border border-slate-200 p-10 shadow-sm hover:shadow-2xl transition-all group">
+              <div>
+                <div className="h-12 w-12 rounded-xl bg-slate-900 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform text-white">
+                  <Shield className="w-6 h-6" />
+                </div>
+                <p className="text-[10px] font-black text-blue-600 uppercase tracking-widest mb-4">National Defense</p>
+                <h3 className="text-2xl font-black tracking-tight text-slate-900 mb-4 uppercase">{projects.highlights[1].title}</h3>
+                <p className="text-slate-500 text-sm font-medium leading-relaxed mb-8">PLC-operated automatic barrier systems for high-security access control along national borders.</p>
+              </div>
+              <Link href="/clients" className="mt-auto text-xs font-black uppercase tracking-widest text-blue-600 inline-flex items-center gap-2 group-hover:gap-3 transition-all">
+                View Defense Projects <ChevronRight className="w-4 h-4" />
+              </Link>
             </div>
 
             {/* Hospitality Highlight */}
-            <div className="rounded-[2.5rem] bg-slate-50 border border-slate-100 p-10 flex flex-col justify-between group hover:bg-white hover:shadow-2xl transition-all">
-               <div>
-                  <div className="h-12 w-12 rounded-xl bg-slate-900 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform text-white">
-                    <Building2 className="w-6 h-6" />
-                  </div>
-                  <p className="text-[10px] font-black uppercase tracking-widest text-blue-600 mb-2">{projects.highlights[3].subtitle}</p>
-                  <h3 className="text-2xl font-black uppercase tracking-tight mb-4 text-slate-900">{projects.highlights[3].title}</h3>
-                  <p className="text-slate-500 text-sm font-medium leading-relaxed">{projects.highlights[3].detail}</p>
-               </div>
-               <Link href="/clients" className="mt-10 inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-blue-600">
-                  Technical Details <ChevronRight className="w-4 h-4" />
-               </Link>
+            <div className="flex flex-col rounded-[2.5rem] bg-white border border-slate-200 p-10 shadow-sm hover:shadow-2xl transition-all group">
+              <div>
+                <div className="h-12 w-12 rounded-xl bg-slate-900 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform text-white">
+                  <Building2 className="w-6 h-6" />
+                </div>
+                <p className="text-[10px] font-black text-blue-600 uppercase tracking-widest mb-4">Luxury Hospitality</p>
+                <h3 className="text-2xl font-black tracking-tight text-slate-900 mb-4 uppercase">Oberoi & Sahara Star</h3>
+                <p className="text-slate-500 text-sm font-medium leading-relaxed mb-8">Premium acoustic movable partitions for flexible, sound-isolated ballroom and event spaces.</p>
+              </div>
+              <Link href="/clients" className="mt-auto text-xs font-black uppercase tracking-widest text-blue-600 inline-flex items-center gap-2 group-hover:gap-3 transition-all">
+                Explore Hospitality Proof <ChevronRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Trust & Certifications */}
+      <section className="section-standard">
+        <div className="max-container">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
+            <div className="max-w-2xl">
+              <p className="text-eyebrow">{home.trust.eyebrow}</p>
+              <h2 className="text-4xl lg:text-5xl font-black uppercase tracking-tighter text-slate-950">{home.trust.title}</h2>
+              <p className="mt-6 text-xl text-slate-500 font-medium leading-relaxed">{home.trust.description}</p>
+            </div>
+            <div className="flex flex-wrap justify-center gap-4">
+              {catalog.company.certifications.map((cert) => (
+                <span key={cert} className="rounded-2xl border border-slate-200 bg-white px-8 py-4 text-[10px] font-black uppercase tracking-widest text-slate-600 shadow-sm">
+                  {cert}
+                </span>
+              ))}
             </div>
           </div>
         </div>

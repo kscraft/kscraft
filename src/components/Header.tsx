@@ -51,28 +51,6 @@ const Header = () => {
         {/* Desktop Nav */}
         <nav className="hidden lg:flex items-center gap-10">
           <ul className="flex items-center gap-8">
-            <li className="relative group">
-              <button className={cn(
-                "flex items-center gap-1.5 px-4 py-1.5 rounded-full text-[11px] font-black uppercase tracking-widest transition-all",
-                isHeaderLight 
-                  ? "bg-white/10 text-white hover:bg-white/20 backdrop-blur-md" 
-                  : "bg-blue-50 text-blue-600 hover:bg-blue-600 hover:text-white"
-              )}>
-                Systems <ChevronDown className="w-3 h-3" />
-              </button>
-              <div className="absolute top-full left-0 mt-4 w-72 bg-white/95 backdrop-blur-3xl border border-slate-200 rounded-[2rem] shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all p-4 grid gap-1">
-                {categories.map((cat) => (
-                  <Link
-                    key={cat.id}
-                    href={`/category/${cat.id}`}
-                    className="flex items-center justify-between px-5 py-3 text-[13px] font-bold text-slate-600 hover:bg-blue-50 hover:text-blue-600 rounded-2xl transition-all group/item"
-                  >
-                    {cat.title}
-                    <ArrowRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all" />
-                  </Link>
-                ))}
-              </div>
-            </li>
             {navigation.header.map((item) => (
               <li key={item.href}>
                 <Link
@@ -88,6 +66,28 @@ const Header = () => {
                 </Link>
               </li>
             ))}
+            <li className="relative group">
+              <button className={cn(
+                "flex items-center gap-1.5 px-4 py-1.5 rounded-full text-[11px] font-black uppercase tracking-widest transition-all",
+                isHeaderLight 
+                  ? "bg-white/10 text-white hover:bg-white/20 backdrop-blur-md" 
+                  : "bg-blue-50 text-blue-600 hover:bg-blue-600 hover:text-white"
+              )}>
+                Catalog <ChevronDown className="w-3 h-3" />
+              </button>
+              <div className="absolute top-full right-0 mt-4 w-72 bg-white/95 backdrop-blur-3xl border border-slate-200 rounded-[2rem] shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all p-4 grid gap-1">
+                {categories.map((cat) => (
+                  <Link
+                    key={cat.id}
+                    href={`/category/${cat.id}`}
+                    className="flex items-center justify-between px-5 py-3 text-[13px] font-bold text-slate-600 hover:bg-blue-50 hover:text-blue-600 rounded-2xl transition-all group/item"
+                  >
+                    {cat.title}
+                    <ArrowRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all" />
+                  </Link>
+                ))}
+              </div>
+            </li>
           </ul>
           <div className="flex items-center gap-2">
             <Link 
@@ -162,7 +162,7 @@ const Header = () => {
               </div>
               
               <div className="pt-10 border-t border-slate-100">
-                <h3 className="text-[10px] font-black text-blue-600 uppercase tracking-[0.3em] mb-8">Systems Catalog</h3>
+                <h3 className="text-[10px] font-black text-blue-600 uppercase tracking-[0.3em] mb-8">System Catalog</h3>
                 <ul className="grid gap-6">
                   {categories.map((cat) => (
                     <li key={cat.id}>

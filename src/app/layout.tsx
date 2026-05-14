@@ -27,7 +27,7 @@ const isVercelRuntime = process.env.VERCEL === '1' || Boolean(process.env.VERCEL
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: 'Kiran Slido Craft | Global Exporter of Acoustic & Automation Systems',
-  description: 'Licensed global exporter of premium soundproofing and architectural automation. Serving UK, Europe, GCC/MENA, APAC, Australia, and the Americas with ISO 9001 certified engineering.',
+  description: 'Global exporter of premium soundproofing and architectural automation. ISO 9001 certified engineering for UK, Europe, Middle East, and APAC markets.',
   keywords: [
     'Acoustic Windows Exporter',
     'Soundproof Doors Middle East',
@@ -39,6 +39,7 @@ export const metadata: Metadata = {
     'Kiran Slido Craft'
   ],
   alternates: {
+    canonical: SITE_URL,
     languages: {
       'en-US': SITE_URL,
       'en-IN': SITE_URL,

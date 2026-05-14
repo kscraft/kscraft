@@ -107,7 +107,7 @@ export default function QuoteModal({ isOpen, onClose, productName }: QuoteModalP
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={() => trackContactClick('whatsapp', phone)}
+                  onClick={() => trackContactClick('whatsapp')}
                   className="group flex items-center gap-6 p-6 rounded-3xl bg-slate-50 hover:bg-white border border-slate-100 hover:border-blue-200 hover:shadow-2xl hover:shadow-blue-600/5 transition-all"
                 >
                   <div className="h-12 w-12 rounded-2xl bg-green-500 flex items-center justify-center text-white group-hover:scale-110 transition-transform shadow-lg shadow-green-500/20">
@@ -127,7 +127,7 @@ export default function QuoteModal({ isOpen, onClose, productName }: QuoteModalP
                 <motion.div variants={itemVariants} className="relative group">
                   <a 
                     href={callUrl}
-                    onClick={() => trackContactClick('phone', phone)}
+                    onClick={() => trackContactClick('phone')}
                     className="flex items-center gap-6 p-6 rounded-3xl bg-slate-50 hover:bg-white border border-slate-100 hover:border-blue-200 hover:shadow-2xl hover:shadow-blue-600/5 transition-all"
                   >
                     <div className="h-12 w-12 rounded-2xl bg-blue-600 flex items-center justify-center text-white group-hover:scale-110 transition-transform shadow-lg shadow-blue-600/20">
@@ -152,7 +152,7 @@ export default function QuoteModal({ isOpen, onClose, productName }: QuoteModalP
                 <motion.div variants={itemVariants} className="relative group">
                   <a 
                     href={emailUrl}
-                    onClick={() => trackContactClick('email', email)}
+                    onClick={() => trackContactClick('email')}
                     className="flex items-center gap-6 p-6 rounded-3xl bg-slate-50 hover:bg-white border border-slate-100 hover:border-blue-200 hover:shadow-2xl hover:shadow-blue-600/5 transition-all"
                   >
                     <div className="h-12 w-12 rounded-2xl bg-slate-900 flex items-center justify-center text-white group-hover:scale-110 transition-transform shadow-lg shadow-slate-900/20">

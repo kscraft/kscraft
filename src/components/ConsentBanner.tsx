@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useCallback, useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -13,36 +13,43 @@ declare global {
 export default function ConsentBanner() {
   const [isVisible, setIsVisible] = useState(false);
 
+  const updateConsent = useCallback((isGranted: boolean) => {
+    if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+      window.gtag('consent', 'update', {
+        'ad_storage': isGranted ? 'granted' : 'denied',
+        'ad_user_data': isGranted ? 'granted' : 'denied',
+        'ad_personalization': isGranted ? 'granted' : 'denied',
+        'analytics_storage': isGranted ? 'granted' : 'denied'
+      });
+    }
+
+    window.dispatchEvent(new CustomEvent('ksc_cookie_consent_changed', {
+      detail: { status: isGranted ? 'accepted' : 'rejected' },
+    }));
+  }, []);
+
   useEffect(() => {
     // Check if the user has already consented
-    const hasConsented = localStorage.getItem('ksc_cookie_consent');
-    if (!hasConsented) {
+    const consentStatus = localStorage.getItem('ksc_cookie_consent');
+    if (!consentStatus) {
       // Delay to avoid overwhelming user immediately and preventing it from hijacking the Largest Contentful Paint (LCP)
       const timer = setTimeout(() => setIsVisible(true), 4500);
       return () => clearTimeout(timer);
     } else {
-      if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
-        window.gtag('consent', 'update', {
-          'ad_storage': 'granted',
-          'ad_user_data': 'granted',
-          'ad_personalization': 'granted',
-          'analytics_storage': 'granted'
-        });
-      }
+      updateConsent(consentStatus === 'accepted' || consentStatus === 'true');
     }
-  }, []);
+  }, [updateConsent]);
 
   const handleAccept = () => {
-    localStorage.setItem('ksc_cookie_consent', 'true');
+    localStorage.setItem('ksc_cookie_consent', 'accepted');
     setIsVisible(false);
-    if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
-      window.gtag('consent', 'update', {
-        'ad_storage': 'granted',
-        'ad_user_data': 'granted',
-        'ad_personalization': 'granted',
-        'analytics_storage': 'granted'
-      });
-    }
+    updateConsent(true);
+  };
+
+  const handleReject = () => {
+    localStorage.setItem('ksc_cookie_consent', 'rejected');
+    setIsVisible(false);
+    updateConsent(false);
   };
 
   return (
@@ -65,7 +72,13 @@ export default function ConsentBanner() {
                 </Link>.
               </p>
             </div>
-            <div className="flex w-full sm:w-auto shrink-0">
+            <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row shrink-0">
+              <button
+                onClick={handleReject}
+                className="w-full sm:w-auto px-8 py-3 bg-white/10 hover:bg-white/15 text-white text-sm font-bold uppercase tracking-widest rounded-xl transition-colors active:scale-95"
+              >
+                Reject
+              </button>
               <button
                 onClick={handleAccept}
                 className="w-full sm:w-auto px-8 py-3 bg-blue-600 hover:bg-blue-500 text-white text-sm font-bold uppercase tracking-widest rounded-xl transition-colors shadow-lg shadow-blue-600/20 active:scale-95"

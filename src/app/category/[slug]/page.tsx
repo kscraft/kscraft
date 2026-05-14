@@ -8,8 +8,6 @@ import ThemeMarker from '@/components/ThemeMarker';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { categories, getCategory, getProductsByCategory } from '@/lib/catalog';
 
-const SITE_URL = 'https://soundproofindia.com';
-
 interface Props {
   params: Promise<{ slug: string }>;
 }

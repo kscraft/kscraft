@@ -45,8 +45,8 @@ Each market is scored out of 100 using:
 | 6 | Riyadh | 90 | Vision 2030 construction, hospitality, offices, villas, and mixed-use growth. |
 | 7 | Hyderabad | 89 | Tech corridors, premium housing, healthcare, hotels, and offices. |
 | 8 | Doha | 88 | High-value villas, offices, schools, healthcare, and hospitality. |
-| 9 | Kolkata | 87 | Regional HQ, severe noise, dense urban commercial/residential, and historic retrofit. |
-| 10 | Singapore | 86 | Dense urban premium retrofit market and regional credibility value. |
+| 9 | Singapore | 87 | Dense urban premium retrofit market and regional credibility value. |
+| 15 | Kolkata | 85 | Regional operations, severe noise, institutional buyers, and serviceability advantages. |
 
 ### P1: Strong Revenue Expansion
 
@@ -108,6 +108,7 @@ Automation and acoustic service pages are generated from
 - Automatic sliding doors.
 - Motorized sliding roof systems.
 - Soundproof sliding doors.
+- Automatic folding doors.
 
 This covers searches such as:
 

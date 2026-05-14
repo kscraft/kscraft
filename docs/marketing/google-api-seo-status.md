@@ -34,11 +34,15 @@ Checked on 2026-05-14.
 ## Completed Without Waiting On API Access
 
 - Added `/locations` plus 31 ranked location market pages.
-- Added `/solutions`, 6 service hubs, and 186 service-location pages for
+- Added `/solutions`, 7 service hubs, and 217 service-location pages for
   automation and acoustic demand such as automatic sliding windows, motorized
-  soundproof windows, automatic acoustic partitions, and sliding roofs.
+  soundproof windows, automatic acoustic partitions, sliding roofs, and
+  automatic folding doors.
 - Kept `/soundproof-windows-mumbai` as a compatibility redirect to
   `/locations/soundproof-windows-mumbai`.
 - Added sitemap coverage for location and service-location pages.
 - Added location, solution, and Gaganyaan proof-point summaries to `llms.txt`
   for AI search extraction.
+- Updated `scripts/seo-submit.ts` to submit the canonical sitemap URL set to
+  IndexNow/Baidu only. Google Search Console submission remains a manual/API
+  setup item; the Google Indexing API is not used for normal site pages.

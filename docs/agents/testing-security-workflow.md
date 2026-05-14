@@ -29,6 +29,11 @@
 - Keep public route handlers free of secrets. The current catalog/discovery
   endpoints are intentionally public.
 - Put server-only environment access in server code, not client components.
+- Do not write lead PII into repo-local files or analytics events. Lead
+  submissions should be emailed through the configured server-side provider,
+  with optional private R2 archival only.
+- Analytics and session-recording scripts must respect cookie consent defaults;
+  do not initialize optional tracking before the user accepts.
 
 ## Workflow
 

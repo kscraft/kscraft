@@ -5,7 +5,7 @@ SEO audit, site architecture, page CRO, and copywriting.
 
 ## Current Readiness Snapshot
 
-The site has been transformed from a static catalog into a high-authority demand-generation system. Core upgrades include a mission-critical ISRO/Gaganyaan proof point, dynamic engineering showcases (ISRO, Hilton), and a programmatic regional SEO hub architecture covering 50+ global markets with P0/P1 prioritization.
+The site has been transformed from a static catalog into a higher-authority demand-generation system. Core upgrades include a mission-critical ISRO/Gaganyaan proof point, dynamic engineering showcases (ISRO, Hilton), and a programmatic regional SEO architecture covering 31 ranked markets plus 217 service-location combinations.
 
 ## Phase 1: Launch-Critical Fixes
 
@@ -116,7 +116,7 @@ The site has been transformed from a static catalog into a high-authority demand
 6. [DONE] Visual breadcrumbs and internal linking Pass.
 7. [DONE] Product/category FAQ expansion and schema.
 8. [DONE] GA4 event instrumentation for lead actions.
-9. [DONE] Search Console/Bing setup and sitemap submission.
+9. Search Console/Bing setup and sitemap submission after API/property access is unblocked.
 10. [DONE] Technical Proof downloads and dynamic showcase architecture.
 11. Build out more Project Highlights for P1 regions (Dubai, Riyadh, London).
 12. Deepen Education and Industrial vertical copy with specific tender-spec language.

@@ -37,10 +37,9 @@ export function trackFormStart(formName: string) {
 /**
  * Track contact link clicks.
  */
-export function trackContactClick(type: 'phone' | 'email' | 'whatsapp' | 'social', value: string) {
+export function trackContactClick(type: 'phone' | 'email' | 'whatsapp' | 'social') {
   trackClientEvent('contact_click', {
     contact_type: type,
-    contact_value: value
   });
 }
 

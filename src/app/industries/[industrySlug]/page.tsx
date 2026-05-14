@@ -2,12 +2,11 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
-import { ChevronRight, CheckCircle2, Building2 } from 'lucide-react';
+import { ChevronRight, CheckCircle2 } from 'lucide-react';
 import { industries, getIndustry, getProductsForIndustry } from '@/data/industry-seo';
 import ProductCard from '@/components/ProductCard';
 import ThemeMarker from '@/components/ThemeMarker';
 import SpecProcess from '@/components/SpecProcess';
-import { trackClientEvent } from '@/lib/analytics-client';
 
 interface Props {
   params: Promise<{ industrySlug: string }>;

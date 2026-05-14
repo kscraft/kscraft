@@ -46,10 +46,12 @@ Generated route layers:
   `src/data/location-seo.ts`.
 - `/solutions`: automation and acoustic solution hub.
 - `/solutions/[service]`: service family city index pages.
-- `/solutions/[service]/[market]`: 186 service plus market pages from
+- `/solutions/[service]/[market]`: 217 service plus market pages from
   `src/data/service-location-seo.ts` crossed with location markets.
+- `/showcase/[slug]`: project proof pages from `projects.highlights` entries
+  with showcase content.
 - `/soundproof-windows-mumbai`: compatibility alias that redirects to
   `/locations/soundproof-windows-mumbai`.
 
-Current production build baseline: `npm run build` should generate 297 static
+Current production build baseline: `npm run build` should generate 347 static
 pages/routes.

@@ -195,6 +195,18 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://www.clarity.ms" />
         <link rel="dns-prefetch" href="https://c.clarity.ms" />
         <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM Site Map" />
+        <Script id="google-consent-defaults" strategy="beforeInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('consent', 'default', {
+              ad_storage: 'denied',
+              ad_user_data: 'denied',
+              ad_personalization: 'denied',
+              analytics_storage: 'denied'
+            });
+          `}
+        </Script>
       </head>
       <body className="font-sans bg-white antialiased text-slate-900 overflow-x-hidden">
         <HeaderThemeProvider>

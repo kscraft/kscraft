@@ -85,8 +85,8 @@ The site now supports three demand layers:
   sliding window in Dubai" and "automatic acoustic partition near me."
 
 P0 revenue markets are Mumbai, Dubai, Delhi NCR, Bengaluru, Abu Dhabi, Riyadh,
-Hyderabad, Doha, and Singapore. Prioritize these for indexing, sales follow-up,
-and case-study/proof enrichment.
+Hyderabad, Doha, Singapore, and Kolkata. Prioritize these for indexing, sales
+follow-up, and case-study/proof enrichment.
 
 ## Proof Points
 

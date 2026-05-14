@@ -28,13 +28,14 @@ Useful focused checks:
 - Single Vitest file: `npx vitest run src/lib/catalog.test.ts`
 - Single Vitest test name: `npx vitest run -t "test name"`
 - Single Playwright file: `npx playwright test tests/e2e/basic.spec.ts`
+- Sitemap route crawl: `npx playwright test tests/e2e/sitemap.spec.ts`
 
 Before finishing code changes, run the smallest relevant test first, then run
 `npm run lint`, `npm run test`, and `npm run build` when the change affects app
 behavior, catalog data, routing, metadata, or shared components.
 
 Expected production build baseline from the migration handoff: `npm run build`
-should complete successfully and generate about 297 static App Router
+should complete successfully and generate about 347 static App Router
 pages/routes, including catalog, location, and solution pSEO pages.
 
 Useful local smoke checks after `npm run build` and `npm run start -- --hostname
@@ -47,9 +48,15 @@ Useful local smoke checks after `npm run build` and `npm run start -- --hostname
 - `curl -sSf -o /dev/null -w '%{http_code}\n' http://127.0.0.1:3000/locations`
 - `curl -sSf -o /dev/null -w '%{http_code}\n' http://127.0.0.1:3000/locations/soundproof-windows-dubai`
 - `curl -sSf -o /dev/null -w '%{http_code}\n' http://127.0.0.1:3000/solutions`
+- `curl -sSf -o /dev/null -w '%{http_code}\n' http://127.0.0.1:3000/showcase/isro-gaganyaan`
 - `curl -sSf -o /dev/null -w '%{http_code}\n' http://127.0.0.1:3000/solutions/automatic-sliding-windows/mumbai`
 - `curl -sSf -o /dev/null -w '%{http_code}\n' http://127.0.0.1:3000/solutions/automatic-acoustic-partitions/delhi-ncr`
-- `curl -sSf http://127.0.0.1:3000/sitemap.xml | rg 'locations/soundproof-windows-mumbai|solutions/automatic-sliding-windows/mumbai'`
+- `curl -sSf http://127.0.0.1:3000/sitemap.xml | rg 'locations/soundproof-windows-mumbai|solutions/automatic-sliding-windows/mumbai|showcase/isro-gaganyaan'`
 - `curl -sS -o /dev/null -w '%{http_code} %{redirect_url}\n' http://127.0.0.1:3000/soundproof-windows-mumbai`
 - `curl -sS -o /dev/null -w '%{http_code} %{redirect_url}\n' http://127.0.0.1:3000/services.php`
 - `curl -sS -o /dev/null -w '%{http_code} %{redirect_url}\n' http://127.0.0.1:3000/sound-proof-sliding-doors.htm`
+
+Lead email env check:
+
+- `vercel env ls` should include `RESEND_API_KEY` and `ADMIN_EMAIL_FROM` for
+  Production before deploying contact-form changes. Do not print env values.

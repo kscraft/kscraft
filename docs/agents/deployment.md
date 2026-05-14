@@ -7,12 +7,22 @@
 - `doorwindowcraft.com` is configured as a Vercel alias for the same project.
 - Vercel Analytics and Speed Insights are gated to Vercel runtime in
   `src/app/layout.tsx`; Google Analytics is configured there as well.
+- Lead emails are sent through Resend. Required Vercel env vars are
+  `RESEND_API_KEY` and `ADMIN_EMAIL_FROM` or `LEADS_FROM_EMAIL`; the recipient
+  is `info@kiranslidocraft.com`.
+- Optional lead archiving can write one JSON object per inquiry to private
+  Cloudflare R2 when `R2_ACCOUNT_ID`, `R2_ACCESS_KEY_ID`,
+  `R2_SECRET_ACCESS_KEY`, and `R2_BUCKET` are configured.
+- `ADMIN_EMAIL_FROM` / `LEADS_FROM_EMAIL` must use a sender domain verified in
+  Resend, otherwise Resend can reject sends with a domain mismatch.
 - SEO deployments should be verified after cache invalidation because live
   production has previously lagged behind repo canonical, robots, and sitemap
   changes.
 - Post-deploy checks should include:
   - `https://soundproofindia.com/robots.txt`
   - `https://soundproofindia.com/sitemap.xml`
+  - `https://soundproofindia.com/showcase/isro-gaganyaan`
+  - `https://soundproofindia.com/showcase/hilton-bengaluru`
   - `https://soundproofindia.com/locations`
   - `https://soundproofindia.com/locations/soundproof-windows-mumbai`
   - `https://soundproofindia.com/solutions`

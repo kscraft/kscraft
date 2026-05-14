@@ -4,9 +4,7 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { ChevronRight, Clock, Tag, BookOpen, ArrowLeft } from 'lucide-react';
 import { guides, getGuide } from '@/data/guides';
-import { getProduct, products } from '@/lib/catalog';
-import ProductCard from '@/components/ProductCard';
-import ThemeMarker from '@/components/ThemeMarker';
+import { getProduct, type Product } from '@/lib/catalog';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -38,7 +36,7 @@ export default async function GuidePage({ params }: Props) {
 
   const relatedProducts = guide.relatedProducts
     .map(pSlug => getProduct(pSlug))
-    .filter((p): p is any => !!p);
+    .filter((p): p is Product => !!p);
 
   return (
     <div className="bg-white min-h-screen">

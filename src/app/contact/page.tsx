@@ -4,6 +4,7 @@ import * as React from 'react';
 import { useActionState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Image from 'next/image';
+import Link from 'next/link';
 import { catalog, categories, home } from '@/lib/catalog';
 import { Mail, MapPin, Send, Phone, CheckCircle2, HelpCircle } from 'lucide-react';
 import { YoutubeIcon, LinkedinIcon, InstagramIcon } from '@/components/SocialIcons';
@@ -11,7 +12,7 @@ import ThemeMarker from '@/components/ThemeMarker';
 import SpecProcess from '@/components/SpecProcess';
 import { submitInquiry } from '@/app/actions';
 import { faqCategories } from '@/data/faqs';
-import { trackFormStart, trackClientEvent, trackContactClick } from '@/lib/analytics-client';
+import { trackFormStart, trackClientEvent } from '@/lib/analytics-client';
 
 const initialState = {
   success: false,
@@ -202,9 +203,9 @@ export default function ContactPage() {
               <p className="text-eyebrow">Common Questions</p>
               <h2 className="heading-section mb-0">Before you reach out</h2>
             </div>
-            <a href="/faq" className="apple-button-secondary inline-flex items-center justify-center px-8 py-4 text-xs font-black uppercase tracking-[0.2em]">
+            <Link href="/faq" className="apple-button-secondary inline-flex items-center justify-center px-8 py-4 text-xs font-black uppercase tracking-[0.2em]">
               View All FAQs
-            </a>
+            </Link>
           </div>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {faqCategories.slice(0, 3).map((cat) => (

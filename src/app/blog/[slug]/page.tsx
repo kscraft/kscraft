@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { ChevronLeft } from 'lucide-react';
 import ThemeMarker from '@/components/ThemeMarker';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { sanitizeTrustedHtml } from '@/lib/sanitize';

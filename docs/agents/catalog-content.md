@@ -3,8 +3,8 @@
 Current catalog coverage is 23 products across 5 categories. Historical source
 analysis covered 31 reachable pages from the original `.com` site and 40
 sitemap/internal pages from the original `.co.in` site. Programmatic SEO
-coverage now adds 31 ranked location markets and 6 service-intent families
-crossed into 186 service-location pages.
+coverage now adds 31 ranked location markets and 7 service-intent families
+crossed into 217 service-location pages.
 
 Rules:
 
@@ -58,3 +58,4 @@ Current pSEO service families:
 - Automatic sliding doors.
 - Motorized sliding roof systems.
 - Soundproof sliding doors.
+- Automatic folding doors.

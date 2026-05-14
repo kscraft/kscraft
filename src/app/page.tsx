@@ -312,16 +312,16 @@ export default function Home() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* ISRO Highlight (Aerospace) */}
-            <div className="rounded-[2.5rem] bg-slate-950 p-10 text-white flex flex-col justify-between group hover:shadow-2xl transition-all">
+            <div className="rounded-[2.5rem] bg-slate-50 border border-slate-100 p-10 flex flex-col justify-between group hover:bg-white hover:shadow-2xl transition-all">
                <div>
-                  <div className="h-12 w-12 rounded-xl bg-blue-600 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
+                  <div className="h-12 w-12 rounded-xl bg-slate-900 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform text-white">
                     <Rocket className="w-6 h-6" />
                   </div>
-                  <p className="text-[10px] font-black uppercase tracking-widest text-blue-400 mb-2">{projects.highlights[0].subtitle}</p>
-                  <h3 className="text-2xl font-black uppercase tracking-tight mb-4">{projects.highlights[0].title}</h3>
-                  <p className="text-slate-400 text-sm font-medium leading-relaxed">{projects.highlights[0].detail.split('. ')[0]}.</p>
+                  <p className="text-[10px] font-black uppercase tracking-widest text-blue-600 mb-2">{projects.highlights[0].subtitle}</p>
+                  <h3 className="text-2xl font-black uppercase tracking-tight mb-4 text-slate-900">{projects.highlights[0].title}</h3>
+                  <p className="text-slate-500 text-sm font-medium leading-relaxed">{projects.highlights[0].detail.split('. ')[0]}.</p>
                </div>
-               <Link href="/showcase/isro-gaganyaan" className="mt-10 inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-blue-400">
+               <Link href="/showcase/isro-gaganyaan" className="mt-10 inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-blue-600">
                   {home.showcaseUI.viewCaseStudy} <ChevronRight className="w-4 h-4" />
                </Link>
             </div>
@@ -333,7 +333,7 @@ export default function Home() {
                     <Shield className="w-6 h-6" />
                   </div>
                   <p className="text-[10px] font-black uppercase tracking-widest text-blue-600 mb-2">{projects.highlights[1].subtitle}</p>
-                  <h3 className="text-2xl font-black uppercase tracking-tight mb-4">{projects.highlights[1].title}</h3>
+                  <h3 className="text-2xl font-black uppercase tracking-tight mb-4 text-slate-900">{projects.highlights[1].title}</h3>
                   <p className="text-slate-500 text-sm font-medium leading-relaxed">{projects.highlights[1].detail.split(', providing')[0]}.</p>
                </div>
                <Link href="/clients" className="mt-10 inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-blue-600">
@@ -348,7 +348,7 @@ export default function Home() {
                     <Building2 className="w-6 h-6" />
                   </div>
                   <p className="text-[10px] font-black uppercase tracking-widest text-blue-600 mb-2">{projects.highlights[3].subtitle}</p>
-                  <h3 className="text-2xl font-black uppercase tracking-tight mb-4">{projects.highlights[3].title}</h3>
+                  <h3 className="text-2xl font-black uppercase tracking-tight mb-4 text-slate-900">{projects.highlights[3].title}</h3>
                   <p className="text-slate-500 text-sm font-medium leading-relaxed">{projects.highlights[3].detail}</p>
                </div>
                <Link href="/clients" className="mt-10 inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-blue-600">

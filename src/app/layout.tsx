@@ -39,7 +39,6 @@ export const metadata: Metadata = {
     'Kiran Slido Craft'
   ],
   alternates: {
-    canonical: SITE_URL,
     languages: {
       'en-US': SITE_URL,
       'en-IN': SITE_URL,

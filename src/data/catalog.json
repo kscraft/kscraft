@@ -144,7 +144,7 @@
   ],
   "navigation": {
     "header": [
-      { "label": "Engineering", "href": "/services" },
+      { "label": "Systems", "href": "/solutions" },
       { "label": "Case Studies", "href": "/clients" },
       { "label": "Technical Journal", "href": "/blog" },
       { "label": "About", "href": "/about" }

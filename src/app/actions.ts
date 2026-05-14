@@ -18,6 +18,7 @@ type Inquiry = z.infer<typeof inquirySchema> & {
 };
 
 const LEAD_RECIPIENT_EMAIL = 'info@kiranslidocraft.com';
+const RESEND_TEST_FALLBACK_FROM = 'Kiran Slido Craft <onboarding@resend.dev>';
 
 function escapeHtml(value: string) {
   return value
@@ -102,6 +103,35 @@ function getLeadEmailText(inquiry: Inquiry) {
   ].join('\n');
 }
 
+async function postLeadEmail(apiKey: string, from: string, inquiry: Inquiry) {
+  const response = await fetch('https://api.resend.com/emails', {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${apiKey}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      from: from || 'Kiran Slido Craft <onboarding@resend.dev>',
+      to: [LEAD_RECIPIENT_EMAIL],
+      reply_to: inquiry.email,
+      subject: `Technical inquiry: ${inquiry.scope}`,
+      text: getLeadEmailText(inquiry),
+      html: getLeadEmailHtml(inquiry),
+    }),
+  });
+
+  if (!response.ok) {
+    const text = await response.text();
+    throw new Error(`Lead email failed with ${response.status}: ${text}`);
+  }
+}
+
+function isUnverifiedResendDomainError(error: unknown) {
+  return error instanceof Error &&
+    error.message.includes('Lead email failed with 403') &&
+    error.message.includes('domain is not verified');
+}
+
 async function sendLeadEmail(inquiry: Inquiry) {
   const apiKey = process.env.RESEND_API_KEY;
 
@@ -123,25 +153,19 @@ async function sendLeadEmail(inquiry: Inquiry) {
     throw new Error('ADMIN_EMAIL_FROM or LEADS_FROM_EMAIL is not configured');
   }
 
-  const response = await fetch('https://api.resend.com/emails', {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${apiKey}`,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      from: from || 'Kiran Slido Craft <onboarding@resend.dev>',
-      to: [LEAD_RECIPIENT_EMAIL],
-      reply_to: inquiry.email,
-      subject: `Technical inquiry: ${inquiry.scope}`,
-      text: getLeadEmailText(inquiry),
-      html: getLeadEmailHtml(inquiry),
-    }),
-  });
+  try {
+    await postLeadEmail(apiKey, from || RESEND_TEST_FALLBACK_FROM, inquiry);
+  } catch (error) {
+    const fallbackFrom = process.env.RESEND_FALLBACK_FROM_EMAIL || RESEND_TEST_FALLBACK_FROM;
+    if (!from || fallbackFrom === from || !isUnverifiedResendDomainError(error)) {
+      throw error;
+    }
 
-  if (!response.ok) {
-    const text = await response.text();
-    throw new Error(`Lead email failed with ${response.status}: ${text}`);
+    console.warn('Lead email sender domain is not verified; retrying with Resend fallback sender', {
+      scope: inquiry.scope,
+      utmSource: inquiry.utmSource,
+    });
+    await postLeadEmail(apiKey, fallbackFrom, inquiry);
   }
 }
 

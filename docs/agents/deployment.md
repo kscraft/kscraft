@@ -14,7 +14,10 @@
   Cloudflare R2 when `R2_ACCOUNT_ID`, `R2_ACCESS_KEY_ID`,
   `R2_SECRET_ACCESS_KEY`, and `R2_BUCKET` are configured.
 - `ADMIN_EMAIL_FROM` / `LEADS_FROM_EMAIL` must use a sender domain verified in
-  Resend, otherwise Resend can reject sends with a domain mismatch.
+  Resend. If Resend rejects that sender with an unverified-domain `403`, the
+  server action retries once with `RESEND_FALLBACK_FROM_EMAIL` or Resend's
+  testing sender so lead delivery is not blocked. Verify the real sender domain
+  before relying on production volume.
 - SEO deployments should be verified after cache invalidation because live
   production has previously lagged behind repo canonical, robots, and sitemap
   changes.

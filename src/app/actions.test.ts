@@ -26,6 +26,7 @@ describe('Server Actions', () => {
     RESEND_API_KEY: process.env.RESEND_API_KEY,
     ADMIN_EMAIL_FROM: process.env.ADMIN_EMAIL_FROM,
     LEADS_FROM_EMAIL: process.env.LEADS_FROM_EMAIL,
+    RESEND_FALLBACK_FROM_EMAIL: process.env.RESEND_FALLBACK_FROM_EMAIL,
   };
 
   beforeEach(() => {
@@ -41,6 +42,7 @@ describe('Server Actions', () => {
     delete process.env.RESEND_API_KEY;
     delete process.env.ADMIN_EMAIL_FROM;
     delete process.env.LEADS_FROM_EMAIL;
+    delete process.env.RESEND_FALLBACK_FROM_EMAIL;
   });
 
   afterEach(() => {
@@ -141,6 +143,35 @@ describe('Server Actions', () => {
         body: expect.stringContaining('info@kiranslidocraft.com'),
       }),
     );
+  });
+
+  it('should retry Resend with fallback sender when configured sender domain is not verified', async () => {
+    process.env.RESEND_API_KEY = 'test-resend-key';
+    process.env.ADMIN_EMAIL_FROM = 'Kiran Slido Craft <info@kiranslidocraft.com>';
+    const fetchMock = vi.spyOn(globalThis, 'fetch')
+      .mockResolvedValueOnce(new Response(
+        JSON.stringify({
+          statusCode: 403,
+          message: 'The kiranslidocraft.com domain is not verified.',
+          name: 'validation_error',
+        }),
+        { status: 403 },
+      ))
+      .mockResolvedValueOnce(new Response(JSON.stringify({ id: 'email_test' }), { status: 200 }));
+    const formData = new FormData();
+    formData.append('name', 'John Doe');
+    formData.append('email', 'john@example.com');
+    formData.append('phone', '+91 9876543210');
+    formData.append('scope', 'Acoustic Windows');
+    formData.append('requirements', 'I need STC 50 windows for my studio.');
+
+    const result = await submitInquiry({}, formData);
+
+    expect(result.success).toBe(true);
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+    expect(fetchMock.mock.calls[1]?.[1]).toEqual(expect.objectContaining({
+      body: expect.stringContaining('onboarding@resend.dev'),
+    }));
   });
 
   it('should return errors for invalid inquiry', async () => {

@@ -157,16 +157,6 @@ export default function ClientsPage() {
               />
             ))}
           </div>
-          
-          <div className="mt-32 pt-20 border-t border-slate-200">
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-x-8 gap-y-12">
-              {catalog.company.clients.map((client) => (
-                <div key={client} className="text-[10px] font-black uppercase tracking-widest text-slate-400">
-                  {client}
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
       </section>
 

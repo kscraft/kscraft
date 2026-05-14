@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ChevronLeft } from 'lucide-react';
 import ThemeMarker from '@/components/ThemeMarker';
+import Breadcrumbs from '@/components/Breadcrumbs';
 import { sanitizeTrustedHtml } from '@/lib/sanitize';
 import blogsData from '@/data/blogs.json';
 
@@ -88,11 +89,29 @@ export default async function BlogPostPage({ params }: Props) {
       <ThemeMarker theme="light" className="absolute top-0" />
       
       <article className="pt-32 pb-24">
+        {/* Article JSON-LD */}
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'Article',
+          headline: blog.title,
+          description: blog.excerpt,
+          image: blog.image,
+          datePublished: blog.date,
+          author: { '@type': 'Person', name: blog.author },
+          publisher: {
+            '@type': 'Organization',
+            name: 'Kiran Slido Craft',
+            logo: { '@type': 'ImageObject', url: 'https://soundproofindia.com/logo-ksc.png' },
+          },
+          mainEntityOfPage: `https://soundproofindia.com/blog/${blog.slug}`,
+        }) }} />
+
         {/* Article Header */}
         <header className="max-container px-6 mb-16">
-          <Link href="/blog" className="inline-flex items-center gap-2 text-[10px] font-black text-slate-400 uppercase tracking-widest hover:text-blue-600 transition-colors mb-10">
-            <ChevronLeft className="w-4 h-4" /> Back to Insights
-          </Link>
+          <Breadcrumbs items={[
+            { label: 'Insights', href: '/blog' },
+            { label: blog.title }
+          ]} />
           
           <div className="flex flex-wrap gap-3 mb-6">
             {blog.tags.map(tag => (

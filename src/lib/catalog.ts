@@ -11,6 +11,7 @@ export type Category = {
   accent: string;
   bestFor: string;
   highlights: string[];
+  extendedContent?: string[];
 };
 
 export type Product = {

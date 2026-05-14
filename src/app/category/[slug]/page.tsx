@@ -5,7 +5,10 @@ import { notFound } from 'next/navigation';
 import { ArrowRight } from 'lucide-react';
 import ProductCard from '@/components/ProductCard';
 import ThemeMarker from '@/components/ThemeMarker';
+import Breadcrumbs from '@/components/Breadcrumbs';
 import { categories, getCategory, getProductsByCategory } from '@/lib/catalog';
+
+const SITE_URL = 'https://soundproofindia.com';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -113,6 +116,10 @@ export default async function CategoryPage({ params }: Props) {
         <ThemeMarker theme="dark" className="absolute top-0" />
         <div className="max-container px-6 flex flex-col lg:flex-row lg:items-center justify-between gap-12">
           <div className="max-w-2xl">
+            <Breadcrumbs items={[
+              { label: 'Solutions', href: '/solutions' },
+              { label: category.title }
+            ]} />
             <span className="text-eyebrow text-blue-400">{category.accent} Product Line</span>
             <h1 className="heading-hero text-white mb-8">
               {category.title}
@@ -171,6 +178,26 @@ export default async function CategoryPage({ params }: Props) {
           </div>
         </div>
       </section>
+
+      {/* SEO Extended Content */}
+      {category.extendedContent && category.extendedContent.length > 0 && (
+        <section className="section-standard border-t border-slate-100 bg-slate-50/50">
+          <ThemeMarker theme="light" className="absolute top-0" />
+          <div className="max-container">
+            <div className="prose prose-slate prose-lg max-w-4xl">
+              {category.extendedContent.map((paragraph, index) => {
+                if (paragraph.startsWith('### ')) {
+                  return <h3 key={index} className="text-2xl font-black uppercase tracking-tight text-slate-900 mt-12 mb-6">{paragraph.replace('### ', '')}</h3>;
+                }
+                if (paragraph.startsWith('**') && paragraph.endsWith('**')) {
+                  return <h4 key={index} className="text-lg font-bold text-slate-800 mt-8 mb-4">{paragraph.replace(/\*\*/g, '')}</h4>;
+                }
+                return <p key={index} className="text-slate-600 leading-relaxed mb-6">{paragraph}</p>;
+              })}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Related Families */}
       <section className="section-tint">

@@ -6,6 +6,7 @@ import ProductCard from '@/components/ProductCard';
 import ProductActions from '@/components/ProductActions';
 import ProductGallery from '@/components/ProductGallery';
 import AcousticGraph from '@/components/AcousticGraph';
+import Breadcrumbs from '@/components/Breadcrumbs';
 import blogsData from '@/data/blogs.json';
 import {
   catalog,
@@ -155,6 +156,12 @@ export default async function ProductPage({ params }: Props) {
       {/* Immersive Product Hero */}
       <header className="hero-light">
         <div className="max-container">
+          <div className="flex justify-center mb-6">
+            <Breadcrumbs items={[
+              { label: category?.title || 'Catalog', href: `/category/${primaryCategoryId}` },
+              { label: product.title }
+            ]} />
+          </div>
           <p className="text-eyebrow text-center mb-6">
             {category?.title}
           </p>

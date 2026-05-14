@@ -1,0 +1,436 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Code coverage report for src/data/industry-seo.ts</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../../favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+    
+<body>
+<div class='wrapper'>
+    <div class='pad1'>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/data</a> industry-seo.ts</h1>
+        <div class='clearfix'>
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">0% </span>
+                <span class="quiet">Statements</span>
+                <span class='fraction'>0/5</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">100% </span>
+                <span class="quiet">Branches</span>
+                <span class='fraction'>0/0</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">0% </span>
+                <span class="quiet">Functions</span>
+                <span class='fraction'>0/4</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">0% </span>
+                <span class="quiet">Lines</span>
+                <span class='fraction'>0/3</span>
+            </div>
+        
+            
+        </div>
+        <p class="quiet">
+            Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
+        </p>
+        <template id="filterTemplate">
+            <div class="quiet">
+                Filter:
+                <input type="search" id="fileSearch">
+            </div>
+        </template>
+    </div>
+    <div class='status-line low'></div>
+    <pre><table class="coverage">
+<tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
+<a name='L2'></a><a href='#L2'>2</a>
+<a name='L3'></a><a href='#L3'>3</a>
+<a name='L4'></a><a href='#L4'>4</a>
+<a name='L5'></a><a href='#L5'>5</a>
+<a name='L6'></a><a href='#L6'>6</a>
+<a name='L7'></a><a href='#L7'>7</a>
+<a name='L8'></a><a href='#L8'>8</a>
+<a name='L9'></a><a href='#L9'>9</a>
+<a name='L10'></a><a href='#L10'>10</a>
+<a name='L11'></a><a href='#L11'>11</a>
+<a name='L12'></a><a href='#L12'>12</a>
+<a name='L13'></a><a href='#L13'>13</a>
+<a name='L14'></a><a href='#L14'>14</a>
+<a name='L15'></a><a href='#L15'>15</a>
+<a name='L16'></a><a href='#L16'>16</a>
+<a name='L17'></a><a href='#L17'>17</a>
+<a name='L18'></a><a href='#L18'>18</a>
+<a name='L19'></a><a href='#L19'>19</a>
+<a name='L20'></a><a href='#L20'>20</a>
+<a name='L21'></a><a href='#L21'>21</a>
+<a name='L22'></a><a href='#L22'>22</a>
+<a name='L23'></a><a href='#L23'>23</a>
+<a name='L24'></a><a href='#L24'>24</a>
+<a name='L25'></a><a href='#L25'>25</a>
+<a name='L26'></a><a href='#L26'>26</a>
+<a name='L27'></a><a href='#L27'>27</a>
+<a name='L28'></a><a href='#L28'>28</a>
+<a name='L29'></a><a href='#L29'>29</a>
+<a name='L30'></a><a href='#L30'>30</a>
+<a name='L31'></a><a href='#L31'>31</a>
+<a name='L32'></a><a href='#L32'>32</a>
+<a name='L33'></a><a href='#L33'>33</a>
+<a name='L34'></a><a href='#L34'>34</a>
+<a name='L35'></a><a href='#L35'>35</a>
+<a name='L36'></a><a href='#L36'>36</a>
+<a name='L37'></a><a href='#L37'>37</a>
+<a name='L38'></a><a href='#L38'>38</a>
+<a name='L39'></a><a href='#L39'>39</a>
+<a name='L40'></a><a href='#L40'>40</a>
+<a name='L41'></a><a href='#L41'>41</a>
+<a name='L42'></a><a href='#L42'>42</a>
+<a name='L43'></a><a href='#L43'>43</a>
+<a name='L44'></a><a href='#L44'>44</a>
+<a name='L45'></a><a href='#L45'>45</a>
+<a name='L46'></a><a href='#L46'>46</a>
+<a name='L47'></a><a href='#L47'>47</a>
+<a name='L48'></a><a href='#L48'>48</a>
+<a name='L49'></a><a href='#L49'>49</a>
+<a name='L50'></a><a href='#L50'>50</a>
+<a name='L51'></a><a href='#L51'>51</a>
+<a name='L52'></a><a href='#L52'>52</a>
+<a name='L53'></a><a href='#L53'>53</a>
+<a name='L54'></a><a href='#L54'>54</a>
+<a name='L55'></a><a href='#L55'>55</a>
+<a name='L56'></a><a href='#L56'>56</a>
+<a name='L57'></a><a href='#L57'>57</a>
+<a name='L58'></a><a href='#L58'>58</a>
+<a name='L59'></a><a href='#L59'>59</a>
+<a name='L60'></a><a href='#L60'>60</a>
+<a name='L61'></a><a href='#L61'>61</a>
+<a name='L62'></a><a href='#L62'>62</a>
+<a name='L63'></a><a href='#L63'>63</a>
+<a name='L64'></a><a href='#L64'>64</a>
+<a name='L65'></a><a href='#L65'>65</a>
+<a name='L66'></a><a href='#L66'>66</a>
+<a name='L67'></a><a href='#L67'>67</a>
+<a name='L68'></a><a href='#L68'>68</a>
+<a name='L69'></a><a href='#L69'>69</a>
+<a name='L70'></a><a href='#L70'>70</a>
+<a name='L71'></a><a href='#L71'>71</a>
+<a name='L72'></a><a href='#L72'>72</a>
+<a name='L73'></a><a href='#L73'>73</a>
+<a name='L74'></a><a href='#L74'>74</a>
+<a name='L75'></a><a href='#L75'>75</a>
+<a name='L76'></a><a href='#L76'>76</a>
+<a name='L77'></a><a href='#L77'>77</a>
+<a name='L78'></a><a href='#L78'>78</a>
+<a name='L79'></a><a href='#L79'>79</a>
+<a name='L80'></a><a href='#L80'>80</a>
+<a name='L81'></a><a href='#L81'>81</a>
+<a name='L82'></a><a href='#L82'>82</a>
+<a name='L83'></a><a href='#L83'>83</a>
+<a name='L84'></a><a href='#L84'>84</a>
+<a name='L85'></a><a href='#L85'>85</a>
+<a name='L86'></a><a href='#L86'>86</a>
+<a name='L87'></a><a href='#L87'>87</a>
+<a name='L88'></a><a href='#L88'>88</a>
+<a name='L89'></a><a href='#L89'>89</a>
+<a name='L90'></a><a href='#L90'>90</a>
+<a name='L91'></a><a href='#L91'>91</a>
+<a name='L92'></a><a href='#L92'>92</a>
+<a name='L93'></a><a href='#L93'>93</a>
+<a name='L94'></a><a href='#L94'>94</a>
+<a name='L95'></a><a href='#L95'>95</a>
+<a name='L96'></a><a href='#L96'>96</a>
+<a name='L97'></a><a href='#L97'>97</a>
+<a name='L98'></a><a href='#L98'>98</a>
+<a name='L99'></a><a href='#L99'>99</a>
+<a name='L100'></a><a href='#L100'>100</a>
+<a name='L101'></a><a href='#L101'>101</a>
+<a name='L102'></a><a href='#L102'>102</a>
+<a name='L103'></a><a href='#L103'>103</a>
+<a name='L104'></a><a href='#L104'>104</a>
+<a name='L105'></a><a href='#L105'>105</a>
+<a name='L106'></a><a href='#L106'>106</a>
+<a name='L107'></a><a href='#L107'>107</a>
+<a name='L108'></a><a href='#L108'>108</a>
+<a name='L109'></a><a href='#L109'>109</a>
+<a name='L110'></a><a href='#L110'>110</a>
+<a name='L111'></a><a href='#L111'>111</a>
+<a name='L112'></a><a href='#L112'>112</a>
+<a name='L113'></a><a href='#L113'>113</a>
+<a name='L114'></a><a href='#L114'>114</a>
+<a name='L115'></a><a href='#L115'>115</a>
+<a name='L116'></a><a href='#L116'>116</a>
+<a name='L117'></a><a href='#L117'>117</a>
+<a name='L118'></a><a href='#L118'>118</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { products, type Product } from '@/lib/catalog';
+&nbsp;
+export type IndustrySolution = {
+  slug: string;
+  title: string;
+  eyebrow: string;
+  description: string;
+  heroImage: string;
+  benefits: {
+    title: string;
+    description: string;
+  }[];
+  productSlugs: string[];
+  metaTitle: string;
+  metaDescription: string;
+};
+&nbsp;
+export const industries: IndustrySolution[] = <span class="cstat-no" title="statement not covered" >[</span>
+  {
+    slug: 'hotels-hospitality',
+    title: 'Hospitality &amp; Luxury Hotels',
+    eyebrow: 'Five-Star Silence',
+    description: 'Ensure guest comfort and privacy with world-class acoustic insulation. From grand ballrooms to peaceful suites, we provide the silence your guests expect.',
+    heroImage: '/images/blogs/commercial-soundproofing.jpg',
+    benefits: [
+      { title: 'Room-to-Room Privacy', description: 'Certified high-STC partitions prevent sound leakage between guest rooms.' },
+      { title: 'Facade Noise Control', description: 'Precision-engineered windows that block city and airport traffic noise.' },
+      { title: 'Aesthetic Integration', description: 'Sleek, slim-profile systems that complement luxury interior designs.' }
+    ],
+    productSlugs: ['sound-proof-windows', 'sound-proof-sliding-windows', 'sound-proof-acoustic-movable-partition'],
+    metaTitle: 'Acoustic Solutions for Hotels &amp; Hospitality | Kiran Slido Craft',
+    metaDescription: 'Specialized soundproofing and acoustic solutions for luxury hotels. High-STC windows and partitions engineered for guest comfort and privacy.'
+  },
+  {
+    slug: 'recording-studios',
+    title: 'Recording &amp; Broadcast Studios',
+    eyebrow: 'Precision Acoustics',
+    description: 'Zero tolerance for ambient noise. Our systems are the choice of elite broadcast studios and professional music producers globally.',
+    heroImage: '/images/blogs/stc-oitc-acoustics.jpg',
+    benefits: [
+      { title: 'Extreme STC Ratings', description: 'Dual and triple glazed systems reaching up to STC 55+ for total isolation.' },
+      { title: 'Mechanical Silence', description: 'Motorized systems with near-silent operation for controlled environments.' },
+      { title: 'Visual Transparency', description: 'Large-span acoustic glass for control rooms without compromising isolation.' }
+    ],
+    productSlugs: ['sound-proof-windows', 'sound-proof-doors', 'automatic-acoustic-partitions'],
+    metaTitle: 'Studio Soundproofing Solutions | Broadcast Isolation Systems',
+    metaDescription: 'Professional-grade acoustic isolation for recording and broadcast studios. High-performance windows and doors with extreme STC ratings.'
+  },
+  {
+    slug: 'healthcare-hospitals',
+    title: 'Healthcare &amp; Hospitals',
+    eyebrow: 'Healing Environments',
+    description: 'Quiet environments are essential for patient recovery and confidential consultations. Our antimicrobial acoustic systems meet stringent medical standards.',
+    heroImage: '/images/blogs/acoustic-glass-partitions.jpg',
+    benefits: [
+      { title: 'Patient Recovery', description: 'Reducing ambient ward noise to facilitate faster healing and better sleep.' },
+      { title: 'HIPAA Compliance', description: 'Soundproof consultation rooms for guaranteed patient confidentiality.' },
+      { title: 'Hygiene Ready', description: 'Easy-to-clean profiles compatible with hospital-grade sterilization.' }
+    ],
+    productSlugs: ['sound-proof-doors', 'sound-proof-partitions', 'automatic-sliding-windows'],
+    metaTitle: 'Hospital Acoustic Solutions | Healthcare Soundproofing',
+    metaDescription: 'Acoustic insulation systems for healthcare facilities. Improving patient recovery and ensuring consultation privacy with soundproof windows and doors.'
+  },
+  {
+    slug: 'corporate-offices',
+    title: 'Corporate &amp; Commercial Offices',
+    eyebrow: 'Productive Workspaces',
+    description: 'Transform open offices into hubs of concentration. Our movable partitions and soundproof glass optimize focus and meeting room privacy.',
+    heroImage: '/images/blogs/aesthetic-acoustics.jpg',
+    benefits: [
+      { title: 'Dynamic Layouts', description: 'Movable acoustic walls that reconfigure boardrooms in minutes.' },
+      { title: 'Focus Zones', description: 'Glass partitions that maintain visual openness while blocking acoustic distractions.' },
+      { title: 'Executive Privacy', description: 'High-performance doors for secure, confidential executive suites.' }
+    ],
+    productSlugs: ['sound-proof-partitions', 'automatic-acoustic-partitions', 'sound-proof-doors'],
+    metaTitle: 'Office Acoustic Solutions | Corporate Soundproofing',
+    metaDescription: 'Maximize productivity with professional office acoustics. Movable partitions and soundproof glass for boardrooms and open-plan offices.'
+  },
+  {
+    slug: 'education-institutions',
+    title: 'Education &amp; Institutions',
+    eyebrow: 'Quiet Learning Environments',
+    description: 'Optimize academic performance by eliminating noise distractions. Our acoustic solutions for classrooms, auditoriums, and music conservatories meet stringent institutional standards for speech clarity and background noise control.',
+    heroImage: '/images/media/project-2.jpg',
+    benefits: [
+      { title: 'Acoustic Comfort Standards', description: 'Systems designed to meet BB93 (UK) and similar global educational acoustic criteria.' },
+      { title: 'Auditorium Versatility', description: 'Large-span movable partitions with STC 50+ ratings for simultaneous multi-use hall operations.' },
+      { title: 'Music Suite Isolation', description: 'Extreme soundproofing for dedicated performance, practice, and recording spaces within institutions.' }
+    ],
+    productSlugs: ['sound-proof-windows', 'sound-proof-sliding-folding-partition', 'sound-proof-swing-doors', 'sound-proof-acoustic-fix-partition'],
+    metaTitle: 'Acoustic Solutions for Schools &amp; Universities | Institutional Soundproofing',
+    metaDescription: 'High-performance soundproofing for educational facilities. Improve student focus with acoustic windows and movable partitions designed for auditoriums, music rooms, and classrooms.'
+  },
+  {
+    slug: 'industrial-manufacturing',
+    title: 'Industrial &amp; Manufacturing',
+    eyebrow: 'Heavy-Duty Noise Containment',
+    description: 'Ensure regulatory compliance and protect workforce health with high-decibel noise containment. We provide engineered acoustic barriers for factories, power plants, and mission-critical control rooms.',
+    heroImage: '/images/blogs/industrial-barriers.jpg',
+    benefits: [
+      { title: 'OSHA &amp; NIOSH Compliance', description: 'Reducing ambient factory noise to levels that satisfy occupational health and safety regulations.' },
+      { title: 'Control Room Integrity', description: 'Absolute silence for monitoring stations in high-decibel environments (turbine halls, forge shops).' },
+      { title: 'Ruggedized Engineering', description: 'Acoustic steel doors and heavy-duty reinforced frames built for millions of industrial operational cycles.' }
+    ],
+    productSlugs: ['sound-proof-swing-doors', 'sound-proof-acoustic-fix-partition', 'motorized-sliding-gates', 'motorized-telescopic-gates'],
+    metaTitle: 'Industrial Soundproofing Solutions | Factory &amp; Plant Noise Control',
+    metaDescription: 'Heavy-duty acoustic isolation for manufacturing and industrial plants. Ruggedized soundproof doors, partitions, and windows designed for high-decibel containment and safety.'
+  }
+];
+&nbsp;
+export function <span class="fstat-no" title="function not covered" >getIndustry(s</span>lug: string): IndustrySolution | undefined {
+<span class="cstat-no" title="statement not covered" >  return industries.<span class="fstat-no" title="function not covered" >find(i</span> =&gt; <span class="cstat-no" title="statement not covered" >i.slug === slug);</span></span>
+}
+&nbsp;
+export function <span class="fstat-no" title="function not covered" >getProductsForIndustry(i</span>ndustry: IndustrySolution): Product[] {
+<span class="cstat-no" title="statement not covered" >  return products.<span class="fstat-no" title="function not covered" >filter(p</span> =&gt; <span class="cstat-no" title="statement not covered" >industry.productSlugs.includes(p.slug))</span>;</span>
+}
+&nbsp;</pre></td></tr></table></pre>
+
+                <div class='push'></div><!-- for sticky footer -->
+            </div><!-- /wrapper -->
+            <div class='footer quiet pad2 space-top1 center small'>
+                Code coverage generated by
+                <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
+                at 2026-05-14T23:01:25.155Z
+            </div>
+        <script src="../../prettify.js"></script>
+        <script>
+            window.onload = function () {
+                prettyPrint();
+            };
+        </script>
+        <script src="../../sorter.js"></script>
+        <script src="../../block-navigation.js"></script>
+    </body>
+</html>
+    

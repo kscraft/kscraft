@@ -64,7 +64,7 @@ function ContactForm() {
             <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mb-6 shadow-[0_10px_30px_rgba(37,99,235,0.4)]">
               <CheckCircle2 className="w-8 h-8 text-white" />
             </div>
-            <h3 className="text-2xl font-black mb-4 uppercase tracking-tighter text-white">Inquiry Received</h3>
+            <h3 className="text-2xl font-black mb-4 uppercase tracking-tighter text-white">{home.contact.successTitle}</h3>
             <p className="text-slate-300 leading-relaxed font-medium">
               {state.message}
             </p>

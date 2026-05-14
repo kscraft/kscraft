@@ -2,40 +2,83 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { catalog, projects, home } from '@/lib/catalog';
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, Building2 } from 'lucide-react';
 import ThemeMarker from '@/components/ThemeMarker';
 import ClientMarquee from '@/components/ClientMarquee';
+import Breadcrumbs from '@/components/Breadcrumbs';
 
 export const metadata: Metadata = {
-  title: 'Clients & Case Studies | Kiran Slido Craft – ISRO, Defence & Enterprise',
-  description: 'Trusted by ISRO Gaganyaan, Indian Defence, and leading enterprises. Explore how Kiran Slido Craft manufactured Gaganyaan’s capsule entry mechanism and delivered acoustic and automation engineering projects.',
+  title: 'Clients & Case Studies | Kiran Slido Craft – ISRO, Tata Steel & Enterprise',
+  description: 'Trusted by ISRO, Tata Steel, and Mahindra. Explore our high-impact projects in acoustic engineering and architectural automation.',
   alternates: {
     canonical: 'https://soundproofindia.com/clients',
   },
   openGraph: {
     title: 'Clients & Case Studies | Kiran Slido Craft',
-    description: 'Engineering trust with ISRO, Defence, and global enterprises. View our high-impact project portfolio.',
+    description: 'Engineering trust with ISRO, Tata Steel, and global enterprises. View our project portfolio.',
     url: 'https://soundproofindia.com/clients',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Kiran Slido Craft Clients | ISRO, Defence & Enterprise Engineering',
-    description: 'Trusted by India\u2019s space program and leading enterprises for mission-critical acoustic and automation systems.',
+    title: 'Kiran Slido Craft Clients | Enterprise Engineering Portfolio',
+    description: 'Trusted by India\u2019s space program and leading enterprises for precision acoustic and automation systems.',
   },
 };
 
 export default function ClientsPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Clients & Case Studies | Kiran Slido Craft",
+    "description": metadata.description,
+    "publisher": {
+      "@type": "Organization",
+      "name": "Kiran Slido Craft",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://soundproofindia.com/logo-ksc.png"
+      }
+    },
+    "mainEntity": {
+      "@type": "ItemList",
+      "name": "Featured Engineering Projects",
+      "numberOfItems": projects.highlights.length,
+      "itemListElement": projects.highlights.map((project, index) => ({
+        "@type": "ListItem",
+        "position": index + 1,
+        "item": {
+          "@type": "CreativeWork",
+          "name": project.title,
+          "description": project.detail,
+          "image": project.image || "https://soundproofindia.com/images/hero/modern-architecture.jpg"
+        }
+      }))
+    }
+  };
+
   return (
     <div className="flex flex-col min-h-screen bg-white">
-      <header className="hero-light">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      
+      <header className="hero-light relative">
         <ThemeMarker theme="light" className="absolute top-0" />
-        <div className="max-container text-center">
+        <div className="max-container relative z-10 text-center">
+          <div className="flex justify-center mb-10">
+            <Breadcrumbs items={[
+              { label: 'Home', href: '/' },
+              { label: 'Clients', href: '/clients' },
+            ]} />
+          </div>
           <p className="text-eyebrow mb-6">
             {home.showcaseUI.caseStudies}
           </p>
           <h1 className="heading-hero text-black mx-auto">
-            {home.showcaseUI.trustAndPrecision.split(' & ')[0]} & <br /> {home.showcaseUI.trustAndPrecision.split(' & ')[1]}
+            Clients & Case Studies: <br />
+            <span className="text-blue-600">Engineering Trust & Precision</span>
           </h1>
           <p className="text-body-lg max-w-2xl mx-auto mt-10">
             {home.showcaseUI.trustAndPrecisionSub}
@@ -49,28 +92,47 @@ export default function ClientsPage() {
       {/* Project Milestones */}
       <section className="section-standard">
         <div className="max-container">
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.highlights.map((project) => (
-              <div key={project.title} className="p-10 rounded-[2.5rem] bg-slate-50 border border-slate-100 group transition-all hover:bg-white hover:shadow-2xl">
-                <p className="text-[10px] font-black text-blue-600 uppercase tracking-widest mb-4">{project.subtitle}</p>
-                <h3 className="text-2xl font-black tracking-tight text-black mb-6 uppercase leading-tight">{project.title}</h3>
-                <p className="text-slate-500 font-medium leading-relaxed mb-8">{project.detail}</p>
-                <div className="mt-auto">
-                  {project.slug ? (
-                    <Link 
-                      href={`/showcase/${project.slug}`} 
-                      className="group apple-button-secondary px-6 py-3 text-[10px] uppercase tracking-[0.2em] font-black inline-flex items-center justify-center gap-2 self-start"
-                    >
-                      {catalog.company.ui.viewCaseStudy} <ChevronRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
-                    </Link>
+              <div key={project.title} className="flex flex-col rounded-[2.5rem] bg-slate-50 border border-slate-100 group transition-all hover:bg-white hover:shadow-[0_40px_100px_-20px_rgba(0,0,0,0.1)] overflow-hidden">
+                <div className="relative aspect-[16/10] overflow-hidden bg-slate-200">
+                  {project.image ? (
+                    <Image 
+                      src={project.image} 
+                      alt={project.title} 
+                      fill 
+                      className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
                   ) : (
-                    <Link 
-                      href="/contact" 
-                      className="group apple-button-secondary px-6 py-3 text-[10px] uppercase tracking-[0.2em] font-black inline-flex items-center justify-center gap-2 self-start"
-                    >
-                      {catalog.company.ui.requestTechnicalDetails} <ChevronRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
-                    </Link>
+                    <div className="w-full h-full flex items-center justify-center bg-slate-100">
+                      <Building2 className="w-12 h-12 text-slate-300" />
+                    </div>
                   )}
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 to-transparent"></div>
+                  <div className="absolute bottom-6 left-8">
+                    <p className="text-[10px] font-black text-blue-400 uppercase tracking-widest">{project.subtitle}</p>
+                  </div>
+                </div>
+                <div className="p-10 flex-1 flex flex-col">
+                  <h3 className="text-2xl font-black tracking-tight text-black mb-6 uppercase leading-tight">{project.title}</h3>
+                  <p className="text-slate-500 font-medium leading-relaxed mb-8 flex-1">{project.detail}</p>
+                  <div className="mt-auto">
+                    {project.slug ? (
+                      <Link 
+                        href={`/showcase/${project.slug}`} 
+                        className="group apple-button-secondary px-6 py-3 text-[10px] uppercase tracking-[0.2em] font-black inline-flex items-center justify-center gap-2 self-start"
+                      >
+                        {catalog.company.ui.viewCaseStudy} <ChevronRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+                      </Link>
+                    ) : (
+                      <Link 
+                        href="/contact" 
+                        className="group apple-button-secondary px-6 py-3 text-[10px] uppercase tracking-[0.2em] font-black inline-flex items-center justify-center gap-2 self-start"
+                      >
+                        {catalog.company.ui.requestTechnicalDetails} <ChevronRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+                      </Link>
+                    )}
+                  </div>
                 </div>
               </div>
             ))}
@@ -83,7 +145,7 @@ export default function ClientsPage() {
         <div className="max-container">
           <h2 className="heading-section text-center mb-24">{home.showcaseUI.partneringWithLeaders}</h2>
           
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-12 items-center justify-items-center opacity-40 grayscale contrast-150">
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-12 items-center justify-items-center opacity-60 grayscale contrast-125">
             {catalog.company.clientLogos.map((client) => (
               <Image 
                 key={client.name}
@@ -105,6 +167,19 @@ export default function ClientsPage() {
               ))}
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section className="section-standard bg-slate-950 text-white">
+        <div className="max-container text-center">
+          <h2 className="text-4xl lg:text-6xl font-black mb-10 tracking-tighter uppercase">Start Your Engineering <br />Consultation</h2>
+          <p className="text-slate-400 text-xl max-w-2xl mx-auto mb-16 font-medium">
+            Join the ranks of world-class organizations. Partner with Kiran Slido Craft for high-performance acoustic and automation systems.
+          </p>
+          <Link href="/contact" className="apple-button px-12 py-5 text-xs font-black uppercase tracking-widest">
+            Request Technical Quote
+          </Link>
         </div>
       </section>
     </div>

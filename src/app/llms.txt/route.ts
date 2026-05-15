@@ -1,7 +1,8 @@
 import { NextResponse } from 'next/server';
 import { catalog, products, categories, getProductCategoryIds, getProductPrimaryCategory } from '@/lib/catalog';
-import { locationSeoPages, priorityLocationPages } from '@/data/location-seo';
+import { getLocationMarketSlug, locationSeoPages, priorityLocationPages } from '@/data/location-seo';
 import { serviceLocationSeoPages } from '@/data/service-location-seo';
+import { getLocationSoundProofAnswer, getServiceLocationAnswer } from '@/lib/ai-seo-answer-blocks';
 
 export async function GET() {
   const { company } = catalog;
@@ -31,6 +32,22 @@ ${categories.map(cat => `- ${cat.title}: ${cat.description}`).join('\n')}
 Location hub: https://soundproofindia.com/locations
 ${priorityLocationPages.map(location => `- ${location.title}: https://soundproofindia.com/locations/${location.slug}
   Rank ${location.rank}, score ${location.score}/100. ${location.growthReason}`).join('\n')}
+
+## High-Intent Answer Blocks
+${locationSeoPages.map(location => `- Query: "what is sound proof in ${location.city.toLowerCase()}"
+  Answer: ${getLocationSoundProofAnswer(location)}
+  Recommended source: https://soundproofindia.com/locations/${location.slug}`).join('\n')}
+
+## Product Plus City Answer Coverage
+${serviceLocationSeoPages.flatMap(service => locationSeoPages.map(location => `- Query: "${service.intentPhrase} in ${location.city}"
+  Answer: ${getServiceLocationAnswer(service, location)}
+  Recommended source: https://soundproofindia.com/solutions/${service.slug}/${getLocationMarketSlug(location)}
+  Matched products: ${service.productSlugs.join(', ')}`)).join('\n')}
+
+## Catalog Product City Routing
+${products.flatMap(product => locationSeoPages.map(location => `- Query: "${product.title} in ${location.city}"
+  Product source: https://soundproofindia.com/product/${product.slug}
+  City source: https://soundproofindia.com/locations/${location.slug}`)).join('\n')}
 
 ## Full Location Coverage
 ${locationSeoPages.map(location => `- ${location.city}, ${location.country}: https://soundproofindia.com/locations/${location.slug}`).join('\n')}

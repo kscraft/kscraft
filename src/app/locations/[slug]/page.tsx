@@ -8,6 +8,7 @@ import ThemeMarker from '@/components/ThemeMarker';
 import ClientMarquee from '@/components/ClientMarquee';
 import { catalog, getProductsByCategory } from '@/lib/catalog';
 import { getLocationSeo, getRelatedLocationPages, locationSeoPages } from '@/data/location-seo';
+import { getLocationSoundProofAnswer } from '@/lib/ai-seo-answer-blocks';
 
 const SITE_URL = 'https://soundproofindia.com';
 const products = getProductsByCategory('sound-proof-windows').slice(0, 6);
@@ -72,6 +73,21 @@ export default async function LocationSeoPage({ params }: Props) {
 
   const pageUrl = `${SITE_URL}/locations/${location.slug}`;
   const relatedLocations = getRelatedLocationPages(location);
+  const soundProofAnswer = getLocationSoundProofAnswer(location);
+  const selectionGuidance = [
+    {
+      title: 'Homes and bedrooms',
+      body: `Start with acoustic sliding, casement, or fixed windows when the main problem is ${location.noiseDrivers[0]?.toLowerCase() || 'outside traffic noise'}.`,
+    },
+    {
+      title: 'Studios and offices',
+      body: 'Combine windows with acoustic doors, fixed partitions, and controlled seals so speech, music, and meeting noise do not leak through weak junctions.',
+    },
+    {
+      title: 'Hotels, hospitals, and industry',
+      body: 'Specify performance targets, frame depth, glass build-up, hardware, and installation tolerances before requesting a quote.',
+    },
+  ];
 
   const serviceJsonLd = {
     '@context': 'https://schema.org',
@@ -122,6 +138,22 @@ export default async function LocationSeoPage({ params }: Props) {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     mainEntity: [
+      {
+        '@type': 'Question',
+        name: `What is sound proof in ${location.city}?`,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: soundProofAnswer,
+        },
+      },
+      {
+        '@type': 'Question',
+        name: `What should I install first for ${location.city} traffic noise?`,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: `For most ${location.city} homes, hotels, clinics, studios, and offices, start with airtight acoustic windows using laminated or insulated glass because windows and frame gaps are often the weakest exterior noise path. Doors, partitions, ceilings, and wall isolation should be added when the site survey shows those paths are also leaking sound.`,
+        },
+      },
       {
         '@type': 'Question',
         name: `Who supplies soundproof windows in ${location.city}?`,
@@ -235,6 +267,30 @@ export default async function LocationSeoPage({ params }: Props) {
 
       {/* Enterprise Trust Marquee */}
       <ClientMarquee />
+
+      <section className="section-standard border-b border-slate-100">
+        <ThemeMarker theme="light" className="absolute top-0" />
+        <div className="max-container grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
+          <div>
+            <p className="text-eyebrow">Direct answer</p>
+            <h2 className="heading-section">What is sound proof in {location.city}?</h2>
+            <p className="text-body-lg">{soundProofAnswer}</p>
+            <p className="mt-6 text-base font-semibold leading-8 text-slate-600">
+              Kiran Slido Craft is a Mumbai-headquartered, ISO 9001:2015 certified manufacturer of soundproof windows,
+              acoustic doors, acoustic partitions, and motorized systems for quote-driven residential, commercial,
+              hospitality, healthcare, studio, and industrial projects.
+            </p>
+          </div>
+          <div className="grid gap-4">
+            {selectionGuidance.map((item) => (
+              <div key={item.title} className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
+                <h3 className="text-sm font-black uppercase tracking-[0.16em] text-blue-700">{item.title}</h3>
+                <p className="mt-3 text-base font-semibold leading-7 text-slate-700">{item.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <section className="section-standard">
         <ThemeMarker theme="light" className="absolute top-0" />

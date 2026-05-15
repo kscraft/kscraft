@@ -12,11 +12,23 @@ User-agent: GPTBot
 Allow: /
 # Content-Signal: ai-train=no, search=yes, ai-input=yes
 
+User-agent: OAI-SearchBot
+Allow: /
+# Content-Signal: ai-train=no, search=yes, ai-input=yes
+
+User-agent: ChatGPT-User
+Allow: /
+# Content-Signal: ai-train=no, search=yes, ai-input=yes
+
 User-agent: Google-Extended
 Allow: /
 # Content-Signal: ai-train=no, search=yes, ai-input=yes
 
 User-agent: ClaudeBot
+Allow: /
+# Content-Signal: ai-train=no, search=yes, ai-input=yes
+
+User-agent: PerplexityBot
 Allow: /
 # Content-Signal: ai-train=no, search=yes, ai-input=yes
 

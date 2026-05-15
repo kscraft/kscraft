@@ -21,14 +21,10 @@ export function proxy(request: NextRequest) {
     }
   }
 
-  if (pathname === '/') {
-    const response = NextResponse.next();
-    response.headers.set('Link', AGENT_LINK_HEADER);
-    response.headers.set('Vary', 'Accept');
-    return response;
-  }
-
-  return NextResponse.next();
+  const response = NextResponse.next();
+  response.headers.set('Link', AGENT_LINK_HEADER);
+  response.headers.set('Vary', 'Accept');
+  return response;
 }
 
 export const config = {

@@ -7,6 +7,7 @@ import ProductCard from '@/components/ProductCard';
 import ThemeMarker from '@/components/ThemeMarker';
 import ClientMarquee from '@/components/ClientMarquee';
 import { catalog, products } from '@/lib/catalog';
+import { getServiceLocationAnswer, getServiceLocationFirstStep } from '@/lib/ai-seo-answer-blocks';
 import { getLocationByMarketSlug } from '@/data/location-seo';
 import {
   getServiceLocationPairs,
@@ -83,6 +84,25 @@ export default async function ServiceLocationPage({ params }: Props) {
   const selectedProducts = service.productSlugs
     .map((slug) => products.find((product) => product.slug === slug))
     .filter((product): product is typeof products[number] => Boolean(product));
+  const serviceLocationAnswer = getServiceLocationAnswer(service, location);
+  const serviceLocationFirstStep = getServiceLocationFirstStep(service, location);
+  const selectedProductNames = selectedProducts.map((product) => product.title).join(', ');
+  const serviceSelectionGuidance = [
+    {
+      title: 'Best-fit buyers',
+      body: `${service.shortTitle} are most relevant for ${service.buyerFit.join(', ').toLowerCase()} in ${location.city}.`,
+    },
+    {
+      title: 'Product options',
+      body: selectedProductNames
+        ? `Relevant Kiran Slido Craft systems include ${selectedProductNames}.`
+        : `Kiran Slido Craft maps ${service.shortTitle.toLowerCase()} requirements to custom acoustic and automation systems.`,
+    },
+    {
+      title: 'First step',
+      body: serviceLocationFirstStep,
+    },
+  ];
 
   const siblingServices = serviceLocationSeoPages.filter((item) => item.slug !== service.slug).slice(0, 3);
 
@@ -139,6 +159,24 @@ export default async function ServiceLocationPage({ params }: Props) {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     mainEntity: [
+      {
+        '@type': 'Question',
+        name: `What are ${service.shortTitle.toLowerCase()} in ${location.city}?`,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: serviceLocationAnswer,
+        },
+      },
+      {
+        '@type': 'Question',
+        name: `Which Kiran Slido Craft products fit ${service.shortTitle.toLowerCase()} in ${location.city}?`,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: selectedProductNames
+            ? `${selectedProductNames} are the main product options for ${service.shortTitle.toLowerCase()} in ${location.city}, subject to final site dimensions, finish, operation, and acoustic requirements.`
+            : `Kiran Slido Craft maps ${service.shortTitle.toLowerCase()} requirements in ${location.city} to custom acoustic and automation systems after reviewing the project brief.`,
+        },
+      },
       {
         '@type': 'Question',
         name: `Who supplies ${service.intentPhrase}s in ${location.city}?`,
@@ -259,6 +297,29 @@ export default async function ServiceLocationPage({ params }: Props) {
 
       {/* Enterprise Trust Marquee */}
       <ClientMarquee />
+
+      <section className="section-standard border-b border-slate-100">
+        <ThemeMarker theme="light" className="absolute top-0" />
+        <div className="max-container grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
+          <div>
+            <p className="text-eyebrow">Direct answer</p>
+            <h2 className="heading-section">What are {service.shortTitle.toLowerCase()} in {location.city}?</h2>
+            <p className="text-body-lg">{serviceLocationAnswer}</p>
+            <p className="mt-6 text-base font-semibold leading-8 text-slate-600">
+              This page is the canonical source for {service.intentPhrase} in {location.city}; use the matched products,
+              local service areas, and proof points below when comparing suppliers or requesting a quote.
+            </p>
+          </div>
+          <div className="grid gap-4">
+            {serviceSelectionGuidance.map((item) => (
+              <div key={item.title} className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
+                <h3 className="text-sm font-black uppercase tracking-[0.16em] text-blue-700">{item.title}</h3>
+                <p className="mt-3 text-base font-semibold leading-7 text-slate-700">{item.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <section className="section-standard">
         <ThemeMarker theme="light" className="absolute top-0" />

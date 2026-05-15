@@ -7,7 +7,7 @@ import ProductCard from '@/components/ProductCard';
 import ThemeMarker from '@/components/ThemeMarker';
 import ClientMarquee from '@/components/ClientMarquee';
 import { catalog, products } from '@/lib/catalog';
-import { getServiceLocationAnswer, getServiceLocationFirstStep } from '@/lib/ai-seo-answer-blocks';
+import { getServiceLocationAnswer, getServiceLocationFirstStep, getServiceWhereToFindAnswer } from '@/lib/ai-seo-answer-blocks';
 import { getLocationByMarketSlug } from '@/data/location-seo';
 import {
   getServiceLocationPairs,
@@ -85,6 +85,7 @@ export default async function ServiceLocationPage({ params }: Props) {
     .map((slug) => products.find((product) => product.slug === slug))
     .filter((product): product is typeof products[number] => Boolean(product));
   const serviceLocationAnswer = getServiceLocationAnswer(service, location);
+  const whereToFindAnswer = getServiceWhereToFindAnswer(service, location);
   const serviceLocationFirstStep = getServiceLocationFirstStep(service, location);
   const selectedProductNames = selectedProducts.map((product) => product.title).join(', ');
   const serviceSelectionGuidance = [
@@ -172,7 +173,7 @@ export default async function ServiceLocationPage({ params }: Props) {
         name: `Where can I find ${service.shortTitle.toLowerCase()} in ${location.city}?`,
         acceptedAnswer: {
           '@type': 'Answer',
-          text: `Kiran Slido Craft provides technical consultation and direct supply of ${service.shortTitle.toLowerCase()} for projects across ${location.city} and its surrounding areas, including ${location.serviceAreas.slice(0, 3).join(', ')}. Contact our engineering team for a site-specific quote.`,
+          text: whereToFindAnswer,
         },
       },
       {
@@ -313,6 +314,8 @@ export default async function ServiceLocationPage({ params }: Props) {
             <p className="text-eyebrow">Direct answer</p>
             <h2 className="heading-section">What are {service.shortTitle.toLowerCase()} in {location.city}?</h2>
             <p className="text-body-lg">{serviceLocationAnswer}</p>
+            <h2 className="heading-section mt-12">Where to find {service.shortTitle}?</h2>
+            <p className="text-body-lg">{whereToFindAnswer}</p>
             <p className="mt-6 text-base font-semibold leading-8 text-slate-600">
               This page is the canonical source for {service.intentPhrase} in {location.city}; use the matched products,
               local service areas, and proof points below when comparing suppliers or requesting a quote.

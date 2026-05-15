@@ -99,6 +99,29 @@ export default async function CategoryPage({ params }: Props) {
     ]
   };
 
+  const faqJsonLd = category.faqs && category.faqs.length > 0 ? {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    'mainEntity': [
+      {
+        '@type': 'Question',
+        'name': `Where can I find Kiran Slido Craft ${category.title.toLowerCase()} in my location?`,
+        'acceptedAnswer': {
+          '@type': 'Answer',
+          'text': `Kiran Slido Craft provides direct supply and technical consultation for ${category.title.toLowerCase()} projects globally. We support projects across India, the Middle East, Southeast Asia, and Europe from our engineering hubs in Mumbai and Kolkata.`
+        }
+      },
+      ...category.faqs.map(faq => ({
+        '@type': 'Question',
+        'name': faq.q,
+        'acceptedAnswer': {
+          '@type': 'Answer',
+          'text': faq.a
+        }
+      }))
+    ]
+  } : null;
+
   return (
     <div className="flex min-h-screen flex-col bg-white">
       <script
@@ -109,6 +132,12 @@ export default async function CategoryPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
+      {faqJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+      )}
       {/* Product-family header */}
       <header className="hero-dark">
         <ThemeMarker theme="dark" className="absolute top-0" />

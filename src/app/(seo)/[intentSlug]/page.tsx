@@ -72,14 +72,24 @@ export default async function IntentSeoPage({ params }: Props) {
   const faqJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    mainEntity: intent.faqs.map((faq) => ({
-      '@type': 'Question',
-      name: faq.question,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: faq.answer,
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: `Where can I find ${intent.heroTitle} in my location?`,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: `Kiran Slido Craft provides direct supply and technical consultation for ${intent.heroTitle.toLowerCase()} projects across India, the Middle East, Southeast Asia, and island hospitality zones. Our engineering hubs in Mumbai and Kolkata support global project logistics and installation oversight.`,
+        },
       },
-    })),
+      ...intent.faqs.map((faq) => ({
+        '@type': 'Question',
+        name: faq.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: faq.answer,
+        },
+      })),
+    ],
   };
 
   const breadcrumbJsonLd = {

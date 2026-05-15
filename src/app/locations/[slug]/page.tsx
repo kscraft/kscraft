@@ -8,7 +8,7 @@ import ThemeMarker from '@/components/ThemeMarker';
 import ClientMarquee from '@/components/ClientMarquee';
 import { catalog, getProductsByCategory } from '@/lib/catalog';
 import { getLocationSeo, getRelatedLocationPages, locationSeoPages } from '@/data/location-seo';
-import { getLocationSoundProofAnswer } from '@/lib/ai-seo-answer-blocks';
+import { getLocationSoundProofAnswer, getLocationWhereToFindAnswer } from '@/lib/ai-seo-answer-blocks';
 
 const SITE_URL = 'https://soundproofindia.com';
 const products = getProductsByCategory('sound-proof-windows').slice(0, 6);
@@ -74,6 +74,7 @@ export default async function LocationSeoPage({ params }: Props) {
   const pageUrl = `${SITE_URL}/locations/${location.slug}`;
   const relatedLocations = getRelatedLocationPages(location);
   const soundProofAnswer = getLocationSoundProofAnswer(location);
+  const whereToFindAnswer = getLocationWhereToFindAnswer(location);
   const selectionGuidance = [
     {
       title: 'Homes and bedrooms',
@@ -140,10 +141,18 @@ export default async function LocationSeoPage({ params }: Props) {
     mainEntity: [
       {
         '@type': 'Question',
-        name: `Sound proof in ${location.city}?`,
+        name: `What is ${location.productFocus[0]} in ${location.city}?`,
         acceptedAnswer: {
           '@type': 'Answer',
           text: soundProofAnswer,
+        },
+      },
+      {
+        '@type': 'Question',
+        name: `Where can I find ${location.productFocus[0]} in ${location.city}?`,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: whereToFindAnswer,
         },
       },
       {
@@ -152,14 +161,6 @@ export default async function LocationSeoPage({ params }: Props) {
         acceptedAnswer: {
           '@type': 'Answer',
           text: `For most ${location.city} homes, hotels, clinics, studios, and offices, start with airtight acoustic windows using laminated or insulated glass because windows and frame gaps are often the weakest exterior noise path. Doors, partitions, ceilings, and wall isolation should be added when the site survey shows those paths are also leaking sound.`,
-        },
-      },
-      {
-        '@type': 'Question',
-        name: `Where can I find ${location.productFocus[0]} in ${location.city}?`,
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: `Kiran Slido Craft provides technical consultation and direct supply of ${location.productFocus[0]} for projects across ${location.city} and its surrounding areas, including ${location.serviceAreas.slice(0, 3).join(', ')}. Contact our engineering team for a site-specific quote.`,
         },
       },
       {
@@ -281,8 +282,10 @@ export default async function LocationSeoPage({ params }: Props) {
         <div className="max-container grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
           <div>
             <p className="text-eyebrow">Direct answer</p>
-            <h2 className="heading-section">Sound proof in {location.city}?</h2>
+            <h2 className="heading-section">Sound proofing in {location.city}?</h2>
             <p className="text-body-lg">{soundProofAnswer}</p>
+            <h2 className="heading-section mt-12">Where to find {location.productFocus[0]}?</h2>
+            <p className="text-body-lg">{whereToFindAnswer}</p>
             <p className="mt-6 text-base font-semibold leading-8 text-slate-600">
               Kiran Slido Craft is a Mumbai-headquartered, ISO 9001:2015 certified manufacturer of soundproof windows,
               acoustic doors, acoustic partitions, and motorized systems for quote-driven residential, commercial,

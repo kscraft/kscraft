@@ -15,3 +15,10 @@ export function getServiceLocationFirstStep(service: ServiceLocationSeo, locatio
   return `For ${service.intentPhrase} projects in ${location.city}, start by sharing opening sizes, site photos or drawings, required finish, usage frequency, acoustic target if applicable, and the service zone. Kiran Slido Craft then matches the requirement to relevant products and confirms the engineered specification before quotation.`;
 }
 
+export function getLocationWhereToFindAnswer(location: LocationSeo) {
+  return `You can find Kiran Slido Craft systems in ${location.city} through our direct engineering consultation and supply network. We support projects across ${location.serviceAreas.slice(0, 3).join(', ')} and surrounding regions. Contact our team for a site-specific technical quote.`;
+}
+
+export function getServiceWhereToFindAnswer(service: ServiceLocationSeo, location: LocationSeo) {
+  return `Kiran Slido Craft provides technical consultation and direct supply of ${service.shortTitle.toLowerCase()} for projects in ${location.city}. Our engineering team handles project sizing, finish, and acoustic requirements for ${location.serviceAreas.slice(0, 3).join(', ')} and export markets.`;
+}

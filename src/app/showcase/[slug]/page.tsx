@@ -100,14 +100,24 @@ export default async function ProjectShowcase({ params }: Props) {
   const faqJsonLd = project.faqs ? {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    'mainEntity': project.faqs.map(faq => ({
-      '@type': 'Question',
-      'name': faq.q,
-      'acceptedAnswer': {
-        '@type': 'Answer',
-        'text': faq.a
-      }
-    }))
+    'mainEntity': [
+      {
+        '@type': 'Question',
+        'name': `Where can I find Kiran Slido Craft systems like those in the ${project.title}?`,
+        'acceptedAnswer': {
+          '@type': 'Answer',
+          'text': 'Kiran Slido Craft provides direct technical consultation and global supply for all systems shown. We support projects across India, the Middle East, Southeast Asia, and Europe from our engineering hubs in Mumbai and Kolkata.'
+        }
+      },
+      ...project.faqs.map(faq => ({
+        '@type': 'Question',
+        'name': faq.q,
+        'acceptedAnswer': {
+          '@type': 'Answer',
+          'text': faq.a
+        }
+      }))
+    ]
   } : null;
 
   return (

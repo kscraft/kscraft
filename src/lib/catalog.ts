@@ -51,7 +51,7 @@ export type MediaItem = {
   technicalNote: string;
   image?: string;
   youtubeId?: string;
-  productSlug?: string;
+  href?: string;
 };
 
 export type HomeMetric = {

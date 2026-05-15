@@ -18,7 +18,7 @@
       "title": "Motorized Sliding Windows: Technical Tour",
       "youtubeId": "rQH3JyU4xrE",
       "technicalNote": "High-Torque Drive System",
-      "productSlug": "motorized-soundproof-sliding-windows"
+      "href": "/product/motorized-soundproof-sliding-windows"
     },
     {
       "id": "v2",
@@ -27,7 +27,7 @@
       "title": "Compact Motorized Sliding Mechanism",
       "youtubeId": "juPhfwFG3wU",
       "technicalNote": "Precision Sash Movement",
-      "productSlug": "motorized-sliding-system"
+      "href": "/product/motorized-sliding-system"
     },
     {
       "id": "v3",
@@ -36,7 +36,43 @@
       "title": "Gaganyaan Crew Entry Mechanism Demo",
       "youtubeId": "EX9whYtmURM",
       "technicalNote": "Aerospace Hermetic Sealing",
-      "productSlug": "isro-gaganyaan"
+      "href": "/showcase/isro-gaganyaan"
+    },
+    {
+      "id": "v4",
+      "type": "video",
+      "category": "acoustics",
+      "title": "Sound Proof Sliding Windows",
+      "youtubeId": "fACitrJPPb4",
+      "technicalNote": "STC 45dB Performance",
+      "href": "/product/sound-proof-sliding-windows"
+    },
+    {
+      "id": "v5",
+      "type": "video",
+      "category": "automation",
+      "title": "Motorized Automation Demo",
+      "youtubeId": "pIHa0Cm172A",
+      "technicalNote": "Intelligent Movement Control",
+      "href": "/category/motorized-systems"
+    },
+    {
+      "id": "v6",
+      "type": "video",
+      "category": "acoustics",
+      "title": "Vertical Sash Movement",
+      "youtubeId": "hS9RaVKUhvw",
+      "technicalNote": "Precision Counterbalance",
+      "href": "/product/sound-proof-vertical-sliding-windows"
+    },
+    {
+      "id": "v7",
+      "type": "video",
+      "category": "automation",
+      "title": "Retractable Roof Control",
+      "youtubeId": "-M1OiThaWV4",
+      "technicalNote": "All-Weather Reliability",
+      "href": "/product/motorized-sliding-roof"
     },
     {
       "id": "i1",
@@ -45,7 +81,7 @@
       "title": "Soundproof Sliding Windows",
       "image": "/images/media/soundproof-sliding-windows.jpg",
       "technicalNote": "STC 45dB+ Certified",
-      "productSlug": "sound-proof-sliding-windows"
+      "href": "/product/sound-proof-sliding-windows"
     },
     {
       "id": "i2",
@@ -54,7 +90,7 @@
       "title": "Movable Partition System",
       "image": "/images/media/movable-partition.jpg",
       "technicalNote": "Laboratory Tested STC 52",
-      "productSlug": "sound-proof-acoustic-movable-partition"
+      "href": "/product/sound-proof-acoustic-movable-partition"
     },
     {
       "id": "i3",
@@ -63,7 +99,7 @@
       "title": "Vertical Sliding Window",
       "image": "/images/media/vertical-sliding-window.jpg",
       "technicalNote": "Precision Sash Isolation",
-      "productSlug": "sound-proof-vertical-sliding-windows"
+      "href": "/product/sound-proof-vertical-sliding-windows"
     },
     {
       "id": "i4",
@@ -72,7 +108,7 @@
       "title": "Telescopic Gate Installation",
       "image": "/images/media/telescopic-gate.jpg",
       "technicalNote": "3500kg Drive Capacity",
-      "productSlug": "motorized-telescopic-gates"
+      "href": "/product/motorized-telescopic-gates"
     },
     {
       "id": "i5",
@@ -81,7 +117,7 @@
       "title": "Roof Sliding System",
       "image": "/images/media/roof-sliding-system.jpg",
       "technicalNote": "EPDM All-Weather Sealing",
-      "productSlug": "motorized-sliding-roof"
+      "href": "/product/motorized-sliding-roof"
     },
     {
       "id": "i6",
@@ -90,7 +126,7 @@
       "title": "ISRO Gaganyaan Mechanism",
       "image": "/images/media/project-1.jpg",
       "technicalNote": "Zero-Failure Tolerance",
-      "productSlug": "isro-gaganyaan"
+      "href": "/showcase/isro-gaganyaan"
     },
     {
       "id": "i7",
@@ -99,7 +135,7 @@
       "title": "Hilton Hospitality Series",
       "image": "/images/media/project-2.jpg",
       "technicalNote": "Commercial Acoustic Grade",
-      "productSlug": "hilton-bengaluru"
+      "href": "/showcase/hilton-bengaluru"
     },
     {
       "id": "i8",
@@ -108,7 +144,7 @@
       "title": "Custom Automation Project",
       "image": "/images/media/project-3.jpg",
       "technicalNote": "Bespoke PLC Integration",
-      "productSlug": "motorized-sliding-system"
+      "href": "/product/motorized-sliding-system"
     }
   ]
 }

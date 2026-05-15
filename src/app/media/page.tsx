@@ -105,7 +105,7 @@ export default function MediaPage() {
                   className="break-inside-avoid"
                 >
                   <Link 
-                    href={item.productSlug ? `/product/${item.productSlug}` : '/contact'}
+                    href={item.href || '/contact'}
                     className="block group relative rounded-[3rem] overflow-hidden bg-slate-50 border border-slate-100 shadow-sm transition-all hover:shadow-[0_40px_100px_-20px_rgba(0,0,0,0.15)] hover:scale-[1.01]"
                   >
                     {item.type === 'video' ? (

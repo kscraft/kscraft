@@ -162,7 +162,7 @@ export default async function ServiceLocationPage({ params }: Props) {
     mainEntity: [
       {
         '@type': 'Question',
-        name: `What are ${service.shortTitle.toLowerCase()} in ${location.city}?`,
+        name: `How to choose ${service.shortTitle.toLowerCase()} in ${location.city}?`,
         acceptedAnswer: {
           '@type': 'Answer',
           text: serviceLocationAnswer,
@@ -312,7 +312,7 @@ export default async function ServiceLocationPage({ params }: Props) {
         <div className="max-container grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
           <div>
             <p className="text-eyebrow">Direct answer</p>
-            <h2 className="heading-section">What are {service.shortTitle.toLowerCase()} in {location.city}?</h2>
+            <h2 className="heading-section">How to choose {service.shortTitle.toLowerCase()} in {location.city}?</h2>
             <p className="text-body-lg">{serviceLocationAnswer}</p>
             <h2 className="heading-section mt-12">Where to find {service.shortTitle}?</h2>
             <p className="text-body-lg">{whereToFindAnswer}</p>

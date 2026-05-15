@@ -141,7 +141,7 @@ export default async function LocationSeoPage({ params }: Props) {
     mainEntity: [
       {
         '@type': 'Question',
-        name: `What is ${location.productFocus[0]} in ${location.city}?`,
+        name: `How to achieve effective ${location.productFocus[0]} in ${location.city}?`,
         acceptedAnswer: {
           '@type': 'Answer',
           text: soundProofAnswer,
@@ -282,7 +282,7 @@ export default async function LocationSeoPage({ params }: Props) {
         <div className="max-container grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
           <div>
             <p className="text-eyebrow">Direct answer</p>
-            <h2 className="heading-section">Sound proofing in {location.city}?</h2>
+            <h2 className="heading-section">How to achieve effective soundproofing in {location.city}?</h2>
             <p className="text-body-lg">{soundProofAnswer}</p>
             <h2 className="heading-section mt-12">Where to find {location.productFocus[0]}?</h2>
             <p className="text-body-lg">{whereToFindAnswer}</p>

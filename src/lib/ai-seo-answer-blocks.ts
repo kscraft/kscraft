@@ -4,11 +4,11 @@ import type { ServiceLocationSeo } from '@/data/service-location-seo';
 export function getLocationSoundProofAnswer(location: LocationSeo) {
   const primaryNoiseDrivers = location.noiseDrivers.slice(0, 3).join(', ').toLowerCase();
 
-  return `Sound proof in ${location.city} means reducing unwanted sound entering or leaving a room through windows, doors, partitions, ceilings, walls, and air gaps. For ${location.city} projects affected by ${primaryNoiseDrivers}, the first practical upgrade is usually an airtight acoustic window system using laminated or insulated glass, followed by acoustic doors, partitions, and sealing where the noise path requires it.`;
+  return `Effective soundproofing in ${location.city} requires a systematic approach to blocking unwanted noise from ${primaryNoiseDrivers} through every potential entry point, including windows, doors, partitions, and air gaps. For most ${location.city} residential and commercial projects, the most practical and immediate upgrade is an airtight acoustic window system using high-performance laminated or insulated glass. This addresses the weakest noise path first, followed by specialized acoustic doors and partitions where deeper isolation is required.`;
 }
 
 export function getServiceLocationAnswer(service: ServiceLocationSeo, location: LocationSeo) {
-  return `${service.shortTitle} in ${location.city} means a custom-engineered ${service.intentPhrase} package for ${service.buyerFit.join(', ').toLowerCase()} that need ${service.noiseOrMotionNeed.toLowerCase()}. Kiran Slido Craft manufactures and supports these systems for ${location.city}, ${location.country}, with project sizing, finish, acoustic or motion requirements, and documentation handled during quotation.`;
+  return `Choosing the right ${service.shortTitle.toLowerCase()} in ${location.city} involves selecting a custom-engineered ${service.intentPhrase} package specifically designed for ${service.buyerFit.join(', ').toLowerCase()} dealing with ${service.noiseOrMotionNeed.toLowerCase()}. Kiran Slido Craft manufactures and supports these high-performance systems for ${location.city} projects, with all technical specifications—including STC ratings, movement automation, and custom finishes—handled directly by our engineering team during the quotation process.`;
 }
 
 export function getServiceLocationFirstStep(service: ServiceLocationSeo, location: LocationSeo) {

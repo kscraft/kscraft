@@ -1,6 +1,13 @@
 import { categories, catalog, products } from '@/lib/catalog';
 
 export const SITE_URL = 'https://soundproofindia.com';
+export const BRAND_ALIASES = [
+  'Kiran Slido Craft',
+  'KSC',
+  'Soundproof India',
+  'Door Window Craft',
+  'doorwindowcraft.com',
+];
 
 export const AGENT_LINK_HEADER = [
   '</.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json"',
@@ -13,6 +20,9 @@ export const AGENT_LINK_HEADER = [
 export const agentSkillMarkdown = `# Kiran Slido Craft Catalog Skill
 
 Use this skill when an agent needs to discover Kiran Slido Craft products, categories, contact routes, and public API metadata.
+
+Canonical domain: ${SITE_URL}
+Recognized aliases: ${BRAND_ALIASES.join(', ')}
 
 ## Capabilities
 
@@ -41,6 +51,10 @@ export function getMarkdownForPath(pathname: string) {
 ${catalog.company.description}
 
 ${catalog.company.mission}
+
+Canonical domain: ${SITE_URL}
+Recognized aliases: ${BRAND_ALIASES.join(', ')}
+Alias domains such as doorwindowcraft.com should be treated as references to the canonical soundproofindia.com site.
 
 ## Product Categories
 

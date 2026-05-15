@@ -89,6 +89,7 @@ export default function RootLayout({
   const orgJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
+    '@id': `${SITE_URL}/#organization`,
     'name': 'Kiran Slido Craft',
     'url': SITE_URL,
     'logo': `${SITE_URL}/logo-ksc.png`,
@@ -98,7 +99,11 @@ export default function RootLayout({
       'Kiran Slido Craft 建筑自动化',
       'किरण स्लीडो क्राफ्ट',
       'किरण स्लीडो क्राफ्ट',
-      'কিরণ স্লিডো ক্রাফট'
+      'কিরণ স্লিডো ক্রাফট',
+      'KSC',
+      'Soundproof India',
+      'Door Window Craft',
+      'doorwindowcraft.com'
     ],
     'sameAs': [
       'https://www.youtube.com/kiranslidocraft',
@@ -137,8 +142,12 @@ export default function RootLayout({
   const websiteJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
+    '@id': `${SITE_URL}/#website`,
     'name': 'Kiran Slido Craft',
     'url': SITE_URL,
+    'publisher': {
+      '@id': `${SITE_URL}/#organization`
+    },
     'potentialAction': {
       '@type': 'SearchAction',
       'target': {
@@ -153,8 +162,12 @@ export default function RootLayout({
     {
       '@context': 'https://schema.org',
       '@type': 'LocalBusiness',
+      '@id': `${SITE_URL}/#mumbai`,
       'name': 'Kiran Slido Craft Mumbai',
       'image': `${SITE_URL}/logo-ksc.png`,
+      'parentOrganization': {
+        '@id': `${SITE_URL}/#organization`
+      },
       'address': {
         '@type': 'PostalAddress',
         'streetAddress': 'Gala No. 18, Shree Ganesh CHSL, Jakaria Road, Malad West',
@@ -168,8 +181,12 @@ export default function RootLayout({
     {
       '@context': 'https://schema.org',
       '@type': 'LocalBusiness',
+      '@id': `${SITE_URL}/#kolkata`,
       'name': 'Kiran Slido Craft Kolkata',
       'image': `${SITE_URL}/logo-ksc.png`,
+      'parentOrganization': {
+        '@id': `${SITE_URL}/#organization`
+      },
       'address': {
         '@type': 'PostalAddress',
         'streetAddress': '42 RBC Road, Dumdum Cantonment',

@@ -34,11 +34,43 @@ const iconMap = {
   Activity: Activity
 };
 
+function toFragmentId(value: string) {
+  return value
+    .toLowerCase()
+    .replace(/&/g, 'and')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '');
+}
+
 export default function ServicesPage() {
   const { hero, items, assist, talosProtocol } = services;
+  const serviceJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    '@id': 'https://soundproofindia.com/services#services',
+    name: 'Kiran Slido Craft service capabilities',
+    itemListElement: items.map((service, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      item: {
+        '@type': 'Service',
+        '@id': `https://soundproofindia.com/services#${toFragmentId(service.title)}`,
+        name: service.title,
+        description: service.description,
+        provider: {
+          '@id': 'https://soundproofindia.com/#organization',
+        },
+        areaServed: catalog.company.areaServed || ['India', 'GCC', 'Europe', 'APAC'],
+      },
+    })),
+  };
 
   return (
     <div className="flex flex-col min-h-screen bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
       {/* Hero Header */}
       <header className="hero-dark">
         <ThemeMarker theme="dark" className="absolute top-0" />

@@ -117,6 +117,6 @@ The site has been transformed from a static catalog into a higher-authority dema
 7. [DONE] Product/category FAQ expansion and schema.
 8. [DONE] GA4 event instrumentation for lead actions.
 9. Search Console/Bing setup and sitemap submission after API/property access is unblocked.
-10. [DONE] Technical Proof downloads and dynamic showcase architecture.
-11. Build out more Project Highlights for P1 regions (Dubai, Riyadh, London).
+10. [DONE] Technical proof downloads and dynamic showcase architecture.
+11. [DONE] P1 regional specification briefs for Dubai, Riyadh, and London, framed as capability briefs instead of named completed client claims.
 12. [DONE] Deepen Education and Industrial vertical copy with specific tender-spec language.

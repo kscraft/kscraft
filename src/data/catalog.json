@@ -561,6 +561,159 @@
             "a": "Yes, our automation controllers are fully compatible with Hilton's existing building and guest-room management systems (BMS/GRMS)."
           }
         ]
+      },
+      {
+        "title": "Dubai Hospitality Acoustic Brief",
+        "subtitle": "Regional Specification Brief",
+        "icon": "Hotel",
+        "detail": "Specification guidance for Dubai hotel, serviced apartment, and mixed-use hospitality teams evaluating acoustic windows, movable partitions, and automated terrace systems. This is a regional capability brief, not a named completed client claim.",
+        "slug": "dubai-hospitality-acoustic-brief",
+        "image": "/images/blogs/aesthetic-acoustics.jpg",
+        "showcase": {
+          "pageType": "Specification Brief",
+          "heroTitle": "Dubai-ready quiet.",
+          "heroDescription": "Acoustic and automation package guidance for hospitality projects balancing guest comfort, facade performance, and terrace usability.",
+          "challengeLabel": "Regional Requirement",
+          "challengeTitle": "High-comfort interiors in dense urban hospitality.",
+          "challengeDescription": "Dubai hotel and serviced-apartment briefs often need acoustic facade upgrades, divisible event spaces, and controlled outdoor zones without compromising premium finishes. Kiran Slido Craft can support tender teams with STC-led window specifications, movable partition detailing, and motorized roof or sliding systems aligned to site noise, wind exposure, and maintenance access.",
+          "stats": [
+            {
+              "label": "Priority Buyer",
+              "value": "Hospitality",
+              "icon": "Hotel"
+            },
+            {
+              "label": "Export Support",
+              "value": "GCC",
+              "icon": "Building2"
+            },
+            {
+              "label": "Spec Focus",
+              "value": "STC",
+              "icon": "ShieldCheck"
+            },
+            {
+              "label": "Use Case",
+              "value": "Suites",
+              "icon": "Target"
+            }
+          ],
+          "uspLabel": "The Package",
+          "uspTitle": "Hospitality acoustics with automation readiness.",
+          "uspDescription": "The recommended package combines acoustic windows, movable partitions, and motorized terrace or roof systems so project teams can specify silence, flexible space, and movement from one engineering source."
+        },
+        "faqs": [
+          {
+            "q": "Is this a completed Dubai client project?",
+            "a": "No. This page is a regional specification brief for Dubai hospitality buyers and consultants, not a named completed project claim."
+          },
+          {
+            "q": "Which Kiran Slido Craft systems are most relevant for Dubai hospitality projects?",
+            "a": "Soundproof windows, acoustic movable partitions, motorized sliding roofs, vertical sliding windows, and automated doors are the primary systems for hospitality briefs."
+          }
+        ]
+      },
+      {
+        "title": "Riyadh Giga-Project Acoustic Brief",
+        "subtitle": "Regional Specification Brief",
+        "icon": "Building2",
+        "detail": "Specification guidance for Riyadh and Saudi Arabia development teams evaluating export-ready acoustic doors, windows, industrial noise control, and automated access systems. This is a regional capability brief, not a named completed client claim.",
+        "slug": "riyadh-giga-project-acoustic-brief",
+        "image": "/images/products/motorized-barrier-system.jpg",
+        "showcase": {
+          "pageType": "Specification Brief",
+          "heroTitle": "Built for scale.",
+          "heroDescription": "Acoustic, access-control, and architectural automation guidance for Saudi development packages that need documented export readiness.",
+          "challengeLabel": "Regional Requirement",
+          "challengeTitle": "Large programs need repeatable, documented packages.",
+          "challengeDescription": "Riyadh development packages often combine hospitality, commercial, institutional, and infrastructure requirements. Kiran Slido Craft can help consultants and contractors specify acoustic doors, soundproof windows, industrial enclosures, and automated barriers with clear performance assumptions, shop-drawing expectations, and service planning.",
+          "stats": [
+            {
+              "label": "Priority Buyer",
+              "value": "Developers",
+              "icon": "Building2"
+            },
+            {
+              "label": "Export Support",
+              "value": "KSA",
+              "icon": "Zap"
+            },
+            {
+              "label": "Spec Focus",
+              "value": "Doors",
+              "icon": "ShieldCheck"
+            },
+            {
+              "label": "Control",
+              "value": "PLC",
+              "icon": "Gauge"
+            }
+          ],
+          "uspLabel": "The Package",
+          "uspTitle": "One engineering partner across acoustic and movement systems.",
+          "uspDescription": "For large mixed-use work, the same documentation discipline can support acoustic separations, industrial noise control, and high-cycle automated access packages."
+        },
+        "faqs": [
+          {
+            "q": "Is this a completed Riyadh client project?",
+            "a": "No. This page is a regional specification brief for Riyadh and Saudi project teams, not a named completed project claim."
+          },
+          {
+            "q": "Can Kiran Slido Craft support Saudi tender-stage documentation?",
+            "a": "Yes. The team can support technical datasheets, shop drawing coordination, acoustic assumptions, export documentation, and installation planning for suitable packages."
+          }
+        ]
+      },
+      {
+        "title": "London Retrofit Acoustic Brief",
+        "subtitle": "Regional Specification Brief",
+        "icon": "Building2",
+        "detail": "Specification guidance for London residential, hospitality, and commercial retrofit teams evaluating secondary acoustic glazing, soundproof doors, and compact movement systems. This is a regional capability brief, not a named completed client claim.",
+        "slug": "london-retrofit-acoustic-brief",
+        "image": "/images/products/sound-proof-windows.jpg",
+        "showcase": {
+          "pageType": "Specification Brief",
+          "heroTitle": "Retrofit silence.",
+          "heroDescription": "Acoustic window and door package guidance for London retrofit briefs where heritage constraints, urban noise, and space limits shape the design.",
+          "challengeLabel": "Regional Requirement",
+          "challengeTitle": "Noise control without heavy-handed architectural change.",
+          "challengeDescription": "London retrofit briefs often require acoustic upgrades around rail, road, hospitality, and high-density residential noise while preserving usable space and facade constraints. Kiran Slido Craft can support secondary glazing, acoustic door, and compact automation specifications with clear attention to seals, frame depth, glass build-up, and installation sequencing.",
+          "stats": [
+            {
+              "label": "Priority Buyer",
+              "value": "Retrofit",
+              "icon": "Building2"
+            },
+            {
+              "label": "Export Support",
+              "value": "UK",
+              "icon": "Zap"
+            },
+            {
+              "label": "Spec Focus",
+              "value": "Windows",
+              "icon": "ShieldCheck"
+            },
+            {
+              "label": "Use Case",
+              "value": "Urban",
+              "icon": "Target"
+            }
+          ],
+          "uspLabel": "The Package",
+          "uspTitle": "Acoustic detailing for constrained retrofit work.",
+          "uspDescription": "The specification route focuses on seals, glass build-up, slim framing, and installation planning so retrofit teams can pursue quieter interiors without overbuilding the facade."
+        },
+        "faqs": [
+          {
+            "q": "Is this a completed London client project?",
+            "a": "No. This page is a regional specification brief for London retrofit buyers and consultants, not a named completed project claim."
+          },
+          {
+            "q": "Which systems are most relevant for London acoustic retrofit work?",
+            "a": "Secondary acoustic windows, soundproof sliding windows, acoustic doors, and compact automated openings are usually the most relevant systems."
+          }
+        ]
       }
     ]
   },

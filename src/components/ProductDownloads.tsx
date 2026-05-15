@@ -2,13 +2,8 @@
 
 import { FileDown, FileText } from 'lucide-react';
 import { trackClientEvent } from '@/lib/analytics-client';
-
-type DownloadItem = {
-  title: string;
-  type: string;
-  size: string;
-  href: string;
-};
+import { defaultDownloadItems } from '@/lib/downloads';
+import type { DownloadItem } from '@/lib/catalog';
 
 type ProductDownloadsProps = {
   productTitle: string;
@@ -16,28 +11,7 @@ type ProductDownloadsProps = {
 };
 
 export default function ProductDownloads({ productTitle, downloads: productDownloads }: ProductDownloadsProps) {
-  const defaultDownloads: DownloadItem[] = [
-    {
-      title: 'Technical Data Sheet',
-      type: 'PDF',
-      size: '1.2 MB',
-      href: '#',
-    },
-    {
-      title: 'Acoustic Test Report',
-      type: 'PDF',
-      size: '2.4 MB',
-      href: '#',
-    },
-    {
-      title: 'CAD Section Details',
-      type: 'CAD',
-      size: '3.1 MB',
-      href: '#',
-    },
-  ];
-
-  const downloads = productDownloads || defaultDownloads;
+  const downloads = productDownloads || defaultDownloadItems;
 
   return (
     <div className="mt-24 rounded-[2.5rem] bg-slate-950 p-8 text-white sm:p-12">
@@ -51,18 +25,17 @@ export default function ProductDownloads({ productTitle, downloads: productDownl
             Download certified specifications, performance data, and engineering guides for {productTitle}.
           </p>
         </div>
-        <div className="grid gap-4 sm:grid-cols-3 lg:w-3/5">
+        <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3 lg:w-3/5">
           {downloads.map((item) => (
-            <button
+            <a
               key={item.title}
+              href={item.href}
               onClick={() => {
                 trackClientEvent('file_download', {
                   file_name: item.title,
-                  file_extension: 'pdf',
+                  file_extension: item.type.toLowerCase(),
                   product: productTitle,
                 });
-                // In a real app, this would be a link or trigger an actual download
-                alert(`${item.title} download started (placeholder)`);
               }}
               className="group flex flex-col justify-between rounded-2xl bg-white/5 p-6 transition-all hover:bg-white/10 hover:shadow-xl"
             >
@@ -76,7 +49,7 @@ export default function ProductDownloads({ productTitle, downloads: productDownl
                 <p className="text-sm font-bold leading-tight">{item.title}</p>
                 <p className="mt-2 text-[10px] font-black text-slate-500 uppercase tracking-widest">{item.size}</p>
               </div>
-            </button>
+            </a>
           ))}
         </div>
       </div>

@@ -4,11 +4,14 @@ import ProductDownloads from './ProductDownloads';
 
 describe('ProductDownloads', () => {
   it('renders download links', () => {
-    render(<ProductDownloads productName="Test Product" />);
+    render(<ProductDownloads productTitle="Test Product" />);
     expect(screen.getByText(/Technical Documentation/i)).toBeInTheDocument();
-    expect(screen.getByText(/Technical Data Sheet/i)).toBeInTheDocument();
-    expect(screen.getByText(/Acoustic Test Report/i)).toBeInTheDocument();
-    // They are buttons in the current implementation, not links
-    expect(screen.getAllByRole('button').length).toBeGreaterThan(0);
+    expect(screen.getByText(/Soundproof Windows/i)).toBeInTheDocument();
+    expect(screen.getByText(/Gaganyaan Manufacturing Proof/i)).toBeInTheDocument();
+    expect(screen.getAllByRole('link').length).toBeGreaterThan(0);
+    expect(screen.getByRole('link', { name: /Soundproof Windows/i })).toHaveAttribute(
+      'href',
+      '/downloads/soundproof-windows-one-pager'
+    );
   });
 });

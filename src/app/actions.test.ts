@@ -27,6 +27,7 @@ describe('Server Actions', () => {
     ADMIN_EMAIL_FROM: process.env.ADMIN_EMAIL_FROM,
     LEADS_FROM_EMAIL: process.env.LEADS_FROM_EMAIL,
     RESEND_FALLBACK_FROM_EMAIL: process.env.RESEND_FALLBACK_FROM_EMAIL,
+    SKIP_LEAD_DELIVERY: process.env.SKIP_LEAD_DELIVERY,
   };
 
   beforeEach(() => {
@@ -43,6 +44,7 @@ describe('Server Actions', () => {
     delete process.env.ADMIN_EMAIL_FROM;
     delete process.env.LEADS_FROM_EMAIL;
     delete process.env.RESEND_FALLBACK_FROM_EMAIL;
+    delete process.env.SKIP_LEAD_DELIVERY;
   });
 
   afterEach(() => {
@@ -147,6 +149,30 @@ describe('Server Actions', () => {
         body: expect.stringContaining('info@kiranslidocraft.com'),
       }),
     );
+  });
+
+  it('should skip external lead delivery when test delivery is disabled', async () => {
+    process.env.SKIP_LEAD_DELIVERY = '1';
+    process.env.RESEND_API_KEY = 'test-resend-key';
+    process.env.ADMIN_EMAIL_FROM = 'Kiran Slido Craft <leads@example.com>';
+    process.env.R2_ACCOUNT_ID = 'test-account';
+    process.env.R2_ACCESS_KEY_ID = 'test-access-key';
+    process.env.R2_SECRET_ACCESS_KEY = 'test-secret-key';
+    process.env.R2_BUCKET = 'ksco-leads';
+    const fetchMock = vi.spyOn(globalThis, 'fetch');
+    const formData = new FormData();
+    formData.append('name', 'John Doe');
+    formData.append('email', 'john@example.com');
+    formData.append('phone', '+91 9876543210');
+    formData.append('city', 'Mumbai');
+    formData.append('scope', 'Acoustic Windows');
+    formData.append('requirements', 'I need STC 50 windows for my studio.');
+
+    const result = await submitInquiry({}, formData);
+
+    expect(result.success).toBe(true);
+    expect(fetchMock).not.toHaveBeenCalled();
+    expect(r2Mocks.send).not.toHaveBeenCalled();
   });
 
   it('should retry Resend with fallback sender when configured sender domain is not verified', async () => {

@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { catalog, projects, home } from '@/lib/catalog';
-import { ChevronRight, Rocket, Shield, Building2, Zap, Sparkles, type LucideIcon } from 'lucide-react';
+import { ChevronRight, Rocket, Shield, Building2, Zap, Sparkles, Hotel, type LucideIcon } from 'lucide-react';
 import ThemeMarker from '@/components/ThemeMarker';
 
 const iconMap: Record<string, LucideIcon> = {
@@ -10,7 +10,8 @@ const iconMap: Record<string, LucideIcon> = {
   Shield,
   Building2,
   Zap,
-  Sparkles
+  Sparkles,
+  Hotel
 };
 import ClientMarquee from '@/components/ClientMarquee';
 import Breadcrumbs from '@/components/Breadcrumbs';
@@ -118,7 +119,7 @@ export default function ClientsPage() {
                           href={`/showcase/${project.slug}`} 
                           className="group apple-button-secondary px-6 py-3 text-[10px] uppercase tracking-[0.2em] font-black inline-flex items-center justify-center gap-2 self-start"
                         >
-                          {catalog.company.ui.viewCaseStudy} <ChevronRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+                          {project.showcase?.pageType === 'Specification Brief' ? 'View Brief' : catalog.company.ui.viewCaseStudy} <ChevronRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
                         </Link>
                       ) : (
                         <Link 

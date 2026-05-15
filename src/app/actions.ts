@@ -23,6 +23,7 @@ type Inquiry = z.infer<typeof inquirySchema> & {
 
 const LEAD_RECIPIENT_EMAIL = 'info@kiranslidocraft.com';
 const RESEND_TEST_FALLBACK_FROM = 'Kiran Slido Craft <onboarding@resend.dev>';
+const SKIP_LEAD_DELIVERY_VALUES = new Set(['1', 'true', 'yes']);
 
 function escapeHtml(value: string) {
   return value
@@ -73,6 +74,11 @@ function isR2Configured() {
     process.env.R2_SECRET_ACCESS_KEY &&
     process.env.R2_BUCKET,
   );
+}
+
+function shouldSkipLeadDelivery() {
+  const value = process.env.SKIP_LEAD_DELIVERY || process.env.PLAYWRIGHT_E2E;
+  return value ? SKIP_LEAD_DELIVERY_VALUES.has(value.toLowerCase()) : false;
 }
 
 function getLeadEmailHtml(inquiry: Inquiry) {
@@ -147,6 +153,15 @@ function isUnverifiedResendDomainError(error: unknown) {
 }
 
 async function sendLeadEmail(inquiry: Inquiry) {
+  if (shouldSkipLeadDelivery()) {
+    console.info('Lead email delivery skipped by test configuration', {
+      scope: inquiry.scope,
+      city: inquiry.city,
+      utmSource: inquiry.utmSource,
+    });
+    return;
+  }
+
   const apiKey = process.env.RESEND_API_KEY;
 
   if (!apiKey) {
@@ -186,6 +201,15 @@ async function sendLeadEmail(inquiry: Inquiry) {
 }
 
 async function archiveInquiry(inquiry: Inquiry) {
+  if (shouldSkipLeadDelivery()) {
+    console.info('Lead archive skipped by test configuration', {
+      scope: inquiry.scope,
+      city: inquiry.city,
+      utmSource: inquiry.utmSource,
+    });
+    return;
+  }
+
   if (!isR2Configured()) {
     console.info('R2 lead archive is not configured', {
       scope: inquiry.scope,

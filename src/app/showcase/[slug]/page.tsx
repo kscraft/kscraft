@@ -27,7 +27,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return {};
   }
 
-  const title = `${project.title} Case Study | Kiran Slido Craft`;
+  const pageType = project.showcase?.pageType || 'Case Study';
+  const title = `${project.title} ${pageType} | Kiran Slido Craft`;
   const description = project.detail.slice(0, 160);
   const url = `https://soundproofindia.com/showcase/${slug}`;
 
@@ -84,7 +85,7 @@ export default async function ProjectShowcase({ params }: Props) {
       {
         '@type': 'ListItem',
         'position': 2,
-        'name': 'Case Studies',
+        'name': project.showcase.pageType === 'Specification Brief' ? 'Specification Briefs' : 'Case Studies',
         'item': 'https://soundproofindia.com/clients'
       },
       {

@@ -196,7 +196,9 @@ function SearchContent() {
                           className="group flex min-w-0 items-center justify-between gap-6 rounded-[2rem] border border-slate-200 bg-white p-6 transition hover:border-blue-200 hover:shadow-[0_24px_60px_-36px_rgba(15,23,42,0.55)]"
                         >
                           <div className="min-w-0">
-                            <p className="mb-2 text-[10px] font-black uppercase tracking-[0.22em] text-blue-600">Engineering Case Study</p>
+                            <p className="mb-2 text-[10px] font-black uppercase tracking-[0.22em] text-blue-600">
+                              {project.showcase?.pageType === 'Specification Brief' ? 'Specification Brief' : 'Engineering Case Study'}
+                            </p>
                             <h2 className="break-words text-2xl font-black uppercase leading-tight tracking-tight text-slate-950">{project.title}</h2>
                             <p className="mt-3 line-clamp-2 text-sm font-medium leading-6 text-slate-500">{project.detail}</p>
                           </div>

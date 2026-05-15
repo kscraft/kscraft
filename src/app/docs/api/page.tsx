@@ -1,8 +1,18 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'API Documentation | Kiran Slido Craft',
   description: 'Public API and agent discovery documentation for Kiran Slido Craft.',
+  alternates: {
+    canonical: 'https://soundproofindia.com/docs/api',
+  },
+  openGraph: {
+    title: 'API Documentation | Kiran Slido Craft',
+    description: 'Public API and agent discovery documentation for Kiran Slido Craft.',
+    url: 'https://soundproofindia.com/docs/api',
+    type: 'website',
+  },
 };
 
 export default function ApiDocsPage() {

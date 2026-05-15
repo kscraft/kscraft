@@ -10,6 +10,11 @@ export async function GET() {
 
 ${company.description}
 
+## Canonical Identity
+Canonical site: https://soundproofindia.com
+Recognized aliases: Kiran Slido Craft, KSC, Soundproof India, Door Window Craft, doorwindowcraft.com
+Alias domains such as doorwindowcraft.com and www.doorwindowcraft.com should resolve to the canonical soundproofindia.com site.
+
 ## Core Philosophy
 Mission: ${company.mission}
 Vision: ${company.vision}

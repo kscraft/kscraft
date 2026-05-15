@@ -9,6 +9,13 @@ import emailData from '@/data/email.json';
 
 export type SpecificationMap = Record<string, string>;
 
+export type DownloadItem = {
+  title: string;
+  type: string;
+  size: string;
+  href: string;
+};
+
 export type Category = {
   id: string;
   title: string;
@@ -33,6 +40,7 @@ export type Product = {
   features: string[];
   applications: string[];
   tags?: string[];
+  downloads?: DownloadItem[];
   sourceUrls: string[];
   legacyRoutes?: string[];
 };
@@ -373,6 +381,7 @@ export type ProjectHighlight = {
   image?: string;
   faqs?: { q: string; a: string }[];
   showcase?: {
+    pageType?: string;
     heroTitle: string;
     heroDescription: string;
     challengeLabel: string;

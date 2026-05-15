@@ -54,7 +54,7 @@ export default function MediaPage() {
                 className="group relative aspect-video rounded-[3rem] overflow-hidden border border-white/10 bg-slate-900 shadow-2xl transition-all hover:scale-[1.02]"
               >
                 <Image
-                  src={`https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`}
+                  src={`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`}
                   alt={video.title}
                   fill
                   className="object-cover opacity-60 transition-opacity group-hover:opacity-100"

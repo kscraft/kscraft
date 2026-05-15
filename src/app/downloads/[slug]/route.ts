@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation';
-import { createOnePagePdf, getDownloadDocument } from '@/lib/downloads';
+import { createTechnicalPdf, getDownloadDocument } from '@/lib/downloads';
 
 export async function GET(
   _request: Request,
@@ -12,7 +12,7 @@ export async function GET(
     notFound();
   }
 
-  const pdf = createOnePagePdf(document);
+  const pdf = createTechnicalPdf(document);
 
   return new Response(pdf, {
     headers: {

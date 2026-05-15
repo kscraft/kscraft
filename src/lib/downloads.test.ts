@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { createOnePagePdf, defaultDownloadItems, getDownloadDocument } from './downloads';
+import { createTechnicalPdf, defaultDownloadItems, getDownloadDocument } from './downloads';
 
 describe('downloads', () => {
   it('exposes real PDF download links', () => {
@@ -8,14 +8,17 @@ describe('downloads', () => {
     expect(defaultDownloadItems.some((item) => item.href === '/downloads/gaganyaan-manufacturing-proof')).toBe(true);
   });
 
-  it('creates a valid PDF payload for a known document', () => {
+  it('creates a valid multi-page technical PDF payload for a known document', () => {
     const document = getDownloadDocument('soundproof-windows-one-pager');
 
     expect(document).toBeDefined();
-    const pdf = createOnePagePdf(document!);
-    const header = new TextDecoder().decode(pdf.slice(0, 8));
+    const pdf = createTechnicalPdf(document!);
+    const content = new TextDecoder().decode(pdf);
 
-    expect(header).toBe('%PDF-1.4');
-    expect(pdf.length).toBeGreaterThan(1000);
+    expect(content.slice(0, 8)).toBe('%PDF-1.4');
+    expect(content).toContain('Source Basis');
+    const pageCount = Number(content.match(/\/Count (\d+)/)?.[1]);
+    expect(pageCount).toBeGreaterThanOrEqual(2);
+    expect(pdf.length).toBeGreaterThan(5000);
   });
 });

@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, Settings, Wrench, ShieldCheck, ClipboardCheck, ChevronRight, Box, Cpu, Activity } from 'lucide-react';
-import { catalog, services } from '@/lib/catalog';
+import { catalog, services, home } from '@/lib/catalog';
 import ThemeMarker from '@/components/ThemeMarker';
 
 export const metadata: Metadata = {

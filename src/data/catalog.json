@@ -139,7 +139,8 @@
     }
   },
   "sources": [
-    "https://soundproofindia.com/"
+    "https://soundproofindia.com/",
+    "https://www.soundproofindia.com/"
   ],
   "navigation": {
     "header": [
@@ -706,7 +707,7 @@
       "description": "High-performance aluminum acoustic windows featuring precision compression seals and specialized multi-layer glass.",
       "image": "/images/products/sound-proof-windows.jpg",
       "sourceUrls": [
-        "https://soundproofindia.com/sound-proof-windows.htm"
+        "https://www.soundproofindia.com/sound-proof-windows.htm"
       ],
       "legacyRoutes": [
         "soundproofwindow.php",
@@ -741,7 +742,7 @@
       "description": "Engineered for wide openings where sound isolation and horizontal movement are critical.",
       "image": "/images/products/sound-proof-sliding-windows.jpg",
       "sourceUrls": [
-        "https://soundproofindia.com/sound-proof-sliding-windows.htm"
+        "https://www.soundproofindia.com/sound-proof-sliding-windows.htm"
       ],
       "legacyRoutes": [
         "sliding-windows.php",
@@ -795,7 +796,7 @@
       "description": "European-style dual opening windows providing maximum perimeter sealing and versatile ventilation.",
       "image": "/images/products/sound-proof-tilt-turn-windows.jpg",
       "sourceUrls": [
-        "https://soundproofindia.com/sound-proof-tilt-turn-windows.htm"
+        "https://www.soundproofindia.com/sound-proof-tilt-turn-windows.htm"
       ],
       "legacyRoutes": [
         "tilt-n-turn-windows.php",
@@ -833,7 +834,7 @@
       "description": "The industry standard for maximum noise reduction. Our Sound Proof Casement Windows utilize a triple-point compression seal and heavy-duty decoupled frames to completely eliminate flanking paths. Delivering exceptional OITC and STC acoustic ratings, these windows are the definitive solution for properties situated near airports, highways, or heavy industrial zones.",
       "image": "/images/products/sound-proof-casement-windows.jpg",
       "sourceUrls": [
-        "https://soundproofindia.com/sound-proof-casement-windows.htm"
+        "https://www.soundproofindia.com/sound-proof-casement-windows.htm"
       ],
       "legacyRoutes": [
         "sound-proof-casement-windows.htm"
@@ -871,7 +872,7 @@
       "description": "Specialized windows designed for high-level ventilation with reliable soundproofing performance.",
       "image": "/images/products/sound-proof-top-hung-windows.jpg",
       "sourceUrls": [
-        "https://soundproofindia.com/sound-proof-top-hung-windows.htm"
+        "https://www.soundproofindia.com/sound-proof-top-hung-windows.htm"
       ],
       "legacyRoutes": [
         "top-hung-windows.php",
@@ -910,7 +911,7 @@
       "description": "Classic vertical sash windows reimagined with modern acoustic engineering for space-saving ventilation.",
       "image": "/images/products/sound-proof-vertical-sliding-windows.jpg",
       "sourceUrls": [
-        "https://soundproofindia.com/sound-proof-vertical-sliding-windows.htm"
+        "https://www.soundproofindia.com/sound-proof-vertical-sliding-windows.htm"
       ],
       "legacyRoutes": [
         "vertical-sliding-windows.php",
@@ -948,7 +949,7 @@
       "description": "Permanent sound isolation walls with clean architectural finishes and high transmission loss.",
       "image": "/images/products/sound-proof-acoustic-fix-partition.jpg",
       "sourceUrls": [
-        "https://soundproofindia.com/sound-proof-acoustic-fix-partition.htm"
+        "https://www.soundproofindia.com/sound-proof-acoustic-fix-partition.htm"
       ],
       "legacyRoutes": [
         "sound-proof-fixed-partition.php",
@@ -986,7 +987,7 @@
       "description": "Flexible acoustic partitions that stack neatly, allowing for rapid conversion of large spaces.",
       "image": "/images/products/sound-proof-sliding-folding-partition.jpg",
       "sourceUrls": [
-        "https://soundproofindia.com/sound-proof-sliding-folding-partition.htm"
+        "https://www.soundproofindia.com/sound-proof-sliding-folding-partition.htm"
       ],
       "legacyRoutes": [
         "sound-proof-sliding-folding-partition.htm"
@@ -1025,7 +1026,7 @@
       "description": "Engineered for ultimate acoustic isolation, our Sound Proof Sliding Doors feature an advanced compression sealing system and multi-layered acoustic laminated glass. Designed to achieve superior STC ratings, these doors block high-decibel exterior noise, making them ideal for recording studios, luxury hotels, and commercial boardrooms where space-saving sliding mechanics and speech privacy are critical.",
       "image": "/images/products/sound-proof-sliding-doors.jpg",
       "sourceUrls": [
-        "https://soundproofindia.com/sound-proof-sliding-doors.htm"
+        "https://www.soundproofindia.com/sound-proof-sliding-doors.htm"
       ],
       "legacyRoutes": [
         "sound-proof-sliding-doors.htm"
@@ -1059,7 +1060,7 @@
       "description": "Bifold acoustic door systems providing versatile opening widths with high performance sealing.",
       "image": "/images/products/sound-proof-sliding-folding-doors.jpg",
       "sourceUrls": [
-        "https://soundproofindia.com/sound-proof-sliding-folding-doors.htm"
+        "https://www.soundproofindia.com/sound-proof-sliding-folding-doors.htm"
       ],
       "legacyRoutes": [
         "sound-proof-sliding-folding-doors.htm"
@@ -1095,7 +1096,7 @@
       "description": "Professional swing doors engineered for maximum sound transmission loss and daily reliability.",
       "image": "/images/products/sound-proof-swing-doors.jpg",
       "sourceUrls": [
-        "https://soundproofindia.com/sound-proof-swing-doors.htm"
+        "https://www.soundproofindia.com/sound-proof-swing-doors.htm"
       ],
       "legacyRoutes": [
         "sound-proof-swing-doors.htm"
@@ -1165,7 +1166,7 @@
       "description": "Soundproof window systems equipped with integrated automation for effortless remote operation.",
       "image": "/images/products/motorized-sound-proof-window.jpg",
       "sourceUrls": [
-        "https://soundproofindia.com/motorized-sound-proof-window.htm"
+        "https://www.soundproofindia.com/motorized-sound-proof-window.htm"
       ],
       "legacyRoutes": [
         "motorized-sound-proof-window.htm"
@@ -1205,7 +1206,7 @@
       "description": "Minimalist frameless vertical sliding systems for modern architectural balconies and terraces.",
       "image": "/images/products/motorized-frameless-vertical-sliding-system.jpg",
       "sourceUrls": [
-        "https://soundproofindia.com/motorized-frameless-vertical-sliding-system.htm"
+        "https://www.soundproofindia.com/motorized-frameless-vertical-sliding-system.htm"
       ],
       "legacyRoutes": [
         "motorized-frameless-vertical-sliding-system.htm"
@@ -1241,7 +1242,7 @@
       "description": "Transform indoor spaces with our premium Motorized Sliding Roofs. Engineered with high-torque electromechanical drives and thermally broken aluminum frames, these retractable glass roofs provide seamless climate control, natural ventilation via the stack effect, and spectacular sky views. Built to withstand extreme weather while maintaining perfect acoustic and thermal insulation when closed.",
       "image": "/images/products/motorized-sliding-roof.jpg",
       "sourceUrls": [
-        "https://soundproofindia.com/motorized-sliding-roof.htm"
+        "https://www.soundproofindia.com/motorized-sliding-roof.htm"
       ],
       "legacyRoutes": [
         "motorized-sliding-roof.htm"
@@ -1288,9 +1289,7 @@
         "https://soundproofindia.com/stainless-steel-frame.php"
       ],
       "legacyRoutes": [
-        "stainless-steel-frame.php",
-        "stainless-steel-frame-roof-sliding-system.php",
-        "stainless-steel-frame-roof-sliding-system.htm"
+        "stainless-steel-frame.php"
       ],
       "specifications": {
         "Frame": "S.S. 304 / 316 Grade",
@@ -1327,9 +1326,7 @@
         "https://soundproofindia.com/aluminium-frame.php"
       ],
       "legacyRoutes": [
-        "aluminium-frame.php",
-        "aluminium-frame-roof-sliding-system.php",
-        "aluminium-frame-roof-sliding-system.htm"
+        "aluminium-frame.php"
       ],
       "specifications": {
         "Frame": "Powder-coated Aluminum",
@@ -1363,7 +1360,7 @@
       "description": "Large-scale flexible wall systems designed for professional environments requiring quick layout changes.",
       "image": "/images/products/sound-proof-acoustic-movable-partition.jpg",
       "sourceUrls": [
-        "https://soundproofindia.com/sound-proof-acoustic-movable-partition.htm"
+        "https://www.soundproofindia.com/sound-proof-acoustic-movable-partition.htm"
       ],
       "legacyRoutes": [
         "sound-proof-movable-partition.php",
@@ -1403,7 +1400,7 @@
       "description": "Automated soundproof glass systems for premium residential and hospitality projects.",
       "image": "/images/products/motorized-soundproof-sliding-windows.jpg",
       "sourceUrls": [
-        "https://soundproofindia.com/motorized-soundproof-sliding-windows.htm"
+        "https://www.soundproofindia.com/motorized-soundproof-sliding-windows.htm"
       ],
       "legacyRoutes": [
         "motorized-sound-proof-sliding-windows.php",
@@ -1440,7 +1437,7 @@
       "description": "Automated vertical sliding systems for space-efficient ventilation, glazing movement, and acoustic control.",
       "image": "/images/products/motorized-vertical-sliding-window.jpg",
       "sourceUrls": [
-        "https://soundproofindia.com/motorized-vertical-sliding-window.htm"
+        "https://www.soundproofindia.com/motorized-vertical-sliding-window.htm"
       ],
       "legacyRoutes": [
         "motorized-vertical-sliding-window.php",
@@ -1478,7 +1475,7 @@
       "description": "Space-saving multi-leaf automated gates for narrow entryways requiring wide opening clearance.",
       "image": "/images/products/motorized-telescopic-gates.jpg",
       "sourceUrls": [
-        "https://soundproofindia.com/motorized-telescopic-gates.htm"
+        "https://www.soundproofindia.com/motorized-telescopic-gates.htm"
       ],
       "legacyRoutes": [
         "motorized-telescopic-gate.php",
@@ -1512,7 +1509,7 @@
       "description": "Heavy-duty automated sliding entry systems for high-security residential and industrial compounds.",
       "image": "/images/products/motorized-sliding-gates.jpg",
       "sourceUrls": [
-        "https://soundproofindia.com/motorized-sliding-gates.htm"
+        "https://www.soundproofindia.com/motorized-sliding-gates.htm"
       ],
       "legacyRoutes": [
         "motorized-sliding-gate.php",
@@ -1546,7 +1543,7 @@
       "description": "Rapid response automated boom barriers for vehicle access control and site security.",
       "image": "/images/products/motorized-barrier-system.jpg",
       "sourceUrls": [
-        "https://soundproofindia.com/motorized-barrier-system.htm"
+        "https://www.soundproofindia.com/motorized-barrier-system.htm"
       ],
       "legacyRoutes": [
         "barrier-system.php",

@@ -2,12 +2,14 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, Building2, ChevronRight, Gauge, Layers, Maximize, Rocket, Shield, Wind, Zap, type LucideIcon } from 'lucide-react';
+import { ArrowRight, Building2, ChevronRight, Gauge, Layers, Maximize, Rocket, Shield, Sparkles, Wind, Zap, type LucideIcon } from 'lucide-react';
 import { motion } from 'framer-motion';
+import ProductCard from '@/components/ProductCard';
 import SpecsSearch from '@/components/SpecsSearch';
 import ThemeMarker from '@/components/ThemeMarker';
+import SpecProcess from '@/components/SpecProcess';
 import ClientMarquee from '@/components/ClientMarquee';
-import { catalog, categories, getProductsByCategory, home, projects } from '@/lib/catalog';
+import { catalog, categories, getFeaturedProducts, getProductsByCategory, home, projects } from '@/lib/catalog';
 import { cn } from '@/lib/utils';
 import { trackQuoteClick, trackClientEvent } from '@/lib/analytics-client';
 
@@ -26,6 +28,8 @@ const promiseIcons: Record<string, LucideIcon> = {
 };
 
 export default function Home() {
+  const featuredProducts = getFeaturedProducts(6);
+
   return (
     <div className="flex min-h-screen flex-col bg-white">
       {/* Product-led Hero */}

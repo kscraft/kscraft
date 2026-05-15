@@ -4,6 +4,7 @@
 - Production build command: `npm run build`.
 - Production deploys should use the authenticated Vercel project/account for
   `soundproofindia.com` or the intended `ksco` project.
+- `doorwindowcraft.com` is configured as a Vercel alias for the same project.
 - Vercel Analytics and Speed Insights are gated to Vercel runtime in
   `src/app/layout.tsx`; Google Analytics is configured there as well.
 - Lead emails are sent through Resend. Required Vercel env vars are

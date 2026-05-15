@@ -142,15 +142,10 @@ export const company = catalogData.company as unknown as {
   };
 };
 
-type CatalogProductSource = Omit<Product, 'images'> & {
-  image?: string;
-  images?: string[];
-};
-
-export const products = (catalogData.products as unknown as CatalogProductSource[]).map((product) => ({
-  ...product,
-  images: product.images && product.images.length > 0 ? product.images : (product.image ? [product.image] : []),
-})) as Product[];
+export const products = (catalogData.products as any[]).map(p => ({
+  ...p,
+  images: p.images && p.images.length > 0 ? p.images : (p.image ? [p.image] : [])
+})) as unknown as Product[];
 
 export const categories = catalogData.categories as unknown as Category[];
 
@@ -414,7 +409,7 @@ export function getFeaturedProducts(limit: number = 3) {
   const preferred = [
     'motorized-vertical-sliding-window',
     'motorized-barrier-system',
-    'motorized-sliding-roof'
+    'high-performance-acoustic-sliding-windows'
   ];
 
   return preferred

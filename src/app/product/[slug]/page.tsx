@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { ChevronRight, CheckCircle2 } from 'lucide-react';
+import { ChevronRight, ShieldCheck, Zap, Layers, Wind, Maximize, Ruler, Gauge, CheckCircle2, ChevronLeft, Star } from 'lucide-react';
 import ProductGallery from '@/components/ProductGallery';
 import ProductActions from '@/components/ProductActions';
 import Breadcrumbs from '@/components/Breadcrumbs';
@@ -10,11 +10,13 @@ import AcousticGraph from '@/components/AcousticGraph';
 import ProductDownloads from '@/components/ProductDownloads';
 import blogsData from '@/data/blogs.json';
 import {
+  catalog,
   getProduct,
   getProductsByCategory,
   getProductPrimaryCategory,
   getProductPrimaryCategoryId,
-  products
+  products,
+  type Product
 } from '@/lib/catalog';
 import ThemeMarker from '@/components/ThemeMarker';
 import ProductCard from '@/components/ProductCard';
@@ -287,7 +289,7 @@ export default async function ProductPage({ params }: Props) {
             Ready to solve your most complex <span className="text-blue-500">acoustic or movement challenges?</span>
           </h2>
           <p className="text-xl text-slate-400 font-medium mb-16 max-w-2xl mx-auto leading-relaxed">
-            Partner with the engineering firm trusted by India&apos;s space program and global industrial leaders.
+            Partner with the engineering firm trusted by India's space program and global industrial leaders.
           </p>
           <Link href="/contact" className="apple-button px-12 py-5 text-sm font-black uppercase tracking-widest inline-flex items-center gap-3">
              Contact Engineering <ChevronRight className="w-5 h-5" />

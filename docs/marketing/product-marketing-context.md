@@ -115,6 +115,7 @@ follow-up, and case-study/proof enrichment.
 - Use "manufactured Gaganyaan's capsule entry mechanism" as the lead aerospace
   proof point.
 - Keep `soundproofindia.com` as canonical.
+- Keep `doorwindowcraft.com` as a Vercel alias/link to the canonical domain.
 - Keep generated pSEO pages differentiated by market rationale, buyer segments,
   service zones, product fit, and proof.
 - Do not invent client logos, certifications, test numbers, or unsupported

@@ -43,6 +43,8 @@ instead of relying on memory.
    `next.config.ts`, `src/app/sitemap.ts`, and `src/proxy.ts`.
 3. Check domain/canonical consistency:
    - `soundproofindia.com` is canonical.
+   - `doorwindowcraft.com` is a Vercel alias and should link or redirect to the
+     canonical domain.
 4. Audit technical SEO:
    - robots, sitemap, redirects, canonical URLs, metadata, Open Graph, Twitter,
      HTTP/host redirects, route coverage, indexability, and duplicate content.

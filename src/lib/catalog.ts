@@ -43,15 +43,15 @@ export type ServiceItem = {
   description: string;
 };
 
-export type MediaGalleryItem = {
-  title: string;
-  image: string;
-  productSlug?: string;
-};
-
-export type MediaVideo = {
-  title: string;
+export type MediaItem = {
   id: string;
+  type: 'image' | 'video';
+  category: string;
+  title: string;
+  technicalNote: string;
+  image?: string;
+  youtubeId?: string;
+  productSlug?: string;
 };
 
 export type HomeMetric = {
@@ -341,9 +341,8 @@ export const about = aboutData as {
 
 export const media = mediaData as {
   hero: { eyebrow: string; title: string; description: string };
-  videoSectionTitle: string;
-  gallery: MediaGalleryItem[];
-  videos: MediaVideo[];
+  categories: { id: string; label: string }[];
+  items: MediaItem[];
 };
 
 export const emailStrings = emailData as {
@@ -410,7 +409,7 @@ export function getFeaturedProducts(limit: number = 3) {
   const preferred = [
     'motorized-vertical-sliding-window',
     'motorized-barrier-system',
-    'sound-proof-tilt-turn-windows'
+    'high-performance-acoustic-sliding-windows'
   ];
 
   return preferred

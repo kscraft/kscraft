@@ -1,55 +1,114 @@
 {
   "hero": {
-    "eyebrow": "Engineering Visuals",
-    "title": "Products in Motion.",
+    "eyebrow": "Operational Precision",
+    "title": "Engineering in Motion.",
     "description": "Technical documentation and real-world performance demonstrations of our acoustic and automation systems."
   },
-  "videoSectionTitle": "Product Demonstrations",
-  "gallery": [
-    { 
-      "title": "Soundproof Sliding Windows", 
-      "image": "/images/media/soundproof-sliding-windows.jpg",
-      "productSlug": "sound-proof-sliding-windows"
+  "categories": [
+    { "id": "all", "label": "All Visuals" },
+    { "id": "acoustics", "label": "Acoustic Performance" },
+    { "id": "automation", "label": "Automated Systems" },
+    { "id": "strategic", "label": "Strategic Proof" }
+  ],
+  "items": [
+    {
+      "id": "v1",
+      "type": "video",
+      "category": "automation",
+      "title": "Motorized Sliding Windows: Technical Tour",
+      "youtubeId": "rQH3JyU4xrE",
+      "technicalNote": "High-Torque Drive System",
+      "productSlug": "motorized-soundproof-sliding-windows"
     },
-    { 
-      "title": "Movable Partition System", 
-      "image": "/images/media/movable-partition.jpg",
-      "productSlug": "sound-proof-acoustic-movable-partition"
+    {
+      "id": "v2",
+      "type": "video",
+      "category": "automation",
+      "title": "Compact Motorized Sliding Mechanism",
+      "youtubeId": "juPhfwFG3wU",
+      "technicalNote": "Precision Sash Movement",
+      "productSlug": "motorized-sliding-system"
     },
-    { 
-      "title": "Vertical Sliding Window", 
-      "image": "/images/media/vertical-sliding-window.jpg",
-      "productSlug": "sound-proof-vertical-sliding-windows"
-    },
-    { 
-      "title": "Telescopic Gate Installation", 
-      "image": "/images/media/telescopic-gate.jpg",
-      "productSlug": "motorized-telescopic-gates"
-    },
-    { 
-      "title": "Roof Sliding System", 
-      "image": "/images/media/roof-sliding-system.jpg",
-      "productSlug": "motorized-sliding-roof"
-    },
-    { 
-      "title": "ISRO Gaganyaan Mechanism", 
-      "image": "/images/media/project-1.jpg",
+    {
+      "id": "v3",
+      "type": "video",
+      "category": "strategic",
+      "title": "Gaganyaan Crew Entry Mechanism Demo",
+      "youtubeId": "EX9whYtmURM",
+      "technicalNote": "Aerospace Hermetic Sealing",
       "productSlug": "isro-gaganyaan"
     },
-    { 
-      "title": "Hilton Hospitality Series", 
+    {
+      "id": "i1",
+      "type": "image",
+      "category": "acoustics",
+      "title": "Soundproof Sliding Windows",
+      "image": "/images/media/soundproof-sliding-windows.jpg",
+      "technicalNote": "STC 45dB+ Certified",
+      "productSlug": "sound-proof-sliding-windows"
+    },
+    {
+      "id": "i2",
+      "type": "image",
+      "category": "acoustics",
+      "title": "Movable Partition System",
+      "image": "/images/media/movable-partition.jpg",
+      "technicalNote": "Laboratory Tested STC 52",
+      "productSlug": "sound-proof-acoustic-movable-partition"
+    },
+    {
+      "id": "i3",
+      "type": "image",
+      "category": "acoustics",
+      "title": "Vertical Sliding Window",
+      "image": "/images/media/vertical-sliding-window.jpg",
+      "technicalNote": "Precision Sash Isolation",
+      "productSlug": "sound-proof-vertical-sliding-windows"
+    },
+    {
+      "id": "i4",
+      "type": "image",
+      "category": "automation",
+      "title": "Telescopic Gate Installation",
+      "image": "/images/media/telescopic-gate.jpg",
+      "technicalNote": "3500kg Drive Capacity",
+      "productSlug": "motorized-telescopic-gates"
+    },
+    {
+      "id": "i5",
+      "type": "image",
+      "category": "automation",
+      "title": "Roof Sliding System",
+      "image": "/images/media/roof-sliding-system.jpg",
+      "technicalNote": "EPDM All-Weather Sealing",
+      "productSlug": "motorized-sliding-roof"
+    },
+    {
+      "id": "i6",
+      "type": "image",
+      "category": "strategic",
+      "title": "ISRO Gaganyaan Mechanism",
+      "image": "/images/media/project-1.jpg",
+      "technicalNote": "Zero-Failure Tolerance",
+      "productSlug": "isro-gaganyaan"
+    },
+    {
+      "id": "i7",
+      "type": "image",
+      "category": "strategic",
+      "title": "Hilton Hospitality Series",
       "image": "/images/media/project-2.jpg",
+      "technicalNote": "Commercial Acoustic Grade",
       "productSlug": "hilton-bengaluru"
     },
-    { 
-      "title": "Custom Automation Project", 
+    {
+      "id": "i8",
+      "type": "image",
+      "category": "automation",
+      "title": "Custom Automation Project",
       "image": "/images/media/project-3.jpg",
+      "technicalNote": "Bespoke PLC Integration",
       "productSlug": "motorized-sliding-system"
     }
-  ],
-  "videos": [
-    { "title": "Motorized Sliding Windows: Technical Tour", "id": "rQH3JyU4xrE" },
-    { "title": "Compact Motorized Sliding Mechanism", "id": "juPhfwFG3wU" },
-    { "title": "Gaganyaan Crew Entry Mechanism Demo", "id": "EX9whYtmURM" }
   ]
 }

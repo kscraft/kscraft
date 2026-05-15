@@ -95,6 +95,61 @@ export default async function IndustryPage({ params }: Props) {
         </div>
       </section>
 
+      {(industry.specificationFocus || industry.tenderLanguage || industry.approvalChecklist) && (
+        <section className="section-standard border-y border-slate-100 bg-white">
+          <div className="max-container">
+            <div className="mb-16 max-w-3xl">
+              <span className="text-eyebrow">Specification Notes</span>
+              <h2 className="heading-section mb-0">Tender-ready acoustic criteria for {industry.title}.</h2>
+            </div>
+
+            <div className="grid gap-8 lg:grid-cols-3">
+              {industry.specificationFocus && (
+                <div className="rounded-[2rem] border border-slate-200 bg-slate-50 p-8">
+                  <h3 className="mb-8 text-xl font-black uppercase tracking-tight text-slate-900">Design Focus</h3>
+                  <div className="space-y-6">
+                    {industry.specificationFocus.map((item) => (
+                      <div key={item.label}>
+                        <p className="text-[10px] font-black uppercase tracking-widest text-blue-600">{item.label}</p>
+                        <p className="mt-2 text-sm font-semibold leading-6 text-slate-600">{item.value}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {industry.tenderLanguage && (
+                <div className="rounded-[2rem] border border-slate-200 bg-slate-950 p-8 text-white">
+                  <h3 className="mb-8 text-xl font-black uppercase tracking-tight">Tender Language</h3>
+                  <ul className="space-y-5">
+                    {industry.tenderLanguage.map((item) => (
+                      <li key={item} className="flex gap-4 text-sm font-semibold leading-6 text-slate-300">
+                        <CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-blue-400" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {industry.approvalChecklist && (
+                <div className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
+                  <h3 className="mb-8 text-xl font-black uppercase tracking-tight text-slate-900">Approval Inputs</h3>
+                  <ul className="space-y-5">
+                    {industry.approvalChecklist.map((item) => (
+                      <li key={item} className="flex gap-4 text-sm font-semibold leading-6 text-slate-600">
+                        <CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-blue-600" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Industry Solutions - Product Grid */}
       <section className="section-standard bg-slate-50/50 border-y border-slate-100">
         <div className="max-container">

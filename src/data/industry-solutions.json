@@ -70,6 +70,21 @@
       { "title": "Auditorium Versatility", "description": "Large-span movable partitions with STC 50+ ratings for simultaneous multi-use hall operations." },
       { "title": "Music Suite Isolation", "description": "Extreme soundproofing for dedicated performance, practice, and recording spaces within institutions." }
     ],
+    "specificationFocus": [
+      { "label": "Classrooms", "value": "External noise control, speech clarity, and low-reverberation learning environments." },
+      { "label": "Auditoriums", "value": "Operable wall systems with tested STC ratings, top-bottom seals, and safe panel storage." },
+      { "label": "Music Rooms", "value": "High-isolation windows, doors, and viewing panels for practice, recording, and assessment spaces." }
+    ],
+    "tenderLanguage": [
+      "Acoustic doors and glazing shall be supplied with declared STC/OITC performance data for the proposed configuration.",
+      "Movable partitions shall include perimeter compression seals, acoustic sweep seals, and a documented stacking or parking arrangement.",
+      "Submittals shall include shop drawings, hardware schedules, seal details, and installation methodology for consultant approval."
+    ],
+    "approvalChecklist": [
+      "Room-by-room acoustic target or consultant brief.",
+      "Opening schedule with wall thickness, finished floor levels, and ceiling coordination.",
+      "Operation requirements for student use, auditorium teams, maintenance access, and emergency egress."
+    ],
     "productSlugs": ["sound-proof-windows", "sound-proof-sliding-folding-partition", "sound-proof-swing-doors", "sound-proof-acoustic-fix-partition"],
     "metaTitle": "Acoustic Solutions for Schools & Universities | Institutional Soundproofing",
     "metaDescription": "High-performance soundproofing for educational facilities. Improve student focus with acoustic windows and movable partitions designed for auditoriums, music rooms, and classrooms."
@@ -84,6 +99,21 @@
       { "title": "OSHA & NIOSH Compliance", "description": "Reducing ambient factory noise to levels that satisfy occupational health and safety regulations." },
       { "title": "Control Room Integrity", "description": "Absolute silence for monitoring stations in high-decibel environments (turbine halls, forge shops)." },
       { "title": "Ruggedized Engineering", "description": "Acoustic steel doors and heavy-duty reinforced frames built for millions of industrial operational cycles." }
+    ],
+    "specificationFocus": [
+      { "label": "Control Rooms", "value": "High-STC viewing panels and acoustic doors for operators beside turbines, presses, compressors, and test cells." },
+      { "label": "Plant Access", "value": "Rugged acoustic door sets with heavy-duty hinges, closers, drop seals, and impact-resistant frames." },
+      { "label": "Perimeter Automation", "value": "PLC-compatible barriers, sliding gates, and telescopic gates for high-cycle industrial access control." }
+    ],
+    "tenderLanguage": [
+      "Acoustic assemblies shall be engineered for the stated plant noise profile, including low-frequency equipment noise where applicable.",
+      "Door and frame sets shall include heavy-duty hardware, perimeter seals, threshold sealing, and finish schedules suited to industrial traffic.",
+      "Automation packages shall define motor duty cycle, safety devices, manual release, control interface, and PLC/BMS integration points."
+    ],
+    "approvalChecklist": [
+      "Source noise level, octave-band data when available, and target room-side noise criteria.",
+      "Opening sizes, wall build-up, equipment access clearances, and fire or egress constraints.",
+      "Control philosophy for barriers, gates, shutters, safety loops, sensors, and access-control integration."
     ],
     "productSlugs": ["sound-proof-swing-doors", "sound-proof-acoustic-fix-partition", "motorized-sliding-gates", "motorized-telescopic-gates"],
     "metaTitle": "Industrial Soundproofing Solutions | Factory & Plant Noise Control",

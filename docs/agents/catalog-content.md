@@ -16,6 +16,9 @@ Rules:
   local noise/buyer context.
 - Treat `src/data/service-location-seo.ts` as the source of truth for service
   plus location pSEO families and their matched products.
+- Treat `src/data/industry-solutions.json` as the source of truth for vertical
+  solution pages, including optional tender-specification language for
+  education and industrial/manufacturing buyers.
 - Keep catalog behavior data-driven through `src/lib/catalog.ts`; avoid
   duplicating product/category lists directly in page components.
 - Products can belong to multiple categories. Preserve `primaryCategory`,

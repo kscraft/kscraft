@@ -295,6 +295,9 @@ export type IndustrySolution = {
   description: string;
   heroImage: string;
   benefits: { title: string; description: string }[];
+  specificationFocus?: { label: string; value: string }[];
+  tenderLanguage?: string[];
+  approvalChecklist?: string[];
   productSlugs: string[];
   metaTitle: string;
   metaDescription: string;

@@ -119,4 +119,4 @@ The site has been transformed from a static catalog into a higher-authority dema
 9. Search Console/Bing setup and sitemap submission after API/property access is unblocked.
 10. [DONE] Technical Proof downloads and dynamic showcase architecture.
 11. Build out more Project Highlights for P1 regions (Dubai, Riyadh, London).
-12. Deepen Education and Industrial vertical copy with specific tender-spec language.
+12. [DONE] Deepen Education and Industrial vertical copy with specific tender-spec language.

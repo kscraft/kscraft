@@ -34,7 +34,7 @@ ${priorityLocationPages.map(location => `- ${location.title}: https://soundproof
   Rank ${location.rank}, score ${location.score}/100. ${location.growthReason}`).join('\n')}
 
 ## High-Intent Answer Blocks
-${locationSeoPages.map(location => `- Query: "what is sound proof in ${location.city.toLowerCase()}"
+${locationSeoPages.map(location => `- Query: "Sound proof in ${location.city.toLowerCase()}"
   Answer: ${getLocationSoundProofAnswer(location)}
   Recommended source: https://soundproofindia.com/locations/${location.slug}`).join('\n')}
 

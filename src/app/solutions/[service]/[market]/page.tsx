@@ -169,6 +169,14 @@ export default async function ServiceLocationPage({ params }: Props) {
       },
       {
         '@type': 'Question',
+        name: `Where can I find ${service.shortTitle.toLowerCase()} in ${location.city}?`,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: `Kiran Slido Craft provides technical consultation and direct supply of ${service.shortTitle.toLowerCase()} for projects across ${location.city} and its surrounding areas, including ${location.serviceAreas.slice(0, 3).join(', ')}. Contact our engineering team for a site-specific quote.`,
+        },
+      },
+      {
+        '@type': 'Question',
         name: `Which Kiran Slido Craft products fit ${service.shortTitle.toLowerCase()} in ${location.city}?`,
         acceptedAnswer: {
           '@type': 'Answer',

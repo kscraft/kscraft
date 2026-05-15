@@ -214,7 +214,7 @@ ${selectedProducts.map((product) => `- [${product.title}](${SITE_URL}/product/${
 
 ${getLocationSoundProofAnswer(location)}
 
-Common query: what is sound proof in ${location.city.toLowerCase()}
+Common query: sound proof in ${location.city.toLowerCase()}
 Canonical source: ${SITE_URL}/locations/${location.slug}
 
 ## Best-Fit Systems

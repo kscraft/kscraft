@@ -1,17 +1,15 @@
 'use client';
 
 import { useState } from 'react';
-import { ExternalLink } from 'lucide-react';
 import QuoteModal from '@/components/QuoteModal';
 import { catalog } from '@/lib/catalog';
 import { trackQuoteClick } from '@/lib/analytics-client';
 
 type ProductActionsProps = {
   productTitle: string;
-  sourceUrl?: string;
 };
 
-export default function ProductActions({ productTitle, sourceUrl }: ProductActionsProps) {
+export default function ProductActions({ productTitle }: ProductActionsProps) {
   const [isModalOpen, setIsOpen] = useState(false);
 
   return (
@@ -26,17 +24,6 @@ export default function ProductActions({ productTitle, sourceUrl }: ProductActio
         >
           {catalog.company.ui.getQuote}
         </button>
-        {sourceUrl && (
-          <a 
-            href={sourceUrl} 
-            target="_blank" 
-            rel="noreferrer" 
-            className="group apple-button-secondary px-10 py-4 text-sm uppercase tracking-widest font-black inline-flex items-center justify-center gap-3"
-          >
-            {catalog.company.ui.viewSourceDetails} 
-            <ExternalLink className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          </a>
-        )}
       </div>
 
       <QuoteModal 

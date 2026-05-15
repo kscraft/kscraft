@@ -57,7 +57,7 @@ vi.mock('lucide-react', () => {
     'X', 'Phone', 'MessageSquare', 'Mail', 'ChevronRight', 'Copy', 'Check', 'Globe2', 
     'ShieldCheck', 'Send', 'ArrowRight', 'Home', 'Menu', 'ChevronDown', 'Search',
     'Settings', 'Wrench', 'ClipboardCheck', 'Building2', 'BadgeCheck', 'Trophy',
-    'MapPin', 'Rocket', 'Zap', 'Target', 'Gauge', 'Sparkles', 'Maximize', 'Layers', 
+    'MapPin', 'Rocket', 'Zap', 'Target', 'Gauge', 'Sparkles', 'Maximize', 'Layers', 'Filter',
     'Wind', 'CheckCircle2', 'Award', 'Play', 'SlidersHorizontal', 'ArrowRightLeft',
     'ClipboardList', 'Shield', 'Settings2', 'Hotel', 'Clock', 'Eye', 'Plane', 'Sun', 
     'ArrowUp', 'FileText', 'Users', 'Factory', 'Truck', 'HelpCircle', 'Clipboard',

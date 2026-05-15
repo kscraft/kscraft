@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Play, ChevronRight, Filter, Box } from 'lucide-react';
-import { media, catalog } from '@/lib/catalog';
+import { media } from '@/lib/catalog';
 import ThemeMarker from '@/components/ThemeMarker';
 import { cn } from '@/lib/utils';
 
@@ -169,7 +169,7 @@ export default function MediaPage() {
             Ready to <br /><span className="text-blue-500">Specify Success?</span>
           </h2>
           <p className="text-xl text-slate-400 max-w-2xl mx-auto mb-20 font-medium">
-            Join the mission-critical projects defining India's architectural future. Partner with the engineering firm trusted for 35+ years.
+            Join the mission-critical projects defining India&apos;s architectural future. Partner with the engineering firm trusted for 35+ years.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-8">
             <Link href="/contact" className="apple-button px-12 py-6 text-xs font-black uppercase tracking-widest">

@@ -42,13 +42,12 @@ function ContactForm() {
     }
   };
 
-  const [referrer, setReferrer] = React.useState('');
-  const [pagePath, setPagePath] = React.useState('');
-
-  React.useEffect(() => {
-    setReferrer(document.referrer || 'none');
-    setPagePath(window.location.pathname);
-  }, []);
+  const [referrer] = React.useState(() => (
+    typeof document !== 'undefined' ? document.referrer || 'none' : 'none'
+  ));
+  const [pagePath] = React.useState(() => (
+    typeof window !== 'undefined' ? window.location.pathname : '/'
+  ));
 
   return (
     <div className="bg-slate-950 rounded-[3.5rem] p-10 lg:p-20 text-white shadow-[0_50px_100px_-12px_rgba(0,0,0,0.4)] relative overflow-hidden">

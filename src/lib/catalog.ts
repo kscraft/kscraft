@@ -46,6 +46,7 @@ export type ServiceItem = {
 export type MediaGalleryItem = {
   title: string;
   image: string;
+  productSlug?: string;
 };
 
 export type MediaVideo = {

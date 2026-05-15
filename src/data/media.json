@@ -1,24 +1,55 @@
 {
   "hero": {
-    "eyebrow": "Visual Documentation",
-    "title": "Engineering in Focus.",
-    "description": "Raw installation footage and technical project visuals from our manufacturing hubs and client sites worldwide."
+    "eyebrow": "Engineering Visuals",
+    "title": "Products in Motion.",
+    "description": "Technical documentation and real-world performance demonstrations of our acoustic and automation systems."
   },
-  "videoSectionTitle": "Project Documentation",
+  "videoSectionTitle": "Product Demonstrations",
   "gallery": [
-    { "title": "Soundproof Sliding Windows", "image": "/images/media/soundproof-sliding-windows.jpg" },
-    { "title": "Movable Partition System", "image": "/images/media/movable-partition.jpg" },
-    { "title": "Vertical Sliding Window", "image": "/images/media/vertical-sliding-window.jpg" },
-    { "title": "Telescopic Gate Installation", "image": "/images/media/telescopic-gate.jpg" },
-    { "title": "Roof Sliding System", "image": "/images/media/roof-sliding-system.jpg" },
-    { "title": "Project Highlight 1", "image": "/images/media/project-1.jpg" },
-    { "title": "Project Highlight 2", "image": "/images/media/project-2.jpg" },
-    { "title": "Project Highlight 3", "image": "/images/media/project-3.jpg" }
+    { 
+      "title": "Soundproof Sliding Windows", 
+      "image": "/images/media/soundproof-sliding-windows.jpg",
+      "productSlug": "sound-proof-sliding-windows"
+    },
+    { 
+      "title": "Movable Partition System", 
+      "image": "/images/media/movable-partition.jpg",
+      "productSlug": "sound-proof-acoustic-movable-partition"
+    },
+    { 
+      "title": "Vertical Sliding Window", 
+      "image": "/images/media/vertical-sliding-window.jpg",
+      "productSlug": "sound-proof-vertical-sliding-windows"
+    },
+    { 
+      "title": "Telescopic Gate Installation", 
+      "image": "/images/media/telescopic-gate.jpg",
+      "productSlug": "motorized-telescopic-gates"
+    },
+    { 
+      "title": "Roof Sliding System", 
+      "image": "/images/media/roof-sliding-system.jpg",
+      "productSlug": "motorized-sliding-roof"
+    },
+    { 
+      "title": "ISRO Gaganyaan Mechanism", 
+      "image": "/images/media/project-1.jpg",
+      "productSlug": "isro-gaganyaan"
+    },
+    { 
+      "title": "Hilton Hospitality Series", 
+      "image": "/images/media/project-2.jpg",
+      "productSlug": "hilton-bengaluru"
+    },
+    { 
+      "title": "Custom Automation Project", 
+      "image": "/images/media/project-3.jpg",
+      "productSlug": "motorized-sliding-system"
+    }
   ],
   "videos": [
-    { "title": "Premium Villa Tour: Motorized Systems", "id": "rQH3JyU4xrE" },
-    { "title": "Motorized Sliding Window", "id": "juPhfwFG3wU" },
-    { "title": "Gaganyaan Crew Entry Mechanism", "id": "EX9whYtmURM" },
-    { "title": "Kiran Slido Craft: Engineering Reel", "id": "OZkQQHWFMac" }
+    { "title": "Motorized Sliding Windows: Technical Tour", "id": "rQH3JyU4xrE" },
+    { "title": "Compact Motorized Sliding Mechanism", "id": "juPhfwFG3wU" },
+    { "title": "Gaganyaan Crew Entry Mechanism Demo", "id": "EX9whYtmURM" }
   ]
 }

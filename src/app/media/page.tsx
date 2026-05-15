@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
+import Link from 'next/link';
 import { catalog, media, home } from '@/lib/catalog';
-import { Play } from 'lucide-react';
+import { Play, ChevronRight } from 'lucide-react';
 import ThemeMarker from '@/components/ThemeMarker';
 
 export const metadata: Metadata = {
@@ -83,7 +84,11 @@ export default function MediaPage() {
           
           <div className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
             {gallery.map((item) => (
-              <div key={item.title} className="relative break-inside-avoid rounded-[2.5rem] overflow-hidden group shadow-xl hover:shadow-2xl transition-all">
+              <Link 
+                key={item.title} 
+                href={item.productSlug ? `/product/${item.productSlug}` : '/contact'}
+                className="block relative break-inside-avoid rounded-[2.5rem] overflow-hidden group shadow-xl hover:shadow-2xl transition-all"
+              >
                 <Image
                   src={item.image}
                   alt={item.title}
@@ -91,10 +96,14 @@ export default function MediaPage() {
                   height={800}
                   className="w-full h-auto transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-8">
-                  <p className="text-white font-black uppercase tracking-widest text-xs">{item.title}</p>
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-10">
+                  <p className="text-[10px] font-black uppercase tracking-[0.3em] text-blue-400 mb-2">Technical Installation</p>
+                  <p className="text-white font-black uppercase tracking-tight text-xl mb-4">{item.title}</p>
+                  <span className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.2em] text-white/60">
+                    View Product Details <ChevronRight className="w-4 h-4" />
+                  </span>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>

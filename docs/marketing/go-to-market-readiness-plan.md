@@ -12,9 +12,7 @@ The site has been transformed from a static catalog into a higher-authority dema
 1. Canonical/domain cleanup.
    - Keep `soundproofindia.com` as canonical across metadata, sitemap, OpenAPI,
      robots, discovery, and JSON-LD.
-   - Keep `doorwindowcraft.com` as a Vercel alias that redirects or links to the
-     canonical domain.
-   - Verify redirects in production after deployment.
+   - Verify canonical URLs in production after deployment.
 
 2. Lead capture.
    - Replace mailto-only contact behavior with a real server-side inquiry flow.

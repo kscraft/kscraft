@@ -8,16 +8,7 @@ Routing and SEO rules:
 - Service-location SEO routes are generated from
   `src/data/service-location-seo.ts`.
 - Keep metadata canonical URLs on `https://soundproofindia.com`.
-- Known owned domains for this portfolio: `doorwindowcraft.com`,
-  `soundproofindia.com`, `ksco.co`, `kiranslidocraft.com`,
-  `kiranslidocraft.co.in`, and `talosprotocol.com`.
-- `doorwindowcraft.com` and `soundproofindia.com` both point to this current
-  Kiran Slido Craft project; `doorwindowcraft.com` is configured as a Vercel
-  alias for this project.
-- Treat `soundproofindia.com` as the current canonical domain. `doorwindowcraft.com`
-  should link or redirect to `soundproofindia.com` with matching route behavior
-  and no duplicate content drift. Other Kiran Slido Craft domains should
-  redirect or alias to canonical pages with matching metadata. Keep
+- Treat `soundproofindia.com` as the current canonical domain. Keep
   `talosprotocol.com` separate from Kiran Slido Craft content unless the user
   explicitly defines a cross-brand use.
 - Maintain JSON-LD for organization, website, local business, category,
@@ -55,8 +46,8 @@ handlers in the same change.
 Production verification notes:
 
 - Live production can be behind the repo because Vercel/cache state may serve
-  older `robots.txt`, sitemap, canonical, or `doorwindowcraft.com` behavior.
+  older `robots.txt`, sitemap, or canonical behavior.
 - After SEO or domain changes, verify both repo output and live URLs:
   `https://soundproofindia.com/robots.txt`,
-  `https://soundproofindia.com/sitemap.xml`,
-  `https://www.soundproofindia.com/`, and `https://doorwindowcraft.com/`.
+  `https://soundproofindia.com/sitemap.xml`, and
+  `https://soundproofindia.com/`.

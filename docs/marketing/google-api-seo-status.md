@@ -22,8 +22,8 @@ Checked on 2026-05-14.
 
 ## Needed To Continue With Google APIs
 
-1. Add `soundproofindia.com` and `https://www.soundproofindia.com/` to Google
-   Search Console, or verify the existing property.
+1. Add `soundproofindia.com` to Google Search Console, or verify the existing
+   property.
 2. Re-authorize a Google token with Search Console read scope:
    `https://www.googleapis.com/auth/webmasters.readonly`.
 3. Set the numeric `GA4_PROPERTY_ID` in `.env`.

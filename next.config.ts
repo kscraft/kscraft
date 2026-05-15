@@ -1,8 +1,6 @@
 import type { NextConfig } from "next";
 import catalog from "./src/data/catalog.json";
 
-const CANONICAL_SITE_URL = "https://soundproofindia.com";
-
 const AGENT_LINK_HEADER = [
   '</.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json"',
   '</openapi.json>; rel="service-desc"; type="application/openapi+json"',
@@ -38,33 +36,27 @@ const nextConfig: NextConfig = {
     ];
   },
   async redirects() {
-    const productRedirects = catalog.products.flatMap((product) =>
-      product.legacyRoutes.map((route) => ({
+    const productRedirects = catalog.products.flatMap((product) => {
+      const legacyRoutes = new Set<string>();
+
+      for (const route of product.legacyRoutes ?? []) {
+        legacyRoutes.add(route);
+
+        if (route.endsWith('.php')) {
+          legacyRoutes.add(route.replace(/\.php$/, '.htm'));
+        } else if (route.endsWith('.htm')) {
+          legacyRoutes.add(route.replace(/\.htm$/, '.php'));
+        }
+      }
+
+      return [...legacyRoutes].map((route) => ({
         source: `/${route}`,
         destination: `/product/${product.slug}`,
         permanent: true,
-      }))
-    );
+      }));
+    });
 
     return [
-      {
-        source: "/:path*",
-        has: [{ type: "host", value: "doorwindowcraft.com" }],
-        destination: `${CANONICAL_SITE_URL}/:path*`,
-        permanent: true,
-      },
-      {
-        source: "/:path*",
-        has: [{ type: "host", value: "www.doorwindowcraft.com" }],
-        destination: `${CANONICAL_SITE_URL}/:path*`,
-        permanent: true,
-      },
-      {
-        source: "/:path*",
-        has: [{ type: "host", value: "www.soundproofindia.com" }],
-        destination: `${CANONICAL_SITE_URL}/:path*`,
-        permanent: true,
-      },
       { source: "/company.php", destination: "/about", permanent: true },
       { source: "/index.html", destination: "/", permanent: true },
       { source: "/company-profile.htm", destination: "/about", permanent: true },

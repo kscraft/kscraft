@@ -1,0 +1,46 @@
+[
+  {
+    "slug": "soundproof-window-buying-guide",
+    "title": "The Ultimate Guide to Specifying Soundproof Windows",
+    "metaTitle": "Soundproof Window Buying Guide | Kiran Slido Craft",
+    "metaDescription": "Everything you need to know about specifying soundproof windows, from STC ratings to frame materials and glazing.",
+    "description": "Learn the technical factors behind acoustic fenestration, from STC ratings to frame engineering and glass configuration.",
+    "excerpt": "A deep dive into STC ratings, frame engineering, and glass configurations for maximum noise reduction.",
+    "content": [
+      {
+        "sectionTitle": "Understanding STC Ratings",
+        "text": "STC (Sound Transmission Class) is the most critical metric. For high-noise environments near highways or airports, we recommend systems with a minimum STC of 45dB."
+      },
+      {
+        "sectionTitle": "Frame Engineering",
+        "text": "The frame is as important as the glass. Our heavy-duty aluminum sections are engineered with multi-chamber profiles to minimize sound resonance."
+      }
+    ],
+    "category": "Education",
+    "readTime": "8 min read",
+    "date": "2026-05-12",
+    "relatedProducts": ["sound-proof-sliding-windows", "sound-proof-casement-windows"]
+  },
+  {
+    "slug": "stc-vs-oitc-ratings-explained",
+    "title": "Understanding STC vs. OITC: Which Metric Matters?",
+    "metaTitle": "STC vs. OITC Explained | Acoustic Performance Metrics",
+    "metaDescription": "Learn the difference between STC and OITC ratings and how to choose the right one for your noise containment project.",
+    "description": "A technical comparison of acoustic ratings and how they apply to urban vs. aircraft noise containment.",
+    "excerpt": "Comparing two critical acoustic metrics and their real-world applications in urban noise containment.",
+    "content": [
+      {
+        "sectionTitle": "Frequency Matters",
+        "text": "STC measures speech-range noise. OITC measures low-frequency rumble. If your project is near a construction site or railway, OITC is the metric you should focus on."
+      },
+      {
+        "sectionTitle": "Glazing Configurations",
+        "text": "Asymmetrical glazing (using two different thicknesses of glass) is the most effective way to block broad-spectrum noise."
+      }
+    ],
+    "category": "Technical",
+    "readTime": "6 min read",
+    "date": "2026-05-10",
+    "relatedProducts": ["sound-proof-windows", "sound-proof-acoustic-fix-partition"]
+  }
+]

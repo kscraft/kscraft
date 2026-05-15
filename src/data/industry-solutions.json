@@ -1,0 +1,92 @@
+[
+  {
+    "slug": "hotels-hospitality",
+    "title": "Hotels & Hospitality",
+    "eyebrow": "Guest Privacy & Comfort",
+    "description": "Premium soundproofing solutions for high-end hotels and resorts. Ensure guest privacy and restorative sleep with our high-STC window and door systems.",
+    "heroImage": "/images/blogs/aesthetic-acoustics.jpg",
+    "benefits": [
+      { "title": "Guest Satisfaction", "description": "Eliminating exterior traffic and aircraft noise for a premium guest experience." },
+      { "title": "Room Versatility", "description": "Flexible ballroom and meeting spaces with high-performance movable partitions." },
+      { "title": "Luxury Aesthetics", "description": "Bespoke finishes that align with elite interior design and architectural standards." }
+    ],
+    "productSlugs": ["sound-proof-windows", "sound-proof-sliding-folding-partition", "sound-proof-swing-doors", "motorized-sliding-roof"],
+    "metaTitle": "Acoustic Solutions for Hotels & Resorts | Kiran Slido Craft",
+    "metaDescription": "Elevate guest comfort with professional soundproofing. Custom windows, doors, and movable partitions designed for luxury hospitality environments."
+  },
+  {
+    "slug": "recording-studios",
+    "title": "Recording Studios",
+    "eyebrow": "Absolute Silence",
+    "description": "Precision engineering for zero-compromise acoustic environments. Our studio-grade isolation systems are specified for broadcasting, music production, and post-production facilities.",
+    "heroImage": "/images/blogs/acoustic-glass-partitions.jpg",
+    "benefits": [
+      { "title": "Isolation Integrity", "description": "Achieving critical silence with STC ratings up to 52dB+ for vocal and instrument tracking." },
+      { "title": "Visual Connectivity", "description": "High-visibility acoustic fixed partitions for seamless control room interaction." },
+      { "title": "Professional Certification", "description": "Laboratory-tested performance data to satisfy acoustic consultant requirements." }
+    ],
+    "productSlugs": ["sound-proof-acoustic-fix-partition", "sound-proof-swing-doors", "sound-proof-windows"],
+    "metaTitle": "Professional Studio Soundproofing | Acoustic Isolation Systems",
+    "metaDescription": "Engineering absolute silence for recording studios. High-performance acoustic glass partitions and doors for broadcast and music production."
+  },
+  {
+    "slug": "healthcare-hospitals",
+    "title": "Healthcare & Hospitals",
+    "eyebrow": "Restorative Environments",
+    "description": "Supporting patient recovery by managing noise levels in critical care and ward environments. Our systems help facilities meet healthcare acoustic guidelines and ensure patient confidentiality.",
+    "heroImage": "/images/blogs/commercial-soundproofing.jpg",
+    "benefits": [
+      { "title": "Healing Silence", "description": "Reducing ambient noise levels to support faster patient recovery and staff well-being." },
+      { "title": "Patient Privacy", "description": "Soundproof partitions and doors that ensure HIPAA-compliant confidential consultations." },
+      { "title": "Hygiene Compliance", "description": "Smooth, easy-to-sanitize surfaces and medical-grade seals for sterile environments." }
+    ],
+    "productSlugs": ["sound-proof-windows", "sound-proof-swing-doors", "sound-proof-acoustic-fix-partition"],
+    "metaTitle": "Hospital Soundproofing & Acoustic Solutions | Kiran Slido Craft",
+    "metaDescription": "Acoustic solutions for healthcare facilities. Soundproof windows and doors designed to improve patient recovery and ensure medical privacy."
+  },
+  {
+    "slug": "corporate-offices",
+    "title": "Corporate Offices",
+    "eyebrow": "Deep Focus Work",
+    "description": "Maximize productivity in open-plan offices and confidential boardroom environments. We provide architectural systems that balance collaboration with acoustic privacy.",
+    "heroImage": "/images/blogs/aesthetic-acoustics.jpg",
+    "benefits": [
+      { "title": "Productivity Gains", "description": "Reducing distractions in collaborative spaces for improved employee focus." },
+      { "title": "Executive Privacy", "description": "High-performance boardroom partitions for confidential leadership briefings." },
+      { "title": "Adaptive Spaces", "description": "Movable walls that transform floor plates for varied team and event sizes." }
+    ],
+    "productSlugs": ["sound-proof-sliding-folding-partition", "sound-proof-acoustic-fix-partition", "sound-proof-windows"],
+    "metaTitle": "Office Soundproofing & Acoustic Partitions | Business Solutions",
+    "metaDescription": "Maximize productivity with professional office acoustics. Movable partitions and soundproof glass systems for modern corporate workspaces."
+  },
+  {
+    "slug": "education-institutions",
+    "title": "Education & Institutions",
+    "eyebrow": "Quiet Learning Environments",
+    "description": "Optimize academic performance by eliminating noise distractions. Our acoustic solutions for classrooms, auditoriums, and music conservatories meet stringent institutional standards for speech clarity and background noise control.",
+    "heroImage": "/images/media/project-2.jpg",
+    "benefits": [
+      { "title": "Acoustic Comfort Standards", "description": "Systems designed to meet BB93 (UK) and similar global educational acoustic criteria." },
+      { "title": "Auditorium Versatility", "description": "Large-span movable partitions with STC 50+ ratings for simultaneous multi-use hall operations." },
+      { "title": "Music Suite Isolation", "description": "Extreme soundproofing for dedicated performance, practice, and recording spaces within institutions." }
+    ],
+    "productSlugs": ["sound-proof-windows", "sound-proof-sliding-folding-partition", "sound-proof-swing-doors", "sound-proof-acoustic-fix-partition"],
+    "metaTitle": "Acoustic Solutions for Schools & Universities | Institutional Soundproofing",
+    "metaDescription": "High-performance soundproofing for educational facilities. Improve student focus with acoustic windows and movable partitions designed for auditoriums, music rooms, and classrooms."
+  },
+  {
+    "slug": "industrial-manufacturing",
+    "title": "Industrial & Manufacturing",
+    "eyebrow": "Heavy-Duty Noise Containment",
+    "description": "Ensure regulatory compliance and protect workforce health with high-decibel noise containment. We provide engineered acoustic barriers for factories, power plants, and mission-critical control rooms.",
+    "heroImage": "/images/blogs/industrial-barriers.jpg",
+    "benefits": [
+      { "title": "OSHA & NIOSH Compliance", "description": "Reducing ambient factory noise to levels that satisfy occupational health and safety regulations." },
+      { "title": "Control Room Integrity", "description": "Absolute silence for monitoring stations in high-decibel environments (turbine halls, forge shops)." },
+      { "title": "Ruggedized Engineering", "description": "Acoustic steel doors and heavy-duty reinforced frames built for millions of industrial operational cycles." }
+    ],
+    "productSlugs": ["sound-proof-swing-doors", "sound-proof-acoustic-fix-partition", "motorized-sliding-gates", "motorized-telescopic-gates"],
+    "metaTitle": "Industrial Soundproofing Solutions | Factory & Plant Noise Control",
+    "metaDescription": "Heavy-duty acoustic isolation for manufacturing and industrial plants. Ruggedized soundproof doors, partitions, and windows designed for high-decibel containment and safety."
+  }
+]

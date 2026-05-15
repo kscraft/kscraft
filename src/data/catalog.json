@@ -300,6 +300,29 @@
       "challengeTitle": "Have a unique engineering challenge?",
       "challengeDescription": "Partner with the engineering company trusted by ISRO, Godrej, and HDFC for mission-critical automation and acoustics."
     },
+    "caseStudiesTeaser": {
+      "eyebrow": "Project Portfolio",
+      "title": "Engineering Proof Across Sectors.",
+      "ctaLabel": "View All Case Studies",
+      "highlights": [
+        {
+          "sector": "Aerospace & Defense",
+          "description": "Indigenous manufacturing of the crew entry mechanism for India's manned space flight program.",
+          "ctaLabel": "Read Aerospace Case Study"
+        },
+        {
+          "sector": "National Defense",
+          "description": "PLC-operated automatic barrier systems for high-security access control along national borders.",
+          "ctaLabel": "View Defense Projects"
+        },
+        {
+          "sector": "Luxury Hospitality",
+          "title": "Oberoi & Sahara Star",
+          "description": "Premium acoustic movable partitions for flexible, sound-isolated ballroom and event spaces.",
+          "ctaLabel": "Explore Hospitality Proof"
+        }
+      ]
+    },
     "about": {
       "heroTitle": "Our Legacy.",
       "heroDescription": "Pioneering indigenous engineering and architectural automation in India.",
@@ -314,17 +337,6 @@
         "systemsLabel": "Systems",
         "experienceLabel": "Years Experience",
         "certDetail": "Strict adherence to international quality management systems in every project."
-      }
-    },
-    "services": {
-      "heroTitle": "Service Support.",
-      "heroDescription": "Comprehensive maintenance and technical lifecycle support for our range of premium acoustic and automatic systems.",
-      "assistLabel": "Ready to Assist",
-      "assistTitle": "International Standards, Indigenous Support.",
-      "assistDescription": "Kiran Slido Craft provides technical response times and support availability that matches our high engineering quality.",
-      "ctaLabel": "Request Service Support",
-      "ui": {
-        "learnMore": "Learn more"
       }
     },
     "contact": {
@@ -387,53 +399,8 @@
       "imageSectionDescription": "Documentation of live engineering deployments across residential and industrial sectors."
     }
   },
-  "media": {
-    "gallery": [
-      {
-        "title": "ISRO Gaganyaan Crew Entry",
-        "image": "/images/media/project-1.jpg"
-      },
-      {
-        "title": "VJ Villa Terraces",
-        "image": "/images/media/project-3.jpg"
-      },
-      {
-        "title": "Hilton Hotel Vertical Glazing",
-        "image": "/images/media/project-2.jpg"
-      },
-      {
-        "title": "Motorized Soundproof Series",
-        "image": "/images/media/soundproof-sliding-windows.jpg"
-      },
-      {
-        "title": "Automation Track Detail",
-        "image": "/images/media/vertical-sliding-window.jpg"
-      },
-      {
-        "title": "Retractable Roof Installation",
-        "image": "/images/media/roof-sliding-system.jpg"
-      }
-    ],
-    "videos": [
-      {
-        "title": "Sound Proof Sliding Windows",
-        "id": "fACitrJPPb4"
-      },
-      {
-        "title": "Motorized Automation Demo",
-        "id": "pIHa0Cm172A"
-      },
-      {
-        "title": "Vertical Sash Movement",
-        "id": "hS9RaVKUhvw"
-      },
-      {
-        "title": "Retractable Roof Control",
-        "id": "-M1OiThaWV4"
-      }
-    ]
-  },
   "projects": {
+
     "highlights": [
       {
         "title": "ISRO Gaganyaan Mission",
@@ -597,33 +564,7 @@
       }
     ]
   },
-  "services": [
-    {
-      "title": "Annual Maintenance",
-      "icon": "Settings",
-      "description": "Scheduled maintenance support for automatic systems including motorized barriers, roof sliding systems, and telescopic gates to ensure long-term operational integrity."
-    },
-    {
-      "title": "Acoustic Support",
-      "icon": "Wrench",
-      "description": "Post-installation service support for sound proof windows, acoustic movable wall partitions, and specialized acoustic door systems."
-    },
-    {
-      "title": "Open Source Initiative",
-      "icon": "Box",
-      "description": "Contributing to the future of autonomous engineering through the Talos Protocol, an open-source security and trust layer for AI agent orchestration and tool authorization."
-    },
-    {
-      "title": "Technical Consultation",
-      "icon": "ShieldCheck",
-      "description": "Direct engineering support for architectural projects, from initial acoustic specification to final on-site installation and calibration."
-    },
-    {
-      "title": "System Upgrades",
-      "icon": "ClipboardCheck",
-      "description": "Modernization of legacy manual systems to automated movement, including integration of modern drive systems and sensor controls."
-    }
-  ],
+  "services": [],
   "categories": [
     {
       "id": "sound-proof-windows",

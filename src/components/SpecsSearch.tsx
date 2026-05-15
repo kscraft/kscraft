@@ -117,18 +117,19 @@ export default function SpecsSearch() {
                       }}
                       className="flex items-center gap-6 p-6 hover:bg-slate-50 transition-colors group"
                     >
-                      <div className="relative h-16 w-20 shrink-0 bg-white rounded-xl overflow-hidden p-2">
+                      <div className="relative h-16 w-20 shrink-0 bg-white rounded-xl overflow-hidden border border-slate-100">
                         <Image 
-                          src={product.image} 
+                          src={product.images[0]} 
                           alt={product.title} 
                           fill 
                           sizes="80px" 
-                          className="object-cover" 
+                          className="object-contain p-2"
                         />
                       </div>
+
                       <div className="flex-1 min-w-0">
                         <p className="text-[10px] font-bold text-blue-600 uppercase tracking-widest mb-1">
-                          {getProductCategoryLabel(product)}
+                          {getProductCategoryLabel(product.primaryCategory)}
                         </p>
                         <h4 className="text-lg font-bold text-slate-900 truncate leading-tight">
                           {product.title}

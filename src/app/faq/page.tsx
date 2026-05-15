@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { ArrowRight, BarChart3, Globe, MapPin, Ruler, ShieldCheck, Sparkles, Wrench, type LucideIcon } from 'lucide-react';
 import ThemeMarker from '@/components/ThemeMarker';
 import Breadcrumbs from '@/components/Breadcrumbs';
-import { faqCategories, getAllFaqs } from '@/data/faqs';
+import { faqs, getAllFaqs } from '@/lib/catalog';
 
 const SITE_URL = 'https://soundproofindia.com';
 
@@ -62,12 +62,12 @@ export default function FaqPage() {
         <ThemeMarker theme="dark" className="absolute top-0" />
         <div className="max-container px-6">
           <Breadcrumbs items={[{ label: 'FAQ' }]} />
-          <p className="text-eyebrow text-blue-300">Common Questions</p>
+          <p className="text-eyebrow text-blue-300">{faqs.hero.eyebrow}</p>
           <h1 className="heading-hero text-white">
-            Frequently Asked <span className="text-blue-500">Questions</span>
+            {faqs.hero.title.split(' ')[0]} {faqs.hero.title.split(' ')[1]} <span className="text-blue-500">{faqs.hero.title.split(' ')[2]}</span>
           </h1>
           <p className="mt-8 max-w-3xl text-xl font-medium leading-9 text-slate-300">
-            Everything you need to know about specifying, ordering, and installing our acoustic and automation systems.
+            {faqs.hero.description}
           </p>
         </div>
       </header>
@@ -77,7 +77,7 @@ export default function FaqPage() {
         <div className="max-container">
           {/* Category Quick Nav */}
           <div className="flex flex-wrap gap-3 mb-16">
-            {faqCategories.map((cat) => (
+            {faqs.categories.map((cat) => (
               <a
                 key={cat.id}
                 href={`#${cat.id}`}
@@ -90,7 +90,7 @@ export default function FaqPage() {
 
           {/* FAQ Categories */}
           <div className="space-y-20">
-            {faqCategories.map((cat) => {
+            {faqs.categories.map((cat) => {
               const Icon = iconMap[cat.icon] || Sparkles;
               return (
                 <div key={cat.id} id={cat.id} className="scroll-mt-32">
@@ -121,10 +121,10 @@ export default function FaqPage() {
       <section className="section-standard text-center border-t border-slate-100">
         <div className="max-container max-w-4xl">
           <Sparkles className="mx-auto mb-6 h-9 w-9 text-blue-600" />
-          <p className="text-eyebrow text-center">Still have questions?</p>
-          <h2 className="heading-section text-center">Talk to our engineering team</h2>
+          <p className="text-eyebrow text-center">{faqs.cta.eyebrow}</p>
+          <h2 className="heading-section text-center">{faqs.cta.title}</h2>
           <Link href="/contact" className="apple-button inline-flex px-10 py-4 text-sm font-black uppercase tracking-widest">
-            Contact Us <ArrowRight className="ml-2 h-4 w-4" />
+            {faqs.cta.label} <ArrowRight className="ml-2 h-4 w-4" />
           </Link>
         </div>
       </section>

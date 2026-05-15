@@ -106,13 +106,14 @@ export default async function LocationSeoPage({ params }: Props) {
       name: `${location.city} acoustic window systems`,
       itemListElement: products.map((product) => ({
         '@type': 'Offer',
-        itemOffered: {
-          '@type': 'Product',
+        item: {
+          "@type": "Product",
           name: product.title,
           url: `${SITE_URL}/product/${product.slug}`,
-          image: `${SITE_URL}${product.image}`,
+          image: `${SITE_URL}${product.images[0]}`,
           description: product.description,
         },
+
       })),
     },
   };

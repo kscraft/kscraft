@@ -5,13 +5,12 @@ import { useActionState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
-import { catalog, categories, home } from '@/lib/catalog';
+import { catalog, categories, home, faqs } from '@/lib/catalog';
 import { Mail, MapPin, Send, Phone, CheckCircle2, HelpCircle } from 'lucide-react';
 import { YoutubeIcon, LinkedinIcon, InstagramIcon } from '@/components/SocialIcons';
 import ThemeMarker from '@/components/ThemeMarker';
 import SpecProcess from '@/components/SpecProcess';
 import { submitInquiry } from '@/app/actions';
-import { faqCategories } from '@/data/faqs';
 import { trackFormStart, trackClientEvent } from '@/lib/analytics-client';
 
 const initialState = {
@@ -259,7 +258,7 @@ export default function ContactClient() {
             </Link>
           </div>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {faqCategories.slice(0, 3).map((cat) => (
+            {faqs.categories.slice(0, 3).map((cat) => (
               <div key={cat.id} className="rounded-2xl border border-slate-200 bg-white p-8 shadow-sm">
                 <div className="flex items-center gap-3 mb-6">
                   <HelpCircle className="h-5 w-5 text-blue-600" />

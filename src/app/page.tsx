@@ -313,11 +313,14 @@ export default function Home() {
         <div className="max-container">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-10 mb-20">
             <div className="max-w-2xl">
-              <span className="text-eyebrow">Project Portfolio</span>
-              <h2 className="heading-section mb-0">Engineering Proof <br /><span className="text-blue-600">Across Sectors.</span></h2>
+              <span className="text-eyebrow">{home.caseStudiesTeaser.eyebrow}</span>
+              <h2 className="heading-section mb-0">
+                {home.caseStudiesTeaser.title.split(' Across ')[0]} <br />
+                <span className="text-blue-600">Across {home.caseStudiesTeaser.title.split(' Across ')[1]}</span>
+              </h2>
             </div>
             <Link href="/clients" className="apple-button-secondary px-8 py-4 text-xs font-black uppercase tracking-widest inline-flex items-center gap-3">
-              View All Case Studies <ArrowRight className="w-4 h-4" />
+              {home.caseStudiesTeaser.ctaLabel} <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
 
@@ -328,12 +331,12 @@ export default function Home() {
                 <div className="h-12 w-12 rounded-xl bg-slate-900 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform text-white">
                   <Rocket className="w-6 h-6" />
                 </div>
-                <p className="text-[10px] font-black text-blue-600 uppercase tracking-widest mb-4">Aerospace & Defense</p>
+                <p className="text-[10px] font-black text-blue-600 uppercase tracking-widest mb-4">{home.caseStudiesTeaser.highlights[0].sector}</p>
                 <h3 className="text-2xl font-black tracking-tight text-slate-900 mb-4 uppercase">{projects.highlights[0].title}</h3>
-                <p className="text-slate-500 text-sm font-medium leading-relaxed mb-8">Indigenous manufacturing of the crew entry mechanism for India's manned space flight program.</p>
+                <p className="text-slate-500 text-sm font-medium leading-relaxed mb-8">{home.caseStudiesTeaser.highlights[0].description}</p>
               </div>
               <Link href="/showcase/isro-gaganyaan" className="mt-auto text-xs font-black uppercase tracking-widest text-blue-600 inline-flex items-center gap-2 group-hover:gap-3 transition-all">
-                Read Aerospace Case Study <ChevronRight className="w-4 h-4" />
+                {home.caseStudiesTeaser.highlights[0].ctaLabel} <ChevronRight className="w-4 h-4" />
               </Link>
             </div>
 
@@ -343,12 +346,12 @@ export default function Home() {
                 <div className="h-12 w-12 rounded-xl bg-slate-900 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform text-white">
                   <Shield className="w-6 h-6" />
                 </div>
-                <p className="text-[10px] font-black text-blue-600 uppercase tracking-widest mb-4">National Defense</p>
+                <p className="text-[10px] font-black text-blue-600 uppercase tracking-widest mb-4">{home.caseStudiesTeaser.highlights[1].sector}</p>
                 <h3 className="text-2xl font-black tracking-tight text-slate-900 mb-4 uppercase">{projects.highlights[1].title}</h3>
-                <p className="text-slate-500 text-sm font-medium leading-relaxed mb-8">PLC-operated automatic barrier systems for high-security access control along national borders.</p>
+                <p className="text-slate-500 text-sm font-medium leading-relaxed mb-8">{home.caseStudiesTeaser.highlights[1].description}</p>
               </div>
               <Link href="/clients" className="mt-auto text-xs font-black uppercase tracking-widest text-blue-600 inline-flex items-center gap-2 group-hover:gap-3 transition-all">
-                View Defense Projects <ChevronRight className="w-4 h-4" />
+                {home.caseStudiesTeaser.highlights[1].ctaLabel} <ChevronRight className="w-4 h-4" />
               </Link>
             </div>
 
@@ -358,12 +361,12 @@ export default function Home() {
                 <div className="h-12 w-12 rounded-xl bg-slate-900 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform text-white">
                   <Building2 className="w-6 h-6" />
                 </div>
-                <p className="text-[10px] font-black text-blue-600 uppercase tracking-widest mb-4">Luxury Hospitality</p>
-                <h3 className="text-2xl font-black tracking-tight text-slate-900 mb-4 uppercase">Oberoi & Sahara Star</h3>
-                <p className="text-slate-500 text-sm font-medium leading-relaxed mb-8">Premium acoustic movable partitions for flexible, sound-isolated ballroom and event spaces.</p>
+                <p className="text-[10px] font-black text-blue-600 uppercase tracking-widest mb-4">{home.caseStudiesTeaser.highlights[2].sector}</p>
+                <h3 className="text-2xl font-black tracking-tight text-slate-900 mb-4 uppercase">{home.caseStudiesTeaser.highlights[2].title}</h3>
+                <p className="text-slate-500 text-sm font-medium leading-relaxed mb-8">{home.caseStudiesTeaser.highlights[2].description}</p>
               </div>
               <Link href="/clients" className="mt-auto text-xs font-black uppercase tracking-widest text-blue-600 inline-flex items-center gap-2 group-hover:gap-3 transition-all">
-                Explore Hospitality Proof <ChevronRight className="w-4 h-4" />
+                {home.caseStudiesTeaser.highlights[2].ctaLabel} <ChevronRight className="w-4 h-4" />
               </Link>
             </div>
           </div>

@@ -7,7 +7,7 @@ import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function ProductGallery({ product }: { product: Product }) {
-  const images = product.images && product.images.length > 0 ? product.images : [product.image];
+  const images = product.images && product.images.length > 0 ? product.images : [];
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
 

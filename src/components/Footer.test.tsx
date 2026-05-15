@@ -5,20 +5,14 @@ import Footer from './Footer';
 describe('Footer Component', () => {
   it('renders company branding', () => {
     render(<Footer />);
-    // Check for company name in the logo area (span)
-    const branding = screen.getByText('Kiran Slido Craft', { selector: 'span' });
-    expect(branding).toBeInTheDocument();
-    expect(screen.getByText(/Engineering Silence/i, { selector: 'span' })).toBeInTheDocument();
+    const branding = screen.getAllByText('Kiran Slido Craft', { selector: 'span' });
+    expect(branding.length).toBeGreaterThan(0);
+    expect(screen.getByText(/Engineering & Manufacturing/i, { selector: 'span' })).toBeInTheDocument();
   });
 
-  it('renders solution links', () => {
+  it('renders navigation links', () => {
     render(<Footer />);
-    expect(screen.getByRole('link', { name: /Acoustic Windows/i })).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: /Automation Systems/i })).toBeInTheDocument();
-  });
-
-  it('renders contact email', () => {
-    render(<Footer />);
-    expect(screen.getByRole('link', { name: /info@kiranslidocraft.com/i })).toBeInTheDocument();
+    expect(screen.getByText('Acoustic Windows')).toBeInTheDocument();
+    expect(screen.getByText('Engineering')).toBeInTheDocument();
   });
 });

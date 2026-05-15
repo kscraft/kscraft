@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { ChevronRight, Clock, Tag, BookOpen, ArrowLeft } from 'lucide-react';
-import { guides, getGuide } from '@/data/guides';
+import { guides, getGuide } from '@/lib/catalog';
 import { getProduct, type Product } from '@/lib/catalog';
 
 interface Props {
@@ -107,7 +107,7 @@ export default async function GuidePage({ params }: Props) {
                     <div key={product.slug} className="group">
                       <Link href={`/product/${product.slug}`} className="block relative aspect-video rounded-3xl overflow-hidden bg-slate-50 mb-6 border border-slate-100 group-hover:shadow-xl transition-all">
                         <Image 
-                          src={product.image}
+                          src={product.images[0]}
                           alt={product.title}
                           fill
                           className="object-contain p-4 group-hover:scale-110 transition-transform"

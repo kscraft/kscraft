@@ -29,9 +29,14 @@ const iconMap = {
   Wrench: Wrench,
   ShieldCheck: ShieldCheck,
   ClipboardCheck: ClipboardCheck,
+  Box: Box,
+  Cpu: Cpu,
+  Activity: Activity
 };
 
 export default function ServicesPage() {
+  const { hero, items, assist, talosProtocol } = services;
+
   return (
     <div className="flex flex-col min-h-screen bg-white">
       {/* Hero Header */}
@@ -50,10 +55,10 @@ export default function ServicesPage() {
 
         <div className="relative z-10 max-container px-6 text-center lg:text-left">
           <h1 className="heading-hero text-white max-w-[15ch] lg:max-w-none">
-            {home.services.heroTitle.split(' ')[0]} <span className="text-blue-500">{home.services.heroTitle.split(' ')[1]}</span>
+            {hero.title.split(' ')[0]} <span className="text-blue-500">{hero.title.split(' ')[1]}</span>
           </h1>
           <p className="max-w-3xl text-xl lg:text-2xl text-slate-400 leading-relaxed mx-auto lg:mx-0 font-medium mt-10">
-            {home.services.heroDescription}
+            {hero.description}
           </p>
         </div>
       </header>
@@ -63,7 +68,7 @@ export default function ServicesPage() {
         <ThemeMarker theme="light" className="absolute top-0" />
         <div className="max-container">
           <div className="grid gap-10 md:grid-cols-2">
-            {services.map((service) => {
+            {items.map((service) => {
               const Icon = iconMap[service.icon as keyof typeof iconMap] || Settings;
               return (
                 <Link href="/contact" key={service.title} className="block group p-12 rounded-[3.5rem] bg-slate-50 border border-slate-100 shadow-sm transition-all hover:bg-white hover:border-blue-200 hover:shadow-2xl hover:shadow-blue-600/5">
@@ -84,18 +89,18 @@ export default function ServicesPage() {
 
           <div className="mt-32 relative overflow-hidden rounded-[4rem] bg-slate-950 p-16 lg:p-32 text-white text-center shadow-[0_50px_100px_-12px_rgba(0,0,0,0.5)]">
             <div className="relative z-10">
-              <span className="text-eyebrow text-blue-500">{home.services.assistLabel}</span>
+              <span className="text-eyebrow text-blue-500">{assist.label}</span>
               <h2 className="heading-page mb-10">
-                {home.services.assistTitle.split(', ')[0]}, <br />{home.services.assistTitle.split(', ')[1]}
+                {assist.title.split(', ')[0]}, <br />{assist.title.split(', ')[1]}
               </h2>
               <p className="mx-auto max-w-3xl text-body-lg mb-16">
-                {home.services.assistDescription}
+                {assist.description}
               </p>
               <Link 
                 href="/contact" 
                 className="group apple-button px-12 py-6 text-sm uppercase tracking-widest font-black inline-flex items-center justify-center"
               >
-                {home.services.ctaLabel} <ChevronRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+                {assist.ctaLabel} <ChevronRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
               </Link>
             </div>
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-600/10 via-transparent to-transparent"></div>
@@ -105,43 +110,28 @@ export default function ServicesPage() {
           {/* Talos Protocol Deep Dive */}
           <div className="mt-32">
             <div className="mb-14">
-              <span className="text-eyebrow">Open Engineering Standards</span>
-              <h2 className="heading-section">Talos Protocol: <br /><span className="text-blue-600">The Trust Layer for AI Agents.</span></h2>
+              <span className="text-eyebrow">{talosProtocol.eyebrow}</span>
+              <h2 className="heading-section">{talosProtocol.title.split(': ')[0]}: <br /><span className="text-blue-600">{talosProtocol.title.split(': ')[1]}</span></h2>
               <p className="max-w-3xl text-xl text-slate-500 font-medium leading-relaxed">
-                As part of our commitment to forward-thinking engineering, Kiran Slido Craft supports the Talos Protocol—an open-source initiative providing secure orchestration for autonomous systems.
+                {talosProtocol.description}
               </p>
             </div>
 
             <div className="grid md:grid-cols-3 gap-8">
-              <div className="p-10 rounded-[3rem] bg-slate-50 border border-slate-100 transition-all hover:bg-white hover:shadow-xl group">
-                <div className="h-12 w-12 rounded-2xl bg-slate-900 flex items-center justify-center text-white mb-8 group-hover:scale-110 transition-transform">
-                  <ShieldCheck className="w-6 h-6" />
-                </div>
-                <h3 className="text-xl font-black uppercase tracking-tight text-slate-900 mb-4">Cryptographic Trust</h3>
-                <p className="text-slate-500 text-sm font-medium leading-relaxed">
-                  Decentralized Identity (DID) and self-sovereign infrastructure replacing centralized trust with verifiable cryptographic proof.
-                </p>
-              </div>
-
-              <div className="p-10 rounded-[3rem] bg-slate-50 border border-slate-100 transition-all hover:bg-white hover:shadow-xl group">
-                <div className="h-12 w-12 rounded-2xl bg-slate-900 flex items-center justify-center text-white mb-8 group-hover:scale-110 transition-transform">
-                  <Cpu className="w-6 h-6" />
-                </div>
-                <h3 className="text-xl font-black uppercase tracking-tight text-slate-900 mb-4">Scoped Authorization</h3>
-                <p className="text-slate-500 text-sm font-medium leading-relaxed">
-                  Time-limited, revocable capability tokens granting restricted tool access rather than entire accounts for secure AI operations.
-                </p>
-              </div>
-
-              <div className="p-10 rounded-[3rem] bg-slate-50 border border-slate-100 transition-all hover:bg-white hover:shadow-xl group">
-                <div className="h-12 w-12 rounded-2xl bg-slate-900 flex items-center justify-center text-white mb-8 group-hover:scale-110 transition-transform">
-                  <Activity className="w-6 h-6" />
-                </div>
-                <h3 className="text-xl font-black uppercase tracking-tight text-slate-900 mb-4">High Performance</h3>
-                <p className="text-slate-500 text-sm font-medium leading-relaxed">
-                  Optimized for mission-critical loads: 12,000 authorizations/sec and &lt;5ms latency for authorization and audit ingestion.
-                </p>
-              </div>
+              {talosProtocol.features.map((feature) => {
+                const Icon = iconMap[feature.icon as keyof typeof iconMap] || ShieldCheck;
+                return (
+                  <div key={feature.title} className="p-10 rounded-[3rem] bg-slate-50 border border-slate-100 transition-all hover:bg-white hover:shadow-xl group">
+                    <div className="h-12 w-12 rounded-2xl bg-slate-900 flex items-center justify-center text-white mb-8 group-hover:scale-110 transition-transform">
+                      <Icon className="w-6 h-6" />
+                    </div>
+                    <h3 className="text-xl font-black uppercase tracking-tight text-slate-900 mb-4">{feature.title}</h3>
+                    <p className="text-slate-500 text-sm font-medium leading-relaxed">
+                      {feature.description}
+                    </p>
+                  </div>
+                );
+              })}
             </div>
 
             <div className="mt-12 flex flex-col sm:flex-row items-center gap-8 p-10 rounded-[3rem] border border-blue-100 bg-blue-50/50">
@@ -150,16 +140,16 @@ export default function ServicesPage() {
                </div>
                <div className="flex-1">
                   <p className="text-sm font-bold text-blue-900 leading-relaxed">
-                    The Talos Protocol is an open-source project licensed under the Apache License 2.0. All protocol schemas and cryptographic primitives are open for public inspection and integration.
+                    {talosProtocol.footer.text}
                   </p>
                </div>
                <a 
-                 href="https://talosprotocol.com" 
+                 href={talosProtocol.footer.ctaHref}
                  target="_blank" 
                  rel="noopener noreferrer"
                  className="apple-button-secondary px-8 py-4 text-[10px] font-black uppercase tracking-[0.2em] whitespace-nowrap"
                >
-                 View Protocol Docs
+                 {talosProtocol.footer.ctaLabel}
                </a>
             </div>
           </div>

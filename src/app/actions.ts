@@ -3,6 +3,7 @@
 import { PutObjectCommand, S3Client } from '@aws-sdk/client-s3';
 import { randomUUID } from 'node:crypto';
 import { z } from 'zod';
+import { emailStrings } from '@/lib/catalog';
 
 const inquirySchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
@@ -75,39 +76,41 @@ function isR2Configured() {
 }
 
 function getLeadEmailHtml(inquiry: Inquiry) {
+  const { labels } = emailStrings;
   return `
-    <h2>New technical inquiry</h2>
+    <h2>${emailStrings.title}</h2>
     <table cellpadding="6" cellspacing="0" style="border-collapse:collapse;font-family:Arial,sans-serif;font-size:14px">
-      <tr><td><strong>Name</strong></td><td>${escapeHtml(inquiry.name)}</td></tr>
-      <tr><td><strong>Email</strong></td><td>${escapeHtml(inquiry.email)}</td></tr>
-      <tr><td><strong>Phone</strong></td><td>${escapeHtml(inquiry.phone)}</td></tr>
-      <tr><td><strong>City</strong></td><td>${escapeHtml(inquiry.city)}</td></tr>
-      <tr><td><strong>Scope</strong></td><td>${escapeHtml(inquiry.scope)}</td></tr>
-      <tr><td><strong>Source</strong></td><td>${escapeHtml(inquiry.utmSource || 'direct')}</td></tr>
-      <tr><td><strong>Referrer</strong></td><td>${escapeHtml(inquiry.referrer || 'none')}</td></tr>
-      <tr><td><strong>Page</strong></td><td>${escapeHtml(inquiry.pagePath || 'direct')}</td></tr>
-      <tr><td><strong>Timestamp</strong></td><td>${escapeHtml(inquiry.timestamp)}</td></tr>
+      <tr><td><strong>${labels.name}</strong></td><td>${escapeHtml(inquiry.name)}</td></tr>
+      <tr><td><strong>${labels.email}</strong></td><td>${escapeHtml(inquiry.email)}</td></tr>
+      <tr><td><strong>${labels.phone}</strong></td><td>${escapeHtml(inquiry.phone)}</td></tr>
+      <tr><td><strong>${labels.city}</strong></td><td>${escapeHtml(inquiry.city)}</td></tr>
+      <tr><td><strong>${labels.scope}</strong></td><td>${escapeHtml(inquiry.scope)}</td></tr>
+      <tr><td><strong>${labels.source}</strong></td><td>${escapeHtml(inquiry.utmSource || 'direct')}</td></tr>
+      <tr><td><strong>${labels.referrer}</strong></td><td>${escapeHtml(inquiry.referrer || 'none')}</td></tr>
+      <tr><td><strong>${labels.page}</strong></td><td>${escapeHtml(inquiry.pagePath || 'direct')}</td></tr>
+      <tr><td><strong>${labels.timestamp}</strong></td><td>${escapeHtml(inquiry.timestamp)}</td></tr>
     </table>
-    <h3>Requirements</h3>
+    <h3>${labels.requirements}</h3>
     <p style="white-space:pre-wrap">${escapeHtml(inquiry.requirements)}</p>
   `;
 }
 
 function getLeadEmailText(inquiry: Inquiry) {
+  const { labels } = emailStrings;
   return [
-    'New technical inquiry',
+    emailStrings.title,
     '',
-    `Name: ${inquiry.name}`,
-    `Email: ${inquiry.email}`,
-    `Phone: ${inquiry.phone}`,
-    `City: ${inquiry.city}`,
-    `Scope: ${inquiry.scope}`,
-    `Source: ${inquiry.utmSource || 'direct'}`,
-    `Referrer: ${inquiry.referrer || 'none'}`,
-    `Page: ${inquiry.pagePath || 'direct'}`,
-    `Timestamp: ${inquiry.timestamp}`,
+    `${labels.name}: ${inquiry.name}`,
+    `${labels.email}: ${inquiry.email}`,
+    `${labels.phone}: ${inquiry.phone}`,
+    `${labels.city}: ${inquiry.city}`,
+    `${labels.scope}: ${inquiry.scope}`,
+    `${labels.source}: ${inquiry.utmSource || 'direct'}`,
+    `${labels.referrer}: ${inquiry.referrer || 'none'}`,
+    `${labels.page}: ${inquiry.pagePath || 'direct'}`,
+    `${labels.timestamp}: ${inquiry.timestamp}`,
     '',
-    'Requirements:',
+    `${labels.requirements}:`,
     inquiry.requirements,
   ].join('\n');
 }
@@ -123,7 +126,9 @@ async function postLeadEmail(apiKey: string, from: string, inquiry: Inquiry) {
       from: from || 'Kiran Slido Craft <onboarding@resend.dev>',
       to: [LEAD_RECIPIENT_EMAIL],
       reply_to: inquiry.email,
-      subject: `Technical inquiry: ${inquiry.scope} (${inquiry.city})`,
+      subject: emailStrings.subjects.technicalInquiry
+        .replace('{scope}', inquiry.scope)
+        .replace('{city}', inquiry.city),
       text: getLeadEmailText(inquiry),
       html: getLeadEmailHtml(inquiry),
     }),
@@ -218,7 +223,7 @@ export async function submitInquiry(prevState: unknown, formData: FormData) {
     return {
       success: false,
       errors: validatedFields.error.flatten().fieldErrors,
-      message: 'Missing or invalid fields. Please review your submission.',
+      message: emailStrings.messages.validationError,
     };
   }
 
@@ -243,7 +248,7 @@ export async function submitInquiry(prevState: unknown, formData: FormData) {
     if (isActuallyProduction) {
       return {
         success: false,
-        message: 'Inquiry service is temporarily unavailable. Please call or email our engineering team directly.',
+        message: emailStrings.messages.error,
       };
     }
   }
@@ -267,6 +272,6 @@ export async function submitInquiry(prevState: unknown, formData: FormData) {
 
   return {
     success: true,
-    message: 'Technical inquiry received. Our engineering team will review your requirements and respond shortly.',
+    message: emailStrings.messages.success,
   };
 }

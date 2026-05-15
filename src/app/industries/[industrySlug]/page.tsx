@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { ChevronRight, CheckCircle2 } from 'lucide-react';
-import { industries, getIndustry, getProductsForIndustry } from '@/data/industry-seo';
+import { industries, getIndustry, getProductsForIndustry } from '@/lib/catalog';
 import ProductCard from '@/components/ProductCard';
 import ThemeMarker from '@/components/ThemeMarker';
 import SpecProcess from '@/components/SpecProcess';

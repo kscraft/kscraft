@@ -81,7 +81,7 @@ export default function CompareEngine({ products }: { products: Product[] }) {
                   <div key={product.slug} className="min-w-0 space-y-6">
                     <div className="relative aspect-video bg-slate-50 rounded-2xl overflow-hidden p-4 group/item">
                       <Image 
-                        src={product.image} 
+                        src={product.images[0]} 
                         alt={product.title} 
                         fill 
                         sizes="300px" 
@@ -96,7 +96,7 @@ export default function CompareEngine({ products }: { products: Product[] }) {
                     </div>
                     <div className="min-w-0">
                       <h4 className="break-words text-base font-bold uppercase leading-tight tracking-tight text-slate-900">{product.title}</h4>
-                      <p className="text-[9px] font-black text-blue-600 uppercase tracking-widest mt-1">{getProductCategoryLabel(product)}</p>
+                      <p className="text-[9px] font-black text-blue-600 uppercase tracking-widest mt-1">{getProductCategoryLabel(product.primaryCategory)}</p>
                     </div>
                     
                     <div className="space-y-4 pt-4">

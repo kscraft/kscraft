@@ -1,0 +1,24 @@
+{
+  "hero": {
+    "eyebrow": "Visual Documentation",
+    "title": "Engineering in Focus.",
+    "description": "Raw installation footage and technical project visuals from our manufacturing hubs and client sites worldwide."
+  },
+  "videoSectionTitle": "Project Documentation",
+  "gallery": [
+    { "title": "Soundproof Sliding Windows", "image": "/images/media/soundproof-sliding-windows.jpg" },
+    { "title": "Movable Partition System", "image": "/images/media/movable-partition.jpg" },
+    { "title": "Vertical Sliding Window", "image": "/images/media/vertical-sliding-window.jpg" },
+    { "title": "Telescopic Gate Installation", "image": "/images/media/telescopic-gate.jpg" },
+    { "title": "Roof Sliding System", "image": "/images/media/roof-sliding-system.jpg" },
+    { "title": "Project Highlight 1", "image": "/images/media/project-1.jpg" },
+    { "title": "Project Highlight 2", "image": "/images/media/project-2.jpg" },
+    { "title": "Project Highlight 3", "image": "/images/media/project-3.jpg" }
+  ],
+  "videos": [
+    { "title": "Motorized Barrier System", "id": "YwVInZ32u2U" },
+    { "title": "Acoustic Partition Operation", "id": "m9YvO_N7L-E" },
+    { "title": "Sliding Roof System", "id": "YwVInZ32u2U" },
+    { "title": "Soundproof Window Test", "id": "m9YvO_N7L-E" }
+  ]
+}

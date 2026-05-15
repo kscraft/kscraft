@@ -123,13 +123,14 @@ export default async function ServiceLocationPage({ params }: Props) {
       name: `${title} product options`,
       itemListElement: selectedProducts.map((product) => ({
         '@type': 'Offer',
-        itemOffered: {
-          '@type': 'Product',
+        item: {
+          "@type": "Product",
           name: product.title,
           url: `${SITE_URL}/product/${product.slug}`,
-          image: `${SITE_URL}${product.image}`,
+          image: `${SITE_URL}${product.images[0]}`,
           description: product.description,
         },
+
       })),
     },
   };
@@ -232,7 +233,7 @@ export default async function ServiceLocationPage({ params }: Props) {
           <div className="overflow-hidden rounded-[2.5rem] border border-white/15 bg-white/[0.08] p-5 shadow-[0_40px_120px_-50px_rgba(15,23,42,1)] backdrop-blur-md">
             <div className="relative aspect-[4/3] overflow-hidden rounded-[1.8rem] bg-white">
               <Image
-                src={selectedProducts[0]?.image || '/images/products/motorized-sliding-system.jpg'}
+                src={selectedProducts[0]?.images[0] || '/images/products/motorized-sliding-system.jpg'}
                 alt={`${title} by Kiran Slido Craft`}
                 fill
                 priority

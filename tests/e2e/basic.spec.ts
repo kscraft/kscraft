@@ -11,7 +11,7 @@ test.describe('Kiran Slido Craft E2E', () => {
     await page.goto('/');
     await page.getByRole('link', { name: 'About' }).click();
     await expect(page).toHaveURL(/\/about/);
-    await expect(page.getByRole('heading', { level: 1 })).toContainText(/Legacy/);
+    await expect(page.getByRole('heading', { level: 1 })).toContainText(/Acoustic Engineering/i);
   });
 
   test('dedicated search page works', async ({ page }) => {

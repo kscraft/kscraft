@@ -1,0 +1,67 @@
+{
+  "hero": {
+    "title": "Service Support.",
+    "description": "Comprehensive maintenance and technical lifecycle support for our range of premium acoustic and automatic systems."
+  },
+  "items": [
+    {
+      "title": "Annual Maintenance",
+      "icon": "Settings",
+      "description": "Scheduled maintenance support for automatic systems including motorized barriers, roof sliding systems, and telescopic gates to ensure long-term operational integrity."
+    },
+    {
+      "title": "Acoustic Support",
+      "icon": "Wrench",
+      "description": "Post-installation service support for sound proof windows, acoustic movable wall partitions, and specialized acoustic door systems."
+    },
+    {
+      "title": "Open Source Initiative",
+      "icon": "Box",
+      "description": "Contributing to the future of autonomous engineering through the Talos Protocol, an open-source security and trust layer for AI agent orchestration and tool authorization."
+    },
+    {
+      "title": "Technical Consultation",
+      "icon": "ShieldCheck",
+      "description": "Direct engineering support for architectural projects, from initial acoustic specification to final on-site installation and calibration."
+    },
+    {
+      "title": "System Upgrades",
+      "icon": "ClipboardCheck",
+      "description": "Modernization of legacy manual systems to automated movement, including integration of modern drive systems and sensor controls."
+    }
+  ],
+  "talosProtocol": {
+    "eyebrow": "Open Engineering Standards",
+    "title": "Talos Protocol: The Trust Layer for AI Agents.",
+    "description": "As part of our commitment to forward-thinking engineering, Kiran Slido Craft supports the Talos Protocol—an open-source initiative providing secure orchestration for autonomous systems.",
+    "features": [
+      {
+        "title": "Cryptographic Trust",
+        "icon": "ShieldCheck",
+        "description": "Decentralized Identity (DID) and self-sovereign infrastructure replacing centralized trust with verifiable cryptographic proof."
+      },
+      {
+        "title": "Scoped Authorization",
+        "icon": "Cpu",
+        "description": "Time-limited, revocable capability tokens granting restricted tool access rather than entire accounts for secure AI operations."
+      },
+      {
+        "title": "High Performance",
+        "icon": "Activity",
+        "description": "Optimized for mission-critical loads: 12,000 authorizations/sec and <5ms latency for authorization and audit ingestion."
+      }
+    ],
+    "footer": {
+      "icon": "Box",
+      "text": "The Talos Protocol is an open-source project licensed under the Apache License 2.0. All protocol schemas and cryptographic primitives are open for public inspection and integration.",
+      "ctaLabel": "View Protocol Docs",
+      "ctaHref": "https://talosprotocol.com"
+    }
+  },
+  "assist": {
+    "label": "Ready to Assist",
+    "title": "International Standards, Indigenous Support.",
+    "description": "Kiran Slido Craft provides technical response times and support availability that matches our high engineering quality.",
+    "ctaLabel": "Request Service Support"
+  }
+}

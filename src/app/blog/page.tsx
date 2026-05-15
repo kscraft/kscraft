@@ -4,8 +4,7 @@ import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
 import ThemeMarker from '@/components/ThemeMarker';
 import blogsData from '@/data/blogs.json';
-import { guides } from '@/data/guides';
-import { industries } from '@/data/industry-seo';
+import { industries, guides } from '@/lib/catalog';
 
 export const metadata: Metadata = {
   title: 'Insights & Engineering Blog | Kiran Slido Craft',

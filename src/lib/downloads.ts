@@ -23,6 +23,7 @@ const PAGE_MARGIN_X = 50;
 const PAGE_TOP = 790;
 const PAGE_BOTTOM = 58;
 const LINE_HEIGHT = 14;
+const PRINTABLE_WIDTH = PAGE_WIDTH - PAGE_MARGIN_X * 2;
 
 const pdfEscape = (value: string) =>
   value
@@ -30,14 +31,24 @@ const pdfEscape = (value: string) =>
     .replace(/\(/g, '\\(')
     .replace(/\)/g, '\\)');
 
-const wrapText = (value: string, width = 90) => {
+function estimateTextWidth(value: string, fontSize: number) {
+  return value.split('').reduce((width, char) => {
+    if (char === ' ') return width + fontSize * 0.28;
+    if ('il.,:;!|'.includes(char)) return width + fontSize * 0.24;
+    if ('mwMW@#%&'.includes(char)) return width + fontSize * 0.82;
+    if (char === '-') return width + fontSize * 0.34;
+    return width + fontSize * 0.52;
+  }, 0);
+}
+
+const wrapText = (value: string, fontSize = 10, maxWidth = PRINTABLE_WIDTH) => {
   const words = value.split(/\s+/).filter(Boolean);
   const lines: string[] = [];
   let current = '';
 
   for (const word of words) {
     const next = current ? `${current} ${word}` : word;
-    if (next.length > width && current) {
+    if (estimateTextWidth(next, fontSize) > maxWidth && current) {
       lines.push(current);
       current = word;
     } else {
@@ -50,6 +61,15 @@ const wrapText = (value: string, width = 90) => {
 };
 
 const bullet = (value: string) => `- ${value}`;
+
+function wrappedPdfLines(value: string, font: PdfFont, size: number, gapBefore?: number): PdfTextLine[] {
+  return wrapText(value, size).map((text, index) => ({
+    text,
+    font,
+    size,
+    gapBefore: index === 0 ? gapBefore : undefined,
+  }));
+}
 
 export const downloadDocuments: DownloadDocument[] = [
   {
@@ -396,23 +416,25 @@ function buildTextLines(document: DownloadDocument): PdfTextLine[] {
     { text: document.subtitle, font: 'F1', size: 10, gapBefore: 18 },
     { text: 'Source Basis', font: 'F2', size: 12, gapBefore: 24 },
     ...document.sourceBasis.flatMap((source) =>
-      wrapText(bullet(source), 86).map((text) => ({ text, font: 'F1' as const, size: 9 }))
+      wrappedPdfLines(bullet(source), 'F1', 9)
     ),
   ];
 
   for (const section of document.sections) {
     lines.push({ text: section.heading, font: 'F2', size: 13, gapBefore: 20 });
     for (const line of section.lines) {
-      for (const wrapped of wrapText(line, 88)) {
-        lines.push({ text: wrapped, font: 'F1', size: 10 });
-      }
+      lines.push(...wrappedPdfLines(line, 'F1', 10));
       lines.push({ text: '', font: 'F1', size: 4 });
     }
   }
 
   lines.push(
     { text: 'Next Step', font: 'F2', size: 12, gapBefore: 18 },
-    { text: 'Send drawings, opening sizes, noise context, photos, location, and target performance to info@kiranslidocraft.com for a project-specific engineering response.', font: 'F1', size: 10 }
+    ...wrappedPdfLines(
+      'Send drawings, opening sizes, noise context, photos, location, and target performance to info@kiranslidocraft.com for a project-specific engineering response.',
+      'F1',
+      10
+    )
   );
 
   return lines;

@@ -21,4 +21,18 @@ describe('downloads', () => {
     expect(pageCount).toBeGreaterThanOrEqual(2);
     expect(pdf.length).toBeGreaterThan(5000);
   });
+
+  it('wraps the Next Step contact sentence instead of emitting a cut-off single line', () => {
+    const document = getDownloadDocument('gaganyaan-manufacturing-proof');
+
+    expect(document).toBeDefined();
+    const pdf = createTechnicalPdf(document!);
+    const content = new TextDecoder().decode(pdf);
+
+    expect(content).toContain('(Send drawings, opening sizes, noise context, photos, location, and target performance to) Tj');
+    expect(content).toContain('(info@kiranslidocraft.com for a project-specific engineering response.) Tj');
+    expect(content).not.toContain(
+      '(Send drawings, opening sizes, noise context, photos, location, and target performance to info@kiranslidocraft.com for a project-specific engineering response.) Tj'
+    );
+  });
 });

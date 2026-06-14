@@ -30,7 +30,7 @@ function ContactForm() {
     if (state.success) {
       trackClientEvent('generate_lead', {
         form_id: 'contact_form',
-        scope: searchParams.get('scope') || 'general'
+        has_prefilled_scope: Boolean(searchParams.get('scope')),
       });
     }
   }, [state.success, searchParams]);
@@ -50,7 +50,7 @@ function ContactForm() {
   ));
 
   return (
-    <div className="bg-slate-950 rounded-[3.5rem] p-10 lg:p-20 text-white shadow-[0_50px_100px_-12px_rgba(0,0,0,0.4)] relative overflow-hidden">
+    <div data-clarity-mask="True" className="bg-slate-950 rounded-[3.5rem] p-10 lg:p-20 text-white shadow-[0_50px_100px_-12px_rgba(0,0,0,0.4)] relative overflow-hidden">
       <div className="relative z-10">
         <h2 className="text-4xl lg:text-6xl font-black mb-8 tracking-tighter uppercase leading-none">{home.contact.formTitle}</h2>
         <p className="text-slate-400 mb-16 text-lg leading-relaxed font-medium">

@@ -10,7 +10,7 @@ describe('Contact Page', () => {
 
   it('renders engineering hubs', () => {
     render(<ContactPage />);
-    expect(screen.getByText(/Engineering Hubs/i)).toBeInTheDocument();
+    expect(screen.getAllByText(/Engineering Hubs/i).length).toBeGreaterThan(0);
     expect(screen.getByText(/Mumbai Operations/i)).toBeInTheDocument();
   });
 

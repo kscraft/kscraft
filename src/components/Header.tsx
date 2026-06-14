@@ -39,16 +39,16 @@ const Header = () => {
     >
       <div className="mx-auto max-w-[1320px] px-6 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-3 group transition-all active:scale-95">
-          <Image src="/logo-ksc.png" alt="KSC" width={120} height={32} className="h-6 w-auto" priority />
+          <Image src="/logo-ksc.png" alt="KSC" width={120} height={32} className="h-7 w-auto" priority />
           <div className="flex flex-col">
             <span className={cn(
-              "text-[14px] font-black tracking-tight uppercase transition-colors duration-500 leading-none",
+              "text-[15px] font-black tracking-tight uppercase transition-colors duration-500 leading-none",
               isHeaderLight ? "text-white" : "text-black"
             )}>
               Kiran Slido Craft
             </span>
             <span className={cn(
-              "text-[8px] font-black tracking-[0.2em] uppercase transition-colors duration-500 mt-1",
+              "text-[9px] font-black tracking-[0.2em] uppercase transition-colors duration-500 mt-1",
               isHeaderLight ? "text-blue-400" : "text-blue-600"
             )}>
               Engineering & Manufacturing
@@ -64,7 +64,7 @@ const Header = () => {
                 <Link
                   href={item.href}
                   className={cn(
-                    'text-[12px] font-bold tracking-[0.1em] uppercase transition-colors duration-500 hover:text-blue-600',
+                    'text-[13px] font-bold tracking-[0.1em] uppercase transition-colors duration-500 hover:text-blue-600',
                     pathname === item.href
                       ? isHeaderLight ? 'text-white' : 'text-blue-600'
                       : isHeaderLight ? 'text-slate-300' : 'text-slate-500'
@@ -76,7 +76,7 @@ const Header = () => {
             ))}
             <li className="relative group">
               <button className={cn(
-                "flex items-center gap-1.5 px-4 py-1.5 rounded-full text-[11px] font-black uppercase tracking-widest transition-all",
+                "flex items-center gap-1.5 px-4 py-1.5 rounded-full text-[12px] font-black uppercase tracking-widest transition-all",
                 isHeaderLight 
                   ? "bg-white/10 text-white hover:bg-white/20 backdrop-blur-md" 
                   : "bg-blue-50 text-blue-600 hover:bg-blue-600 hover:text-white"
@@ -88,7 +88,7 @@ const Header = () => {
                   <Link
                     key={cat.id}
                     href={`/category/${cat.id}`}
-                    className="flex items-center justify-between px-5 py-3 text-[13px] font-bold text-slate-600 hover:bg-blue-50 hover:text-blue-600 rounded-2xl transition-all group/item"
+                    className="flex items-center justify-between px-5 py-3 text-[14px] font-bold text-slate-600 hover:bg-blue-50 hover:text-blue-600 rounded-2xl transition-all group/item"
                   >
                     {cat.title}
                     <ArrowRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all" />
@@ -163,14 +163,14 @@ const Header = () => {
                 <Link 
                   href="/search" 
                   onClick={() => setIsOpen(false)}
-                  className="flex-1 flex items-center justify-center gap-3 py-6 bg-slate-50 rounded-3xl border border-slate-100 text-slate-900 font-bold uppercase tracking-widest text-[10px]"
+                  className="flex-1 flex items-center justify-center gap-3 py-6 bg-slate-50 rounded-3xl border border-slate-100 text-slate-900 font-bold uppercase tracking-widest text-[11px]"
                 >
                   <Search className="w-4 h-4" /> Search Systems
                 </Link>
               </div>
               
               <div className="pt-10 border-t border-slate-100">
-                <h3 className="text-[10px] font-black text-blue-600 uppercase tracking-[0.3em] mb-8">System Catalog</h3>
+                <h3 className="text-[11px] font-black text-blue-600 uppercase tracking-[0.3em] mb-8">System Catalog</h3>
                 <ul className="grid gap-6">
                   {categories.map((cat) => (
                     <li key={cat.id}>

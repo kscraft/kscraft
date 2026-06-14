@@ -43,7 +43,7 @@ function toFragmentId(value: string) {
 }
 
 export default function ServicesPage() {
-  const { hero, items, assist, talosProtocol } = services;
+  const { hero, items, assist, supportProgram } = services;
   const serviceJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
@@ -139,18 +139,18 @@ export default function ServicesPage() {
             <div className="absolute top-0 right-0 w-96 h-96 bg-blue-600/5 blur-[120px] rounded-full translate-x-1/2 -translate-y-1/2"></div>
           </div>
 
-          {/* Talos Protocol Deep Dive */}
+          {/* Lifecycle Support Deep Dive */}
           <div className="mt-32">
             <div className="mb-14">
-              <span className="text-eyebrow">{talosProtocol.eyebrow}</span>
-              <h2 className="heading-section">{talosProtocol.title.split(': ')[0]}: <br /><span className="text-blue-600">{talosProtocol.title.split(': ')[1]}</span></h2>
+              <span className="text-eyebrow">{supportProgram.eyebrow}</span>
+              <h2 className="heading-section">{supportProgram.title.split(': ')[0]}: <br /><span className="text-blue-600">{supportProgram.title.split(': ')[1]}</span></h2>
               <p className="max-w-3xl text-xl text-slate-500 font-medium leading-relaxed">
-                {talosProtocol.description}
+                {supportProgram.description}
               </p>
             </div>
 
             <div className="grid md:grid-cols-3 gap-8">
-              {talosProtocol.features.map((feature) => {
+              {supportProgram.features.map((feature) => {
                 const Icon = iconMap[feature.icon as keyof typeof iconMap] || ShieldCheck;
                 return (
                   <div key={feature.title} className="p-10 rounded-[3rem] bg-slate-50 border border-slate-100 transition-all hover:bg-white hover:shadow-xl group">
@@ -172,17 +172,15 @@ export default function ServicesPage() {
                </div>
                <div className="flex-1">
                   <p className="text-sm font-bold text-blue-900 leading-relaxed">
-                    {talosProtocol.footer.text}
+                    {supportProgram.footer.text}
                   </p>
                </div>
-               <a 
-                 href={talosProtocol.footer.ctaHref}
-                 target="_blank" 
-                 rel="noopener noreferrer"
+               <Link
+                 href={supportProgram.footer.ctaHref}
                  className="apple-button-secondary px-8 py-4 text-[10px] font-black uppercase tracking-[0.2em] whitespace-nowrap"
                >
-                 {talosProtocol.footer.ctaLabel}
-               </a>
+                 {supportProgram.footer.ctaLabel}
+               </Link>
             </div>
           </div>
         </div>

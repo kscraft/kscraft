@@ -262,7 +262,7 @@ export const home = catalogData.home as unknown as {
 export const services = servicesData as {
   hero: { title: string; description: string };
   items: ServiceItem[];
-  talosProtocol: {
+  supportProgram: {
     eyebrow: string;
     title: string;
     description: string;

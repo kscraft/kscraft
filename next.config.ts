@@ -1,5 +1,16 @@
 import type { NextConfig } from "next";
-import catalog from "./src/data/catalog.json";
+import { readFileSync } from "node:fs";
+
+type RedirectCatalog = {
+  products: Array<{
+    legacyRoutes: string[];
+    slug: string;
+  }>;
+};
+
+const catalog = JSON.parse(
+  readFileSync(new URL("./src/data/catalog.json", import.meta.url), "utf8")
+) as RedirectCatalog;
 
 const CANONICAL_SITE_URL = "https://soundproofindia.com";
 

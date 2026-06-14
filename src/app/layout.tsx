@@ -10,10 +10,7 @@ import ConsentBanner from '@/components/ConsentBanner';
 import WebMcpProvider from '@/components/WebMcpProvider';
 import { HeaderThemeProvider } from '@/lib/HeaderThemeContext';
 import { products } from '@/lib/catalog';
-import { SpeedInsights } from '@vercel/speed-insights/next';
-import { Analytics } from '@vercel/analytics/next';
-import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google';
-import ClarityAnalytics from '@/components/ClarityAnalytics';
+import ConsentManagedAnalytics from '@/components/ConsentManagedAnalytics';
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -212,10 +209,6 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
         />
-        <link rel="preconnect" href="https://www.clarity.ms" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://c.clarity.ms" crossOrigin="anonymous" />
-        <link rel="dns-prefetch" href="https://www.clarity.ms" />
-        <link rel="dns-prefetch" href="https://c.clarity.ms" />
         <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM Site Map" />
         <Script id="google-consent-defaults" strategy="beforeInteractive">
           {`
@@ -245,15 +238,7 @@ export default function RootLayout({
           <ConsentBanner />
           <WebMcpProvider />
         </HeaderThemeProvider>
-        {isVercelRuntime && (
-          <>
-            <SpeedInsights />
-            <Analytics />
-          </>
-        )}
-        <GoogleAnalytics gaId="G-HS8VPLD95B" />
-        <GoogleTagManager gtmId="GTM-KPV97XW9" />
-        <ClarityAnalytics />
+        <ConsentManagedAnalytics enableVercelAnalytics={isVercelRuntime} />
       </body>
     </html>
   );

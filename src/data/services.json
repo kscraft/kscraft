@@ -15,9 +15,9 @@
       "description": "Post-installation service support for sound proof windows, acoustic movable wall partitions, and specialized acoustic door systems."
     },
     {
-      "title": "Open Source Initiative",
+      "title": "Installation Coordination",
       "icon": "Box",
-      "description": "Contributing to the future of autonomous engineering through the Talos Protocol, an open-source security and trust layer for AI agent orchestration and tool authorization."
+      "description": "Site-readiness coordination, installation sequencing, and handover support for acoustic partitions, doors, windows, and motorized movement systems."
     },
     {
       "title": "Technical Consultation",
@@ -30,32 +30,32 @@
       "description": "Modernization of legacy manual systems to automated movement, including integration of modern drive systems and sensor controls."
     }
   ],
-  "talosProtocol": {
-    "eyebrow": "Open Engineering Standards",
-    "title": "Talos Protocol: The Trust Layer for AI Agents.",
-    "description": "As part of our commitment to forward-thinking engineering, Kiran Slido Craft supports the Talos Protocol—an open-source initiative providing secure orchestration for autonomous systems.",
+  "supportProgram": {
+    "eyebrow": "Lifecycle Engineering",
+    "title": "Support Program: From Specification To Handover.",
+    "description": "Kiran Slido Craft supports projects from acoustic specification and shop-drawing coordination through fabrication, installation, commissioning, and post-installation service.",
     "features": [
       {
-        "title": "Cryptographic Trust",
+        "title": "Specification Review",
         "icon": "ShieldCheck",
-        "description": "Decentralized Identity (DID) and self-sovereign infrastructure replacing centralized trust with verifiable cryptographic proof."
+        "description": "Engineering review for STC targets, opening dimensions, movement requirements, hardware selection, and project-specific constraints before fabrication."
       },
       {
-        "title": "Scoped Authorization",
-        "icon": "Cpu",
-        "description": "Time-limited, revocable capability tokens granting restricted tool access rather than entire accounts for secure AI operations."
+        "title": "Installation Support",
+        "icon": "Wrench",
+        "description": "Coordination for track alignment, sealing details, motorized drive setup, and final fitment of acoustic and automation systems."
       },
       {
-        "title": "High Performance",
-        "icon": "Activity",
-        "description": "Optimized for mission-critical loads: 12,000 authorizations/sec and <5ms latency for authorization and audit ingestion."
+        "title": "Service Continuity",
+        "icon": "ClipboardCheck",
+        "description": "Annual maintenance, retrofit recommendations, system upgrades, and corrective service planning for long-term operational reliability."
       }
     ],
     "footer": {
       "icon": "Box",
-      "text": "The Talos Protocol is an open-source project licensed under the Apache License 2.0. All protocol schemas and cryptographic primitives are open for public inspection and integration.",
-      "ctaLabel": "View Protocol Docs",
-      "ctaHref": "https://talosprotocol.com"
+      "text": "For active projects, share drawings, dimensions, acoustic targets, movement type, and site location so the engineering team can recommend the right support path.",
+      "ctaLabel": "Request Support",
+      "ctaHref": "/contact"
     }
   },
   "assist": {

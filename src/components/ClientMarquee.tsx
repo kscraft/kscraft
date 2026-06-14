@@ -42,10 +42,9 @@ export default function ClientMarquee() {
                 width={160}
                 height={60}
                 className="object-contain max-h-16"
-                // Fallback for missing files - simple placeholder
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
-                  target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(logo.name)}&background=f1f5f9&color=64748b&size=256&font-size=0.3&bold=true`;
+                  target.style.visibility = 'hidden';
                 }}
               />
             </div>

@@ -7,6 +7,7 @@ import ProductCard from '@/components/ProductCard';
 import ThemeMarker from '@/components/ThemeMarker';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { categories, getCategory, getProductsByCategory } from '@/lib/catalog';
+import { cn } from '@/lib/utils';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -61,6 +62,7 @@ export default async function CategoryPage({ params }: Props) {
 
   const products = getProductsByCategory(category.id);
   const relatedCategories = categories.filter((item) => item.id !== category.id);
+  const isPortraitHeroImage = category.id === 'motorized-systems';
 
   const collectionJsonLd = {
     '@context': 'https://schema.org',
@@ -168,14 +170,21 @@ export default async function CategoryPage({ params }: Props) {
           </div>
 
           <div className="lg:w-1/2 min-w-0 overflow-hidden rounded-[3rem] border border-white/15 bg-white/[0.08] p-5 shadow-[0_40px_120px_-50px_rgba(0,0,0,1)] backdrop-blur-md lg:mt-24">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-[2rem] bg-slate-100">
+            <div className={cn(
+              "relative overflow-hidden rounded-[2rem] bg-slate-100",
+              isPortraitHeroImage
+                ? "mx-auto aspect-[669/1600] max-h-[520px] w-full max-w-[260px]"
+                : "aspect-[4/3]"
+            )}>
               <Image
                 src={category.image}
                 alt={category.title}
                 fill
                 priority
                 sizes="(min-width: 1024px) 520px, 100vw"
-                className="object-contain p-8"
+                className={cn(
+                  isPortraitHeroImage ? "object-cover" : "object-contain p-8"
+                )}
               />
             </div>
           </div>

@@ -6,7 +6,7 @@ import { ArrowRight } from 'lucide-react';
 import ProductCard from '@/components/ProductCard';
 import ThemeMarker from '@/components/ThemeMarker';
 import Breadcrumbs from '@/components/Breadcrumbs';
-import { categories, getCategory, getProductsByCategory } from '@/lib/catalog';
+import { categories, getCategory, getProductsByCategory, guides } from '@/lib/catalog';
 import { cn } from '@/lib/utils';
 
 interface Props {
@@ -63,6 +63,94 @@ export default async function CategoryPage({ params }: Props) {
   const products = getProductsByCategory(category.id);
   const relatedCategories = categories.filter((item) => item.id !== category.id);
   const isPortraitHeroImage = category.id === 'motorized-systems';
+  const resourceMap: Record<string, { href: string; title: string; description: string }[]> = {
+    'sound-proof-windows': [
+      {
+        href: '/guides/soundproof-window-buying-guide',
+        title: guides.find((guide) => guide.slug === 'soundproof-window-buying-guide')?.title || 'Soundproof Window Buying Guide',
+        description: 'Use this guide to compare STC targets, frame engineering, and glazing choices before you specify a window package.',
+      },
+      {
+        href: '/guides/stc-vs-oitc-ratings-explained',
+        title: guides.find((guide) => guide.slug === 'stc-vs-oitc-ratings-explained')?.title || 'STC vs. OITC Explained',
+        description: 'Compare the acoustic metrics that matter when noise sources move beyond speech-range frequencies.',
+      },
+      {
+        href: '/faq',
+        title: 'Technical FAQs',
+        description: 'Review the company-wide FAQ library for common specification and project questions.',
+      },
+    ],
+    'sound-proof-partitions': [
+      {
+        href: '/guides/stc-vs-oitc-ratings-explained',
+        title: guides.find((guide) => guide.slug === 'stc-vs-oitc-ratings-explained')?.title || 'STC vs. OITC Explained',
+        description: 'Use this technical note to align partition performance targets with the right acoustic metric.',
+      },
+      {
+        href: '/faq',
+        title: 'Technical FAQs',
+        description: 'Review the company-wide FAQ library for partition planning and specification questions.',
+      },
+      {
+        href: '/contact',
+        title: 'Contact Engineering',
+        description: 'Ask the engineering team about room sizing, finish options, and field conditions.',
+      },
+    ],
+    'sound-proof-doors': [
+      {
+        href: '/guides/stc-vs-oitc-ratings-explained',
+        title: guides.find((guide) => guide.slug === 'stc-vs-oitc-ratings-explained')?.title || 'STC vs. OITC Explained',
+        description: 'A quick reference for choosing the right acoustic target for door assemblies.',
+      },
+      {
+        href: '/faq',
+        title: 'Technical FAQs',
+        description: 'See common questions about seals, frames, and door-system performance.',
+      },
+      {
+        href: '/contact',
+        title: 'Contact Engineering',
+        description: 'Send your room dimensions and target performance for a direct technical response.',
+      },
+    ],
+    'motorized-systems': [
+      {
+        href: '/faq',
+        title: 'Technical FAQs',
+        description: 'Review safety, automation, and integration questions for motorized systems.',
+      },
+      {
+        href: '/solutions',
+        title: 'Solutions Hub',
+        description: 'Compare the broader automation families before narrowing to a specific system.',
+      },
+      {
+        href: '/contact',
+        title: 'Contact Engineering',
+        description: 'Discuss access control, drive systems, or site constraints with the team.',
+      },
+    ],
+    'roof-sliding-systems': [
+      {
+        href: '/faq',
+        title: 'Technical FAQs',
+        description: 'Review the most common questions about retractable roof build-ups and controls.',
+      },
+      {
+        href: '/solutions',
+        title: 'Solutions Hub',
+        description: 'Compare roof systems with the rest of the architectural automation catalog.',
+      },
+      {
+        href: '/contact',
+        title: 'Contact Engineering',
+        description: 'Share terrace or atrium requirements for a project-specific recommendation.',
+      },
+    ],
+  };
+  const technicalResources = resourceMap[category.id] || [];
 
   const collectionJsonLd = {
     '@context': 'https://schema.org',
@@ -246,6 +334,42 @@ export default async function CategoryPage({ params }: Props) {
                   </div>
                 </div>
               )}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {technicalResources.length > 0 && (
+        <section className="section-standard border-t border-slate-100">
+          <ThemeMarker theme="light" className="absolute top-0" />
+          <div className="max-container">
+            <div className="mb-12 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+              <div>
+                <span className="text-eyebrow">Technical Resources</span>
+                <h2 className="heading-section mb-0">Continue the research path</h2>
+              </div>
+              <p className="max-w-2xl text-body-lg">
+                These links connect this category to the guides, FAQs, and consultation pages that support a real specification workflow.
+              </p>
+            </div>
+
+            <div className="grid gap-4 md:grid-cols-3">
+              {technicalResources.map((resource) => (
+                <Link
+                  key={resource.href}
+                  href={resource.href}
+                  className="group rounded-2xl border border-slate-200 bg-white p-6 transition hover:border-blue-200 hover:shadow-[0_20px_45px_-30px_rgba(15,23,42,0.6)]"
+                >
+                  <p className="text-[10px] font-black uppercase tracking-[0.22em] text-blue-600 mb-3">
+                    Resource
+                  </p>
+                  <h3 className="text-lg font-black uppercase tracking-tight text-slate-950">{resource.title}</h3>
+                  <p className="mt-3 text-sm font-medium leading-6 text-slate-500">{resource.description}</p>
+                  <div className="mt-6 inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-blue-600">
+                    Open resource <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+                  </div>
+                </Link>
+              ))}
             </div>
           </div>
         </section>

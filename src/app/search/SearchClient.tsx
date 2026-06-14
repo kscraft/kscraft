@@ -25,7 +25,7 @@ function SearchContent() {
     if (newQuery) params.set('q', newQuery);
     if (newCategory !== 'all') params.set('category', newCategory);
     
-    router.push(`/search?${params.toString()}`, { scroll: false });
+    router.replace(`/search?${params.toString()}`, { scroll: false });
   };
 
   const trie = useMemo(() => getProductTrie(products), []);

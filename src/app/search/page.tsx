@@ -7,6 +7,11 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://soundproofindia.com/search',
   },
+  robots: {
+    index: false,
+    follow: true,
+    nocache: true,
+  },
   openGraph: {
     title: 'Search Architectural Systems | Kiran Slido Craft',
     description: 'Find soundproof windows, doors, partitions, and motorized systems by technical specification.',

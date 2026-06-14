@@ -6,6 +6,8 @@ import { ChevronRight, Clock, Tag, BookOpen, ArrowLeft } from 'lucide-react';
 import { guides, getGuide } from '@/lib/catalog';
 import { getProduct, type Product } from '@/lib/catalog';
 
+const SITE_URL = 'https://soundproofindia.com';
+
 interface Props {
   params: Promise<{ slug: string }>;
 }
@@ -25,6 +27,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: guide.metaTitle,
     description: guide.metaDescription,
+    alternates: {
+      canonical: `${SITE_URL}/guides/${guide.slug}`,
+    },
+    openGraph: {
+      title: guide.metaTitle,
+      description: guide.metaDescription,
+      url: `${SITE_URL}/guides/${guide.slug}`,
+      type: 'article',
+    },
+    twitter: {
+      card: 'summary',
+      title: guide.metaTitle,
+      description: guide.metaDescription,
+    },
   };
 }
 
@@ -38,13 +54,55 @@ export default async function GuidePage({ params }: Props) {
     .map(pSlug => getProduct(pSlug))
     .filter((p): p is Product => !!p);
 
+  const articleJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: guide.title,
+    description: guide.metaDescription,
+    datePublished: guide.date,
+    dateModified: guide.date,
+    mainEntityOfPage: `${SITE_URL}/guides/${guide.slug}`,
+    author: {
+      '@type': 'Organization',
+      name: 'Kiran Slido Craft',
+      url: SITE_URL,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Kiran Slido Craft',
+      url: SITE_URL,
+    },
+  };
+
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+      { '@type': 'ListItem', position: 2, name: 'Blog', item: `${SITE_URL}/blog` },
+      { '@type': 'ListItem', position: 3, name: guide.title, item: `${SITE_URL}/guides/${guide.slug}` },
+    ],
+  };
+
   return (
     <div className="bg-white min-h-screen">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       <header className="pt-32 pb-20 border-b border-slate-100">
         <div className="max-container px-6">
-          <Link href="/blog" className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest text-blue-600 mb-12 hover:translate-x-[-4px] transition-transform">
-            <ArrowLeft className="w-4 h-4" /> Back to Resources
-          </Link>
+          <div className="flex flex-wrap items-center gap-3 text-xs font-black uppercase tracking-widest text-blue-600 mb-12">
+            <Link href="/blog" className="inline-flex items-center gap-2 hover:translate-x-[-4px] transition-transform">
+              <ArrowLeft className="w-4 h-4" /> Back to Resources
+            </Link>
+            <span className="text-slate-300">/</span>
+            <Link href="/faq" className="hover:text-blue-700 transition-colors">
+              Technical FAQs
+            </Link>
+            <span className="text-slate-300">/</span>
+            <Link href="/contact" className="hover:text-blue-700 transition-colors">
+              Contact Engineering
+            </Link>
+          </div>
           
           <div className="flex flex-wrap items-center gap-4 mb-8">
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 text-[10px] font-black uppercase tracking-widest text-blue-600">
@@ -125,6 +183,23 @@ export default async function GuidePage({ params }: Props) {
                   ))}
                 </div>
               </div>
+            </div>
+
+            <div className="grid gap-4 md:grid-cols-2">
+              <Link href="/faq" className="group rounded-[2rem] border border-slate-200 bg-white p-6 transition hover:border-blue-200 hover:shadow-[0_20px_45px_-30px_rgba(15,23,42,0.6)]">
+                <p className="text-[10px] font-black uppercase tracking-[0.22em] text-blue-600 mb-3">Related Resource</p>
+                <h3 className="text-lg font-black uppercase tracking-tight text-slate-950">Technical FAQs</h3>
+                <p className="mt-3 text-sm font-medium leading-6 text-slate-500">
+                  Review common product and project questions before you contact engineering.
+                </p>
+              </Link>
+              <Link href="/solutions" className="group rounded-[2rem] border border-slate-200 bg-white p-6 transition hover:border-blue-200 hover:shadow-[0_20px_45px_-30px_rgba(15,23,42,0.6)]">
+                <p className="text-[10px] font-black uppercase tracking-[0.22em] text-blue-600 mb-3">Related Resource</p>
+                <h3 className="text-lg font-black uppercase tracking-tight text-slate-950">Solution Families</h3>
+                <p className="mt-3 text-sm font-medium leading-6 text-slate-500">
+                  Compare the broader system families that connect to this guide topic.
+                </p>
+              </Link>
             </div>
           </div>
         </div>

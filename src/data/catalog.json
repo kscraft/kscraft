@@ -732,6 +732,16 @@
         "Multi-layer acoustic glazing",
         "Precision compression sealing"
       ],
+      "faqs": [
+        {
+          "q": "What sound reduction range do your acoustic windows cover?",
+          "a": "The verified catalog describes acoustic window assemblies from roughly STC 30 dB to 52 dB, depending on the selected system and glazing build-up."
+        },
+        {
+          "q": "Where are acoustic windows typically specified?",
+          "a": "They are commonly specified for residential applications, commercial centers, industrial establishments, multiplexes, malls, theaters, and conference halls."
+        }
+      ],
       "extendedContent": [
         "### Complete Specification Guide: Soundproof Windows",
         "Specifying the correct acoustic fenestration requires balancing Sound Transmission Class (STC) targets with aesthetic and structural requirements. Kiran Slido Craft manufactures highly engineered soundproof windows designed to combat urban, rail, and industrial noise pollution. The verified window catalog describes aluminum extrusion, insulated glass, and insulation materials, with sound-blocking performance from STC 30 dB to 52 dB depending on the selected system.",
@@ -755,6 +765,16 @@
         "Movable and fixed walls",
         "High transmission-loss panels",
         "Fast room reconfiguration"
+      ],
+      "faqs": [
+        {
+          "q": "What acoustic performance do the movable partition systems achieve?",
+          "a": "The verified W Type movable partition profile documents laboratory acoustic performance around STC 55-56 dB, using nominal 100 mm thick panels with acoustic infill and sealed interfaces."
+        },
+        {
+          "q": "Which finishes are available for acoustic partitions?",
+          "a": "Verified finish options include MDF, steel face, carpet fabric, wood veneer, laminate, canvas, tapestry or fabric, and other custom finishes."
+        }
       ],
       "extendedContent": [
         "### Complete Specification Guide: Acoustic Partitions",
@@ -781,6 +801,16 @@
         "Sliding, swing, and fold doors",
         "Heavy-duty acoustic cores",
         "Perimeter and drop sealing"
+      ],
+      "faqs": [
+        {
+          "q": "What STC range do your acoustic doors cover?",
+          "a": "The engineered door systems are designed to achieve STC ratings from 42 to 55+, depending on the acoustic target and application."
+        },
+        {
+          "q": "Do the door systems include engineered seals and frames?",
+          "a": "Yes. The door sets use engineered frames with perimeter compression seals and automatic drop-down bottom seals, with cam-lift or heavy-duty hinge options."
+        }
       ],
       "extendedContent": [
         "### Complete Specification Guide: Acoustic Doors",
@@ -840,6 +870,16 @@
         "75% to 100% retractability",
         "SS and aluminum frames",
         "Weather-ready motorization"
+      ],
+      "faqs": [
+        {
+          "q": "What frame and glazing options are available for retractable roofs?",
+          "a": "Verified options include aluminum extrusion or stainless steel framework, with glass or polycarbonate sheet options in 8 mm or 10 mm depending on the project requirement."
+        },
+        {
+          "q": "Are the roof systems motorized and weather protected?",
+          "a": "Yes. The supplied system is described as weatherproof, dust proof, and IP rated, with a 240 V motor, controller, remote handset, and overload protection."
+        }
       ],
       "extendedContent": [
         "### Complete Specification Guide: Motorized Retractable Roofs",

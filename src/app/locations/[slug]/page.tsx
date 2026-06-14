@@ -6,7 +6,7 @@ import { ArrowRight, BadgeCheck, BarChart3, Building2, MapPin, Phone, ShieldChec
 import ProductCard from '@/components/ProductCard';
 import ThemeMarker from '@/components/ThemeMarker';
 import ClientMarquee from '@/components/ClientMarquee';
-import { catalog, getProductsByCategory } from '@/lib/catalog';
+import { catalog, guides, getProductsByCategory } from '@/lib/catalog';
 import { getLocationSeo, getRelatedLocationPages, locationSeoPages } from '@/data/location-seo';
 import { getLocationSoundProofAnswer, getLocationWhereToFindAnswer } from '@/lib/ai-seo-answer-blocks';
 
@@ -87,6 +87,23 @@ export default async function LocationSeoPage({ params }: Props) {
     {
       title: 'Hotels, hospitals, and industry',
       body: 'Specify performance targets, frame depth, glass build-up, hardware, and installation tolerances before requesting a quote.',
+    },
+  ];
+  const researchResources = [
+    {
+      href: '/guides/soundproof-window-buying-guide',
+      title: guides.find((guide) => guide.slug === 'soundproof-window-buying-guide')?.title || 'Soundproof Window Buying Guide',
+      description: 'Compare STC targets, frame engineering, and glazing choices before you specify a window package.',
+    },
+    {
+      href: '/guides/stc-vs-oitc-ratings-explained',
+      title: guides.find((guide) => guide.slug === 'stc-vs-oitc-ratings-explained')?.title || 'STC vs. OITC Explained',
+      description: 'Use the right acoustic metric when traffic, rail, or low-frequency noise drives the brief.',
+    },
+    {
+      href: '/faq',
+      title: 'Technical FAQs',
+      description: 'Review the company-wide FAQ library for common project and specification questions.',
     },
   ];
 
@@ -405,6 +422,38 @@ export default async function LocationSeoPage({ params }: Props) {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section-standard border-t border-slate-100">
+        <ThemeMarker theme="light" className="absolute top-0" />
+        <div className="max-container">
+          <div className="mb-12 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <div>
+              <p className="text-eyebrow">Research resources</p>
+              <h2 className="heading-section mb-0">Continue the specification path</h2>
+            </div>
+            <p className="max-w-2xl text-body-lg">
+              These resources connect the {location.city} market page to the guides and FAQ pages that support a real buying workflow.
+            </p>
+          </div>
+
+          <div className="grid gap-4 md:grid-cols-3">
+            {researchResources.map((resource) => (
+              <Link
+                key={resource.href}
+                href={resource.href}
+                className="group rounded-2xl border border-slate-200 bg-white p-6 transition hover:border-blue-200 hover:shadow-[0_20px_45px_-30px_rgba(15,23,42,0.6)]"
+              >
+                <p className="text-[10px] font-black uppercase tracking-[0.22em] text-blue-600 mb-3">Resource</p>
+                <h3 className="text-lg font-black uppercase tracking-tight text-slate-950">{resource.title}</h3>
+                <p className="mt-3 text-sm font-medium leading-6 text-slate-500">{resource.description}</p>
+                <div className="mt-6 inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-blue-600">
+                  Open resource <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </section>

@@ -6,7 +6,7 @@ import { ArrowRight, BadgeCheck, Building2, MapPin, Phone, Settings2, ShieldChec
 import ProductCard from '@/components/ProductCard';
 import ThemeMarker from '@/components/ThemeMarker';
 import ClientMarquee from '@/components/ClientMarquee';
-import { catalog, products } from '@/lib/catalog';
+import { catalog, categories, products } from '@/lib/catalog';
 import { getServiceLocationAnswer, getServiceLocationFirstStep, getServiceWhereToFindAnswer } from '@/lib/ai-seo-answer-blocks';
 import { getLocationByMarketSlug } from '@/data/location-seo';
 import {
@@ -106,6 +106,10 @@ export default async function ServiceLocationPage({ params }: Props) {
   ];
 
   const siblingServices = serviceLocationSeoPages.filter((item) => item.slug !== service.slug).slice(0, 3);
+  const relatedCategorySlugs = Array.from(new Set(selectedProducts.flatMap((product) => product.categories))).slice(0, 3);
+  const relatedCategories = relatedCategorySlugs
+    .map((slug) => categories.find((category) => category.id === slug))
+    .filter((category): category is NonNullable<typeof category> => Boolean(category));
 
   const serviceJsonLd = {
     '@context': 'https://schema.org',
@@ -418,6 +422,38 @@ export default async function ServiceLocationPage({ params }: Props) {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section-standard border-t border-slate-100">
+        <ThemeMarker theme="light" className="absolute top-0" />
+        <div className="max-container">
+          <div className="mb-12 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <div>
+              <p className="text-eyebrow">Related product families</p>
+              <h2 className="heading-section mb-0">Move from the brief to the right category</h2>
+            </div>
+            <p className="max-w-2xl text-body-lg">
+              These links help readers move from a location-specific service query into the broader category pages that define the product family.
+            </p>
+          </div>
+
+          <div className="grid gap-4 md:grid-cols-3">
+            {relatedCategories.map((category) => (
+              <Link
+                key={category.id}
+                href={`/category/${category.id}`}
+                className="group rounded-2xl border border-slate-200 bg-white p-6 transition hover:border-blue-200 hover:shadow-[0_20px_45px_-30px_rgba(15,23,42,0.6)]"
+              >
+                <p className="text-[10px] font-black uppercase tracking-[0.22em] text-blue-700 mb-3">Category</p>
+                <h3 className="text-lg font-black uppercase tracking-tight text-slate-950">{category.title}</h3>
+                <p className="mt-3 text-sm font-medium leading-6 text-slate-500">{category.description}</p>
+                <div className="mt-6 inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-blue-600">
+                  Open category <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </section>

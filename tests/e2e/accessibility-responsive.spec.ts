@@ -44,6 +44,32 @@ test('representative mobile pages do not overflow the viewport', async ({ page }
   }
 });
 
+test('engineering DNA heading keeps complete words within its column', async ({ page }) => {
+  for (const viewport of [
+    { width: 320, height: 568 },
+    { width: 1024, height: 768 },
+    { width: 1440, height: 900 },
+  ]) {
+    await page.setViewportSize(viewport);
+    await page.goto('/', { waitUntil: 'domcontentloaded' });
+
+    const heading = page.getByTestId('engineering-dna-heading');
+    await expect(heading).toBeVisible();
+    await expect(heading.locator('[data-heading-line]')).toHaveCount(3);
+
+    const lineWidths = await heading.locator('[data-heading-line]').evaluateAll((lines) => (
+      lines.map((line) => ({
+        clientWidth: line.clientWidth,
+        scrollWidth: line.scrollWidth,
+      }))
+    ));
+
+    for (const line of lineWidths) {
+      expect(line.scrollWidth, `${viewport.width}px viewport: ${JSON.stringify(line)}`).toBeLessThanOrEqual(line.clientWidth + 1);
+    }
+  }
+});
+
 test('global navigation supports keyboard focus and 48px targets', async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.goto('/', { waitUntil: 'domcontentloaded' });

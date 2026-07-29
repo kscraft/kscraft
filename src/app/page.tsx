@@ -110,13 +110,17 @@ export default function Home() {
         <ThemeMarker theme="light" className="absolute top-0" />
         <div className="max-container">
           <div className="flex min-w-0 flex-col items-center gap-20 lg:flex-row">
-            <div className="w-full min-w-0 lg:w-1/2">
+            <div className="w-full min-w-0 [container-type:inline-size] lg:w-1/2">
               <div className="flex items-center gap-6 mb-8">
                 <span className="text-eyebrow mb-0">{home.engineeringDNA.eyebrow}</span>
               </div>
-              <h2 className="heading-page text-slate-900 mb-10">
-                World-Class <br />
-                <span className="text-blue-600">Engineering & Manufacturing.</span>
+              <h2
+                data-testid="engineering-dna-heading"
+                className="mb-10 text-[clamp(2rem,10cqw,5rem)] font-black uppercase leading-[0.95] tracking-normal text-slate-900"
+              >
+                <span data-heading-line className="block whitespace-nowrap">World-Class</span>
+                <span data-heading-line className="block whitespace-nowrap text-blue-600">Engineering &amp;</span>
+                <span data-heading-line className="block whitespace-nowrap text-[0.82em] text-blue-600">Manufacturing.</span>
               </h2>
               <p className="text-2xl text-slate-500 font-medium leading-relaxed mb-12">
                 {home.engineeringDNA.description}

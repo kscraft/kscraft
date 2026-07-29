@@ -378,7 +378,6 @@ const LEAD_RECIPIENT_EMAIL = 'info@kiranslidocraft.com';
 const RESEND_TEST_FALLBACK_FROM = 'Kiran Slido Craft <onboarding@resend.dev>';
 const SKIP_LEAD_DELIVERY_VALUES = new Set(['1', 'true', 'yes']);
 const TURNSTILE_VERIFY_URL = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
-const LOCAL_TURNSTILE_TEST_SECRET_KEY = '1x0000000000000000000000000000000AA';
 
 function escapeHtml(value: string) {
   return value
@@ -440,23 +439,11 @@ function isProductionRuntime() {
   return process.env.NODE_ENV === 'production' && process.env.VERCEL === '1';
 }
 
-function shouldVerifyHuman(token: FormDataEntryValue | null) {
-  return Boolean(process.env.TURNSTILE_SECRET_KEY) ||
-    Boolean(process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY) ||
-    isProductionRuntime() ||
-    (typeof token === 'string' && token.trim().length > 0);
-}
-
-async function verifyHumanChallenge(token: FormDataEntryValue | null) {
-  if (!shouldVerifyHuman(token)) {
-    return { success: true };
-  }
-
-  const secret = process.env.TURNSTILE_SECRET_KEY ||
-    (!process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY && !isProductionRuntime() ? LOCAL_TURNSTILE_TEST_SECRET_KEY : undefined);
+async function verifyHumanChallenge(token: FormDataEntryValue | null, clientIp: string | undefined) {
+  const secret = process.env.TURNSTILE_SECRET;
 
   if (!secret) {
-    logServerError('TURNSTILE_SECRET_KEY is not configured for form verification');
+    logServerError('TURNSTILE_SECRET is not configured for form verification');
     return { success: false };
   }
 
@@ -464,14 +451,16 @@ async function verifyHumanChallenge(token: FormDataEntryValue | null) {
     return { success: false };
   }
 
-  const body = new FormData();
-  body.append('secret', secret);
-  body.append('response', token);
-  body.append('idempotency_key', randomUUID());
+  const body = new URLSearchParams({
+    secret,
+    response: token,
+    remoteip: clientIp || '',
+  });
 
   try {
     const response = await fetch(TURNSTILE_VERIFY_URL, {
       method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body,
     });
 
@@ -671,11 +660,12 @@ async function archiveInquiry(inquiry: Inquiry) {
 
 export async function submitInquiry(_prevState: unknown, formData: FormData): Promise<InquiryActionState> {
   const requestHeaders = await headers();
+  const clientIp = getClientIp(requestHeaders);
 
   if (
     !isAllowedSubmissionOrigin(requestHeaders) ||
     hasHoneypotValue(formData) ||
-    isRateLimited(getClientIp(requestHeaders))
+    isRateLimited(clientIp)
   ) {
     return {
       success: false,
@@ -712,7 +702,10 @@ export async function submitInquiry(_prevState: unknown, formData: FormData): Pr
     };
   }
 
-  const humanVerification = await verifyHumanChallenge(formData.get('cf-turnstile-response'));
+  const humanVerification = await verifyHumanChallenge(
+    formData.get('cf-turnstile-response'),
+    clientIp,
+  );
 
   if (!humanVerification.success) {
     return {

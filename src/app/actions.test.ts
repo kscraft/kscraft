@@ -51,6 +51,7 @@ function getValidFormData(overrides: Record<string, string> = {}) {
   Object.entries(values).forEach(([key, value]) => {
     formData.append(key, value);
   });
+  formData.append('cf-turnstile-response', 'unit-test-token');
 
   return formData;
 }
@@ -69,8 +70,7 @@ describe('Server Actions', () => {
     LEADS_FROM_EMAIL: process.env.LEADS_FROM_EMAIL,
     RESEND_FALLBACK_FROM_EMAIL: process.env.RESEND_FALLBACK_FROM_EMAIL,
     SKIP_LEAD_DELIVERY: process.env.SKIP_LEAD_DELIVERY,
-    TURNSTILE_SECRET_KEY: process.env.TURNSTILE_SECRET_KEY,
-    NEXT_PUBLIC_TURNSTILE_SITE_KEY: process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY,
+    TURNSTILE_SECRET: process.env.TURNSTILE_SECRET,
   };
 
   beforeEach(() => {
@@ -90,8 +90,14 @@ describe('Server Actions', () => {
     delete process.env.LEADS_FROM_EMAIL;
     delete process.env.RESEND_FALLBACK_FROM_EMAIL;
     delete process.env.SKIP_LEAD_DELIVERY;
-    delete process.env.TURNSTILE_SECRET_KEY;
-    delete process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
+    process.env.TURNSTILE_SECRET = 'unit-test-secret-placeholder';
+    vi.spyOn(globalThis, 'fetch').mockImplementation(async (input) => {
+      if (input === 'https://challenges.cloudflare.com/turnstile/v0/siteverify') {
+        return new Response(JSON.stringify({ success: true }), { status: 200 });
+      }
+
+      throw new Error(`Unexpected fetch in test: ${String(input)}`);
+    });
   });
 
   afterEach(() => {
@@ -105,14 +111,7 @@ describe('Server Actions', () => {
   });
 
   it('should validate and process valid inquiry', async () => {
-    const formData = new FormData();
-    formData.append('name', 'John Doe');
-    formData.append('email', 'john@example.com');
-    formData.append('countryCode', '+91');
-    formData.append('phone', '9876543210');
-    formData.append('city', 'Mumbai');
-    formData.append('scope', 'Acoustic Windows');
-    formData.append('requirements', 'I need STC 50 windows for my studio.');
+    const formData = getValidFormData();
 
     const result = await submitInquiry({}, formData);
     
@@ -126,14 +125,7 @@ describe('Server Actions', () => {
     "Mary O'Connor",
     'Jean-Luc Martin',
   ])('should accept human name format: %s', async (name) => {
-    const formData = new FormData();
-    formData.append('name', name);
-    formData.append('email', 'john@example.com');
-    formData.append('countryCode', '+91');
-    formData.append('phone', '9876543210');
-    formData.append('city', 'Mumbai');
-    formData.append('scope', 'Acoustic Windows');
-    formData.append('requirements', 'I need STC 50 windows for my studio.');
+    const formData = getValidFormData({ name });
 
     const result = await submitInquiry({}, formData);
 
@@ -312,14 +304,7 @@ describe('Server Actions', () => {
       'x-vercel-ip-longitude': '72.8777',
       'x-vercel-ip-timezone': 'Asia%2FKolkata',
     });
-    const formData = new FormData();
-    formData.append('name', 'John Doe');
-    formData.append('email', 'john@example.com');
-    formData.append('countryCode', '+91');
-    formData.append('phone', '9876543210');
-    formData.append('city', 'Mumbai');
-    formData.append('scope', 'Acoustic Windows');
-    formData.append('requirements', 'I need STC 50 windows for my studio.');
+    const formData = getValidFormData();
 
     const result = await submitInquiry({}, formData);
 
@@ -351,17 +336,14 @@ describe('Server Actions', () => {
     process.env.R2_SECRET_ACCESS_KEY = 'test-secret-key';
     process.env.R2_BUCKET = 'ksco-leads';
     r2Mocks.send.mockRejectedValueOnce(new Error('R2 unavailable'));
-    vi.spyOn(globalThis, 'fetch').mockResolvedValue(
-      new Response(JSON.stringify({ id: 'email_test' }), { status: 200 }),
-    );
-    const formData = new FormData();
-    formData.append('name', 'John Doe');
-    formData.append('email', 'john@example.com');
-    formData.append('countryCode', '+91');
-    formData.append('phone', '9876543210');
-    formData.append('city', 'Mumbai');
-    formData.append('scope', 'Acoustic Windows');
-    formData.append('requirements', 'I need STC 50 windows for my studio.');
+    vi.spyOn(globalThis, 'fetch').mockImplementation(async (input) => {
+      if (input === 'https://challenges.cloudflare.com/turnstile/v0/siteverify') {
+        return new Response(JSON.stringify({ success: true }), { status: 200 });
+      }
+
+      return new Response(JSON.stringify({ id: 'email_test' }), { status: 200 });
+    });
+    const formData = getValidFormData();
 
     const result = await submitInquiry({}, formData);
 
@@ -372,17 +354,14 @@ describe('Server Actions', () => {
   it('should email valid inquiry to Kiran Slido Craft inbox when configured', async () => {
     process.env.RESEND_API_KEY = 'test-resend-key';
     process.env.ADMIN_EMAIL_FROM = 'Kiran Slido Craft <leads@example.com>';
-    const fetchMock = vi.spyOn(globalThis, 'fetch').mockResolvedValue(
-      new Response(JSON.stringify({ id: 'email_test' }), { status: 200 }),
-    );
-    const formData = new FormData();
-    formData.append('name', 'John Doe');
-    formData.append('email', 'john@example.com');
-    formData.append('countryCode', '+91');
-    formData.append('phone', '9876543210');
-    formData.append('city', 'Mumbai');
-    formData.append('scope', 'Acoustic Windows');
-    formData.append('requirements', 'I need STC 50 windows for my studio.');
+    const fetchMock = vi.spyOn(globalThis, 'fetch').mockImplementation(async (input) => {
+      if (input === 'https://challenges.cloudflare.com/turnstile/v0/siteverify') {
+        return new Response(JSON.stringify({ success: true }), { status: 200 });
+      }
+
+      return new Response(JSON.stringify({ id: 'email_test' }), { status: 200 });
+    });
+    const formData = getValidFormData();
 
     const result = await submitInquiry({}, formData);
 
@@ -409,24 +388,20 @@ describe('Server Actions', () => {
     process.env.R2_SECRET_ACCESS_KEY = 'test-secret-key';
     process.env.R2_BUCKET = 'ksco-leads';
     const fetchMock = vi.spyOn(globalThis, 'fetch');
-    const formData = new FormData();
-    formData.append('name', 'John Doe');
-    formData.append('email', 'john@example.com');
-    formData.append('countryCode', '+91');
-    formData.append('phone', '9876543210');
-    formData.append('city', 'Mumbai');
-    formData.append('scope', 'Acoustic Windows');
-    formData.append('requirements', 'I need STC 50 windows for my studio.');
+    const formData = getValidFormData();
 
     const result = await submitInquiry({}, formData);
 
     expect(result.success).toBe(true);
-    expect(fetchMock).not.toHaveBeenCalled();
+    expect(fetchMock).toHaveBeenCalledOnce();
+    expect(fetchMock).toHaveBeenCalledWith(
+      'https://challenges.cloudflare.com/turnstile/v0/siteverify',
+      expect.objectContaining({ method: 'POST' }),
+    );
     expect(r2Mocks.send).not.toHaveBeenCalled();
   });
 
   it('should reject inquiry when human verification is required but missing', async () => {
-    process.env.TURNSTILE_SECRET_KEY = 'test-turnstile-secret';
     const fetchMock = vi.spyOn(globalThis, 'fetch');
     const formData = new FormData();
     formData.append('name', 'John Doe');
@@ -446,8 +421,8 @@ describe('Server Actions', () => {
     expect(r2Mocks.send).not.toHaveBeenCalled();
   });
 
-  it('should fail closed when Turnstile site key is present without server secret', async () => {
-    process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY = 'test-site-key';
+  it('should fail closed when the server secret is missing', async () => {
+    delete process.env.TURNSTILE_SECRET;
     const fetchMock = vi.spyOn(globalThis, 'fetch');
     const formData = new FormData();
     formData.append('name', 'John Doe');
@@ -467,10 +442,23 @@ describe('Server Actions', () => {
     expect(r2Mocks.send).not.toHaveBeenCalled();
   });
 
+  it('should fail closed when siteverify does not return success true', async () => {
+    const fetchMock = vi.spyOn(globalThis, 'fetch').mockResolvedValue(
+      new Response(JSON.stringify({ success: false }), { status: 200 }),
+    );
+
+    const result = await submitInquiry({}, getValidFormData());
+
+    expect(result.success).toBe(false);
+    expect(result.errors?.human).toBeDefined();
+    expect(fetchMock).toHaveBeenCalledOnce();
+    expect(r2Mocks.send).not.toHaveBeenCalled();
+  });
+
   it('should not write console logs in production failure paths', async () => {
     vi.stubEnv('NODE_ENV', 'production');
     process.env.VERCEL = '1';
-    process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY = 'test-site-key';
+    delete process.env.TURNSTILE_SECRET;
     mockRequestHeaders({ origin: 'https://soundproofindia.com' });
     const infoMock = vi.spyOn(console, 'info').mockImplementation(() => undefined);
     const warnMock = vi.spyOn(console, 'warn').mockImplementation(() => undefined);
@@ -489,27 +477,27 @@ describe('Server Actions', () => {
   });
 
   it('should verify Turnstile token before sending configured lead email', async () => {
-    process.env.TURNSTILE_SECRET_KEY = 'test-turnstile-secret';
     process.env.RESEND_API_KEY = 'test-resend-key';
     process.env.ADMIN_EMAIL_FROM = 'Kiran Slido Craft <leads@example.com>';
     const fetchMock = vi.spyOn(globalThis, 'fetch')
       .mockResolvedValueOnce(new Response(JSON.stringify({ success: true }), { status: 200 }))
       .mockResolvedValueOnce(new Response(JSON.stringify({ id: 'email_test' }), { status: 200 }));
-    const formData = new FormData();
-    formData.append('name', 'John Doe');
-    formData.append('email', 'john@example.com');
-    formData.append('countryCode', '+91');
-    formData.append('phone', '9876543210');
-    formData.append('city', 'Mumbai');
-    formData.append('scope', 'Acoustic Windows');
-    formData.append('requirements', 'I need STC 50 windows for my studio.');
-    formData.append('cf-turnstile-response', 'test-token');
+    mockRequestHeaders({ 'x-forwarded-for': '203.0.113.42' });
+    const formData = getValidFormData();
 
     const result = await submitInquiry({}, formData);
 
     expect(result.success).toBe(true);
     expect(fetchMock).toHaveBeenCalledTimes(2);
     expect(fetchMock.mock.calls[0]?.[0]).toBe('https://challenges.cloudflare.com/turnstile/v0/siteverify');
+    const verifyRequest = fetchMock.mock.calls[0]?.[1];
+    expect(verifyRequest).toEqual(expect.objectContaining({
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    }));
+    expect(verifyRequest?.body).toBeInstanceOf(URLSearchParams);
+    expect((verifyRequest?.body as URLSearchParams).get('response')).toBe('unit-test-token');
+    expect((verifyRequest?.body as URLSearchParams).get('remoteip')).toBe('203.0.113.42');
     expect(fetchMock.mock.calls[1]?.[0]).toBe('https://api.resend.com/emails');
   });
 
@@ -517,6 +505,7 @@ describe('Server Actions', () => {
     process.env.RESEND_API_KEY = 'test-resend-key';
     process.env.ADMIN_EMAIL_FROM = 'Kiran Slido Craft <info@kiranslidocraft.com>';
     const fetchMock = vi.spyOn(globalThis, 'fetch')
+      .mockResolvedValueOnce(new Response(JSON.stringify({ success: true }), { status: 200 }))
       .mockResolvedValueOnce(new Response(
         JSON.stringify({
           statusCode: 403,
@@ -526,20 +515,13 @@ describe('Server Actions', () => {
         { status: 403 },
       ))
       .mockResolvedValueOnce(new Response(JSON.stringify({ id: 'email_test' }), { status: 200 }));
-    const formData = new FormData();
-    formData.append('name', 'John Doe');
-    formData.append('email', 'john@example.com');
-    formData.append('countryCode', '+91');
-    formData.append('phone', '9876543210');
-    formData.append('city', 'Mumbai');
-    formData.append('scope', 'Acoustic Windows');
-    formData.append('requirements', 'I need STC 50 windows for my studio.');
+    const formData = getValidFormData();
 
     const result = await submitInquiry({}, formData);
 
     expect(result.success).toBe(true);
-    expect(fetchMock).toHaveBeenCalledTimes(2);
-    expect(fetchMock.mock.calls[1]?.[1]).toEqual(expect.objectContaining({
+    expect(fetchMock).toHaveBeenCalledTimes(3);
+    expect(fetchMock.mock.calls[2]?.[1]).toEqual(expect.objectContaining({
       body: expect.stringContaining('onboarding@resend.dev'),
     }));
   });

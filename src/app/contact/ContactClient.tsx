@@ -24,9 +24,7 @@ const initialState: InquiryActionState = {
 
 const TECHNICAL_REQUIREMENTS_CHARACTER_LIMIT = 3000;
 const contactContainerClass = 'mx-auto w-[calc(100vw-3rem)] max-w-[1320px] sm:w-full min-[1920px]:max-w-[1760px]';
-const configuredTurnstileSiteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
-const LOCAL_TURNSTILE_TEST_SITE_KEY = '3x00000000000000000000FF';
-const LOCAL_HOSTNAMES = new Set(['localhost', '127.0.0.1', '::1']);
+const TURNSTILE_SITE_KEY = '0x4AAAAAAEAl-DGJqphLw0Wv';
 const countryCodes = [...(countryCodesData as { country: string; iso2: string; dialCode: string }[])]
   .sort((a, b) => {
     if (a.iso2 === 'IN') return -1;
@@ -266,22 +264,6 @@ function CountryCodePicker({ hasError }: { hasError: boolean }) {
   );
 }
 
-function subscribeToLocationChanges(onStoreChange: () => void) {
-  window.addEventListener('popstate', onStoreChange);
-
-  return () => {
-    window.removeEventListener('popstate', onStoreChange);
-  };
-}
-
-function getBrowserHostname() {
-  return window.location.hostname;
-}
-
-function getServerHostnameSnapshot() {
-  return '';
-}
-
 function ContactForm() {
   const [state, formAction, isPending] = useActionState(submitInquiry, initialState);
   const searchParams = useSearchParams();
@@ -289,13 +271,7 @@ function ContactForm() {
   const [hasStarted, setHasStarted] = React.useState(false);
   const [formStartedAt] = React.useState(() => Date.now().toString());
   const [requirementsLength, setRequirementsLength] = React.useState(0);
-  const browserHostname = React.useSyncExternalStore(
-    subscribeToLocationChanges,
-    getBrowserHostname,
-    getServerHostnameSnapshot,
-  );
-  const turnstileSiteKey = configuredTurnstileSiteKey ||
-    (LOCAL_HOSTNAMES.has(browserHostname) ? LOCAL_TURNSTILE_TEST_SITE_KEY : undefined);
+  const turnstileContainerRef = React.useRef<HTMLDivElement>(null);
 
   // Track successful submission
   React.useEffect(() => {
@@ -306,6 +282,15 @@ function ContactForm() {
       });
     }
   }, [state.success, searchParams]);
+
+  React.useEffect(() => {
+    if (!state.success && state.message) {
+      const turnstileWindow = window as Window & {
+        turnstile?: { reset: (container?: HTMLElement) => void };
+      };
+      turnstileWindow.turnstile?.reset(turnstileContainerRef.current ?? undefined);
+    }
+  }, [state.message, state.success]);
 
   const handleFocus = () => {
     if (!hasStarted) {
@@ -482,23 +467,26 @@ function ContactForm() {
               </div>
             </div>
 
-            {turnstileSiteKey && (
-              <div className="space-y-4">
-                <Script
-                  src="https://challenges.cloudflare.com/turnstile/v0/api.js"
-                  strategy="lazyOnload"
-                />
-                <div
-                  className="cf-turnstile"
-                  data-sitekey={turnstileSiteKey}
-                  data-theme="dark"
-                  data-size="flexible"
-                />
-                {state?.errors?.human && (
-                  <p className="text-xs font-bold text-red-400 px-2">{state.errors.human[0]}</p>
-                )}
-              </div>
-            )}
+            <div className="space-y-4">
+              <Script
+                src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+                strategy="afterInteractive"
+              />
+              <div
+                ref={turnstileContainerRef}
+                className="cf-turnstile"
+                data-sitekey={TURNSTILE_SITE_KEY}
+                data-action="turnstile-spin-v2"
+                data-appearance="always"
+                data-theme="dark"
+                data-size="flexible"
+                data-retry="auto"
+                data-refresh-expired="auto"
+              />
+              {state?.errors?.human && (
+                <p className="text-xs font-bold text-red-400 px-2">{state.errors.human[0]}</p>
+              )}
+            </div>
             
             <button 
               type="submit" 

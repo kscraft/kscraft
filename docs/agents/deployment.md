@@ -11,11 +11,9 @@
   `RESEND_API_KEY` and `ADMIN_EMAIL_FROM` or `LEADS_FROM_EMAIL`; the recipient
   is `info@kiranslidocraft.com`.
 - Contact-form human verification uses Cloudflare Turnstile. Required
-  production env vars are `NEXT_PUBLIC_TURNSTILE_SITE_KEY` and
-  `TURNSTILE_SECRET_KEY`; production submissions fail closed when the secret is
-  missing or verification fails. Localhost renders Cloudflare's official
-  forced-interaction Turnstile test widget when no public site key is
-  configured, but deployed environments must use real widget keys.
+  production env var is `TURNSTILE_SECRET`; the public site key is embedded in
+  the contact form. All submissions fail closed when the secret is missing or
+  Cloudflare verification does not return `success: true`.
 - Optional lead archiving can write one JSON object per inquiry to private
   Cloudflare R2 when `R2_ACCOUNT_ID`, `R2_ACCESS_KEY_ID`,
   `R2_SECRET_ACCESS_KEY`, and `R2_BUCKET` are configured.

@@ -16,6 +16,11 @@ describe('sanitizeTrustedHtml', () => {
     expect(sanitizeTrustedHtml('<a href="javascript:alert(1)">Bad</a>')).toBe('<a>Bad</a>');
   });
 
+  it('rejects URL schemes obfuscated with control characters', () => {
+    expect(sanitizeTrustedHtml('<a href="java\u0000script:alert(1)">Bad</a>')).toBe('<a>Bad</a>');
+    expect(sanitizeTrustedHtml('<a href="java\u0085script:alert(1)">Bad</a>')).toBe('<a>Bad</a>');
+  });
+
   it('removes disallowed tags while escaping untrusted text', () => {
     expect(sanitizeTrustedHtml('<xmp><img src=x onerror=alert(1)></xmp><script>alert(1)</script>')).toBe(
       'alert(1)',

@@ -26,7 +26,7 @@ function isSafeHref(value: string) {
     return true;
   }
 
-  const normalized = trimmed.replace(/[\u0000-\u001F\u007F\s]+/g, '').toLowerCase();
+  const normalized = trimmed.replace(/[\p{Cc}\s]+/gu, '').toLowerCase();
   const colonIndex = normalized.indexOf(':');
 
   if (colonIndex === -1) {

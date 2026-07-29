@@ -29,6 +29,20 @@ const initialState: InquiryActionState = {
 
 const contactContainerClass = 'mx-auto w-[calc(100vw-3rem)] max-w-[1320px] sm:w-full min-[1920px]:max-w-[1760px]';
 const TURNSTILE_SITE_KEY = '0x4AAAAAAEAl-DGJqphLw0Wv';
+const TURNSTILE_SCRIPT_URL = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
+
+type TurnstileApi = {
+  render: (container: HTMLElement, options: Record<string, unknown>) => string;
+  remove: (widgetId: string) => void;
+  reset: (widgetId: string) => void;
+};
+
+declare global {
+  interface Window {
+    turnstile?: TurnstileApi;
+  }
+}
+
 const countryCodes = [...(countryCodesData as { country: string; iso2: string; dialCode: string }[])]
   .sort((a, b) => {
     if (a.iso2 === 'IN') return -1;
@@ -311,7 +325,49 @@ function ContactForm() {
   const [requirementsLength, setRequirementsLength] = React.useState(0);
   const [touchedFields, setTouchedFields] = React.useState<TouchedFields>({});
   const [clientErrors, setClientErrors] = React.useState<ClientFieldErrors>({});
+  const [turnstileLoadError, setTurnstileLoadError] = React.useState(false);
   const turnstileContainerRef = React.useRef<HTMLDivElement>(null);
+  const turnstileWidgetIdRef = React.useRef<string | null>(null);
+
+  const renderTurnstile = React.useCallback(() => {
+    const container = turnstileContainerRef.current;
+    const turnstile = window.turnstile;
+
+    if (!container || !turnstile || turnstileWidgetIdRef.current) {
+      return;
+    }
+
+    try {
+      turnstileWidgetIdRef.current = turnstile.render(container, {
+        sitekey: TURNSTILE_SITE_KEY,
+        action: 'turnstile-spin-v2',
+        appearance: 'always',
+        theme: 'dark',
+        size: 'flexible',
+        retry: 'auto',
+        'refresh-expired': 'auto',
+      });
+      setTurnstileLoadError(false);
+    } catch {
+      turnstileWidgetIdRef.current = null;
+      setTurnstileLoadError(true);
+    }
+  }, []);
+
+  React.useEffect(() => {
+    return () => {
+      const widgetId = turnstileWidgetIdRef.current;
+      turnstileWidgetIdRef.current = null;
+
+      if (widgetId && window.turnstile) {
+        try {
+          window.turnstile.remove(widgetId);
+        } catch {
+          // The provider may already have removed an expired widget.
+        }
+      }
+    };
+  }, []);
 
   const validateAndStoreField = React.useCallback((field: InquiryFieldName, value: string) => {
     const error = validateInquiryField(field, value);
@@ -382,12 +438,19 @@ function ContactForm() {
 
   React.useEffect(() => {
     if (!state.success && state.message) {
-      const turnstileWindow = window as Window & {
-        turnstile?: { reset: (container?: HTMLElement) => void };
-      };
-      turnstileWindow.turnstile?.reset(turnstileContainerRef.current ?? undefined);
+      const widgetId = turnstileWidgetIdRef.current;
+
+      if (widgetId && window.turnstile) {
+        try {
+          window.turnstile.reset(widgetId);
+        } catch {
+          turnstileWidgetIdRef.current = null;
+          turnstileContainerRef.current?.replaceChildren();
+          window.requestAnimationFrame(renderTurnstile);
+        }
+      }
     }
-  }, [state.message, state.success]);
+  }, [renderTurnstile, state.message, state.success]);
 
   const handleFocus = () => {
     if (!hasStarted) {
@@ -606,12 +669,15 @@ function ContactForm() {
 
             <div className="space-y-4">
               <Script
-                src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+                src={TURNSTILE_SCRIPT_URL}
                 strategy="afterInteractive"
+                onReady={renderTurnstile}
+                onError={() => setTurnstileLoadError(true)}
               />
+              <p className="ml-1 text-xs font-semibold text-blue-300">Human verification</p>
               <div
                 ref={turnstileContainerRef}
-                className="cf-turnstile"
+                className="cf-turnstile min-h-[65px]"
                 data-sitekey={TURNSTILE_SITE_KEY}
                 data-action="turnstile-spin-v2"
                 data-appearance="always"
@@ -620,6 +686,11 @@ function ContactForm() {
                 data-retry="auto"
                 data-refresh-expired="auto"
               />
+              {turnstileLoadError && (
+                <p className="rounded-xl border border-amber-300/30 bg-amber-400/10 px-4 py-3 text-xs font-semibold leading-5 text-amber-100" role="alert">
+                  Human verification could not load. Disable content blocking for this site and reload the page.
+                </p>
+              )}
               {state?.errors?.human && (
                 <p className="text-xs font-bold text-red-400 px-2">{state.errors.human[0]}</p>
               )}

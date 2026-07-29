@@ -15,7 +15,9 @@ export default function ProductActions({ productTitle }: ProductActionsProps) {
   return (
     <>
       <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-        <button 
+        <button
+          type="button"
+          aria-haspopup="dialog"
           onClick={() => {
             trackQuoteClick(productTitle, 'product_page');
             setIsOpen(true);

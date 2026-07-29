@@ -47,4 +47,21 @@ describe('analytics-client privacy guard', () => {
       has_results: true,
     });
   });
+
+  it('does not throw when analytics storage is unavailable', () => {
+    vi.spyOn(Storage.prototype, 'getItem').mockImplementation(() => {
+      throw new DOMException('Storage unavailable', 'SecurityError');
+    });
+
+    expect(() => trackClientEvent('formal_quote_form_redirect')).not.toThrow();
+  });
+
+  it('does not throw when the analytics provider fails', () => {
+    window.localStorage.setItem('ksc_cookie_consent', 'accepted');
+    window.gtag = vi.fn(() => {
+      throw new Error('Provider unavailable');
+    });
+
+    expect(() => trackClientEvent('formal_quote_form_redirect')).not.toThrow();
+  });
 });

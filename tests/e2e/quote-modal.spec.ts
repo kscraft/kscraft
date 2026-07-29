@@ -54,4 +54,14 @@ test.describe('Quote modal viewport behavior', () => {
 
     await expectDialogInsideViewport(page);
   });
+
+  test('formal inquiry opens the technical form page', async ({ page }) => {
+    await page.goto('/');
+    await page.getByRole('button', { name: 'Get a Quote' }).click();
+    await page.getByRole('link', { name: 'Formal Inquiry Detailed Technical Request' }).click();
+
+    await expect(page).toHaveURL('/contact');
+    await expect(page.getByRole('heading', { name: 'Technical Inquiry' })).toBeVisible();
+    await expect(page.locator('.cf-turnstile')).toHaveAttribute('data-action', 'turnstile-spin-v2');
+  });
 });

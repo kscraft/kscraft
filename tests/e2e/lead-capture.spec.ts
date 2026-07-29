@@ -58,7 +58,7 @@ test.describe('Lead Capture Flow', () => {
     await expect(widget).toHaveAttribute('data-sitekey', '0x4AAAAAAEAl-DGJqphLw0Wv');
     await expect(widget).toHaveAttribute('data-action', 'turnstile-spin-v2');
     await expect(widget).toHaveAttribute('data-appearance', 'always');
-    await expect(page.locator('script[src="https://challenges.cloudflare.com/turnstile/v0/api.js"]')).toHaveCount(1);
+    await expect(page.locator('script[src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"]')).toHaveCount(1);
 
     await page.getByPlaceholder(/Enter name/i).fill('Test User');
     await page.getByPlaceholder(/email@company.com/i).fill('test@example.com');

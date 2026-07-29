@@ -99,8 +99,12 @@ function getQueryLengthBucket(query: string) {
  * Safely checks if gtag is available before calling.
  */
 export function trackClientEvent(eventName: string, params: Record<string, unknown> = {}) {
-  if (typeof window !== 'undefined' && typeof window.gtag === 'function' && hasAnalyticsConsent()) {
-    window.gtag('event', eventName, sanitizeAnalyticsParams(params));
+  try {
+    if (typeof window !== 'undefined' && typeof window.gtag === 'function' && hasAnalyticsConsent()) {
+      window.gtag('event', eventName, sanitizeAnalyticsParams(params));
+    }
+  } catch {
+    // Analytics must never block navigation or other visitor actions.
   }
 }
 

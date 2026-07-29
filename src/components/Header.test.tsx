@@ -19,6 +19,16 @@ describe('Header Component', () => {
     expect(screen.getByRole('button', { name: /Get a Quote/i })).toBeInTheDocument();
   });
 
+  it('opens quote options from the header action', () => {
+    render(<Header />);
+    const quoteButton = screen.getByRole('button', { name: /Get a Quote/i });
+
+    fireEvent.click(quoteButton);
+
+    expect(quoteButton).toHaveAttribute('aria-expanded', 'true');
+    expect(screen.getByRole('dialog', { name: /Get a Specification Quote/i })).toBeInTheDocument();
+  });
+
   it('toggles mobile menu', () => {
     render(<Header />);
     const menuButton = screen.getByRole('button', { name: 'Open menu' });

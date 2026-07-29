@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
-import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { Variants } from 'framer-motion';
 import { X, Phone, MessageSquare, Mail, ChevronRight, Copy, Check, Globe2, ShieldCheck, Send } from 'lucide-react';
@@ -28,6 +27,9 @@ export default function QuoteModal({ isOpen, onClose, productName }: QuoteModalP
   const whatsappUrl = `https://wa.me/${phone.replace('+', '')}?text=${encodeURIComponent(`Hi, I am interested in getting a quote for ${productName || 'your acoustic systems'}.`)}`;
   const callUrl = `tel:${phone}`;
   const emailUrl = `mailto:${email}?subject=${encodeURIComponent(`Quote Request: ${productName || 'Technical Inquiry'}`)}`;
+  const contactUrl = productName
+    ? `/contact?scope=${encodeURIComponent(productName)}`
+    : '/contact';
 
   useEffect(() => {
     if (!isOpen) {
@@ -76,7 +78,7 @@ export default function QuoteModal({ isOpen, onClose, productName }: QuoteModalP
       {isOpen && (
         <div className="fixed inset-0 z-[200] flex items-center justify-center overflow-hidden p-3 sm:p-6">
           <motion.div
-            initial={{ opacity: 0 }}
+            initial={false}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
@@ -84,8 +86,9 @@ export default function QuoteModal({ isOpen, onClose, productName }: QuoteModalP
           />
           
           <motion.div
+            id="quote-modal"
             variants={containerVariants}
-            initial="hidden"
+            initial={false}
             animate="visible"
             exit="exit"
             role="dialog"
@@ -197,11 +200,10 @@ export default function QuoteModal({ isOpen, onClose, productName }: QuoteModalP
 
                 {/* Technical Form Redirect */}
                 <motion.div variants={itemVariants}>
-                  <Link 
-                    href={`/contact?scope=${encodeURIComponent(productName || '')}`}
+                  <a
+                    href={contactUrl}
                     onClick={() => {
                       trackClientEvent('formal_quote_form_redirect', { product: productName });
-                      onClose();
                     }}
                     className="group flex items-center gap-4 rounded-2xl bg-blue-600 p-4 text-white shadow-xl shadow-blue-600/20 transition-all hover:bg-blue-700"
                   >
@@ -213,7 +215,7 @@ export default function QuoteModal({ isOpen, onClose, productName }: QuoteModalP
                       <p className="break-words text-base font-bold tracking-tight sm:text-lg">Detailed Technical Request</p>
                     </div>
                     <ChevronRight className="w-5 h-5 text-blue-300 group-hover:translate-x-1 transition-all" />
-                  </Link>
+                  </a>
                 </motion.div>
               </div>
             </div>

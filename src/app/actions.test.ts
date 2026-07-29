@@ -319,8 +319,10 @@ describe('Server Actions', () => {
     process.env.R2_BUCKET = 'ksco-leads';
     mockRequestHeaders({
       'x-vercel-ip-country': 'IN',
+      'x-vercel-ip-continent': 'AS',
       'x-vercel-ip-country-region': 'MH',
       'x-vercel-ip-city': 'Mumbai',
+      'x-vercel-ip-postal-code': '400001',
       'x-vercel-ip-latitude': '19.0760',
       'x-vercel-ip-longitude': '72.8777',
       'x-vercel-ip-timezone': 'Asia%2FKolkata',
@@ -344,9 +346,11 @@ describe('Server Actions', () => {
     const archivedLead = JSON.parse(r2Mocks.putObjectCommand.mock.calls[0]?.[0].Body);
     expect(archivedLead.phone).toBe('India (+91) - 9876543210');
     expect(archivedLead.geolocation).toEqual({
+      continent: 'AS',
       country: 'IN',
       region: 'MH',
       city: 'Mumbai',
+      postalCode: '400001',
       latitude: '19.0760',
       longitude: '72.8777',
       timezone: 'Asia/Kolkata',
@@ -368,6 +372,13 @@ describe('Server Actions', () => {
     mockRequestHeaders({
       'cf-connecting-ip': '203.0.113.89',
       'cf-ipcountry': 'IN',
+      'cf-ipcontinent': 'AS',
+      'cf-region-code': 'MH',
+      'cf-ipcity': 'Mumbai',
+      'cf-postal-code': '400001',
+      'cf-iplatitude': '19.0760',
+      'cf-iplongitude': '72.8777',
+      'cf-timezone': 'Asia/Kolkata',
       'x-vercel-ip-country': 'US',
       'x-vercel-ip-city': 'San%20Jose',
     });
@@ -377,7 +388,14 @@ describe('Server Actions', () => {
     expect(result.success).toBe(true);
     const archivedLead = JSON.parse(r2Mocks.putObjectCommand.mock.calls[0]?.[0].Body);
     expect(archivedLead.geolocation).toEqual({
+      continent: 'AS',
       country: 'IN',
+      region: 'MH',
+      city: 'Mumbai',
+      postalCode: '400001',
+      latitude: '19.0760',
+      longitude: '72.8777',
+      timezone: 'Asia/Kolkata',
       source: 'cloudflare',
     });
   });
@@ -428,6 +446,14 @@ describe('Server Actions', () => {
     process.env.RESEND_API_KEY = 'test-resend-key';
     process.env.ADMIN_EMAIL_FROM = 'Kiran Slido Craft <leads@example.com>';
     mockRequestHeaders({
+      'x-vercel-ip-continent': 'AS',
+      'x-vercel-ip-country': 'IN',
+      'x-vercel-ip-country-region': 'MH',
+      'x-vercel-ip-city': 'Mumbai',
+      'x-vercel-ip-postal-code': '400001',
+      'x-vercel-ip-latitude': '19.0760',
+      'x-vercel-ip-longitude': '72.8777',
+      'x-vercel-ip-timezone': 'Asia%2FKolkata',
       'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36',
     });
     const fetchMock = vi.spyOn(globalThis, 'fetch').mockImplementation(async (input) => {
@@ -460,6 +486,13 @@ describe('Server Actions', () => {
     expect(emailBody.text).toContain('Browser: Chrome 126.0.0.0');
     expect(emailBody.text).toContain('Device Type: Desktop');
     expect(emailBody.text).toContain('Operating System: Windows 10');
+    expect(emailBody.text).toContain(
+      'IP Geolocation: Mumbai | MH | IN | 400001 | AS | 19.0760, 72.8777 | Asia/Kolkata | source: vercel',
+    );
+    expect(emailBody.html).toContain('<strong>IP Geolocation</strong>');
+    expect(emailBody.html).toContain(
+      'Mumbai | MH | IN | 400001 | AS | 19.0760, 72.8777 | Asia/Kolkata | source: vercel',
+    );
   });
 
   it('should skip external lead delivery when test delivery is disabled', async () => {

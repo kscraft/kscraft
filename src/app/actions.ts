@@ -62,9 +62,11 @@ function isLongitude(value: string) {
 }
 
 type IpDerivedGeolocation = {
+  continent?: string;
   country?: string;
   region?: string;
   city?: string;
+  postalCode?: string;
   latitude?: string;
   longitude?: string;
   timezone?: string;
@@ -217,38 +219,73 @@ function decodeHeaderValue(value: string | null) {
 }
 
 function getIpDerivedGeolocation(requestHeaders: RequestHeaders): IpDerivedGeolocation | undefined {
+  const isCloudflareRequest = Boolean(requestHeaders.get('cf-connecting-ip'));
+  const cloudflareContinent = decodeHeaderValue(requestHeaders.get('cf-ipcontinent'));
   const cloudflareCountry = decodeHeaderValue(requestHeaders.get('cf-ipcountry'));
+  const cloudflareRegion = decodeHeaderValue(
+    requestHeaders.get('cf-region-code') || requestHeaders.get('cf-region'),
+  );
+  const cloudflareCity = decodeHeaderValue(requestHeaders.get('cf-ipcity'));
+  const cloudflarePostalCode = decodeHeaderValue(requestHeaders.get('cf-postal-code'));
+  const cloudflareLatitude = requestHeaders.get('cf-iplatitude') || undefined;
+  const cloudflareLongitude = requestHeaders.get('cf-iplongitude') || undefined;
+  const cloudflareTimezone = decodeHeaderValue(requestHeaders.get('cf-timezone'));
 
-  if (requestHeaders.get('cf-connecting-ip') && cloudflareCountry) {
+  if (
+    isCloudflareRequest &&
+    (
+      cloudflareContinent ||
+      cloudflareCountry ||
+      cloudflareRegion ||
+      cloudflareCity ||
+      cloudflarePostalCode ||
+      cloudflareLatitude ||
+      cloudflareLongitude ||
+      cloudflareTimezone
+    )
+  ) {
     return {
+      continent: cloudflareContinent,
       country: cloudflareCountry,
+      region: cloudflareRegion,
+      city: cloudflareCity,
+      postalCode: cloudflarePostalCode,
+      latitude: cloudflareLatitude && isLatitude(cloudflareLatitude) ? cloudflareLatitude : undefined,
+      longitude: cloudflareLongitude && isLongitude(cloudflareLongitude) ? cloudflareLongitude : undefined,
+      timezone: cloudflareTimezone,
       source: 'cloudflare',
     };
   }
 
   const vercelCountry = decodeHeaderValue(requestHeaders.get('x-vercel-ip-country'));
+  const vercelContinent = decodeHeaderValue(requestHeaders.get('x-vercel-ip-continent'));
   const vercelRegion = decodeHeaderValue(requestHeaders.get('x-vercel-ip-country-region'));
   const vercelCity = decodeHeaderValue(requestHeaders.get('x-vercel-ip-city'));
+  const vercelPostalCode = decodeHeaderValue(requestHeaders.get('x-vercel-ip-postal-code'));
   const vercelLatitude = requestHeaders.get('x-vercel-ip-latitude') || undefined;
   const vercelLongitude = requestHeaders.get('x-vercel-ip-longitude') || undefined;
   const vercelTimezone = decodeHeaderValue(requestHeaders.get('x-vercel-ip-timezone'));
 
-  if (vercelCountry || vercelRegion || vercelCity || vercelLatitude || vercelLongitude || vercelTimezone) {
+  if (
+    vercelContinent ||
+    vercelCountry ||
+    vercelRegion ||
+    vercelCity ||
+    vercelPostalCode ||
+    vercelLatitude ||
+    vercelLongitude ||
+    vercelTimezone
+  ) {
     return {
+      continent: vercelContinent,
       country: vercelCountry,
       region: vercelRegion,
       city: vercelCity,
+      postalCode: vercelPostalCode,
       latitude: vercelLatitude && isLatitude(vercelLatitude) ? vercelLatitude : undefined,
       longitude: vercelLongitude && isLongitude(vercelLongitude) ? vercelLongitude : undefined,
       timezone: vercelTimezone,
       source: 'vercel',
-    };
-  }
-
-  if (cloudflareCountry) {
-    return {
-      country: cloudflareCountry,
-      source: 'cloudflare',
     };
   }
 
@@ -450,20 +487,26 @@ async function verifyHumanChallenge(token: FormDataEntryValue | null, clientIp: 
   }
 }
 
-function getLeadEmailHtml(inquiry: Inquiry) {
-  const { labels } = emailStrings;
-  const geolocation = inquiry.geolocation
+function formatIpDerivedGeolocation(geolocation: IpDerivedGeolocation | undefined) {
+  return geolocation
     ? [
-      inquiry.geolocation.city,
-      inquiry.geolocation.region,
-      inquiry.geolocation.country,
-      inquiry.geolocation.latitude && inquiry.geolocation.longitude
-        ? `${inquiry.geolocation.latitude}, ${inquiry.geolocation.longitude}`
+      geolocation.city,
+      geolocation.region,
+      geolocation.country,
+      geolocation.postalCode,
+      geolocation.continent,
+      geolocation.latitude && geolocation.longitude
+        ? `${geolocation.latitude}, ${geolocation.longitude}`
         : undefined,
-      inquiry.geolocation.timezone,
-      `source: ${inquiry.geolocation.source}`,
+      geolocation.timezone,
+      `source: ${geolocation.source}`,
     ].filter(Boolean).join(' | ')
     : 'not provided by host';
+}
+
+function getLeadEmailHtml(inquiry: Inquiry) {
+  const { labels } = emailStrings;
+  const geolocation = formatIpDerivedGeolocation(inquiry.geolocation);
 
   return `
     <h2>${emailStrings.title}</h2>
@@ -490,18 +533,7 @@ function getLeadEmailHtml(inquiry: Inquiry) {
 
 function getLeadEmailText(inquiry: Inquiry) {
   const { labels } = emailStrings;
-  const geolocation = inquiry.geolocation
-    ? [
-      inquiry.geolocation.city,
-      inquiry.geolocation.region,
-      inquiry.geolocation.country,
-      inquiry.geolocation.latitude && inquiry.geolocation.longitude
-        ? `${inquiry.geolocation.latitude}, ${inquiry.geolocation.longitude}`
-        : undefined,
-      inquiry.geolocation.timezone,
-      `source: ${inquiry.geolocation.source}`,
-    ].filter(Boolean).join(' | ')
-    : 'not provided by host';
+  const geolocation = formatIpDerivedGeolocation(inquiry.geolocation);
 
   return [
     emailStrings.title,

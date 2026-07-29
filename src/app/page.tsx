@@ -136,7 +136,7 @@ export default function Home() {
                 <div className="min-w-0">
                   <p className="mb-1 text-xs font-black uppercase tracking-widest text-blue-600">{home.showcaseUI.eliteShowcase}</p>
                   <h3 className="break-words text-xl font-black uppercase tracking-tight text-slate-900 [overflow-wrap:anywhere] sm:text-2xl">{projects.highlights[0].title}</h3>
-                  <p className="text-sm text-slate-500 font-medium mt-1">{projects.highlights[0].detail.split('. ')[1]}</p>
+                  <p className="text-sm text-slate-600 font-medium mt-1">{projects.highlights[0].detail.split('. ')[1]}</p>
                 </div>
                 <ArrowRight className="ml-auto hidden h-6 w-6 shrink-0 text-slate-300 transition-all group-hover:translate-x-2 group-hover:text-blue-600 sm:block" />
               </Link>
@@ -179,7 +179,7 @@ export default function Home() {
                 <div key={signal.id} className="min-w-0 rounded-3xl border border-slate-100 bg-slate-50 p-8 transition-all hover:bg-white hover:shadow-xl group">
                   <Icon className="h-8 w-8 text-blue-600 transition-transform group-hover:scale-110" />
                   <h3 className="mt-6 break-words text-xl font-bold uppercase tracking-tight text-slate-950 leading-tight">{signal.title}</h3>
-                  <p className="mt-3 text-sm font-medium leading-relaxed text-slate-500">{signal.description}</p>
+                  <p className="mt-3 text-sm font-medium leading-relaxed text-slate-600">{signal.description}</p>
                 </div>
               );
             })}
@@ -334,7 +334,7 @@ export default function Home() {
                 </div>
                 <p className="text-xs font-black text-blue-600 uppercase tracking-widest mb-4">{home.caseStudiesTeaser.highlights[0].sector}</p>
                 <h3 className="text-2xl font-black tracking-tight text-slate-900 mb-4 uppercase">{projects.highlights[0].title}</h3>
-                <p className="text-slate-500 text-sm font-medium leading-relaxed mb-8">{home.caseStudiesTeaser.highlights[0].description}</p>
+                <p className="text-slate-600 text-sm font-medium leading-relaxed mb-8">{home.caseStudiesTeaser.highlights[0].description}</p>
               </div>
               <Link href="/showcase/isro-gaganyaan" className="mt-auto text-xs font-black uppercase tracking-widest text-blue-600 inline-flex items-center gap-2 group-hover:gap-3 transition-all">
                 {home.caseStudiesTeaser.highlights[0].ctaLabel} <ChevronRight className="w-4 h-4" />
@@ -349,7 +349,7 @@ export default function Home() {
                 </div>
                 <p className="text-xs font-black text-blue-600 uppercase tracking-widest mb-4">{home.caseStudiesTeaser.highlights[1].sector}</p>
                 <h3 className="text-2xl font-black tracking-tight text-slate-900 mb-4 uppercase">{projects.highlights[1].title}</h3>
-                <p className="text-slate-500 text-sm font-medium leading-relaxed mb-8">{home.caseStudiesTeaser.highlights[1].description}</p>
+                <p className="text-slate-600 text-sm font-medium leading-relaxed mb-8">{home.caseStudiesTeaser.highlights[1].description}</p>
               </div>
               <Link href="/clients" className="mt-auto text-xs font-black uppercase tracking-widest text-blue-600 inline-flex items-center gap-2 group-hover:gap-3 transition-all">
                 {home.caseStudiesTeaser.highlights[1].ctaLabel} <ChevronRight className="w-4 h-4" />
@@ -364,7 +364,7 @@ export default function Home() {
                 </div>
                 <p className="text-xs font-black text-blue-600 uppercase tracking-widest mb-4">{home.caseStudiesTeaser.highlights[2].sector}</p>
                 <h3 className="text-2xl font-black tracking-tight text-slate-900 mb-4 uppercase">{home.caseStudiesTeaser.highlights[2].title}</h3>
-                <p className="text-slate-500 text-sm font-medium leading-relaxed mb-8">{home.caseStudiesTeaser.highlights[2].description}</p>
+                <p className="text-slate-600 text-sm font-medium leading-relaxed mb-8">{home.caseStudiesTeaser.highlights[2].description}</p>
               </div>
               <Link href="/clients" className="mt-auto text-xs font-black uppercase tracking-widest text-blue-600 inline-flex items-center gap-2 group-hover:gap-3 transition-all">
                 {home.caseStudiesTeaser.highlights[2].ctaLabel} <ChevronRight className="w-4 h-4" />
@@ -381,7 +381,7 @@ export default function Home() {
             <div className="max-w-2xl">
               <p className="text-eyebrow">{home.trust.eyebrow}</p>
               <h2 className="text-4xl lg:text-5xl font-black uppercase tracking-tighter text-slate-950">{home.trust.title}</h2>
-              <p className="mt-6 text-xl text-slate-500 font-medium leading-relaxed">{home.trust.description}</p>
+              <p className="mt-6 text-xl text-slate-600 font-medium leading-relaxed">{home.trust.description}</p>
             </div>
             <div className="flex flex-wrap justify-center gap-4">
               {catalog.company.certifications.map((cert) => (

@@ -4,6 +4,7 @@ import { PutObjectCommand, S3Client } from '@aws-sdk/client-s3';
 import { randomUUID } from 'node:crypto';
 import { isIP } from 'node:net';
 import { headers } from 'next/headers';
+import { userAgentFromString } from 'next/server';
 import { emailStrings } from '@/lib/catalog';
 import {
   countryCodeRecords,
@@ -73,9 +74,17 @@ type RequestHeaders = {
   get(name: string): string | null;
 };
 
+type ClientDetails = {
+  browser: string;
+  deviceType: string;
+  device: string;
+  operatingSystem: string;
+};
+
 type Inquiry = InquiryInput & {
   timestamp: string;
   geolocation?: IpDerivedGeolocation;
+  clientDetails: ClientDetails;
 };
 type InquiryFormErrors = Partial<Record<keyof InquiryInput | 'human', string[]>>;
 
@@ -246,6 +255,94 @@ function getIpDerivedGeolocation(requestHeaders: RequestHeaders): IpDerivedGeolo
   return undefined;
 }
 
+function normalizeClientDetail(value: string | undefined, maxLength = 80) {
+  if (!value) {
+    return undefined;
+  }
+
+  const printableValue = Array.from(value, (character) => {
+    const code = character.charCodeAt(0);
+    return code < 32 || code === 127 ? ' ' : character;
+  }).join('');
+  const normalized = printableValue.replace(/\s+/g, ' ').trim();
+
+  return normalized ? normalized.slice(0, maxLength) : undefined;
+}
+
+function formatClientName(name: string | undefined, version: string | undefined) {
+  const normalizedName = normalizeClientDetail(name);
+  const normalizedVersion = normalizeClientDetail(version, 40);
+
+  return [normalizedName, normalizedVersion].filter(Boolean).join(' ') || 'Unknown';
+}
+
+function getDeviceTypeLabel(
+  type: string | undefined,
+  isMobileHint: boolean,
+  hasDesktopSignal: boolean,
+) {
+  const deviceTypes: Record<string, string> = {
+    console: 'Console',
+    embedded: 'Embedded',
+    mobile: 'Mobile',
+    smarttv: 'Smart TV',
+    tablet: 'Tablet',
+    wearable: 'Wearable',
+  };
+  const normalizedType = normalizeClientDetail(type)?.toLowerCase();
+
+  return (normalizedType && deviceTypes[normalizedType]) ||
+    (isMobileHint ? 'Mobile' : hasDesktopSignal ? 'Desktop' : 'Unknown');
+}
+
+function getClientDetails(requestHeaders: RequestHeaders): ClientDetails {
+  const userAgent = requestHeaders.get('user-agent')?.slice(0, 512);
+  const platformHint = normalizeClientDetail(
+    requestHeaders.get('sec-ch-ua-platform')?.replace(/^"|"$/g, ''),
+  );
+  const mobileHint = requestHeaders.get('sec-ch-ua-mobile');
+  const fallbackDetails: ClientDetails = {
+    browser: 'Unknown',
+    deviceType: mobileHint === '?1' ? 'Mobile' : mobileHint === '?0' ? 'Desktop' : 'Unknown',
+    device: 'Unknown',
+    operatingSystem: platformHint || 'Unknown',
+  };
+
+  if (!userAgent) {
+    return fallbackDetails;
+  }
+
+  try {
+    const parsedUserAgent = userAgentFromString(userAgent);
+    const hasDesktopSignal = mobileHint === '?0' || Boolean(
+      parsedUserAgent.browser.name || parsedUserAgent.os.name,
+    );
+    const deviceType = parsedUserAgent.isBot
+      ? 'Bot'
+      : getDeviceTypeLabel(
+        parsedUserAgent.device.type,
+        mobileHint === '?1',
+        hasDesktopSignal,
+      );
+    const device = [
+      normalizeClientDetail(parsedUserAgent.device.vendor),
+      normalizeClientDetail(parsedUserAgent.device.model),
+    ].filter(Boolean).join(' ');
+
+    return {
+      browser: formatClientName(parsedUserAgent.browser.name, parsedUserAgent.browser.version),
+      deviceType,
+      device: device || 'Unknown',
+      operatingSystem: formatClientName(
+        parsedUserAgent.os.name || platformHint,
+        parsedUserAgent.os.version,
+      ),
+    };
+  } catch {
+    return fallbackDetails;
+  }
+}
+
 const LEAD_RECIPIENT_EMAIL = 'info@kiranslidocraft.com';
 const RESEND_TEST_FALLBACK_FROM = 'Kiran Slido Craft <onboarding@resend.dev>';
 const SKIP_LEAD_DELIVERY_VALUES = new Set(['1', 'true', 'yes']);
@@ -380,6 +477,10 @@ function getLeadEmailHtml(inquiry: Inquiry) {
       <tr><td><strong>${labels.referrer}</strong></td><td>${escapeHtml(inquiry.referrer || 'none')}</td></tr>
       <tr><td><strong>${labels.page}</strong></td><td>${escapeHtml(inquiry.pagePath || 'direct')}</td></tr>
       <tr><td><strong>${labels.geolocation}</strong></td><td>${escapeHtml(geolocation)}</td></tr>
+      <tr><td><strong>${labels.browser}</strong></td><td>${escapeHtml(inquiry.clientDetails.browser)}</td></tr>
+      <tr><td><strong>${labels.deviceType}</strong></td><td>${escapeHtml(inquiry.clientDetails.deviceType)}</td></tr>
+      <tr><td><strong>${labels.device}</strong></td><td>${escapeHtml(inquiry.clientDetails.device)}</td></tr>
+      <tr><td><strong>${labels.operatingSystem}</strong></td><td>${escapeHtml(inquiry.clientDetails.operatingSystem)}</td></tr>
       <tr><td><strong>${labels.timestamp}</strong></td><td>${escapeHtml(inquiry.timestamp)}</td></tr>
     </table>
     <h3>${labels.requirements}</h3>
@@ -414,6 +515,10 @@ function getLeadEmailText(inquiry: Inquiry) {
     `${labels.referrer}: ${inquiry.referrer || 'none'}`,
     `${labels.page}: ${inquiry.pagePath || 'direct'}`,
     `${labels.geolocation}: ${geolocation}`,
+    `${labels.browser}: ${inquiry.clientDetails.browser}`,
+    `${labels.deviceType}: ${inquiry.clientDetails.deviceType}`,
+    `${labels.device}: ${inquiry.clientDetails.device}`,
+    `${labels.operatingSystem}: ${inquiry.clientDetails.operatingSystem}`,
     `${labels.timestamp}: ${inquiry.timestamp}`,
     '',
     `${labels.requirements}:`,
@@ -597,6 +702,7 @@ export async function submitInquiry(_prevState: unknown, formData: FormData): Pr
       validatedFields.data.countryName,
     ),
     geolocation: getIpDerivedGeolocation(requestHeaders),
+    clientDetails: getClientDetails(requestHeaders),
     timestamp: new Date().toISOString(),
   };
 

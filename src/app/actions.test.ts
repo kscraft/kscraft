@@ -324,8 +324,13 @@ describe('Server Actions', () => {
       'x-vercel-ip-latitude': '19.0760',
       'x-vercel-ip-longitude': '72.8777',
       'x-vercel-ip-timezone': 'Asia%2FKolkata',
+      'user-agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Mobile/15E148 Safari/604.1',
+      'sec-ch-ua-mobile': '?1',
+      'sec-ch-ua-platform': '"iOS"',
     });
     const formData = getValidFormData();
+    formData.append('browser', 'Injected Browser');
+    formData.append('deviceType', 'Injected Device');
 
     const result = await submitInquiry({}, formData);
 
@@ -346,6 +351,12 @@ describe('Server Actions', () => {
       longitude: '72.8777',
       timezone: 'Asia/Kolkata',
       source: 'vercel',
+    });
+    expect(archivedLead.clientDetails).toEqual({
+      browser: 'Mobile Safari 17.5',
+      deviceType: 'Mobile',
+      device: 'Apple iPhone',
+      operatingSystem: 'iOS 17.5',
     });
   });
 
@@ -368,6 +379,25 @@ describe('Server Actions', () => {
     expect(archivedLead.geolocation).toEqual({
       country: 'IN',
       source: 'cloudflare',
+    });
+  });
+
+  it('should use safe fallbacks when client detail headers are missing', async () => {
+    process.env.R2_ACCOUNT_ID = 'test-account';
+    process.env.R2_ACCESS_KEY_ID = 'test-access-key';
+    process.env.R2_SECRET_ACCESS_KEY = 'test-secret-key';
+    process.env.R2_BUCKET = 'ksco-leads';
+    mockRequestHeaders();
+
+    const result = await submitInquiry({}, getValidFormData());
+
+    expect(result.success).toBe(true);
+    const archivedLead = JSON.parse(r2Mocks.putObjectCommand.mock.calls[0]?.[0].Body);
+    expect(archivedLead.clientDetails).toEqual({
+      browser: 'Unknown',
+      deviceType: 'Unknown',
+      device: 'Unknown',
+      operatingSystem: 'Unknown',
     });
   });
 
@@ -397,6 +427,9 @@ describe('Server Actions', () => {
   it('should email valid inquiry to Kiran Slido Craft inbox when configured', async () => {
     process.env.RESEND_API_KEY = 'test-resend-key';
     process.env.ADMIN_EMAIL_FROM = 'Kiran Slido Craft <leads@example.com>';
+    mockRequestHeaders({
+      'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36',
+    });
     const fetchMock = vi.spyOn(globalThis, 'fetch').mockImplementation(async (input) => {
       if (input === 'https://challenges.cloudflare.com/turnstile/v0/siteverify') {
         return new Response(JSON.stringify({ success: true }), { status: 200 });
@@ -420,6 +453,13 @@ describe('Server Actions', () => {
         body: expect.stringContaining('India (+91) - 9876543210'),
       }),
     );
+    const emailRequest = fetchMock.mock.calls.find(
+      ([input]) => input === 'https://api.resend.com/emails',
+    )?.[1];
+    const emailBody = JSON.parse(String(emailRequest?.body));
+    expect(emailBody.text).toContain('Browser: Chrome 126.0.0.0');
+    expect(emailBody.text).toContain('Device Type: Desktop');
+    expect(emailBody.text).toContain('Operating System: Windows 10');
   });
 
   it('should skip external lead delivery when test delivery is disabled', async () => {

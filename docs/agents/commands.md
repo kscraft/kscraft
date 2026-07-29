@@ -60,3 +60,6 @@ Lead email env check:
 
 - `vercel env ls` should include `RESEND_API_KEY` and `ADMIN_EMAIL_FROM` for
   Production before deploying contact-form changes. Do not print env values.
+- `vercel env ls` should also include `NEXT_PUBLIC_TURNSTILE_SITE_KEY` and
+  `TURNSTILE_SECRET_KEY` for Production so the contact form can render and
+  verify the human check. Do not print env values.

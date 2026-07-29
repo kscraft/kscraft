@@ -37,18 +37,18 @@ const Header = () => {
         isOpen && 'bg-white border-b border-slate-200'
       )}
     >
-      <div className="mx-auto max-w-[1320px] px-6 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-3 group transition-all active:scale-95">
-          <Image src="/logo-ksc.png" alt="KSC" width={120} height={32} className="h-7 w-auto" priority />
-          <div className="flex flex-col">
+      <div className="mx-auto flex max-w-[1320px] items-center justify-between gap-4 px-4 sm:px-6">
+        <Link href="/" className="group flex min-w-0 items-center gap-2 transition-all active:scale-95 sm:gap-3">
+          <Image src="/logo-ksc.png" alt="KSC" width={120} height={32} className="h-6 w-auto shrink-0 sm:h-7" priority />
+          <div className="flex min-w-0 flex-col">
             <span className={cn(
-              "text-[15px] font-black tracking-tight uppercase transition-colors duration-500 leading-none",
+              "max-w-[11rem] truncate text-[13px] font-black uppercase leading-none transition-colors duration-500 sm:max-w-none sm:text-[15px]",
               isHeaderLight ? "text-white" : "text-black"
             )}>
               Kiran Slido Craft
             </span>
             <span className={cn(
-              "text-[9px] font-black tracking-[0.2em] uppercase transition-colors duration-500 mt-1",
+              "mt-1 max-w-[11rem] truncate text-[8px] font-black uppercase transition-colors duration-500 sm:max-w-none sm:text-[9px]",
               isHeaderLight ? "text-blue-400" : "text-blue-600"
             )}>
               Engineering & Manufacturing

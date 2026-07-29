@@ -52,7 +52,7 @@ export default function QuoteModal({ isOpen, onClose, productName }: QuoteModalP
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-6">
+        <div className="fixed inset-0 z-[100] flex items-start justify-center overflow-y-auto p-4 pt-20 sm:items-center sm:p-6">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -69,10 +69,10 @@ export default function QuoteModal({ isOpen, onClose, productName }: QuoteModalP
             role="dialog"
             aria-modal="true"
             aria-labelledby="quote-modal-title"
-            className="relative max-h-[92svh] w-full max-w-xl overflow-y-auto rounded-[2rem] border border-white/20 bg-white/95 shadow-[0_40px_100px_-12px_rgba(0,0,0,0.3)] backdrop-blur-3xl sm:rounded-[3rem]"
+            className="relative my-auto max-h-[calc(100dvh-2rem)] w-full max-w-[min(56rem,calc(100vw-2rem))] overflow-y-auto rounded-3xl border border-white/20 bg-white/95 shadow-[0_40px_100px_-12px_rgba(0,0,0,0.3)] backdrop-blur-3xl"
           >
             {/* Top Navigation Bar */}
-            <div className="flex items-center justify-between gap-4 border-b border-slate-100/50 px-6 py-5 sm:px-10 sm:py-8">
+            <div className="sticky top-0 z-10 flex items-center justify-between gap-4 border-b border-slate-100/70 bg-white/95 px-5 py-4 backdrop-blur-xl sm:px-7">
               <div className="flex items-center gap-3">
                 <div className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-600 text-white shadow-lg shadow-blue-600/20">
                   <ShieldCheck className="w-4 h-4" />
@@ -88,12 +88,12 @@ export default function QuoteModal({ isOpen, onClose, productName }: QuoteModalP
               </button>
             </div>
 
-            <div className="p-6 sm:p-10 lg:p-14">
-              <div className="mb-12">
-                <h2 id="quote-modal-title" className="mb-6 break-words text-4xl font-black uppercase leading-none tracking-tight text-slate-900 lg:text-5xl">
+            <div className="p-5 sm:p-7 lg:grid lg:grid-cols-[0.9fr_1.1fr] lg:gap-8 lg:p-8">
+              <div className="mb-6 lg:mb-0 lg:pt-2">
+                <h2 id="quote-modal-title" className="mb-3 break-words text-3xl font-black uppercase leading-none tracking-tight text-slate-900 sm:text-4xl lg:text-[3.35rem]">
                   Get a <br /><span className="text-blue-600">Specification</span> Quote.
                 </h2>
-                <p className="text-lg text-slate-500 font-medium leading-relaxed max-w-sm">
+                <p className="max-w-sm text-sm font-medium leading-relaxed text-slate-500 sm:text-base lg:text-[15px]">
                   {productName ? (
                     <>Direct technical channel for <span className="text-slate-900 font-bold">{productName}</span>.</>
                   ) : ui.quoteSubtitle}
@@ -108,17 +108,17 @@ export default function QuoteModal({ isOpen, onClose, productName }: QuoteModalP
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => trackContactClick('whatsapp')}
-                  className="group flex items-center gap-6 p-6 rounded-3xl bg-slate-50 hover:bg-white border border-slate-100 hover:border-blue-200 hover:shadow-2xl hover:shadow-blue-600/5 transition-all"
+                  className="group flex items-center gap-4 rounded-2xl border border-slate-100 bg-slate-50 p-4 transition-all hover:border-blue-200 hover:bg-white hover:shadow-2xl hover:shadow-blue-600/5"
                 >
-                  <div className="h-12 w-12 rounded-2xl bg-green-500 flex items-center justify-center text-white group-hover:scale-110 transition-transform shadow-lg shadow-green-500/20">
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-green-500 text-white shadow-lg shadow-green-500/20 transition-transform group-hover:scale-110">
                     <MessageSquare className="w-5 h-5" />
                   </div>
-                  <div className="flex-1">
+                  <div className="min-w-0 flex-1">
                     <div className="flex items-center gap-2 mb-0.5">
                       <p className="text-[9px] font-black text-green-600 uppercase tracking-widest">{ui.reachViaWhatsApp}</p>
                       <span className="h-1 w-1 rounded-full bg-green-500 animate-pulse"></span>
                     </div>
-                    <p className="break-words text-lg font-bold tracking-tight text-slate-900">Direct Technical Chat</p>
+                    <p className="break-words text-base font-bold tracking-tight text-slate-900 sm:text-lg">Direct Technical Chat</p>
                   </div>
                   <ChevronRight className="w-5 h-5 text-slate-300 group-hover:text-blue-600 group-hover:translate-x-1 transition-all" />
                 </motion.a>
@@ -128,14 +128,14 @@ export default function QuoteModal({ isOpen, onClose, productName }: QuoteModalP
                   <a 
                     href={callUrl}
                     onClick={() => trackContactClick('phone')}
-                    className="flex items-center gap-6 p-6 rounded-3xl bg-slate-50 hover:bg-white border border-slate-100 hover:border-blue-200 hover:shadow-2xl hover:shadow-blue-600/5 transition-all"
+                    className="flex items-center gap-4 rounded-2xl border border-slate-100 bg-slate-50 p-4 transition-all hover:border-blue-200 hover:bg-white hover:shadow-2xl hover:shadow-blue-600/5"
                   >
-                    <div className="h-12 w-12 rounded-2xl bg-blue-600 flex items-center justify-center text-white group-hover:scale-110 transition-transform shadow-lg shadow-blue-600/20">
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-blue-600 text-white shadow-lg shadow-blue-600/20 transition-transform group-hover:scale-110">
                       <Phone className="w-5 h-5" />
                     </div>
-                    <div className="flex-1">
+                    <div className="min-w-0 flex-1">
                       <p className="text-[9px] font-black text-blue-600 uppercase tracking-widest mb-0.5">{ui.reachViaCall}</p>
-                      <p className="break-words text-lg font-bold tracking-tight text-slate-900">{phoneDisplay}</p>
+                      <p className="break-words pr-10 text-base font-bold tracking-tight text-slate-900 sm:text-lg">{phoneDisplay}</p>
                     </div>
                     <ChevronRight className="w-5 h-5 text-slate-300 group-hover:text-blue-600 group-hover:translate-x-1 transition-all" />
                   </a>
@@ -153,9 +153,9 @@ export default function QuoteModal({ isOpen, onClose, productName }: QuoteModalP
                   <a 
                     href={emailUrl}
                     onClick={() => trackContactClick('email')}
-                    className="flex items-center gap-6 p-6 rounded-3xl bg-slate-50 hover:bg-white border border-slate-100 hover:border-blue-200 hover:shadow-2xl hover:shadow-blue-600/5 transition-all"
+                    className="flex items-center gap-4 rounded-2xl border border-slate-100 bg-slate-50 p-4 transition-all hover:border-blue-200 hover:bg-white hover:shadow-2xl hover:shadow-blue-600/5"
                   >
-                    <div className="h-12 w-12 rounded-2xl bg-slate-900 flex items-center justify-center text-white group-hover:scale-110 transition-transform shadow-lg shadow-slate-900/20">
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-slate-900 text-white shadow-lg shadow-slate-900/20 transition-transform group-hover:scale-110">
                       <Mail className="w-5 h-5" />
                     </div>
                     <div className="flex-1 min-w-0">
@@ -181,14 +181,14 @@ export default function QuoteModal({ isOpen, onClose, productName }: QuoteModalP
                       trackClientEvent('formal_quote_form_redirect', { product: productName });
                       onClose();
                     }}
-                    className="group flex items-center gap-6 p-6 rounded-3xl bg-blue-600 hover:bg-blue-700 text-white shadow-xl shadow-blue-600/20 transition-all"
+                    className="group flex items-center gap-4 rounded-2xl bg-blue-600 p-4 text-white shadow-xl shadow-blue-600/20 transition-all hover:bg-blue-700"
                   >
-                    <div className="h-12 w-12 rounded-2xl bg-white/20 flex items-center justify-center text-white group-hover:scale-110 transition-transform">
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-white/20 text-white transition-transform group-hover:scale-110">
                       <Send className="w-5 h-5" />
                     </div>
                     <div className="flex-1">
                       <p className="text-[9px] font-black text-blue-200 uppercase tracking-widest mb-0.5">Formal Inquiry</p>
-                      <p className="break-words text-lg font-bold tracking-tight">Detailed Technical Request</p>
+                      <p className="break-words text-base font-bold tracking-tight sm:text-lg">Detailed Technical Request</p>
                     </div>
                     <ChevronRight className="w-5 h-5 text-blue-300 group-hover:translate-x-1 transition-all" />
                   </Link>
@@ -197,7 +197,7 @@ export default function QuoteModal({ isOpen, onClose, productName }: QuoteModalP
             </div>
             
             {/* Footer Tagline */}
-            <div className="bg-slate-50/80 px-10 py-6 text-center border-t border-slate-100 flex items-center justify-center gap-3">
+            <div className="flex items-center justify-center gap-3 border-t border-slate-100 bg-slate-50/80 px-5 py-4 text-center">
               <Globe2 className="w-3.5 h-3.5 text-blue-600" />
               <p className="text-[9px] font-black text-slate-400 uppercase tracking-[0.3em]">
                 Engineering Precision. Delivered Worldwide.

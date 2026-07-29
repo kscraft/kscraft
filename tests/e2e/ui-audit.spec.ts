@@ -25,8 +25,8 @@ test.describe('UI Audit across pages', () => {
         }
       });
 
-      await page.goto(route);
-      await page.waitForLoadState('networkidle');
+      await page.goto(route, { waitUntil: 'domcontentloaded' });
+      await expect(page.locator('body')).toBeVisible();
       
       // Test should fail if there are significant JS console errors
       // Wait, Vercel analytics or other 3rd party scripts might fail, 

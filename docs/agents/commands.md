@@ -18,6 +18,13 @@ Checks:
 - Coverage: `npm run test:coverage`
 - Production build: `npm run build`
 - E2E tests: `npm run test:e2e`
+- Commit quality gate: `npm run quality:commit`
+- Push quality gate: `npm run quality:push`
+
+Husky installs the repository hooks after local `npm install`. The pre-commit
+hook runs lint and unit tests. The pre-push hook reruns those checks, audits
+dependencies, builds the production application, and runs the complete E2E
+suite against a fresh production server.
 
 Important: Playwright is configured to run `npm run start`, so run
 `npm run build` before `npm run test:e2e` unless a current `.next` production

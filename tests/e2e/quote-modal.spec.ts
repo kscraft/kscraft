@@ -14,6 +14,16 @@ async function expectDialogInsideViewport(page: import('@playwright/test').Page)
   expect(box!.y + box!.height).toBeLessThanOrEqual(viewport!.height);
   expect(box!.x + box!.width).toBeLessThanOrEqual(viewport!.width);
   await expect(page.locator('body')).toHaveCSS('overflow', 'hidden');
+
+  const dialogOwnsViewportCenter = await dialog.evaluate((element) => {
+    const topmostElement = document.elementFromPoint(
+      window.innerWidth / 2,
+      window.innerHeight / 2,
+    );
+
+    return Boolean(topmostElement && element.contains(topmostElement));
+  });
+  expect(dialogOwnsViewportCenter).toBe(true);
 }
 
 test.describe('Quote modal viewport behavior', () => {
@@ -32,6 +42,15 @@ test.describe('Quote modal viewport behavior', () => {
     const quoteButton = page.getByRole('button', { name: 'Get a Quote' });
     await quoteButton.scrollIntoViewIfNeeded();
     await quoteButton.click();
+
+    await expectDialogInsideViewport(page);
+  });
+
+  test('renders above scrolled legal-page content', async ({ page }) => {
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await page.goto('/privacy');
+    await page.evaluate(() => window.scrollTo(0, 900));
+    await page.getByRole('button', { name: 'Get a Quote' }).click();
 
     await expectDialogInsideViewport(page);
   });

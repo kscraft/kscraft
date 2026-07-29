@@ -23,6 +23,11 @@ const AGENT_LINK_HEADER = [
 ].join(', ');
 
 const nextConfig: NextConfig = {
+  experimental: {
+    serverActions: {
+      bodySizeLimit: "64kb",
+    },
+  },
   images: {
     remotePatterns: [
       {

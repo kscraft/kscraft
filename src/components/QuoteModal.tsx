@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { Variants } from 'framer-motion';
@@ -28,6 +29,27 @@ export default function QuoteModal({ isOpen, onClose, productName }: QuoteModalP
   const callUrl = `tel:${phone}`;
   const emailUrl = `mailto:${email}?subject=${encodeURIComponent(`Quote Request: ${productName || 'Technical Inquiry'}`)}`;
 
+  useEffect(() => {
+    if (!isOpen) {
+      return;
+    }
+
+    const previousOverflow = document.body.style.overflow;
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        onClose();
+      }
+    };
+
+    document.body.style.overflow = 'hidden';
+    document.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isOpen, onClose]);
+
   const containerVariants: Variants = {
     hidden: { opacity: 0, scale: 0.95, y: 20 },
     visible: { 
@@ -49,16 +71,16 @@ export default function QuoteModal({ isOpen, onClose, productName }: QuoteModalP
     visible: { opacity: 1, x: 0 }
   };
 
-  return (
+  const modal = (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-[100] flex items-start justify-center overflow-y-auto p-4 pt-20 sm:items-center sm:p-6">
+        <div className="fixed inset-0 z-[200] flex items-center justify-center overflow-hidden p-3 sm:p-6">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 bg-slate-950/40 backdrop-blur-xl"
+            className="absolute inset-0 bg-slate-950/40 backdrop-blur-xl"
           />
           
           <motion.div
@@ -69,7 +91,7 @@ export default function QuoteModal({ isOpen, onClose, productName }: QuoteModalP
             role="dialog"
             aria-modal="true"
             aria-labelledby="quote-modal-title"
-            className="relative my-auto max-h-[calc(100dvh-2rem)] w-full max-w-[min(56rem,calc(100vw-2rem))] overflow-y-auto rounded-3xl border border-white/20 bg-white/95 shadow-[0_40px_100px_-12px_rgba(0,0,0,0.3)] backdrop-blur-3xl"
+            className="relative z-10 max-h-[calc(100dvh-1.5rem)] w-full max-w-[min(56rem,calc(100vw-1.5rem))] overscroll-contain overflow-y-auto rounded-3xl border border-white/20 bg-white/95 shadow-[0_40px_100px_-12px_rgba(0,0,0,0.3)] backdrop-blur-3xl sm:max-h-[calc(100dvh-3rem)] sm:max-w-[min(56rem,calc(100vw-3rem))]"
           >
             {/* Top Navigation Bar */}
             <div className="sticky top-0 z-10 flex items-center justify-between gap-4 border-b border-slate-100/70 bg-white/95 px-5 py-4 backdrop-blur-xl sm:px-7">
@@ -135,13 +157,13 @@ export default function QuoteModal({ isOpen, onClose, productName }: QuoteModalP
                     </div>
                     <div className="min-w-0 flex-1">
                       <p className="text-[9px] font-black text-blue-600 uppercase tracking-widest mb-0.5">{ui.reachViaCall}</p>
-                      <p className="break-words pr-10 text-base font-bold tracking-tight text-slate-900 sm:text-lg">{phoneDisplay}</p>
+                      <p className="break-words text-base font-bold tracking-tight text-slate-900 sm:pr-10 sm:text-lg">{phoneDisplay}</p>
                     </div>
                     <ChevronRight className="w-5 h-5 text-slate-300 group-hover:text-blue-600 group-hover:translate-x-1 transition-all" />
                   </a>
                   <button 
                     onClick={(e) => { e.preventDefault(); copyToClipboard(phone, 'phone'); }}
-                    className="absolute right-14 top-1/2 -translate-y-1/2 rounded-xl border border-slate-100 bg-white p-3 text-slate-400 opacity-100 transition-all hover:text-blue-600 hover:shadow-md sm:opacity-0 sm:group-hover:opacity-100"
+                    className="absolute right-14 top-1/2 hidden -translate-y-1/2 rounded-xl border border-slate-100 bg-white p-3 text-slate-400 transition-all hover:text-blue-600 hover:shadow-md sm:block sm:opacity-0 sm:group-hover:opacity-100"
                     title="Copy phone"
                   >
                     {copiedType === 'phone' ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
@@ -160,13 +182,13 @@ export default function QuoteModal({ isOpen, onClose, productName }: QuoteModalP
                     </div>
                     <div className="flex-1 min-w-0">
                       <p className="text-[9px] font-black text-slate-500 uppercase tracking-widest mb-0.5">{ui.reachViaEmail}</p>
-                      <p className="text-lg font-bold text-slate-900 tracking-tight truncate pr-10">{email}</p>
+                      <p className="truncate text-[13px] font-bold leading-5 tracking-tight text-slate-900 sm:pr-10 sm:text-lg">{email}</p>
                     </div>
                     <ChevronRight className="w-5 h-5 text-slate-300 group-hover:text-blue-600 group-hover:translate-x-1 transition-all" />
                   </a>
                   <button 
                     onClick={(e) => { e.preventDefault(); copyToClipboard(email, 'email'); }}
-                    className="absolute right-14 top-1/2 -translate-y-1/2 rounded-xl border border-slate-100 bg-white p-3 text-slate-400 opacity-100 transition-all hover:text-blue-600 hover:shadow-md sm:opacity-0 sm:group-hover:opacity-100"
+                    className="absolute right-14 top-1/2 hidden -translate-y-1/2 rounded-xl border border-slate-100 bg-white p-3 text-slate-400 transition-all hover:text-blue-600 hover:shadow-md sm:block sm:opacity-0 sm:group-hover:opacity-100"
                     title="Copy email"
                   >
                     {copiedType === 'email' ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
@@ -208,4 +230,6 @@ export default function QuoteModal({ isOpen, onClose, productName }: QuoteModalP
       )}
     </AnimatePresence>
   );
+
+  return typeof document === 'undefined' ? null : createPortal(modal, document.body);
 }

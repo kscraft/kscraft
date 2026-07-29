@@ -2,6 +2,7 @@
 
 import { PutObjectCommand, S3Client } from '@aws-sdk/client-s3';
 import { randomUUID } from 'node:crypto';
+import { isIP } from 'node:net';
 import { headers } from 'next/headers';
 import { z } from 'zod';
 import countryCodesData from '@/data/country-codes.json';
@@ -16,6 +17,8 @@ const COUNTRY_CODE_MESSAGE = 'Please select a valid country code';
 const TECHNICAL_REQUIREMENTS_CHARACTER_LIMIT = 3000;
 const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
 const RATE_LIMIT_MAX_SUBMISSIONS = 5;
+const RATE_LIMIT_MAX_BUCKETS = 2048;
+const RATE_LIMIT_PRUNE_INTERVAL_MS = 60 * 1000;
 const MIN_FORM_ELAPSED_MS = 500;
 const MAX_FORM_ELAPSED_MS = 2 * 60 * 60 * 1000;
 const allowedSubmissionHosts = new Set([
@@ -28,6 +31,7 @@ const allowedSubmissionHosts = new Set([
   '::1',
 ]);
 const rateLimitBuckets = new Map<string, { count: number; resetAt: number }>();
+let lastRateLimitPruneAt = 0;
 const allowedScopes = new Set([
   ...categories.map((category) => category.title),
   home.contact.ui.customEngineering,
@@ -302,15 +306,32 @@ function isAllowedSubmissionOrigin(requestHeaders: RequestHeaders) {
 }
 
 function getClientIp(requestHeaders: RequestHeaders) {
-  const forwardedFor = requestHeaders.get('x-forwarded-for');
+  const candidates = [
+    requestHeaders.get('cf-connecting-ip'),
+    requestHeaders.get('x-forwarded-for')?.split(',')[0],
+    requestHeaders.get('x-real-ip'),
+  ];
 
-  if (forwardedFor) {
-    return forwardedFor.split(',')[0]?.trim();
+  return candidates
+    .map((candidate) => candidate?.trim())
+    .find((candidate): candidate is string => Boolean(candidate && isIP(candidate)));
+}
+
+function pruneRateLimitBuckets(now: number) {
+  if (
+    now - lastRateLimitPruneAt < RATE_LIMIT_PRUNE_INTERVAL_MS &&
+    rateLimitBuckets.size < RATE_LIMIT_MAX_BUCKETS
+  ) {
+    return;
   }
 
-  return requestHeaders.get('cf-connecting-ip') ||
-    requestHeaders.get('x-real-ip') ||
-    undefined;
+  for (const [ip, bucket] of rateLimitBuckets) {
+    if (bucket.resetAt <= now) {
+      rateLimitBuckets.delete(ip);
+    }
+  }
+
+  lastRateLimitPruneAt = now;
 }
 
 function isRateLimited(ip: string | undefined) {
@@ -319,9 +340,14 @@ function isRateLimited(ip: string | undefined) {
   }
 
   const now = Date.now();
+  pruneRateLimitBuckets(now);
   const current = rateLimitBuckets.get(ip);
 
   if (!current || current.resetAt <= now) {
+    if (rateLimitBuckets.size >= RATE_LIMIT_MAX_BUCKETS) {
+      return true;
+    }
+
     rateLimitBuckets.set(ip, { count: 1, resetAt: now + RATE_LIMIT_WINDOW_MS });
     return false;
   }
@@ -343,6 +369,15 @@ function decodeHeaderValue(value: string | null) {
 }
 
 function getIpDerivedGeolocation(requestHeaders: RequestHeaders): IpDerivedGeolocation | undefined {
+  const cloudflareCountry = decodeHeaderValue(requestHeaders.get('cf-ipcountry'));
+
+  if (requestHeaders.get('cf-connecting-ip') && cloudflareCountry) {
+    return {
+      country: cloudflareCountry,
+      source: 'cloudflare',
+    };
+  }
+
   const vercelCountry = decodeHeaderValue(requestHeaders.get('x-vercel-ip-country'));
   const vercelRegion = decodeHeaderValue(requestHeaders.get('x-vercel-ip-country-region'));
   const vercelCity = decodeHeaderValue(requestHeaders.get('x-vercel-ip-city'));
@@ -361,8 +396,6 @@ function getIpDerivedGeolocation(requestHeaders: RequestHeaders): IpDerivedGeolo
       source: 'vercel',
     };
   }
-
-  const cloudflareCountry = decodeHeaderValue(requestHeaders.get('cf-ipcountry'));
 
   if (cloudflareCountry) {
     return {

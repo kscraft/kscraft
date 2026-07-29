@@ -1,9 +1,13 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import { describe, it, expect, vi } from 'vitest';
+import { beforeEach, describe, it, expect, vi } from 'vitest';
 import QuoteModal from './QuoteModal';
 
 describe('QuoteModal', () => {
   const mockOnClose = vi.fn();
+
+  beforeEach(() => {
+    mockOnClose.mockClear();
+  });
 
   it('does not render when closed', () => {
     render(<QuoteModal isOpen={false} onClose={mockOnClose} productName="Test Product" />);
@@ -29,5 +33,19 @@ describe('QuoteModal', () => {
     expect(screen.getByText(/WhatsApp/i)).toBeInTheDocument();
     expect(screen.getByText(/Call Now/i)).toBeInTheDocument();
     expect(screen.getByText(/Formal Inquiry/i)).toBeInTheDocument();
+  });
+
+  it('portals to the document body and locks background scrolling', () => {
+    render(<QuoteModal isOpen={true} onClose={mockOnClose} />);
+
+    expect(screen.getByRole('dialog').parentElement?.parentElement).toBe(document.body);
+    expect(document.body.style.overflow).toBe('hidden');
+  });
+
+  it('closes on Escape', () => {
+    render(<QuoteModal isOpen={true} onClose={mockOnClose} />);
+
+    fireEvent.keyDown(document, { key: 'Escape' });
+    expect(mockOnClose).toHaveBeenCalledOnce();
   });
 });

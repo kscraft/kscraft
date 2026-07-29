@@ -14,6 +14,13 @@
   production env var is `TURNSTILE_SECRET`; the public site key is embedded in
   the contact form. All submissions fail closed when the secret is missing or
   Cloudflare verification does not return `success: true`.
+- Keep the apex and `www` web DNS records proxied through Cloudflare. Standard
+  HTTP DDoS protection is automatic only while requests pass through the
+  Cloudflare proxy; a healthy production response includes a `CF-Ray` header.
+- Configure the zone's single Free-plan rate limiting rule for `/contact` with
+  IP as the counting characteristic, 10 requests per 10 seconds, and a Managed
+  Challenge action. Exclude verified bots and use request throttling so a
+  visitor who passes the challenge can retry.
 - Optional lead archiving can write one JSON object per inquiry to private
   Cloudflare R2 when `R2_ACCOUNT_ID`, `R2_ACCESS_KEY_ID`,
   `R2_SECRET_ACCESS_KEY`, and `R2_BUCKET` are configured.

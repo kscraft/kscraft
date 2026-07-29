@@ -291,6 +291,27 @@ describe('Server Actions', () => {
     expect(blocked.success).toBe(false);
   });
 
+  it('should rate limit by Cloudflare client IP when forwarded proxy IPs change', async () => {
+    process.env.SKIP_LEAD_DELIVERY = '1';
+
+    for (let index = 0; index < 5; index += 1) {
+      mockRequestHeaders({
+        'cf-connecting-ip': '203.0.113.88',
+        'x-forwarded-for': `198.51.100.${index + 1}`,
+      });
+      const result = await submitInquiry({}, getValidFormData());
+      expect(result.success).toBe(true);
+    }
+
+    mockRequestHeaders({
+      'cf-connecting-ip': '203.0.113.88',
+      'x-forwarded-for': '198.51.100.99',
+    });
+    const blocked = await submitInquiry({}, getValidFormData());
+
+    expect(blocked.success).toBe(false);
+  });
+
   it('should store valid inquiry in configured R2 bucket', async () => {
     process.env.R2_ACCOUNT_ID = 'test-account';
     process.env.R2_ACCESS_KEY_ID = 'test-access-key';
@@ -325,6 +346,28 @@ describe('Server Actions', () => {
       longitude: '72.8777',
       timezone: 'Asia/Kolkata',
       source: 'vercel',
+    });
+  });
+
+  it('should prefer Cloudflare IP geolocation when the request passed through Cloudflare', async () => {
+    process.env.R2_ACCOUNT_ID = 'test-account';
+    process.env.R2_ACCESS_KEY_ID = 'test-access-key';
+    process.env.R2_SECRET_ACCESS_KEY = 'test-secret-key';
+    process.env.R2_BUCKET = 'ksco-leads';
+    mockRequestHeaders({
+      'cf-connecting-ip': '203.0.113.89',
+      'cf-ipcountry': 'IN',
+      'x-vercel-ip-country': 'US',
+      'x-vercel-ip-city': 'San%20Jose',
+    });
+
+    const result = await submitInquiry({}, getValidFormData());
+
+    expect(result.success).toBe(true);
+    const archivedLead = JSON.parse(r2Mocks.putObjectCommand.mock.calls[0]?.[0].Body);
+    expect(archivedLead.geolocation).toEqual({
+      country: 'IN',
+      source: 'cloudflare',
     });
   });
 

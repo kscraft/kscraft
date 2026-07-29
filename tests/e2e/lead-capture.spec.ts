@@ -54,11 +54,12 @@ test.describe('Lead Capture Flow', () => {
   });
 
   test('should embed Turnstile and fail closed without a verified token', async ({ page }) => {
-    const widget = page.locator('.cf-turnstile');
+    const widget = page.locator('[data-turnstile-container="true"]');
     await expect(widget).toHaveAttribute('data-sitekey', '0x4AAAAAAEAl-DGJqphLw0Wv');
     await expect(widget).toHaveAttribute('data-action', 'turnstile-spin-v2');
-    await expect(widget).toHaveAttribute('data-appearance', 'always');
+    await expect(widget).not.toHaveClass(/cf-turnstile/);
     await expect(page.locator('script[src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"]')).toHaveCount(1);
+    await widget.evaluate((element) => element.setAttribute('data-test-instance', 'original'));
 
     await page.getByPlaceholder(/Enter name/i).fill('Test User');
     await page.getByPlaceholder(/email@company.com/i).fill('test@example.com');
@@ -70,6 +71,7 @@ test.describe('Lead Capture Flow', () => {
     await submitButton.click();
 
     await expect(page.locator('form [role="alert"]')).toContainText(/human verification/i);
+    await expect(widget).toHaveAttribute('data-test-instance', 'original');
     await expect(page.getByText(/Submission Successful/i)).toHaveCount(0);
   });
 

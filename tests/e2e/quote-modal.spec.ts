@@ -62,6 +62,6 @@ test.describe('Quote modal viewport behavior', () => {
 
     await expect(page).toHaveURL('/contact');
     await expect(page.getByRole('heading', { name: 'Technical Inquiry' })).toBeVisible();
-    await expect(page.locator('.cf-turnstile')).toHaveAttribute('data-action', 'turnstile-spin-v2');
+    await expect(page.locator('[data-turnstile-container="true"]')).toHaveAttribute('data-action', 'turnstile-spin-v2');
   });
 });

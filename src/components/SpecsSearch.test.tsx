@@ -5,7 +5,7 @@ import SpecsSearch from './SpecsSearch';
 describe('SpecsSearch Component', () => {
   it('renders search input', () => {
     render(<SpecsSearch />);
-    expect(screen.getByPlaceholderText(/Search specifications/i)).toBeInTheDocument();
+    expect(screen.getByRole('combobox', { name: 'Search technical specifications' })).toBeInTheDocument();
   });
 
   it('shows results when typing', () => {
@@ -33,7 +33,7 @@ describe('SpecsSearch Component', () => {
     fireEvent.change(input, { target: { value: 'Sound' } });
     expect(input).toHaveValue('Sound');
     
-    const clearButton = screen.getByRole('button');
+    const clearButton = screen.getByRole('button', { name: 'Clear specification search' });
     fireEvent.click(clearButton);
     
     expect(input).toHaveValue('');

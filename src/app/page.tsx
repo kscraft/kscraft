@@ -42,7 +42,7 @@ export default function Home() {
             <p className="text-eyebrow text-blue-200">
               {home.hero.eyebrow}
             </p>
-            <h1 className="heading-hero text-white max-w-[15ch] lg:max-w-none">
+            <h1 className="heading-hero max-w-[15ch] text-white lg:max-w-none">
               {home.hero.title.split(' ').slice(0, 2).join(' ')} <br /><span className="text-blue-500">{home.hero.title.split(' ').slice(2).join(' ')}</span>
             </h1>
             <p className="mt-7 max-w-full break-words text-base font-medium leading-7 text-slate-200 sm:text-lg sm:leading-8 md:max-w-2xl md:text-2xl md:leading-9">
@@ -109,8 +109,8 @@ export default function Home() {
       <section className="section-standard">
         <ThemeMarker theme="light" className="absolute top-0" />
         <div className="max-container">
-          <div className="flex flex-col lg:flex-row items-center gap-20">
-            <div className="lg:w-1/2">
+          <div className="flex min-w-0 flex-col items-center gap-20 lg:flex-row">
+            <div className="w-full min-w-0 lg:w-1/2">
               <div className="flex items-center gap-6 mb-8">
                 <span className="text-eyebrow mb-0">{home.engineeringDNA.eyebrow}</span>
               </div>
@@ -124,25 +124,26 @@ export default function Home() {
               <Link 
                 href="/showcase/isro-gaganyaan" 
                 onClick={() => trackClientEvent('view_showcase_click', { project: 'gaganyaan' })}
-                className="group flex items-center gap-6 p-8 rounded-[2.5rem] bg-white border border-slate-200 shadow-xl hover:shadow-2xl transition-all"
+                className="group flex w-full min-w-0 items-center gap-4 rounded-[2rem] border border-slate-200 bg-white p-5 shadow-xl transition-all hover:shadow-2xl sm:gap-6 sm:rounded-[2.5rem] sm:p-8"
               >
-                <div className="h-16 w-16 shrink-0 rounded-2xl bg-slate-950 flex items-center justify-center text-blue-500 group-hover:scale-110 transition-transform">
-                  <Rocket className="w-8 h-8" />
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-slate-950 text-blue-500 transition-transform group-hover:scale-110 sm:h-16 sm:w-16">
+                  <Rocket className="h-6 w-6 sm:h-8 sm:w-8" />
                 </div>
-                <div>
-                  <p className="text-[10px] font-black text-blue-600 uppercase tracking-widest mb-1">{home.showcaseUI.eliteShowcase}</p>
-                  <h3 className="text-2xl font-black text-slate-900 uppercase tracking-tight">{projects.highlights[0].title}</h3>
+                <div className="min-w-0">
+                  <p className="mb-1 text-xs font-black uppercase tracking-widest text-blue-600">{home.showcaseUI.eliteShowcase}</p>
+                  <h3 className="break-words text-xl font-black uppercase tracking-tight text-slate-900 [overflow-wrap:anywhere] sm:text-2xl">{projects.highlights[0].title}</h3>
                   <p className="text-sm text-slate-500 font-medium mt-1">{projects.highlights[0].detail.split('. ')[1]}</p>
                 </div>
-                <ArrowRight className="w-6 h-6 text-slate-300 ml-auto group-hover:text-blue-600 group-hover:translate-x-2 transition-all" />
+                <ArrowRight className="ml-auto hidden h-6 w-6 shrink-0 text-slate-300 transition-all group-hover:translate-x-2 group-hover:text-blue-600 sm:block" />
               </Link>
             </div>
-            <div className="lg:w-1/2 relative">
+            <div className="relative w-full min-w-0 lg:w-1/2">
               <div className="relative aspect-square rounded-[4rem] overflow-hidden shadow-2xl">
                 <Image 
                   src="/images/media/project-1.jpg" 
                   alt="ISRO Showcase" 
                   fill 
+                  sizes="(min-width: 1024px) 50vw, 100vw"
                   className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-blue-900/40 to-transparent"></div>
@@ -150,7 +151,7 @@ export default function Home() {
               {/* Floating metrics */}
               <div className="absolute -bottom-10 -left-10 bg-white p-10 rounded-[3rem] shadow-2xl border border-slate-100 hidden md:block">
                 <p className="text-5xl font-black text-blue-600 tracking-tighter">{home.showcaseUI.spaceGrade}</p>
-                <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mt-2">{home.showcaseUI.precisionCertification}</p>
+                <p className="mt-2 text-xs font-black uppercase tracking-widest text-slate-500">{home.showcaseUI.precisionCertification}</p>
               </div>
             </div>
           </div>
@@ -198,7 +199,7 @@ export default function Home() {
             </div>
             <Link 
               href={home.catalogNav.cta.href} 
-              className="group apple-button-secondary px-8 py-4 text-[11px] uppercase tracking-[0.2em] font-black inline-flex items-center justify-center gap-3"
+              className="group apple-button-secondary px-8 py-4 text-xs uppercase tracking-[0.2em] font-black inline-flex items-center justify-center gap-3"
             >
               {home.catalogNav.cta.label} <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </Link>
@@ -221,7 +222,7 @@ export default function Home() {
                       sizes="(min-width: 1280px) 20vw, (min-width: 768px) 50vw, 100vw"
                       className="object-contain p-5 transition duration-700 group-hover:scale-105"
                     />
-                    <div className="absolute left-4 top-4 flex items-center gap-2 rounded-full border border-white/70 bg-white/90 px-3 py-1.5 text-[11px] font-semibold uppercase leading-none text-blue-700 shadow-sm">
+                    <div className="absolute left-4 top-4 flex items-center gap-2 rounded-full border border-white/70 bg-white/90 px-3 py-1.5 text-xs font-semibold uppercase leading-none text-blue-700 shadow-sm">
                       <Icon className="h-3.5 w-3.5" />
                       <span className="max-w-[150px] truncate">{cat.accent}</span>
                     </div>
@@ -229,11 +230,11 @@ export default function Home() {
                   <div className="flex min-w-0 flex-1 flex-col justify-between p-5">
                     <div className="min-w-0">
                       <h3 className="break-words text-xl font-semibold leading-7 text-slate-950">{cat.title}</h3>
-                      <p className="mt-2 break-words text-xs font-semibold uppercase leading-5 text-slate-400">{cat.bestFor}</p>
+                      <p className="mt-2 break-words text-xs font-semibold uppercase leading-5 text-slate-600">{cat.bestFor}</p>
                       <p className="mt-3 text-sm leading-6 text-slate-600">{cat.summary}</p>
                       <div className="mt-4 flex flex-wrap gap-2">
                         {cat.highlights.slice(0, 2).map((highlight) => (
-                          <span key={highlight} className="rounded-full bg-slate-100 px-3 py-1 text-[11px] font-semibold leading-4 text-slate-600">
+                          <span key={highlight} className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold leading-4 text-slate-600">
                             {highlight}
                           </span>
                         ))}
@@ -273,7 +274,7 @@ export default function Home() {
               >
                 <div className="relative z-20 flex min-w-0 max-w-md flex-col justify-between">
                   <div className="min-w-0">
-                    <p className={cn("text-[10px] font-black uppercase tracking-widest", item.theme === 'dark' ? "text-blue-300" : "text-blue-700")}>
+                    <p className={cn("text-xs font-black uppercase tracking-widest", item.theme === 'dark' ? "text-blue-300" : "text-blue-700")}>
                       {home.featured.badge}
                     </p>
                     <h3 className="mt-4 break-words text-4xl font-black uppercase tracking-tighter md:text-5xl">{item.title}</h3>
@@ -327,7 +328,7 @@ export default function Home() {
                 <div className="h-12 w-12 rounded-xl bg-slate-900 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform text-white">
                   <Rocket className="w-6 h-6" />
                 </div>
-                <p className="text-[10px] font-black text-blue-600 uppercase tracking-widest mb-4">{home.caseStudiesTeaser.highlights[0].sector}</p>
+                <p className="text-xs font-black text-blue-600 uppercase tracking-widest mb-4">{home.caseStudiesTeaser.highlights[0].sector}</p>
                 <h3 className="text-2xl font-black tracking-tight text-slate-900 mb-4 uppercase">{projects.highlights[0].title}</h3>
                 <p className="text-slate-500 text-sm font-medium leading-relaxed mb-8">{home.caseStudiesTeaser.highlights[0].description}</p>
               </div>
@@ -342,7 +343,7 @@ export default function Home() {
                 <div className="h-12 w-12 rounded-xl bg-slate-900 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform text-white">
                   <Shield className="w-6 h-6" />
                 </div>
-                <p className="text-[10px] font-black text-blue-600 uppercase tracking-widest mb-4">{home.caseStudiesTeaser.highlights[1].sector}</p>
+                <p className="text-xs font-black text-blue-600 uppercase tracking-widest mb-4">{home.caseStudiesTeaser.highlights[1].sector}</p>
                 <h3 className="text-2xl font-black tracking-tight text-slate-900 mb-4 uppercase">{projects.highlights[1].title}</h3>
                 <p className="text-slate-500 text-sm font-medium leading-relaxed mb-8">{home.caseStudiesTeaser.highlights[1].description}</p>
               </div>
@@ -357,7 +358,7 @@ export default function Home() {
                 <div className="h-12 w-12 rounded-xl bg-slate-900 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform text-white">
                   <Building2 className="w-6 h-6" />
                 </div>
-                <p className="text-[10px] font-black text-blue-600 uppercase tracking-widest mb-4">{home.caseStudiesTeaser.highlights[2].sector}</p>
+                <p className="text-xs font-black text-blue-600 uppercase tracking-widest mb-4">{home.caseStudiesTeaser.highlights[2].sector}</p>
                 <h3 className="text-2xl font-black tracking-tight text-slate-900 mb-4 uppercase">{home.caseStudiesTeaser.highlights[2].title}</h3>
                 <p className="text-slate-500 text-sm font-medium leading-relaxed mb-8">{home.caseStudiesTeaser.highlights[2].description}</p>
               </div>
@@ -380,7 +381,7 @@ export default function Home() {
             </div>
             <div className="flex flex-wrap justify-center gap-4">
               {catalog.company.certifications.map((cert) => (
-                <span key={cert} className="rounded-2xl border border-slate-200 bg-white px-8 py-4 text-[10px] font-black uppercase tracking-widest text-slate-600 shadow-sm">
+                <span key={cert} className="rounded-2xl border border-slate-200 bg-white px-8 py-4 text-xs font-black uppercase tracking-widest text-slate-600 shadow-sm">
                   {cert}
                 </span>
               ))}

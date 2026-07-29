@@ -5,12 +5,52 @@ test.describe('Lead Capture Flow', () => {
     await page.goto('/contact');
   });
 
-  test('should show validation errors on empty submission', async ({ page }) => {
+  test('should validate empty fields before sending a request', async ({ page }) => {
     const submitButton = page.getByRole('button', { name: /Send Technical Request/i });
     await submitButton.click();
 
-    await expect(page.locator('form [role="alert"]')).toBeVisible();
-    await expect(page.locator('form [role="alert"]')).toContainText(/Missing or invalid fields/i);
+    await expect(page.getByPlaceholder(/Enter name/i)).toHaveAttribute('aria-invalid', 'true');
+    await expect(page.locator('#contact-name-error')).toContainText(/at least 2 characters/i);
+    await expect(page.getByText(/Missing or invalid fields/i)).toHaveCount(0);
+  });
+
+  test('should show and clear field errors without submitting', async ({ page }) => {
+    const name = page.getByPlaceholder(/Enter name/i);
+    const email = page.getByPlaceholder(/email@company.com/i);
+
+    await name.fill('1');
+    await email.focus();
+    await expect(name).toHaveAttribute('aria-invalid', 'true');
+    await expect(page.locator('#contact-name-error')).toContainText(/at least 2 characters/i);
+
+    await name.fill('Test User');
+    await expect(name).toHaveAttribute('aria-invalid', 'false');
+    await expect(page.locator('#contact-name-error')).toHaveCount(0);
+
+    await email.fill('not-an-email');
+    await name.focus();
+    await expect(email).toHaveAttribute('aria-invalid', 'true');
+    await expect(page.locator('#contact-email-error')).toContainText(/valid email address/i);
+
+    await email.fill('test@example.com');
+    await expect(email).toHaveAttribute('aria-invalid', 'false');
+    await expect(page.locator('#contact-email-error')).toHaveCount(0);
+  });
+
+  test('should keep inline validation visible within a mobile viewport', async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    const name = page.getByPlaceholder(/Enter name/i);
+
+    await name.scrollIntoViewIfNeeded();
+    await name.fill('1');
+    await page.getByPlaceholder(/email@company.com/i).focus();
+
+    const error = page.locator('#contact-name-error');
+    await expect(error).toBeVisible();
+    const box = await error.boundingBox();
+    expect(box).not.toBeNull();
+    expect(box!.x).toBeGreaterThanOrEqual(0);
+    expect(box!.x + box!.width).toBeLessThanOrEqual(390);
   });
 
   test('should embed Turnstile and fail closed without a verified token', async ({ page }) => {

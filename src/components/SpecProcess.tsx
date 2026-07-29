@@ -56,7 +56,7 @@ export default function SpecProcess() {
           <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-50 text-blue-700 transition group-hover:bg-blue-600 group-hover:text-white">
             <step.icon className="h-6 w-6" />
           </div>
-          <p className="text-[10px] font-black uppercase tracking-widest text-blue-600 mb-2">Step {step.number}</p>
+          <p className="text-xs font-black uppercase tracking-widest text-blue-600 mb-2">Step {step.number}</p>
           <h3 className="text-sm font-black uppercase tracking-tight text-slate-900">{step.title}</h3>
           <p className="mt-3 text-xs font-medium leading-5 text-slate-500">{step.description}</p>
         </div>

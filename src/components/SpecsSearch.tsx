@@ -46,7 +46,7 @@ export default function SpecsSearch() {
     <div className="relative w-full max-w-2xl mx-auto px-4 md:px-0">
       <div 
         className={cn(
-          "relative flex items-center bg-[#f9fafb] border rounded-full transition-all duration-500",
+          "relative flex min-w-0 items-center bg-[#f9fafb] border rounded-full transition-all duration-500",
           isOpen ? "border-blue-500 ring-8 ring-blue-500/5 bg-white shadow-2xl" : "border-slate-200 hover:border-slate-300 hover:bg-white shadow-sm"
         )}
       >
@@ -54,7 +54,13 @@ export default function SpecsSearch() {
           <Search className="w-4 h-4" />
         </div>
         <input
-          type="text"
+          id="specifications-search"
+          type="search"
+          role="combobox"
+          aria-label="Search technical specifications"
+          aria-expanded={isOpen && Boolean(query.trim())}
+          aria-controls="specifications-search-results"
+          aria-autocomplete="list"
           value={query}
           onChange={(e) => {
             setQuery(e.target.value);
@@ -67,12 +73,14 @@ export default function SpecsSearch() {
             }
           }}
           placeholder={catalog.company.ui.searchPlaceholder}
-          className="w-full bg-transparent px-4 h-14 outline-none text-slate-900 text-sm font-semibold placeholder:text-slate-400"
+          className="h-14 min-w-0 flex-1 bg-transparent px-4 text-sm font-semibold text-slate-900 outline-none placeholder:text-slate-400"
         />
         {query && (
           <button 
+            type="button"
             onClick={() => setQuery('')}
-            className="pr-4 text-slate-400 hover:text-slate-600 transition-colors"
+            className="flex h-12 w-12 shrink-0 items-center justify-center text-slate-400 transition-colors hover:text-slate-600"
+            aria-label="Clear specification search"
           >
             <X className="w-4 h-4" />
           </button>
@@ -83,7 +91,7 @@ export default function SpecsSearch() {
             trackClientEvent('search_icon_click');
             setIsOpen(false);
           }}
-          className="pr-6 text-slate-300 hover:text-blue-600 transition-colors border-l border-slate-100 ml-2 pl-4 cursor-pointer flex items-center h-full"
+          className="ml-2 flex h-12 w-12 shrink-0 cursor-pointer items-center justify-center border-l border-slate-100 text-slate-400 transition-colors hover:text-blue-600"
           aria-label="Advanced Search Filters"
         >
           <SlidersHorizontal className="w-4 h-4" />
@@ -97,9 +105,9 @@ export default function SpecsSearch() {
             className="fixed inset-0 z-40 bg-slate-900/5 backdrop-blur-[2px]" 
             onClick={() => setIsOpen(false)}
           />
-          <div className="absolute top-full left-0 right-0 mt-4 bg-white border border-slate-200 rounded-3xl shadow-[0_30px_60px_-12px_rgba(0,0,0,0.15)] overflow-hidden z-50 animate-in fade-in slide-in-from-top-2 duration-300">
+          <div id="specifications-search-results" className="absolute left-0 right-0 top-full z-50 mt-4 overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-[0_30px_60px_-12px_rgba(0,0,0,0.15)] animate-in fade-in slide-in-from-top-2 duration-300">
             <div className="p-4 border-b border-slate-50 bg-slate-50/50 flex justify-between items-center">
-              <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest px-2">
+              <span className="px-2 text-xs font-bold uppercase tracking-widest text-slate-500">
                 {catalog.company.ui.matchingSystems} ({filteredProducts.length})
               </span>
             </div>
@@ -128,7 +136,7 @@ export default function SpecsSearch() {
                       </div>
 
                       <div className="flex-1 min-w-0">
-                        <p className="text-[10px] font-bold text-blue-600 uppercase tracking-widest mb-1">
+                        <p className="mb-1 text-xs font-bold uppercase tracking-widest text-blue-600">
                           {getProductCategoryLabel(product.primaryCategory)}
                         </p>
                         <h4 className="text-lg font-bold text-slate-900 truncate leading-tight">
@@ -157,7 +165,7 @@ export default function SpecsSearch() {
                   onClick={() => {
                     handleSearch();
                   }}
-                  className="text-xs font-bold text-blue-600 hover:text-blue-700 transition-colors uppercase tracking-widest"
+                  className="inline-flex min-h-12 items-center text-xs font-bold uppercase tracking-widest text-blue-600 transition-colors hover:text-blue-700"
                 >
                   {catalog.company.ui.viewFullCatalog}
                 </Link>

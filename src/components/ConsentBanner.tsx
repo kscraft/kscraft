@@ -61,6 +61,8 @@ export default function ConsentBanner() {
           exit={{ y: 100, opacity: 0 }}
           transition={{ type: 'spring', damping: 20, stiffness: 100 }}
           className="fixed bottom-0 left-0 right-0 z-[100] p-4 sm:p-6 pb-safe"
+          role="region"
+          aria-label="Cookie consent"
         >
           <div className="mx-auto max-w-4xl bg-slate-900 text-white rounded-2xl shadow-2xl p-6 sm:p-8 border border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 backdrop-blur-xl bg-opacity-95">
             <div className="flex-1">
@@ -75,13 +77,13 @@ export default function ConsentBanner() {
             <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row shrink-0">
               <button
                 onClick={handleReject}
-                className="w-full sm:w-auto px-8 py-3 bg-white/10 hover:bg-white/15 text-white text-sm font-bold uppercase tracking-widest rounded-xl transition-colors active:scale-95"
+                className="min-h-12 w-full rounded-xl bg-white/10 px-8 py-3 text-sm font-bold uppercase tracking-widest text-white transition-colors hover:bg-white/15 active:scale-95 sm:w-auto"
               >
                 Reject
               </button>
               <button
                 onClick={handleAccept}
-                className="w-full sm:w-auto px-8 py-3 bg-blue-600 hover:bg-blue-500 text-white text-sm font-bold uppercase tracking-widest rounded-xl transition-colors shadow-lg shadow-blue-600/20 active:scale-95"
+                className="min-h-12 w-full rounded-xl bg-blue-600 px-8 py-3 text-sm font-bold uppercase tracking-widest text-white shadow-lg shadow-blue-600/20 transition-colors hover:bg-blue-500 active:scale-95 sm:w-auto"
               >
                 Accept
               </button>

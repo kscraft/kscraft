@@ -224,10 +224,11 @@ export default function RootLayout({
         </Script>
       </head>
       <body className="font-sans bg-white antialiased text-slate-900 overflow-x-hidden">
+        <a href="#main-content" className="skip-link">Skip to main content</a>
         <HeaderThemeProvider>
           <div className="flex min-h-screen flex-col">
             <Header />
-            <main className="flex-1">
+            <main id="main-content" tabIndex={-1} className="flex-1">
               <PageTransition>
                 {children}
               </PageTransition>

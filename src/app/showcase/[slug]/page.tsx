@@ -151,7 +151,7 @@ export default async function ProjectShowcase({ params }: Props) {
         </div>
 
         <div className="relative z-10 max-container px-6 text-center">
-          <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-blue-600/20 border border-blue-500/30 text-blue-400 text-[10px] font-black uppercase tracking-[0.3em] mb-10">
+          <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-blue-600/20 border border-blue-500/30 text-blue-400 text-xs font-black uppercase tracking-[0.3em] mb-10">
              {project.subtitle}
           </div>
           <h1 className="heading-hero text-white mb-12 animate-in fade-in slide-in-from-bottom-8 duration-1000 max-w-[15ch] mx-auto">
@@ -191,7 +191,7 @@ export default async function ProjectShowcase({ params }: Props) {
                   <div key={idx} className="p-8 rounded-[2rem] bg-slate-50 border border-slate-100 shadow-sm transition-all hover:bg-white hover:shadow-xl group">
                     <Icon className="w-8 h-8 text-blue-600 mb-6 group-hover:scale-110 transition-transform" />
                     <p className="text-3xl font-black text-slate-900 mb-1 tracking-tighter">{stat.value}</p>
-                    <p className="text-[9px] font-black uppercase tracking-widest text-slate-400">{stat.label}</p>
+                    <p className="text-xs font-black uppercase tracking-widest text-slate-400">{stat.label}</p>
                   </div>
                 );
               })}

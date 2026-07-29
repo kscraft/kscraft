@@ -155,7 +155,7 @@ export default async function IntentSeoPage({ params }: Props) {
             <div className="grid gap-3 pt-5">
               <div className="rounded-2xl border border-white/10 bg-white/10 p-4">
                 <p className="text-xl font-black text-white">ISO 9001:2015</p>
-                <p className="mt-2 text-[10px] font-bold uppercase leading-4 text-slate-300">Certified Manufacturing</p>
+                <p className="mt-2 text-xs font-bold uppercase leading-4 text-slate-300">Certified Manufacturing</p>
               </div>
             </div>
           </div>

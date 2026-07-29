@@ -99,7 +99,7 @@ export default function QuoteModal({ isOpen, onClose, productName }: QuoteModalP
                 <div className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-600 text-white shadow-lg shadow-blue-600/20">
                   <ShieldCheck className="w-4 h-4" />
                 </div>
-                <span className="break-words text-[10px] font-black uppercase leading-5 tracking-[0.22em] text-slate-400">Engineering Inquiry</span>
+                <span className="break-words text-xs font-black uppercase leading-5 tracking-[0.22em] text-slate-400">Engineering Inquiry</span>
               </div>
               <button 
                 onClick={onClose}
@@ -137,7 +137,7 @@ export default function QuoteModal({ isOpen, onClose, productName }: QuoteModalP
                   </div>
                   <div className="min-w-0 flex-1">
                     <div className="flex items-center gap-2 mb-0.5">
-                      <p className="text-[9px] font-black text-green-600 uppercase tracking-widest">{ui.reachViaWhatsApp}</p>
+                      <p className="text-xs font-black text-green-600 uppercase tracking-widest">{ui.reachViaWhatsApp}</p>
                       <span className="h-1 w-1 rounded-full bg-green-500 animate-pulse"></span>
                     </div>
                     <p className="break-words text-base font-bold tracking-tight text-slate-900 sm:text-lg">Direct Technical Chat</p>
@@ -156,7 +156,7 @@ export default function QuoteModal({ isOpen, onClose, productName }: QuoteModalP
                       <Phone className="w-5 h-5" />
                     </div>
                     <div className="min-w-0 flex-1">
-                      <p className="text-[9px] font-black text-blue-600 uppercase tracking-widest mb-0.5">{ui.reachViaCall}</p>
+                      <p className="text-xs font-black text-blue-600 uppercase tracking-widest mb-0.5">{ui.reachViaCall}</p>
                       <p className="break-words text-base font-bold tracking-tight text-slate-900 sm:pr-10 sm:text-lg">{phoneDisplay}</p>
                     </div>
                     <ChevronRight className="w-5 h-5 text-slate-300 group-hover:text-blue-600 group-hover:translate-x-1 transition-all" />
@@ -181,7 +181,7 @@ export default function QuoteModal({ isOpen, onClose, productName }: QuoteModalP
                       <Mail className="w-5 h-5" />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p className="text-[9px] font-black text-slate-500 uppercase tracking-widest mb-0.5">{ui.reachViaEmail}</p>
+                      <p className="text-xs font-black text-slate-500 uppercase tracking-widest mb-0.5">{ui.reachViaEmail}</p>
                       <p className="truncate text-[13px] font-bold leading-5 tracking-tight text-slate-900 sm:pr-10 sm:text-lg">{email}</p>
                     </div>
                     <ChevronRight className="w-5 h-5 text-slate-300 group-hover:text-blue-600 group-hover:translate-x-1 transition-all" />
@@ -209,7 +209,7 @@ export default function QuoteModal({ isOpen, onClose, productName }: QuoteModalP
                       <Send className="w-5 h-5" />
                     </div>
                     <div className="flex-1">
-                      <p className="text-[9px] font-black text-blue-200 uppercase tracking-widest mb-0.5">Formal Inquiry</p>
+                      <p className="text-xs font-black text-blue-200 uppercase tracking-widest mb-0.5">Formal Inquiry</p>
                       <p className="break-words text-base font-bold tracking-tight sm:text-lg">Detailed Technical Request</p>
                     </div>
                     <ChevronRight className="w-5 h-5 text-blue-300 group-hover:translate-x-1 transition-all" />
@@ -221,7 +221,7 @@ export default function QuoteModal({ isOpen, onClose, productName }: QuoteModalP
             {/* Footer Tagline */}
             <div className="flex items-center justify-center gap-3 border-t border-slate-100 bg-slate-50/80 px-5 py-4 text-center">
               <Globe2 className="w-3.5 h-3.5 text-blue-600" />
-              <p className="text-[9px] font-black text-slate-400 uppercase tracking-[0.3em]">
+              <p className="text-xs font-black text-slate-400 uppercase tracking-[0.3em]">
                 Engineering Precision. Delivered Worldwide.
               </p>
             </div>

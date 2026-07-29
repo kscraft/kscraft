@@ -177,7 +177,7 @@ export default function ServicesPage() {
                </div>
                <Link
                  href={supportProgram.footer.ctaHref}
-                 className="apple-button-secondary px-8 py-4 text-[10px] font-black uppercase tracking-[0.2em] whitespace-nowrap"
+                 className="apple-button-secondary px-8 py-4 text-xs font-black uppercase tracking-[0.2em] whitespace-nowrap"
                >
                  {supportProgram.footer.ctaLabel}
                </Link>

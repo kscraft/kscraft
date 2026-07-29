@@ -8,14 +8,14 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-16 md:grid-cols-4">
           <div className="md:col-span-1">
-            <Link href="/" className="flex items-center gap-3 mb-8 group transition-opacity hover:opacity-70">
-              <Image src="/logo-ksc.png" alt="KSC" width={150} height={40} className="h-10 w-auto object-contain" />
+            <Link href="/" className="group mb-8 flex min-h-12 items-center gap-3 transition-opacity hover:opacity-70">
+              <Image src="/logo-ksc.png" alt="Kiran Slido Craft" width={250} height={122} className="h-16 w-auto object-contain" />
               <div className="flex flex-col">
                 <span className="text-sm font-black tracking-tight text-black uppercase leading-none">{catalog.company.name}</span>
-                <span className="text-[9px] font-bold text-blue-600 uppercase tracking-widest mt-1">Engineering & Manufacturing</span>
+                <span className="mt-1 text-xs font-bold uppercase tracking-widest text-blue-600">Engineering & Manufacturing</span>
               </div>
             </Link>
-            <p className="text-[13px] text-slate-500 leading-relaxed font-medium mb-8">
+            <p className="mb-8 text-[13px] font-medium leading-relaxed text-slate-600">
               {catalog.company.tagline} <br />
               Precision architectural solutions since {catalog.company.founded}.
             </p>
@@ -23,11 +23,11 @@ export default function Footer() {
 
           <div className="grid grid-cols-2 md:grid-cols-3 md:col-span-3 gap-12">
             <div className="space-y-6">
-              <h3 className="text-[11px] font-bold text-slate-400 uppercase tracking-widest">{catalog.company.ui.solutions}</h3>
-              <ul className="space-y-3">
+              <h3 className="text-xs font-bold uppercase tracking-widest text-slate-600">{catalog.company.ui.solutions}</h3>
+              <ul>
                 {categories.map((cat) => (
                   <li key={cat.id}>
-                    <Link href={`/category/${cat.id}`} className="text-[13px] font-medium text-slate-600 hover:text-black transition-colors">
+                    <Link href={`/category/${cat.id}`} className="inline-flex min-h-12 min-w-12 items-center break-words text-sm font-medium text-slate-600 transition-colors hover:text-black">
                       {cat.title}
                     </Link>
                   </li>
@@ -36,11 +36,11 @@ export default function Footer() {
             </div>
 
             <div className="space-y-6">
-              <h3 className="text-[11px] font-bold text-slate-400 uppercase tracking-widest">{catalog.company.ui.company}</h3>
-              <ul className="space-y-3">
+              <h3 className="text-xs font-bold uppercase tracking-widest text-slate-600">{catalog.company.ui.company}</h3>
+              <ul>
                 {navigation.footer.map((item) => (
                   <li key={item.href}>
-                    <Link href={item.href} className="text-[13px] font-medium text-slate-600 hover:text-black transition-colors">
+                    <Link href={item.href} className="inline-flex min-h-12 min-w-12 items-center text-sm font-medium text-slate-600 transition-colors hover:text-black">
                       {item.label}
                     </Link>
                   </li>
@@ -49,11 +49,11 @@ export default function Footer() {
             </div>
 
             <div className="space-y-6 col-span-2 md:col-span-1">
-              <h3 className="text-[11px] font-bold text-slate-400 uppercase tracking-widest">{catalog.company.ui.inquiries}</h3>
-              <a href={`mailto:${catalog.company.email}`} className="text-[13px] font-bold text-blue-600 hover:underline block">
+              <h3 className="text-xs font-bold uppercase tracking-widest text-slate-600">{catalog.company.ui.inquiries}</h3>
+              <a href={`mailto:${catalog.company.email}`} className="flex min-h-12 items-center break-all text-sm font-bold text-blue-600 hover:underline">
                 {catalog.company.email}
               </a>
-              <p className="text-[11px] text-slate-400 font-medium leading-relaxed">
+              <p className="text-xs font-medium leading-relaxed text-slate-600">
                 {catalog.company.ui.certified} <br />
                 {catalog.company.ui.exporter} <br />
                 {catalog.company.ui.hq}
@@ -63,13 +63,13 @@ export default function Footer() {
         </div>
 
         <div className="mt-24 pt-8 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className="text-[11px] text-slate-400 font-medium">
+          <p className="text-xs font-medium text-slate-600">
             {catalog.company.ui.copyright.replace('{year}', new Date().getFullYear().toString()).replace('{companyName}', catalog.company.name)}
           </p>
-          <div className="flex gap-8 text-[11px] text-slate-400 font-medium">
-            <Link href="/privacy" className="hover:text-black">{catalog.company.ui.privacyPolicy}</Link>
-            <Link href="/terms" className="hover:text-black">{catalog.company.ui.termsOfUse}</Link>
-            <Link href="/sitemap" className="hover:text-black">{catalog.company.ui.siteMap}</Link>
+          <div className="flex flex-wrap justify-center gap-x-8 text-xs font-medium text-slate-600 md:justify-end">
+            <Link href="/privacy" className="inline-flex min-h-12 items-center hover:text-black">{catalog.company.ui.privacyPolicy}</Link>
+            <Link href="/terms" className="inline-flex min-h-12 items-center hover:text-black">{catalog.company.ui.termsOfUse}</Link>
+            <Link href="/sitemap" className="inline-flex min-h-12 items-center hover:text-black">{catalog.company.ui.siteMap}</Link>
           </div>
         </div>
       </div>

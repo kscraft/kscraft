@@ -85,27 +85,31 @@ function SearchContent() {
           </p>
           
           <div className="relative max-w-2xl mx-auto">
-            <div className="relative flex items-center bg-white border border-slate-200 rounded-full transition-all duration-500 focus-within:border-blue-500 focus-within:ring-8 focus-within:ring-blue-500/5 shadow-sm overflow-hidden">
+            <div className="relative flex min-w-0 items-center overflow-hidden rounded-full border border-slate-200 bg-white shadow-sm transition-all duration-500 focus-within:border-blue-500 focus-within:ring-8 focus-within:ring-blue-500/5">
               <div className="pl-8 text-slate-400">
                 <Search className="w-5 h-5" />
               </div>
               <input
-                type="text"
+                id="catalog-search"
+                type="search"
+                aria-label="Search architectural systems"
                 value={query}
                 onChange={(e) => {
                   setQuery(e.target.value);
                   updateSearch(e.target.value, selectedCategory);
                 }}
                 placeholder={ui.searchPlaceholder}
-                className="w-full bg-transparent px-6 py-6 outline-none text-slate-900 text-lg font-semibold placeholder:text-slate-400"
+                className="min-w-0 flex-1 bg-transparent px-4 py-6 text-lg font-semibold text-slate-900 outline-none placeholder:text-slate-400 sm:px-6"
               />
               {query && (
                 <button 
+                  type="button"
                   onClick={() => {
                     setQuery('');
                     updateSearch('', selectedCategory);
                   }}
-                  className="pr-8 text-slate-400 hover:text-slate-600 transition-colors"
+                  className="flex h-12 w-12 shrink-0 items-center justify-center text-slate-400 transition-colors hover:text-slate-600 sm:mr-3"
+                  aria-label="Clear catalog search"
                 >
                   <X className="w-6 h-6" />
                 </button>
@@ -129,8 +133,8 @@ function SearchContent() {
                       setSelectedCategory('all');
                       updateSearch(query, 'all');
                     }}
-                    className={cn(
-                      "text-left px-5 py-3 rounded-2xl text-sm font-bold transition-all",
+                  className={cn(
+                      "min-h-12 rounded-2xl px-5 py-3 text-left text-sm font-bold transition-all",
                       selectedCategory === 'all' 
                         ? "bg-blue-600 text-white shadow-lg shadow-blue-600/20" 
                         : "bg-slate-50 text-slate-600 hover:bg-slate-100"
@@ -146,7 +150,7 @@ function SearchContent() {
                         updateSearch(query, cat.id);
                       }}
                       className={cn(
-                        "text-left px-5 py-3 rounded-2xl text-sm font-bold transition-all",
+                        "min-h-12 rounded-2xl px-5 py-3 text-left text-sm font-bold transition-all",
                         selectedCategory === cat.id 
                           ? "bg-blue-600 text-white shadow-lg shadow-blue-600/20" 
                           : "bg-slate-50 text-slate-600 hover:bg-slate-100"
@@ -159,22 +163,22 @@ function SearchContent() {
               </div>
 
               <div className="p-8 rounded-3xl bg-blue-50 border border-blue-100">
-                <p className="text-[10px] font-black text-blue-600 uppercase tracking-widest mb-3">Custom Ask?</p>
+                <p className="mb-3 text-xs font-black uppercase tracking-widest text-blue-600">Custom Ask?</p>
                 <p className="text-xs text-blue-800 font-bold leading-relaxed mb-6">
                   Can&apos;t find a specific technical system? Our engineering team builds bespoke solutions.
                 </p>
-                <Link href="/contact" className="text-xs font-black text-blue-600 uppercase tracking-widest hover:underline">
+                <Link href="/contact" className="inline-flex min-h-12 items-center text-xs font-black uppercase tracking-widest text-blue-600 hover:underline">
                   Contact Engineering &rarr;
                 </Link>
               </div>
             </aside>
 
             {/* Results Grid */}
-            <main className="flex-1">
+            <div className="min-w-0 flex-1">
               <div className="mb-10 flex items-center justify-between">
-                <p className="text-sm font-bold text-slate-400 uppercase tracking-widest">
+                <h2 className="text-sm font-bold uppercase tracking-widest text-slate-500">
                   {ui.resultsCount.replace('{count}', totalResults.toString())}
-                </p>
+                </h2>
               </div>
 
               {totalResults > 0 ? (
@@ -196,7 +200,7 @@ function SearchContent() {
                           className="group flex min-w-0 items-center justify-between gap-6 rounded-[2rem] border border-slate-200 bg-white p-6 transition hover:border-blue-200 hover:shadow-[0_24px_60px_-36px_rgba(15,23,42,0.55)]"
                         >
                           <div className="min-w-0">
-                            <p className="mb-2 text-[10px] font-black uppercase tracking-[0.22em] text-blue-600">
+                            <p className="mb-2 text-xs font-black uppercase tracking-[0.22em] text-blue-600">
                               {project.showcase?.pageType === 'Specification Brief' ? 'Specification Brief' : 'Engineering Case Study'}
                             </p>
                             <h2 className="break-words text-2xl font-black uppercase leading-tight tracking-tight text-slate-950">{project.title}</h2>
@@ -213,23 +217,24 @@ function SearchContent() {
                   <div className="inline-flex h-20 w-20 items-center justify-center rounded-full bg-white shadow-xl mb-8">
                     <Search className="w-8 h-8 text-slate-300" />
                   </div>
-                  <h3 className="text-3xl font-black text-slate-900 uppercase tracking-tighter mb-4">{ui.noResultsTitle}</h3>
+                  <h2 className="mb-4 text-3xl font-black uppercase tracking-tighter text-slate-900">{ui.noResultsTitle}</h2>
                   <p className="text-xl text-slate-500 font-medium max-w-md mx-auto leading-relaxed">
                     {ui.noResultsDescription}
                   </p>
                   <button 
+                    type="button"
                     onClick={() => {
                       setQuery('');
                       setSelectedCategory('all');
                       updateSearch('', 'all');
                     }}
-                    className="mt-10 text-blue-600 font-black uppercase tracking-widest text-xs hover:text-blue-700 transition-colors"
+                    className="mt-10 min-h-12 px-4 text-xs font-black uppercase tracking-widest text-blue-600 transition-colors hover:text-blue-700"
                   >
                     Clear all filters
                   </button>
                 </div>
               )}
-            </main>
+            </div>
           </div>
         </div>
       </section>

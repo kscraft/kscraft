@@ -21,7 +21,7 @@ export default function ProductDownloads({ productTitle, downloads: productDownl
             <FileText className="h-5 w-5" />
           </div>
           <h3 className="text-2xl font-black uppercase tracking-tight">Technical Documentation</h3>
-          <p className="mt-4 text-slate-400">
+          <p className="mt-4 text-slate-300">
             Download certified specifications, performance data, and engineering guides for {productTitle}.
           </p>
         </div>
@@ -40,14 +40,14 @@ export default function ProductDownloads({ productTitle, downloads: productDownl
               className="group flex flex-col justify-between rounded-2xl bg-white/5 p-6 transition-all hover:bg-white/10 hover:shadow-xl"
             >
               <div className="mb-6 flex items-center justify-between">
-                <span className="rounded-lg bg-blue-600/20 px-2 py-1 text-[10px] font-black uppercase tracking-widest text-blue-400">
+                <span className="rounded-lg bg-blue-600/20 px-2 py-1 text-xs font-black uppercase tracking-widest text-blue-400">
                   {item.type}
                 </span>
                 <FileDown className="h-4 w-4 text-slate-500 transition-colors group-hover:text-blue-400" />
               </div>
               <div>
                 <p className="text-sm font-bold leading-tight">{item.title}</p>
-                <p className="mt-2 text-[10px] font-black text-slate-500 uppercase tracking-widest">{item.size}</p>
+                <p className="mt-2 text-xs font-black uppercase tracking-widest text-slate-300">{item.size}</p>
               </div>
             </a>
           ))}

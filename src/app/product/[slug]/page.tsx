@@ -132,12 +132,12 @@ export default async function ProductPage({ params }: Props) {
       <header className="hero-dark">
         <ThemeMarker theme="dark" className="absolute top-0" />
         <div className="max-container px-6">
-          <Breadcrumbs items={[
+          <Breadcrumbs theme="dark" items={[
             { label: category?.title || 'Products', href: `/category/${primaryCategoryId}` },
             { label: product.title }
           ]} />
           
-          <div className="mt-10 inline-flex items-center gap-3 px-4 py-2 rounded-full bg-blue-600/20 border border-blue-500/30 text-blue-400 text-[10px] font-black uppercase tracking-[0.3em] mb-10">
+          <div className="mt-10 mb-10 inline-flex items-center gap-3 rounded-full border border-blue-500/30 bg-blue-600/20 px-4 py-2 text-xs font-black uppercase tracking-[0.3em] text-blue-400">
              {category?.title} Systems
           </div>
           
@@ -157,17 +157,17 @@ export default async function ProductPage({ params }: Props) {
       {/* Product Showcase */}
       <section className="section-standard">
         <div className="max-container">
-          <div className="grid lg:grid-cols-12 gap-16 lg:gap-24">
+          <div className="grid gap-16 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:gap-24">
             {/* Left: Gallery */}
-            <div className="lg:col-span-7">
+            <div className="min-w-0 lg:col-span-1">
               <ProductGallery product={product} />
               
               <div className="mt-20">
-                <h2 className="text-[10px] font-black uppercase tracking-[0.2em] text-blue-600 mb-10">Technical Specifications</h2>
+                <h2 className="mb-10 text-xs font-black uppercase tracking-[0.2em] text-blue-600">Technical Specifications</h2>
                 <div className="grid sm:grid-cols-2 gap-px bg-slate-100 rounded-3xl overflow-hidden border border-slate-100 shadow-sm">
                   {Object.entries(product.specifications).map(([key, value]) => (
                     <div key={key} className="bg-white p-8">
-                      <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-2">{key}</p>
+                      <p className="mb-2 text-xs font-bold uppercase tracking-widest text-slate-500">{key}</p>
                       <p className="text-lg font-black text-slate-900 tracking-tight">{value}</p>
                     </div>
                   ))}
@@ -176,10 +176,10 @@ export default async function ProductPage({ params }: Props) {
             </div>
 
             {/* Right: Technical Features */}
-            <div className="lg:col-span-5">
+            <div className="min-w-0 lg:col-span-1">
               <div className="sticky top-32 space-y-16">
                 <div>
-                  <h2 className="text-[10px] font-black uppercase tracking-[0.2em] text-blue-600 mb-10">Engineering Features</h2>
+                  <h2 className="mb-10 text-xs font-black uppercase tracking-[0.2em] text-blue-600">Engineering Features</h2>
                   <div className="space-y-6">
                     {product.features.map((feature, idx) => (
                       <div key={idx} className="flex gap-6 group">
@@ -194,7 +194,7 @@ export default async function ProductPage({ params }: Props) {
 
                 {stcRating && (
                   <div>
-                    <h2 className="text-[10px] font-black uppercase tracking-[0.2em] text-blue-600 mb-10">Acoustic Performance</h2>
+                    <h2 className="mb-10 text-xs font-black uppercase tracking-[0.2em] text-blue-600">Acoustic Performance</h2>
                     <div className="p-8 rounded-[2.5rem] bg-slate-50 border border-slate-100 shadow-inner">
                       <AcousticGraph stcRating={stcRating} />
                     </div>
@@ -202,7 +202,7 @@ export default async function ProductPage({ params }: Props) {
                 )}
 
                 <div>
-                  <h2 className="text-[10px] font-black uppercase tracking-[0.2em] text-blue-600 mb-10">Primary Applications</h2>
+                  <h2 className="mb-10 text-xs font-black uppercase tracking-[0.2em] text-blue-600">Primary Applications</h2>
                   <div className="flex flex-wrap gap-3">
                     {product.applications.map((app, idx) => (
                       <span key={idx} className="px-6 py-3 rounded-2xl bg-white border border-slate-200 text-sm font-bold text-slate-700 shadow-sm">
@@ -228,17 +228,17 @@ export default async function ProductPage({ params }: Props) {
       {(related.length > 0 || relatedBlogs.length > 0) && (
         <section className="section-standard bg-white border-t border-slate-50">
           <div className="max-container">
-            <div className="grid lg:grid-cols-2 gap-20 lg:gap-32">
+            <div className="grid min-w-0 gap-20 lg:grid-cols-2 lg:gap-32">
               {/* Related Products */}
               {related.length > 0 && (
-                <div>
-                  <div className="mb-14 flex items-center justify-between">
+                <div className="min-w-0">
+                  <div className="mb-14 flex min-w-0 flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
                     <h2 className="text-2xl font-black uppercase tracking-tight text-slate-900">Similar Systems</h2>
-                    <Link href={`/category/${primaryCategoryId}`} className="text-xs font-black text-blue-600 uppercase tracking-widest hover:underline">
+                    <Link href={`/category/${primaryCategoryId}`} className="inline-flex min-h-12 shrink-0 items-center text-xs font-black uppercase tracking-widest text-blue-600 hover:underline">
                       View All &rarr;
                     </Link>
                   </div>
-                  <div className="grid sm:grid-cols-2 gap-8">
+                  <div className="grid min-w-0 gap-8 sm:grid-cols-2">
                     {related.slice(0, 2).map((item) => (
                       <ProductCard key={item.slug} product={item} compact />
                     ))}
@@ -248,10 +248,10 @@ export default async function ProductPage({ params }: Props) {
 
               {/* Related Engineering Insights */}
               {relatedBlogs.length > 0 && (
-                <div>
-                  <div className="mb-14 flex items-center justify-between">
+                <div className="min-w-0">
+                  <div className="mb-14 flex min-w-0 flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
                     <h2 className="text-2xl font-black uppercase tracking-tight text-slate-900">Technical Insights</h2>
-                    <Link href="/blog" className="text-xs font-black text-blue-600 uppercase tracking-widest hover:underline">
+                    <Link href="/blog" className="inline-flex min-h-12 shrink-0 items-center text-xs font-black uppercase tracking-widest text-blue-600 hover:underline">
                       technical Journal &rarr;
                     </Link>
                   </div>
@@ -260,14 +260,14 @@ export default async function ProductPage({ params }: Props) {
                       <Link 
                         key={blog.slug} 
                         href={`/blog/${blog.slug}`}
-                        className="flex group gap-8 p-6 rounded-3xl bg-slate-50 border border-slate-100 hover:bg-white hover:shadow-xl transition-all"
+                        className="group flex min-w-0 gap-4 rounded-3xl border border-slate-100 bg-slate-50 p-4 transition-all hover:bg-white hover:shadow-xl sm:gap-8 sm:p-6"
                       >
                         <div className="relative h-24 w-24 shrink-0 rounded-2xl overflow-hidden shadow-md">
                           <Image src={blog.image} alt={blog.title} fill className="object-cover group-hover:scale-110 transition-transform duration-700" />
                         </div>
                         <div className="flex flex-col justify-center">
-                          <p className="text-[9px] font-black text-blue-600 uppercase tracking-widest mb-2">{blog.tags[0]}</p>
-                          <h3 className="text-lg font-black text-slate-900 leading-tight group-hover:text-blue-600 transition-colors uppercase">{blog.title}</h3>
+                          <p className="mb-2 text-xs font-black uppercase tracking-widest text-blue-600">{blog.tags[0]}</p>
+                          <h3 className="break-words text-lg font-black uppercase leading-tight text-slate-900 transition-colors group-hover:text-blue-600">{blog.title}</h3>
                         </div>
                       </Link>
                     ))}

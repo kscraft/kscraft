@@ -78,7 +78,7 @@ export default function SolutionsPage() {
                   <div className="mb-10 flex h-14 w-14 items-center justify-center rounded-2xl bg-slate-950 text-blue-500 group-hover:bg-blue-600 group-hover:text-white shadow-lg transition-all">
                     <Icon className="h-6 w-6" />
                   </div>
-                  <p className="text-[10px] font-black uppercase tracking-[0.2em] text-blue-600 mb-2">{service.shortTitle}</p>
+                  <p className="text-xs font-black uppercase tracking-[0.2em] text-blue-600 mb-2">{service.shortTitle}</p>
                   <h3 className="text-3xl font-black tracking-tighter text-slate-950 uppercase">{service.title}</h3>
                   <p className="mt-6 text-sm font-medium leading-relaxed text-slate-500">{service.metaLead}</p>
                   <Link href={`/solutions/${service.slug}/${getLocationMarketSlug(topMarket)}`} className="mt-10 inline-flex items-center text-xs font-black uppercase tracking-widest text-blue-600">
@@ -107,7 +107,7 @@ export default function SolutionsPage() {
                 </div>
                 <div className="relative z-10 mb-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                   <h3 className="text-4xl font-black tracking-tighter text-slate-950 uppercase">{location.city}</h3>
-                  <span className="text-[10px] font-black uppercase tracking-[0.2em] text-blue-600 px-4 py-2 bg-blue-50 rounded-full">
+                  <span className="text-xs font-black uppercase tracking-[0.2em] text-blue-600 px-4 py-2 bg-blue-50 rounded-full">
                     Operational Tier #{location.rank}
                   </span>
                 </div>

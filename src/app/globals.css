@@ -18,22 +18,47 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+:where(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: 3px solid #2563eb;
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 200;
+  min-height: 3rem;
+  transform: translateY(calc(-100% - 2rem));
+  border-radius: 0.75rem;
+  background: #ffffff;
+  padding: 0.75rem 1rem;
+  color: #0f172a;
+  font-weight: 700;
+  box-shadow: 0 12px 32px rgb(15 23 42 / 0.2);
+  transition: transform 150ms ease;
+}
+
+.skip-link:focus-visible {
+  transform: translateY(0);
+}
+
 @layer components {
   /* Typography Design System */
   .heading-hero {
-    @apply text-5xl sm:text-6xl md:text-[clamp(3rem,5.5vw,5.5rem)] font-black leading-[0.95] uppercase tracking-tighter transition-all duration-700;
+    @apply text-4xl min-[360px]:text-5xl sm:text-6xl md:text-[clamp(3rem,5.5vw,5.5rem)] font-black leading-[0.95] uppercase tracking-tighter transition-all duration-700 [overflow-wrap:anywhere];
   }
 
   .heading-page {
-    @apply text-4xl md:text-[clamp(3.5rem,6vw,5rem)] font-black leading-[1] uppercase tracking-tighter;
+    @apply text-4xl md:text-[clamp(3.5rem,6vw,5rem)] font-black leading-[1] uppercase tracking-tighter [overflow-wrap:anywhere];
   }
 
   .heading-section {
-    @apply text-3xl md:text-5xl font-bold tracking-tight text-slate-950 uppercase;
+    @apply text-3xl md:text-5xl font-bold tracking-tight text-slate-950 uppercase [overflow-wrap:anywhere];
   }
 
   .text-eyebrow {
-    @apply text-[10px] md:text-[12px] font-black text-blue-600 uppercase tracking-[0.3em] mb-6 block;
+    @apply text-xs font-black text-blue-600 uppercase tracking-[0.3em] mb-6 block;
   }
 
   .text-body-lg {
@@ -71,11 +96,11 @@ body {
   }
 
   .apple-button {
-    @apply px-6 py-2.5 bg-blue-600 text-white rounded-full font-semibold hover:bg-blue-700 transition-all active:scale-95 shadow-lg shadow-blue-600/20 hover:shadow-blue-600/30;
+    @apply inline-flex min-h-12 items-center justify-center px-6 py-2.5 bg-blue-600 text-white rounded-full font-semibold hover:bg-blue-700 transition-all active:scale-95 shadow-lg shadow-blue-600/20 hover:shadow-blue-600/30;
   }
 
   .apple-button-secondary {
-    @apply px-6 py-2.5 bg-zinc-100 text-slate-900 rounded-full font-semibold hover:bg-zinc-200 transition-all active:scale-95;
+    @apply inline-flex min-h-12 items-center justify-center px-6 py-2.5 bg-zinc-100 text-slate-900 rounded-full font-semibold hover:bg-zinc-200 transition-all active:scale-95;
   }
 
   /* Custom scrollbar */
@@ -87,6 +112,21 @@ body {
   }
   .custom-scrollbar::-webkit-scrollbar-thumb {
     @apply bg-slate-200 rounded-full;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
   }
 }
 

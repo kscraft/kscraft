@@ -34,7 +34,7 @@ export default function AcousticGraph({ stcRating }: AcousticGraphProps) {
     <div className="w-full bg-slate-50/50 rounded-3xl p-8 border border-slate-100">
       <div className="mb-10 flex justify-between items-end">
         <div>
-          <p className="text-[9px] font-black text-slate-400 uppercase tracking-[0.2em] mb-1">Acoustic Analysis</p>
+          <p className="text-xs font-black text-slate-400 uppercase tracking-[0.2em] mb-1">Acoustic Analysis</p>
           <h3 className="text-xl font-bold text-slate-900 uppercase tracking-tighter">Transmission Loss (dB)</h3>
         </div>
         <div className="text-right">
@@ -54,7 +54,7 @@ export default function AcousticGraph({ stcRating }: AcousticGraphProps) {
               x1={padding} y1={getY(val)} x2={width - padding} y2={getY(val)} 
               stroke="#cbd5e1" strokeWidth="0.5" strokeDasharray="2 2" 
             />
-            <text x="0" y={getY(val) + 3} className="text-[9px] fill-slate-400 font-bold">{val}dB</text>
+            <text x="0" y={getY(val) + 3} className="text-xs fill-slate-400 font-bold">{val}dB</text>
           </g>
         ))}
 
@@ -65,7 +65,7 @@ export default function AcousticGraph({ stcRating }: AcousticGraphProps) {
             x={getX(i)} 
             y={height - padding + 20} 
             textAnchor="middle" 
-            className="text-[9px] fill-slate-400 font-bold"
+            className="text-xs fill-slate-400 font-bold"
           >
             {freq}
           </text>
@@ -99,7 +99,7 @@ export default function AcousticGraph({ stcRating }: AcousticGraphProps) {
         ))}
       </svg>
       
-      <p className="mt-8 text-[10px] text-slate-400 font-medium leading-relaxed italic border-t border-slate-100 pt-6">
+      <p className="mt-8 text-xs text-slate-400 font-medium leading-relaxed italic border-t border-slate-100 pt-6">
         * Standardized transmission loss curve based on STC baseline.
       </p>
     </div>

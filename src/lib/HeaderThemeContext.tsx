@@ -1,6 +1,7 @@
 'use client';
 
 import React, { createContext, useContext, useState, useCallback } from 'react';
+import { MotionConfig } from 'framer-motion';
 
 type Theme = 'light' | 'dark';
 
@@ -19,9 +20,11 @@ export function HeaderThemeProvider({ children }: { children: React.ReactNode })
   }, []);
 
   return (
-    <HeaderThemeContext.Provider value={{ theme, setTheme }}>
-      {children}
-    </HeaderThemeContext.Provider>
+    <MotionConfig reducedMotion="user">
+      <HeaderThemeContext.Provider value={{ theme, setTheme }}>
+        {children}
+      </HeaderThemeContext.Provider>
+    </MotionConfig>
   );
 }
 

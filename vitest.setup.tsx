@@ -93,7 +93,7 @@ vi.mock('next/link', () => ({
 // Mock Lucide Icons - Explicit list to ensure named imports work
 vi.mock('lucide-react', () => {
   const icons = [
-    'X', 'Phone', 'MessageSquare', 'Mail', 'ChevronRight', 'Copy', 'Check', 'Globe2', 
+    'X', 'Phone', 'MessageSquare', 'Mail', 'ChevronLeft', 'ChevronRight', 'Copy', 'Check', 'Globe2',
     'ShieldCheck', 'Send', 'ArrowRight', 'Home', 'Menu', 'ChevronDown', 'Search',
     'Settings', 'Wrench', 'ClipboardCheck', 'Building2', 'BadgeCheck', 'Trophy',
     'MapPin', 'Rocket', 'Zap', 'Target', 'Gauge', 'Sparkles', 'Maximize', 'Layers', 'Filter',
@@ -132,4 +132,6 @@ vi.mock('framer-motion', () => ({
     circle: ({ children, ...props }: any) => <circle {...props}>{children}</circle>,
   },
   AnimatePresence: ({ children }: any) => <>{children}</>,
+  MotionConfig: ({ children }: any) => <>{children}</>,
+  useReducedMotion: () => false,
 }));

@@ -110,7 +110,7 @@ export default async function IndustryPage({ params }: Props) {
                   <div className="space-y-6">
                     {industry.specificationFocus.map((item) => (
                       <div key={item.label}>
-                        <p className="text-[10px] font-black uppercase tracking-widest text-blue-600">{item.label}</p>
+                        <p className="text-xs font-black uppercase tracking-widest text-blue-600">{item.label}</p>
                         <p className="mt-2 text-sm font-semibold leading-6 text-slate-600">{item.value}</p>
                       </div>
                     ))}

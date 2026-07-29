@@ -283,7 +283,7 @@ export default async function LocationSeoPage({ params }: Props) {
               ].map(([value, label]) => (
                 <div key={label} className="rounded-2xl border border-white/10 bg-white/10 p-4">
                   <p className="text-xl font-black text-white">{value}</p>
-                  <p className="mt-1 text-[9px] font-bold uppercase tracking-widest text-slate-300">{label}</p>
+                  <p className="mt-1 text-xs font-bold uppercase tracking-widest text-slate-300">{label}</p>
                 </div>
               ))}
             </div>
@@ -340,7 +340,7 @@ export default async function LocationSeoPage({ params }: Props) {
                   <Icon className="h-5 w-5" />
                 </div>
                 <div>
-                  <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-blue-600">{label as string}</h3>
+                  <h3 className="text-xs font-black uppercase tracking-[0.2em] text-blue-600">{label as string}</h3>
                   <p className="mt-2 text-base font-semibold leading-7 text-slate-700">{value as string}</p>
                 </div>
               </div>
@@ -446,7 +446,7 @@ export default async function LocationSeoPage({ params }: Props) {
                 href={resource.href}
                 className="group rounded-2xl border border-slate-200 bg-white p-6 transition hover:border-blue-200 hover:shadow-[0_20px_45px_-30px_rgba(15,23,42,0.6)]"
               >
-                <p className="text-[10px] font-black uppercase tracking-[0.22em] text-blue-600 mb-3">Resource</p>
+                <p className="text-xs font-black uppercase tracking-[0.22em] text-blue-600 mb-3">Resource</p>
                 <h3 className="text-lg font-black uppercase tracking-tight text-slate-950">{resource.title}</h3>
                 <p className="mt-3 text-sm font-medium leading-6 text-slate-500">{resource.description}</p>
                 <div className="mt-6 inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-blue-600">
@@ -468,7 +468,7 @@ export default async function LocationSeoPage({ params }: Props) {
           <div className="grid gap-4 md:grid-cols-3">
             {relatedLocations.map((related) => (
               <Link key={related.slug} href={`/locations/${related.slug}`} className="group rounded-2xl border border-slate-200 bg-white p-6 transition hover:border-blue-200 hover:shadow-[0_20px_45px_-30px_rgba(15,23,42,0.6)]">
-                <p className="text-[10px] font-black uppercase tracking-[0.2em] text-blue-700">{related.priority} Rank #{related.rank}</p>
+                <p className="text-xs font-black uppercase tracking-[0.2em] text-blue-700">{related.priority} Rank #{related.rank}</p>
                 <h3 className="mt-3 text-xl font-black tracking-tight text-slate-950">{related.title}</h3>
                 <p className="mt-3 line-clamp-3 text-sm font-medium leading-6 text-slate-600">{related.growthReason}</p>
                 <span className="mt-6 inline-flex items-center text-sm font-bold text-blue-700">

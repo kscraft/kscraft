@@ -22,9 +22,10 @@ test.describe('Kiran Slido Craft E2E', () => {
     await expect(page.getByText(/ISRO Gaganyaan Mission/i)).toBeVisible({ timeout: 10000 });
   });
 
-  test('contact form drafts email', async ({ page }) => {
+  test('contact form blocks an empty submission', async ({ page }) => {
     await page.goto('/contact');
     await page.getByRole('button', { name: /Send Technical Request/i }).click();
-    await expect(page.locator('form [role="alert"]')).toContainText(/Missing or invalid fields/i);
+    await expect(page.locator('#contact-name-error')).toContainText(/at least 2 characters/i);
+    await expect(page.getByText(/Missing or invalid fields/i)).toHaveCount(0);
   });
 });

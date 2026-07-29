@@ -17,7 +17,7 @@ export default function HeaderActions({ useLightHeaderText }: HeaderActionsProps
       <button
         onClick={() => setIsOpen(true)}
         className={cn(
-          "text-[13px] font-semibold px-5 py-2 rounded-full transition-all active:scale-95",
+          "min-h-12 px-5 py-2 text-[13px] font-semibold rounded-full transition-all active:scale-95",
           useLightHeaderText
             ? "bg-white text-slate-950 hover:bg-blue-50"
             : "bg-black text-white hover:bg-zinc-800"

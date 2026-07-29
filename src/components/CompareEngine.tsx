@@ -51,14 +51,14 @@ export default function CompareEngine({ products }: { products: Product[] }) {
             <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-blue-600 text-white shadow-lg shadow-blue-600/20 transition-transform group-hover:scale-105">
               <ArrowRightLeft className="w-4 h-4" />
             </div>
-            <p className="min-w-0 break-words text-[11px] font-black uppercase leading-5 tracking-[0.16em] text-slate-900">
+            <p className="min-w-0 break-words text-xs font-black uppercase leading-5 tracking-[0.16em] text-slate-900">
               Compare Systems ({selectedSlugs.length}/3)
             </p>
           </div>
           <div className="flex shrink-0 items-center gap-3 sm:gap-6">
             <button 
               onClick={(e) => { e.stopPropagation(); setSelectedSlugs([]); }}
-              className="text-[10px] font-bold text-slate-400 hover:text-red-500 uppercase tracking-widest transition-colors"
+              className="text-xs font-bold text-slate-400 hover:text-red-500 uppercase tracking-widest transition-colors"
             >
               Reset
             </button>
@@ -96,13 +96,13 @@ export default function CompareEngine({ products }: { products: Product[] }) {
                     </div>
                     <div className="min-w-0">
                       <h4 className="break-words text-base font-bold uppercase leading-tight tracking-tight text-slate-900">{product.title}</h4>
-                      <p className="text-[9px] font-black text-blue-600 uppercase tracking-widest mt-1">{getProductCategoryLabel(product.primaryCategory)}</p>
+                      <p className="text-xs font-black text-blue-600 uppercase tracking-widest mt-1">{getProductCategoryLabel(product.primaryCategory)}</p>
                     </div>
                     
                     <div className="space-y-4 pt-4">
                       {allSpecKeys.map(key => (
                         <div key={key}>
-                          <p className="text-[9px] font-bold text-slate-400 uppercase tracking-widest mb-1">{key}</p>
+                          <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">{key}</p>
                           <p className="text-xs font-semibold text-slate-600">
                             {product.specifications[key] || '—'}
                           </p>
@@ -112,7 +112,7 @@ export default function CompareEngine({ products }: { products: Product[] }) {
 
                     <Link 
                       href={`/product/${product.slug}`}
-                      className="inline-flex items-center gap-2 text-[10px] font-black text-blue-600 uppercase tracking-widest hover:text-blue-700 pt-4"
+                      className="inline-flex items-center gap-2 text-xs font-black text-blue-600 uppercase tracking-widest hover:text-blue-700 pt-4"
                     >
                       Full Details <ArrowRight className="w-3 h-3" />
                     </Link>

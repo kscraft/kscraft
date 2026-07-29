@@ -73,7 +73,7 @@ export default function LocationsPage() {
             ].map(([value, label]) => (
               <div key={label} className="rounded-[2rem] border border-white/10 bg-white/10 p-8 backdrop-blur-sm">
                 <p className="text-4xl font-black tracking-tight text-white">{value}</p>
-                <p className="mt-2 text-[10px] font-bold uppercase tracking-[0.2em] text-blue-300">{label}</p>
+                <p className="mt-2 text-xs font-bold uppercase tracking-[0.2em] text-blue-300">{label}</p>
               </div>
             ))}
           </div>
@@ -94,7 +94,7 @@ export default function LocationsPage() {
                   <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-950 text-sm font-black text-white group-hover:bg-blue-600 transition-colors">
                     {location.rank}
                   </span>
-                  <span className="text-[10px] font-black uppercase tracking-widest text-blue-600">
+                  <span className="text-xs font-black uppercase tracking-widest text-blue-600">
                     Precision Tier
                   </span>
                 </div>
@@ -129,7 +129,7 @@ export default function LocationsPage() {
                   {locations.map((location) => (
                     <Link key={location.slug} href={`/locations/${location.slug}`} className="group rounded-2xl border border-slate-200 bg-white p-6 transition hover:border-blue-200 hover:shadow-[0_20px_45px_-30px_rgba(15,23,42,0.6)]">
                       <div className="flex items-center justify-between gap-4">
-                        <p className="text-[10px] font-black uppercase tracking-[0.2em] text-blue-700">
+                        <p className="text-xs font-black uppercase tracking-[0.2em] text-blue-700">
                           {location.priority} Rank #{location.rank}
                         </p>
                         {location.rank <= 10 ? <Trophy className="h-4 w-4 text-blue-600" /> : <MapPin className="h-4 w-4 text-slate-400" />}

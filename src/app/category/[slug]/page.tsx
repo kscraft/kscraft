@@ -233,7 +233,7 @@ export default async function CategoryPage({ params }: Props) {
         <ThemeMarker theme="dark" className="absolute top-0" />
         <div className="max-container px-6 flex flex-col lg:flex-row lg:items-center justify-between gap-12">
           <div className="max-w-2xl">
-            <Breadcrumbs items={[
+            <Breadcrumbs theme="dark" items={[
               { label: 'Solutions', href: '/solutions' },
               { label: category.title }
             ]} />
@@ -248,11 +248,11 @@ export default async function CategoryPage({ params }: Props) {
             <div className="mt-10 grid gap-4 sm:grid-cols-2 max-w-md">
               <div className="rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl p-8 shadow-2xl">
                 <p className="text-5xl font-black text-blue-500 tracking-tighter">{products.length}</p>
-                <p className="mt-2 text-[10px] font-black uppercase tracking-widest text-slate-500">Certified Systems</p>
+                <p className="mt-2 text-xs font-black uppercase tracking-widest text-slate-500">Certified Systems</p>
               </div>
               <div className="rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl p-8 shadow-2xl">
                 <p className="text-xl font-black text-white leading-tight uppercase tracking-tight">{category.bestFor}</p>
-                <p className="mt-2 text-[10px] font-black uppercase tracking-widest text-slate-500">Industry Standard</p>
+                <p className="mt-2 text-xs font-black uppercase tracking-widest text-slate-500">Industry Standard</p>
               </div>
             </div>
           </div>
@@ -360,7 +360,7 @@ export default async function CategoryPage({ params }: Props) {
                   href={resource.href}
                   className="group rounded-2xl border border-slate-200 bg-white p-6 transition hover:border-blue-200 hover:shadow-[0_20px_45px_-30px_rgba(15,23,42,0.6)]"
                 >
-                  <p className="text-[10px] font-black uppercase tracking-[0.22em] text-blue-600 mb-3">
+                  <p className="text-xs font-black uppercase tracking-[0.22em] text-blue-600 mb-3">
                     Resource
                   </p>
                   <h3 className="text-lg font-black uppercase tracking-tight text-slate-950">{resource.title}</h3>

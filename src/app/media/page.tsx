@@ -59,18 +59,18 @@ export default function MediaPage() {
       {/* Filter System */}
       <section className="sticky top-20 z-40 bg-white/80 backdrop-blur-xl border-b border-slate-100 py-6">
         <div className="max-container px-6">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
-            <div className="flex items-center gap-4">
+          <div className="flex min-w-0 flex-col justify-between gap-6 md:flex-row md:items-center">
+            <div className="flex min-w-0 items-center gap-4 md:flex-1">
                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-50 text-slate-400">
                   <Filter className="w-4 h-4" />
                </div>
-               <div className="flex gap-2 overflow-x-auto no-scrollbar pb-2 md:pb-0">
+               <div className="no-scrollbar flex min-w-0 max-w-full flex-1 gap-2 overflow-x-auto pb-2 md:pb-0">
                   {categories.map((cat) => (
                     <button
                       key={cat.id}
                       onClick={() => setActiveCategory(cat.id)}
                       className={cn(
-                        "px-6 py-2.5 rounded-full text-[10px] font-black uppercase tracking-widest transition-all whitespace-nowrap",
+                        "min-h-12 px-6 py-2.5 rounded-full text-xs font-black uppercase tracking-widest transition-all whitespace-nowrap",
                         activeCategory === cat.id 
                           ? "bg-slate-900 text-white shadow-lg" 
                           : "bg-slate-50 text-slate-500 hover:bg-slate-100 hover:text-slate-900"
@@ -81,9 +81,9 @@ export default function MediaPage() {
                   ))}
                </div>
             </div>
-            <div className="hidden md:flex items-center gap-3 text-slate-400">
+            <div className="hidden shrink-0 items-center gap-3 text-slate-500 md:flex">
                <span className="h-1 w-1 rounded-full bg-blue-500 animate-pulse"></span>
-               <p className="text-[10px] font-black uppercase tracking-widest">Live Documentation</p>
+               <p className="text-xs font-black uppercase tracking-widest">Live Documentation</p>
             </div>
           </div>
         </div>
@@ -114,6 +114,7 @@ export default function MediaPage() {
                           src={`https://img.youtube.com/vi/${item.youtubeId}/hqdefault.jpg`}
                           alt={item.title}
                           fill
+                          sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
                           className="object-cover opacity-80 transition-opacity group-hover:opacity-100"
                         />
                         <div className="absolute inset-0 bg-slate-950/20 transition-colors group-hover:bg-transparent"></div>
@@ -129,6 +130,7 @@ export default function MediaPage() {
                           src={item.image || ''}
                           alt={item.title}
                           fill
+                          sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
                           className="object-cover transition-transform duration-1000 group-hover:scale-110"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 to-transparent"></div>
@@ -137,17 +139,17 @@ export default function MediaPage() {
 
                     <div className="p-10">
                       <div className="flex items-center gap-3 mb-6">
-                         <span className="px-3 py-1 rounded-full bg-blue-600/10 text-blue-600 text-[9px] font-black uppercase tracking-widest border border-blue-600/10">
+                         <span className="rounded-full border border-blue-700/10 bg-blue-600/10 px-3 py-1 text-xs font-black uppercase tracking-widest text-blue-700">
                             {item.technicalNote}
                          </span>
                          {item.type === 'video' && (
-                           <span className="text-[9px] font-black uppercase tracking-widest text-slate-400">Operational Demo</span>
+                           <span className="text-xs font-black uppercase tracking-widest text-slate-500">Operational Demo</span>
                          )}
                       </div>
-                      <h3 className="text-2xl font-black text-slate-900 mb-6 uppercase tracking-tight leading-none group-hover:text-blue-600 transition-colors">
+                      <h2 className="mb-6 text-2xl font-black uppercase leading-none tracking-tight text-slate-900 transition-colors group-hover:text-blue-600">
                         {item.title}
-                      </h3>
-                      <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-slate-400 opacity-0 group-hover:opacity-100 transition-all transform translate-x-[-10px] group-hover:translate-x-0">
+                      </h2>
+                      <div className="flex min-h-12 items-center gap-2 text-xs font-black uppercase tracking-widest text-slate-500 transition-all">
                          View Details <ChevronRight className="w-3.5 h-3.5" />
                       </div>
                     </div>
@@ -175,7 +177,7 @@ export default function MediaPage() {
             <Link href="/contact" className="apple-button px-12 py-6 text-xs font-black uppercase tracking-widest">
               Request Technical Quote
             </Link>
-            <Link href="/services" className="apple-button-secondary px-12 py-6 text-xs font-black uppercase tracking-widest border-white/10 text-white hover:bg-white/10">
+            <Link href="/services" className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/30 bg-transparent px-12 py-6 text-xs font-black uppercase tracking-widest text-white transition-colors hover:bg-white/10 active:scale-95">
               View Services Catalog
             </Link>
           </div>

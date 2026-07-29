@@ -8,13 +8,18 @@ import Link from 'next/link';
 import Script from 'next/script';
 import countryCodesData from '@/data/country-codes.json';
 import { catalog, categories, home, faqs } from '@/lib/catalog';
-import { Check, CheckCircle2, ChevronDown, HelpCircle, Mail, MapPin, Phone, Search, Send } from 'lucide-react';
+import { Check, CheckCircle2, ChevronDown, CircleAlert, HelpCircle, Mail, MapPin, Phone, Search, Send } from 'lucide-react';
 import { YoutubeIcon, LinkedinIcon, InstagramIcon } from '@/components/SocialIcons';
 import ThemeMarker from '@/components/ThemeMarker';
 import SpecProcess from '@/components/SpecProcess';
 import { submitInquiry } from '@/app/actions';
 import type { InquiryActionState } from '@/app/actions';
 import { trackFormStart, trackClientEvent } from '@/lib/analytics-client';
+import {
+  TECHNICAL_REQUIREMENTS_CHARACTER_LIMIT,
+  validateInquiryField,
+  type InquiryFieldName,
+} from '@/lib/inquiry-validation';
 
 const initialState: InquiryActionState = {
   success: false,
@@ -22,7 +27,6 @@ const initialState: InquiryActionState = {
   errors: undefined,
 };
 
-const TECHNICAL_REQUIREMENTS_CHARACTER_LIMIT = 3000;
 const contactContainerClass = 'mx-auto w-[calc(100vw-3rem)] max-w-[1320px] sm:w-full min-[1920px]:max-w-[1760px]';
 const TURNSTILE_SITE_KEY = '0x4AAAAAAEAl-DGJqphLw0Wv';
 const countryCodes = [...(countryCodesData as { country: string; iso2: string; dialCode: string }[])]
@@ -148,7 +152,13 @@ function createCountrySearchTrie(countries: CountryCode[]) {
   };
 }
 
-function CountryCodePicker({ hasError }: { hasError: boolean }) {
+function CountryCodePicker({
+  hasError,
+  onChange,
+}: {
+  hasError: boolean;
+  onChange: (dialCode: string) => void;
+}) {
   const india = countryCodes.find((country) => country.iso2 === 'IN') || countryCodes[0];
   const [selectedCountry, setSelectedCountry] = React.useState<CountryCode>(india);
   const [isOpen, setIsOpen] = React.useState(false);
@@ -196,6 +206,7 @@ function CountryCodePicker({ hasError }: { hasError: boolean }) {
         aria-haspopup="listbox"
         aria-expanded={isOpen}
         aria-controls={listboxId}
+        aria-describedby={hasError ? 'contact-phone-error' : undefined}
         data-invalid={hasError ? 'true' : undefined}
         onClick={togglePicker}
         className="flex h-14 w-full min-w-0 items-center justify-between gap-3 rounded-xl border border-white/10 bg-white/5 px-4 text-left text-white outline-none transition-all hover:bg-white/10 focus:border-blue-400 focus:bg-white/10 focus:ring-2 focus:ring-blue-400/30 data-[invalid=true]:border-red-400"
@@ -241,6 +252,7 @@ function CountryCodePicker({ hasError }: { hasError: boolean }) {
                 aria-selected={country.iso2 === selectedCountry.iso2}
                 onClick={() => {
                   setSelectedCountry(country);
+                  onChange(country.dialCode);
                   setQuery('');
                   setIsOpen(false);
                 }}
@@ -264,6 +276,32 @@ function CountryCodePicker({ hasError }: { hasError: boolean }) {
   );
 }
 
+const liveValidationFields: InquiryFieldName[] = [
+  'name',
+  'email',
+  'phone',
+  'countryCode',
+  'city',
+  'scope',
+  'requirements',
+];
+
+type ClientFieldErrors = Partial<Record<InquiryFieldName, string>>;
+type TouchedFields = Partial<Record<InquiryFieldName, boolean>>;
+
+function FieldError({ id, message }: { id: string; message?: string }) {
+  return (
+    <div className="min-h-5 px-2" aria-live="polite">
+      {message && (
+        <p id={id} className="flex items-start gap-1.5 text-xs font-semibold leading-5 text-red-300" role="alert">
+          <CircleAlert className="mt-0.5 h-3.5 w-3.5 shrink-0" aria-hidden="true" />
+          <span>{message}</span>
+        </p>
+      )}
+    </div>
+  );
+}
+
 function ContactForm() {
   const [state, formAction, isPending] = useActionState(submitInquiry, initialState);
   const searchParams = useSearchParams();
@@ -271,7 +309,66 @@ function ContactForm() {
   const [hasStarted, setHasStarted] = React.useState(false);
   const [formStartedAt] = React.useState(() => Date.now().toString());
   const [requirementsLength, setRequirementsLength] = React.useState(0);
+  const [touchedFields, setTouchedFields] = React.useState<TouchedFields>({});
+  const [clientErrors, setClientErrors] = React.useState<ClientFieldErrors>({});
   const turnstileContainerRef = React.useRef<HTMLDivElement>(null);
+
+  const validateAndStoreField = React.useCallback((field: InquiryFieldName, value: string) => {
+    const error = validateInquiryField(field, value);
+    setClientErrors((current) => ({ ...current, [field]: error }));
+    return error;
+  }, []);
+
+  const handleFieldBlur = (field: InquiryFieldName, value: string) => {
+    setTouchedFields((current) => ({ ...current, [field]: true }));
+    validateAndStoreField(field, value);
+  };
+
+  const handleFieldChange = (field: InquiryFieldName, value: string) => {
+    if (touchedFields[field] || state.errors?.[field]) {
+      if (!touchedFields[field]) {
+        setTouchedFields((current) => ({ ...current, [field]: true }));
+      }
+      validateAndStoreField(field, value);
+    }
+  };
+
+  const getFieldError = (field: InquiryFieldName) => {
+    if (touchedFields[field]) {
+      return clientErrors[field];
+    }
+
+    return state.errors?.[field]?.[0];
+  };
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    const nextErrors: ClientFieldErrors = {};
+    const nextTouched: TouchedFields = {};
+
+    for (const field of liveValidationFields) {
+      const error = validateInquiryField(field, String(formData.get(field) ?? ''));
+      nextTouched[field] = true;
+      if (error) {
+        nextErrors[field] = error;
+      }
+    }
+
+    setTouchedFields(nextTouched);
+    setClientErrors(nextErrors);
+
+    const firstInvalidField = liveValidationFields.find((field) => nextErrors[field]);
+    if (firstInvalidField) {
+      event.preventDefault();
+      window.requestAnimationFrame(() => {
+        const selector = firstInvalidField === 'countryCode'
+          ? '[aria-label="Country code"]'
+          : `[name="${firstInvalidField}"]`;
+        form.querySelector<HTMLElement>(selector)?.focus();
+      });
+    }
+  };
 
   // Track successful submission
   React.useEffect(() => {
@@ -325,7 +422,7 @@ function ContactForm() {
             </p>
           </div>
         ) : (
-          <form action={formAction} className="space-y-6" noValidate onFocus={handleFocus}>
+          <form action={formAction} className="space-y-6" noValidate onFocus={handleFocus} onSubmit={handleSubmit}>
             {state?.message && !state?.success && (
               <div className="rounded-2xl border border-red-400/30 bg-red-500/10 px-5 py-4 text-sm font-bold leading-6 text-red-100" role="alert">
                 {state.message}
@@ -339,11 +436,16 @@ function ContactForm() {
                   name="name"
                   type="text"
                   required
-                  aria-invalid={Boolean(state?.errors?.name)}
-                  className="h-14 w-full rounded-xl border border-white/10 bg-white/5 px-5 font-medium text-white outline-none transition-all placeholder:text-slate-500 hover:bg-white/10 focus:border-blue-400 focus:bg-white/10 focus:ring-2 focus:ring-blue-400/30"
+                  maxLength={80}
+                  autoComplete="name"
+                  onBlur={(event) => handleFieldBlur('name', event.currentTarget.value)}
+                  onChange={(event) => handleFieldChange('name', event.currentTarget.value)}
+                  aria-invalid={Boolean(getFieldError('name'))}
+                  aria-describedby={getFieldError('name') ? 'contact-name-error' : undefined}
+                  className="h-14 w-full rounded-xl border border-white/10 bg-white/5 px-5 font-medium text-white outline-none transition-all placeholder:text-slate-500 hover:bg-white/10 focus:border-blue-400 focus:bg-white/10 focus:ring-2 focus:ring-blue-400/30 aria-[invalid=true]:border-red-400 aria-[invalid=true]:focus:border-red-400 aria-[invalid=true]:focus:ring-red-400/20"
                   placeholder={home.contact.placeholderName}
                 />
-                {state?.errors?.name && <p className="text-xs font-bold text-red-400 px-2">{state.errors.name[0]}</p>}
+                <FieldError id="contact-name-error" message={getFieldError('name')} />
               </div>
               <div className="space-y-2">
                 <label htmlFor="contact-email" className="ml-1 text-xs font-semibold text-blue-300">{home.contact.emailLabel}</label>
@@ -352,29 +454,50 @@ function ContactForm() {
                   name="email"
                   type="email"
                   required
-                  aria-invalid={Boolean(state?.errors?.email)}
-                  className="h-14 w-full rounded-xl border border-white/10 bg-white/5 px-5 font-medium text-white outline-none transition-all placeholder:text-slate-500 hover:bg-white/10 focus:border-blue-400 focus:bg-white/10 focus:ring-2 focus:ring-blue-400/30"
+                  maxLength={254}
+                  inputMode="email"
+                  autoComplete="email"
+                  autoCapitalize="none"
+                  spellCheck={false}
+                  onBlur={(event) => handleFieldBlur('email', event.currentTarget.value)}
+                  onChange={(event) => handleFieldChange('email', event.currentTarget.value)}
+                  aria-invalid={Boolean(getFieldError('email'))}
+                  aria-describedby={getFieldError('email') ? 'contact-email-error' : undefined}
+                  className="h-14 w-full rounded-xl border border-white/10 bg-white/5 px-5 font-medium text-white outline-none transition-all placeholder:text-slate-500 hover:bg-white/10 focus:border-blue-400 focus:bg-white/10 focus:ring-2 focus:ring-blue-400/30 aria-[invalid=true]:border-red-400 aria-[invalid=true]:focus:border-red-400 aria-[invalid=true]:focus:ring-red-400/20"
                   placeholder={home.contact.placeholderEmail}
                 />
-                {state?.errors?.email && <p className="text-xs font-bold text-red-400 px-2">{state.errors.email[0]}</p>}
+                <FieldError id="contact-email-error" message={getFieldError('email')} />
               </div>
               <div className="space-y-2">
                 <label htmlFor="contact-phone" className="ml-1 text-xs font-semibold text-blue-300">{home.contact.phoneLabel}</label>
                 <div className="grid gap-3 sm:grid-cols-[minmax(8rem,0.8fr)_1fr]">
-                  <CountryCodePicker hasError={Boolean(state?.errors?.countryCode)} />
+                  <CountryCodePicker
+                    hasError={Boolean(getFieldError('countryCode'))}
+                    onChange={(dialCode) => {
+                      setTouchedFields((current) => ({ ...current, countryCode: true }));
+                      validateAndStoreField('countryCode', dialCode);
+                    }}
+                  />
                   <input
                     id="contact-phone"
                     name="phone"
                     type="tel"
                     inputMode="tel"
                     required
-                    aria-invalid={Boolean(state?.errors?.phone)}
-                    className="h-14 w-full rounded-xl border border-white/10 bg-white/5 px-5 font-medium text-white outline-none transition-all placeholder:text-slate-500 hover:bg-white/10 focus:border-blue-400 focus:bg-white/10 focus:ring-2 focus:ring-blue-400/30"
+                    maxLength={20}
+                    autoComplete="tel-national"
+                    onBlur={(event) => handleFieldBlur('phone', event.currentTarget.value)}
+                    onChange={(event) => handleFieldChange('phone', event.currentTarget.value)}
+                    aria-invalid={Boolean(getFieldError('phone'))}
+                    aria-describedby={getFieldError('phone') ? 'contact-phone-error' : undefined}
+                    className="h-14 w-full rounded-xl border border-white/10 bg-white/5 px-5 font-medium text-white outline-none transition-all placeholder:text-slate-500 hover:bg-white/10 focus:border-blue-400 focus:bg-white/10 focus:ring-2 focus:ring-blue-400/30 aria-[invalid=true]:border-red-400 aria-[invalid=true]:focus:border-red-400 aria-[invalid=true]:focus:ring-red-400/20"
                     placeholder="98765 43210"
                   />
                 </div>
-                {state?.errors?.countryCode && <p className="text-xs font-bold text-red-400 px-2">{state.errors.countryCode[0]}</p>}
-                {state?.errors?.phone && <p className="text-xs font-bold text-red-400 px-2">{state.errors.phone[0]}</p>}
+                <FieldError
+                  id="contact-phone-error"
+                  message={getFieldError('countryCode') || getFieldError('phone')}
+                />
               </div>
               <div className="space-y-2">
                 <label htmlFor="contact-city" className="ml-1 text-xs font-semibold text-blue-300">{home.contact.cityLabel}</label>
@@ -383,11 +506,16 @@ function ContactForm() {
                   name="city"
                   type="text"
                   required
-                  aria-invalid={Boolean(state?.errors?.city)}
-                  className="h-14 w-full rounded-xl border border-white/10 bg-white/5 px-5 font-medium text-white outline-none transition-all placeholder:text-slate-500 hover:bg-white/10 focus:border-blue-400 focus:bg-white/10 focus:ring-2 focus:ring-blue-400/30"
+                  maxLength={80}
+                  autoComplete="address-level2"
+                  onBlur={(event) => handleFieldBlur('city', event.currentTarget.value)}
+                  onChange={(event) => handleFieldChange('city', event.currentTarget.value)}
+                  aria-invalid={Boolean(getFieldError('city'))}
+                  aria-describedby={getFieldError('city') ? 'contact-city-error' : undefined}
+                  className="h-14 w-full rounded-xl border border-white/10 bg-white/5 px-5 font-medium text-white outline-none transition-all placeholder:text-slate-500 hover:bg-white/10 focus:border-blue-400 focus:bg-white/10 focus:ring-2 focus:ring-blue-400/30 aria-[invalid=true]:border-red-400 aria-[invalid=true]:focus:border-red-400 aria-[invalid=true]:focus:ring-red-400/20"
                   placeholder={home.contact.placeholderCity}
                 />
-                {state?.errors?.city && <p className="text-xs font-bold text-red-400 px-2">{state.errors.city[0]}</p>}
+                <FieldError id="contact-city-error" message={getFieldError('city')} />
               </div>
             </div>
 
@@ -410,20 +538,24 @@ function ContactForm() {
                 id="contact-scope"
                 name="scope"
                 defaultValue={initialScope}
-                className="h-14 w-full appearance-none rounded-xl border border-white/10 bg-white/5 px-5 font-medium text-white outline-none transition-all hover:bg-white/10 focus:border-blue-400 focus:bg-white/10 focus:ring-2 focus:ring-blue-400/30"
+                onBlur={(event) => handleFieldBlur('scope', event.currentTarget.value)}
+                onChange={(event) => handleFieldChange('scope', event.currentTarget.value)}
+                aria-invalid={Boolean(getFieldError('scope'))}
+                aria-describedby={getFieldError('scope') ? 'contact-scope-error' : undefined}
+                className="h-14 w-full appearance-none rounded-xl border border-white/10 bg-white/5 px-5 font-medium text-white outline-none transition-all hover:bg-white/10 focus:border-blue-400 focus:bg-white/10 focus:ring-2 focus:ring-blue-400/30 aria-[invalid=true]:border-red-400 aria-[invalid=true]:focus:border-red-400 aria-[invalid=true]:focus:ring-red-400/20"
               >
                 {categories.map((category) => (
                   <option key={category.id} value={category.title} className="bg-slate-950 font-bold">{category.title}</option>
                 ))}
                 <option value={home.contact.ui.customEngineering} className="bg-slate-950 font-bold">{home.contact.ui.customEngineering}</option>
               </select>
-              {state?.errors?.scope && <p className="text-xs font-bold text-red-400 px-2">{state.errors.scope[0]}</p>}
+              <FieldError id="contact-scope-error" message={getFieldError('scope')} />
             </div>
             <div className="space-y-4">
               <div className="flex flex-col gap-2">
                 <div className="flex items-center justify-between gap-4">
                   <label htmlFor="contact-requirements" className="ml-1 text-xs font-semibold text-blue-300">{home.contact.requirementsLabel}</label>
-                  <span className="text-xs font-medium text-slate-500">
+                  <span className="text-xs font-medium text-slate-300">
                     {requirementsLength}/{TECHNICAL_REQUIREMENTS_CHARACTER_LIMIT}
                   </span>
                 </div>
@@ -434,15 +566,20 @@ function ContactForm() {
                       name="requirements"
                       required
                       maxLength={TECHNICAL_REQUIREMENTS_CHARACTER_LIMIT}
-                      onChange={(event) => setRequirementsLength(event.currentTarget.value.length)}
-                      aria-invalid={Boolean(state?.errors?.requirements)}
-                      className="min-h-44 w-full rounded-xl border border-white/10 bg-white/5 px-5 py-4 font-medium text-white outline-none transition-all placeholder:text-slate-500 hover:bg-white/10 focus:border-blue-400 focus:bg-white/10 focus:ring-2 focus:ring-blue-400/30"
+                      onBlur={(event) => handleFieldBlur('requirements', event.currentTarget.value)}
+                      onChange={(event) => {
+                        setRequirementsLength(event.currentTarget.value.length);
+                        handleFieldChange('requirements', event.currentTarget.value);
+                      }}
+                      aria-invalid={Boolean(getFieldError('requirements'))}
+                      aria-describedby={getFieldError('requirements') ? 'contact-requirements-error' : undefined}
+                      className="min-h-44 w-full rounded-xl border border-white/10 bg-white/5 px-5 py-4 font-medium text-white outline-none transition-all placeholder:text-slate-500 hover:bg-white/10 focus:border-blue-400 focus:bg-white/10 focus:ring-2 focus:ring-blue-400/30 aria-[invalid=true]:border-red-400 aria-[invalid=true]:focus:border-red-400 aria-[invalid=true]:focus:ring-red-400/20"
                       placeholder={home.contact.placeholderRequirements}
                     ></textarea>
-                    {state?.errors?.requirements && <p className="text-xs font-bold text-red-400 px-2">{state.errors.requirements[0]}</p>}
+                    <FieldError id="contact-requirements-error" message={getFieldError('requirements')} />
                   </div>
                   <div className="h-fit rounded-2xl border border-white/10 bg-white/5 p-5">
-                    <h4 className="mb-4 text-xs font-semibold text-blue-300">Spec checklist</h4>
+                    <h3 className="mb-4 text-xs font-semibold text-blue-300">Spec checklist</h3>
                     <ul className="space-y-3">
                       {[
                         'Approx. Dimensions',
@@ -458,7 +595,7 @@ function ContactForm() {
                       ))}
                     </ul>
                     <div className="mt-5 border-t border-white/10 pt-4">
-                      <p className="text-xs font-medium leading-relaxed text-slate-500">
+                      <p className="text-xs font-medium leading-relaxed text-slate-300">
                         Providing these details helps us deliver an accurate technical assessment.
                       </p>
                     </div>
@@ -616,20 +753,20 @@ export default function ContactClient() {
                     </div>
                     <div className="flex min-w-0 flex-col">
                       {catalog.company.phoneDisplay.split(', ').map((phone, idx) => (
-                        <a key={idx} href={`tel:${phone.replace(/[^\d+]/g, '')}`} className="min-w-0 break-all text-xl font-black tracking-tight text-slate-900 transition-colors hover:text-blue-600">
+                        <a key={idx} href={`tel:${phone.replace(/[^\d+]/g, '')}`} className="flex min-h-12 min-w-0 items-center break-all text-xl font-black tracking-tight text-slate-900 transition-colors hover:text-blue-600">
                           {phone}
                         </a>
                       ))}
                     </div>
                   </div>
                   <div className="flex flex-wrap gap-4 pt-4">
-                    <a href={catalog.company.social.youtube} target="_blank" rel="noopener noreferrer" className="flex shrink-0 h-16 w-16 items-center justify-center rounded-2xl bg-slate-50 border border-slate-100 text-slate-900 hover:bg-red-50 hover:text-red-600 hover:border-red-100 transition-all">
+                    <a href={catalog.company.social.youtube} target="_blank" rel="noopener noreferrer" aria-label="Kiran Slido Craft on YouTube" className="flex shrink-0 h-16 w-16 items-center justify-center rounded-2xl bg-slate-50 border border-slate-100 text-slate-900 hover:bg-red-50 hover:text-red-600 hover:border-red-100 transition-all">
                       <YoutubeIcon className="w-7 h-7" />
                     </a>
-                    <a href={catalog.company.social.linkedin} target="_blank" rel="noopener noreferrer" className="flex shrink-0 h-16 w-16 items-center justify-center rounded-2xl bg-slate-50 border border-slate-100 text-slate-900 hover:bg-blue-50 hover:text-blue-700 hover:border-blue-100 transition-all">
+                    <a href={catalog.company.social.linkedin} target="_blank" rel="noopener noreferrer" aria-label="Kiran Slido Craft on LinkedIn" className="flex shrink-0 h-16 w-16 items-center justify-center rounded-2xl bg-slate-50 border border-slate-100 text-slate-900 hover:bg-blue-50 hover:text-blue-700 hover:border-blue-100 transition-all">
                       <LinkedinIcon className="w-7 h-7" />
                     </a>
-                    <a href={catalog.company.social.instagram} target="_blank" rel="noopener noreferrer" className="flex shrink-0 h-16 w-16 items-center justify-center rounded-2xl bg-slate-50 border border-slate-100 text-slate-900 hover:bg-pink-50 hover:text-pink-600 hover:border-pink-100 transition-all">
+                    <a href={catalog.company.social.instagram} target="_blank" rel="noopener noreferrer" aria-label="Kiran Slido Craft on Instagram" className="flex shrink-0 h-16 w-16 items-center justify-center rounded-2xl bg-slate-50 border border-slate-100 text-slate-900 hover:bg-pink-50 hover:text-pink-600 hover:border-pink-100 transition-all">
                       <InstagramIcon className="w-7 h-7" />
                     </a>
                   </div>

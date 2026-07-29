@@ -61,7 +61,7 @@ export default function FaqPage() {
       <header className="hero-dark">
         <ThemeMarker theme="dark" className="absolute top-0" />
         <div className="max-container px-6">
-          <Breadcrumbs items={[{ label: 'FAQ' }]} />
+          <Breadcrumbs theme="dark" items={[{ label: 'FAQ' }]} />
           <p className="text-eyebrow text-blue-300">{faqs.hero.eyebrow}</p>
           <h1 className="heading-hero text-white">
             {faqs.hero.title.split(' ')[0]} {faqs.hero.title.split(' ')[1]} <span className="text-blue-500">{faqs.hero.title.split(' ')[2]}</span>

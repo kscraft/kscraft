@@ -110,21 +110,21 @@ export default function ClientsPage() {
                     <div className="h-12 w-12 rounded-xl bg-slate-900 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform text-white">
                       <Icon className="w-6 h-6" />
                     </div>
-                    <p className="text-[10px] font-black text-blue-600 uppercase tracking-widest mb-4">{project.subtitle}</p>
+                    <p className="text-xs font-black text-blue-600 uppercase tracking-widest mb-4">{project.subtitle}</p>
                     <h3 className="text-2xl font-black tracking-tight text-black mb-6 uppercase leading-tight">{project.title}</h3>
                     <p className="text-slate-500 font-medium leading-relaxed mb-8 flex-1">{project.detail}</p>
                     <div className="mt-auto">
                       {project.slug ? (
                         <Link 
                           href={`/showcase/${project.slug}`} 
-                          className="group apple-button-secondary px-6 py-3 text-[10px] uppercase tracking-[0.2em] font-black inline-flex items-center justify-center gap-2 self-start"
+                          className="group apple-button-secondary px-6 py-3 text-xs uppercase tracking-[0.2em] font-black inline-flex items-center justify-center gap-2 self-start"
                         >
                           {project.showcase?.pageType === 'Specification Brief' ? 'View Brief' : catalog.company.ui.viewCaseStudy} <ChevronRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
                         </Link>
                       ) : (
                         <Link 
                           href="/contact" 
-                          className="group apple-button-secondary px-6 py-3 text-[10px] uppercase tracking-[0.2em] font-black inline-flex items-center justify-center gap-2 self-start"
+                          className="group apple-button-secondary px-6 py-3 text-xs uppercase tracking-[0.2em] font-black inline-flex items-center justify-center gap-2 self-start"
                         >
                           {catalog.company.ui.requestTechnicalDetails} <ChevronRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
                         </Link>

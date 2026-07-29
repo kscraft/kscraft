@@ -75,11 +75,11 @@ export default function AboutPage() {
             <div className="lg:col-span-5 grid grid-cols-2 gap-6">
               <div className="p-10 rounded-[3rem] bg-white border border-slate-100 shadow-xl shadow-blue-900/5">
                 <p className="text-5xl font-black text-blue-600 mb-2 tracking-tighter">35+</p>
-                <p className="text-[10px] font-black uppercase tracking-widest text-slate-400">{ui.experienceLabel}</p>
+                <p className="text-xs font-black uppercase tracking-widest text-slate-400">{ui.experienceLabel}</p>
               </div>
               <div className="p-10 rounded-[3rem] bg-slate-950 text-white shadow-2xl shadow-blue-600/10 border border-white/5">
                 <p className="text-5xl font-black text-blue-400 mb-2 tracking-tighter">{products.length}</p>
-                <p className="text-[10px] font-black uppercase tracking-widest text-slate-500">{ui.systemsLabel}</p>
+                <p className="text-xs font-black uppercase tracking-widest text-slate-500">{ui.systemsLabel}</p>
               </div>
               <div className="col-span-2 p-10 rounded-[3rem] bg-blue-50 border border-blue-100 shadow-inner">
                 <Award className="w-10 h-10 text-blue-600 mb-6" />

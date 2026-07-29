@@ -31,4 +31,10 @@ describe('ProductCard Component', () => {
     const link = screen.getByRole('link');
     expect(link).toHaveAttribute('href', '/product/test-product');
   });
+
+  it('gives the compare control an accessible product-specific name', () => {
+    render(<ProductCard product={mockProduct} />);
+
+    expect(screen.getByRole('button', { name: 'Add Test Product to comparison' })).toBeInTheDocument();
+  });
 });

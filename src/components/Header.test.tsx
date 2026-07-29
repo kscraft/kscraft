@@ -21,14 +21,16 @@ describe('Header Component', () => {
 
   it('toggles mobile menu', () => {
     render(<Header />);
-    const buttons = screen.getAllByRole('button');
-    // The mobile toggle is usually an icon button without text
-    const menuButton = buttons.find(b => !b.textContent);
-    
-    if (menuButton) {
-      fireEvent.click(menuButton);
-      // Mobile menu should be visible - System Catalog is in mobile menu
-      expect(screen.getByText(/System Catalog/i)).toBeInTheDocument();
-    }
+    const menuButton = screen.getByRole('button', { name: 'Open menu' });
+
+    fireEvent.click(menuButton);
+
+    expect(menuButton).toHaveAttribute('aria-expanded', 'true');
+    expect(screen.getByText(/System Catalog/i)).toBeInTheDocument();
+  });
+
+  it('exposes the catalog as a menu trigger', () => {
+    render(<Header />);
+    expect(screen.getByRole('button', { name: /Catalog/i })).toHaveAttribute('aria-haspopup', 'true');
   });
 });

@@ -105,10 +105,10 @@ export default async function GuidePage({ params }: Props) {
           </div>
           
           <div className="flex flex-wrap items-center gap-4 mb-8">
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 text-[10px] font-black uppercase tracking-widest text-blue-600">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 text-xs font-black uppercase tracking-widest text-blue-600">
               <Tag className="w-3 h-3" /> {guide.category}
             </span>
-            <span className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-slate-400">
+            <span className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest text-slate-400">
               <Clock className="w-3 h-3" /> {guide.readTime}
             </span>
           </div>
@@ -187,14 +187,14 @@ export default async function GuidePage({ params }: Props) {
 
             <div className="grid gap-4 md:grid-cols-2">
               <Link href="/faq" className="group rounded-[2rem] border border-slate-200 bg-white p-6 transition hover:border-blue-200 hover:shadow-[0_20px_45px_-30px_rgba(15,23,42,0.6)]">
-                <p className="text-[10px] font-black uppercase tracking-[0.22em] text-blue-600 mb-3">Related Resource</p>
+                <p className="text-xs font-black uppercase tracking-[0.22em] text-blue-600 mb-3">Related Resource</p>
                 <h3 className="text-lg font-black uppercase tracking-tight text-slate-950">Technical FAQs</h3>
                 <p className="mt-3 text-sm font-medium leading-6 text-slate-500">
                   Review common product and project questions before you contact engineering.
                 </p>
               </Link>
               <Link href="/solutions" className="group rounded-[2rem] border border-slate-200 bg-white p-6 transition hover:border-blue-200 hover:shadow-[0_20px_45px_-30px_rgba(15,23,42,0.6)]">
-                <p className="text-[10px] font-black uppercase tracking-[0.22em] text-blue-600 mb-3">Related Resource</p>
+                <p className="text-xs font-black uppercase tracking-[0.22em] text-blue-600 mb-3">Related Resource</p>
                 <h3 className="text-lg font-black uppercase tracking-tight text-slate-950">Solution Families</h3>
                 <p className="mt-3 text-sm font-medium leading-6 text-slate-500">
                   Compare the broader system families that connect to this guide topic.

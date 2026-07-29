@@ -38,8 +38,16 @@ const Header = () => {
       )}
     >
       <div className="mx-auto flex max-w-[1320px] items-center justify-between gap-4 px-4 sm:px-6">
-        <Link href="/" className="group flex min-w-0 items-center gap-2 transition-all active:scale-95 sm:gap-3">
-          <Image src="/logo-ksc.png" alt="KSC" width={120} height={32} className="h-6 w-auto shrink-0 sm:h-7" priority />
+        <Link href="/" className="group flex min-h-12 min-w-0 items-center gap-2 transition-all active:scale-95 sm:gap-3">
+          <Image
+            src="/logo-ksc.png"
+            alt="Kiran Slido Craft"
+            width={250}
+            height={122}
+            className="h-10 w-auto shrink-0 sm:h-11 lg:h-12"
+            loading="eager"
+            priority
+          />
           <div className="flex min-w-0 flex-col">
             <span className={cn(
               "max-w-[11rem] truncate text-[13px] font-black uppercase leading-none transition-colors duration-500 sm:max-w-none sm:text-[15px]",
@@ -48,7 +56,7 @@ const Header = () => {
               Kiran Slido Craft
             </span>
             <span className={cn(
-              "mt-1 max-w-[11rem] truncate text-[8px] font-black uppercase transition-colors duration-500 sm:max-w-none sm:text-[9px]",
+              "mt-1 max-w-[11rem] truncate text-xs font-black uppercase transition-colors duration-500 sm:max-w-none",
               isHeaderLight ? "text-blue-400" : "text-blue-600"
             )}>
               Engineering & Manufacturing
@@ -57,14 +65,14 @@ const Header = () => {
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center gap-10">
+        <nav className="hidden items-center gap-10 xl:flex">
           <ul className="flex items-center gap-8">
             {navigation.header.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
                   className={cn(
-                    'text-[13px] font-bold tracking-[0.1em] uppercase transition-colors duration-500 hover:text-blue-600',
+                    'inline-flex min-h-12 items-center text-[13px] font-bold tracking-[0.1em] uppercase transition-colors duration-500 hover:text-blue-600',
                     pathname === item.href
                       ? isHeaderLight ? 'text-white' : 'text-blue-600'
                       : isHeaderLight ? 'text-slate-300' : 'text-slate-500'
@@ -75,20 +83,23 @@ const Header = () => {
               </li>
             ))}
             <li className="relative group">
-              <button className={cn(
-                "flex items-center gap-1.5 px-4 py-1.5 rounded-full text-[12px] font-black uppercase tracking-widest transition-all",
+              <button
+                type="button"
+                aria-haspopup="true"
+                className={cn(
+                "flex min-h-12 items-center gap-1.5 px-4 py-1.5 rounded-full text-[12px] font-black uppercase tracking-widest transition-all",
                 isHeaderLight 
                   ? "bg-white/10 text-white hover:bg-white/20 backdrop-blur-md" 
                   : "bg-blue-50 text-blue-600 hover:bg-blue-600 hover:text-white"
               )}>
                 Catalog <ChevronDown className="w-3 h-3" />
               </button>
-              <div className="absolute top-full right-0 mt-4 w-72 bg-white/95 backdrop-blur-3xl border border-slate-200 rounded-[2rem] shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all p-4 grid gap-1">
+              <div className="invisible absolute right-0 top-full mt-4 grid w-72 gap-1 rounded-[2rem] border border-slate-200 bg-white/95 p-4 opacity-0 shadow-2xl backdrop-blur-3xl transition-all group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
                 {categories.map((cat) => (
                   <Link
                     key={cat.id}
                     href={`/category/${cat.id}`}
-                    className="flex items-center justify-between px-5 py-3 text-[14px] font-bold text-slate-600 hover:bg-blue-50 hover:text-blue-600 rounded-2xl transition-all group/item"
+                    className="group/item flex min-h-12 items-center justify-between rounded-2xl px-5 py-3 text-[14px] font-bold text-slate-600 transition-all hover:bg-blue-50 hover:text-blue-600"
                   >
                     {cat.title}
                     <ArrowRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all" />
@@ -101,7 +112,7 @@ const Header = () => {
             <Link 
               href="/search" 
               className={cn(
-                "group flex h-10 w-10 items-center justify-center rounded-full transition-all active:scale-90",
+                "group flex h-12 w-12 items-center justify-center rounded-full transition-all active:scale-90",
                 isHeaderLight 
                   ? "text-white hover:bg-white/10" 
                   : "text-slate-900 hover:bg-slate-100"
@@ -118,10 +129,11 @@ const Header = () => {
         <button
           onClick={() => setIsOpen(!isOpen)}
           className={cn(
-            "p-3 rounded-full transition-all active:scale-90 lg:hidden",
+            "flex h-12 w-12 shrink-0 items-center justify-center rounded-full transition-all active:scale-90 xl:hidden",
             isHeaderLight ? "text-white bg-white/10" : "text-black bg-slate-100"
           )}
-          aria-label="Toggle Menu"
+          aria-label={isOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={isOpen}
         >
           {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>
@@ -134,7 +146,7 @@ const Header = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="absolute left-0 right-0 top-full max-h-[calc(100svh-72px)] overflow-y-auto border-b border-slate-200 bg-white lg:hidden"
+            className="absolute left-0 right-0 top-full max-h-[calc(100svh-88px)] overflow-y-auto border-b border-slate-200 bg-white xl:hidden"
           >
             <nav className="p-10 space-y-12">
               <ul className="space-y-6">
@@ -163,14 +175,14 @@ const Header = () => {
                 <Link 
                   href="/search" 
                   onClick={() => setIsOpen(false)}
-                  className="flex-1 flex items-center justify-center gap-3 py-6 bg-slate-50 rounded-3xl border border-slate-100 text-slate-900 font-bold uppercase tracking-widest text-[11px]"
+                  className="flex-1 flex items-center justify-center gap-3 py-6 bg-slate-50 rounded-3xl border border-slate-100 text-slate-900 font-bold uppercase tracking-widest text-xs"
                 >
                   <Search className="w-4 h-4" /> Search Systems
                 </Link>
               </div>
               
               <div className="pt-10 border-t border-slate-100">
-                <h3 className="text-[11px] font-black text-blue-600 uppercase tracking-[0.3em] mb-8">System Catalog</h3>
+                <h3 className="text-xs font-black text-blue-600 uppercase tracking-[0.3em] mb-8">System Catalog</h3>
                 <ul className="grid gap-6">
                   {categories.map((cat) => (
                     <li key={cat.id}>

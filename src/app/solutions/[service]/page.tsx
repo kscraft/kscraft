@@ -71,7 +71,7 @@ export default async function ServiceHubPage({ params }: Props) {
           <div className="grid gap-4 md:grid-cols-3">
             {priorityLocationPages.map((location) => (
               <Link key={location.slug} href={`/solutions/${service.slug}/${getLocationMarketSlug(location)}`} className="group rounded-2xl border border-slate-200 bg-slate-50 p-6 transition hover:border-blue-200 hover:bg-white">
-                <p className="text-[10px] font-black uppercase tracking-[0.2em] text-blue-700">Rank #{location.rank}</p>
+                <p className="text-xs font-black uppercase tracking-[0.2em] text-blue-700">Rank #{location.rank}</p>
                 <h3 className="mt-3 text-xl font-black tracking-tight text-slate-950">{service.shortTitle} in {location.city}</h3>
                 <p className="mt-3 line-clamp-2 text-sm font-medium leading-6 text-slate-600">{location.growthReason}</p>
                 <span className="mt-6 inline-flex items-center text-sm font-bold text-blue-700">
